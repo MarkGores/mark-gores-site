@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = "Mark Gores | Realtor in Prior Lake, Minnesota",
-  description = "22 years of real estate experience in Prior Lake, MN. No pitch, no pressure — just honest advice."
+  description = "Mark Gores — Prior Lake realtor with 22 years of experience and a 5.0 Zillow rating. Honest real estate advice in Prior Lake, Savage, Shakopee, and the south metro. No pitch, no pressure."
 } = Astro.props;
 
 const siteUrl = "https://markgores.com";
@@ -62,30 +62,64 @@ const ogImage = `${siteUrl}/og-image.jpg`;
         "@context": "https://schema.org",
         "@type": "RealEstateAgent",
         "name": "Mark Gores",
+        "description": "Prior Lake realtor with 22 years of experience. Honest real estate advice for buyers and sellers in the south metro.",
         "url": "https://markgores.com",
         "telephone": "+1-612-201-5447",
         "email": "mark@markgores.com",
+        "image": "https://markgores.com/images/family.jpg",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Prior Lake",
           "addressRegion": "MN",
+          "postalCode": "55372",
           "addressCountry": "US"
         },
-        "areaServed": {
-          "@type": "City",
-          "name": "Prior Lake"
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 44.7133,
+          "longitude": -93.4227
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Prior Lake", "sameAs": "https://en.wikipedia.org/wiki/Prior_Lake,_Minnesota" },
+          { "@type": "City", "name": "Savage" },
+          { "@type": "City", "name": "Shakopee" },
+          { "@type": "City", "name": "Lakeville" },
+          { "@type": "City", "name": "Burnsville" },
+          { "@type": "City", "name": "Apple Valley" },
+          { "@type": "City", "name": "Eagan" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "bestRating": "5",
+          "ratingCount": "12",
+          "reviewCount": "12"
         },
         "worksFor": {
           "@type": "RealEstateAgent",
           "name": "RE/MAX Advantage Plus"
         },
+        "knowsAbout": ["residential real estate", "home buying", "home selling", "Prior Lake real estate", "south metro Minnesota"],
         "sameAs": [
-          "https://priorlakeevents.com"
+          "https://priorlakeevents.com",
+          "https://www.zillow.com/profile/mark-gores"
         ]
       }
     </script>
 
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Search Console: uncomment and replace XXXX with your verification code -->
+    <!-- <meta name="google-site-verification" content="XXXX" /> -->
+
+    <!-- Google Analytics (GA4): uncomment and replace G-XXXXXXXXXX with your measurement ID -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
   </head>
   <body>
     <slot />
