@@ -445,6 +445,8 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .photo-main {
@@ -455,6 +457,7 @@ section {
 }
 
 .photo-main img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -469,6 +472,7 @@ section {
 }
 
 .photo-secondary img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
