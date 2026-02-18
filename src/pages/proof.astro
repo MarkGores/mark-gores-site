@@ -1,0 +1,278 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Client Reviews | Mark Gores — Realtor in Prior Lake, MN";
+const description = "5.0 stars on Zillow — every review is five stars. See what real clients say about working with Mark Gores.";
+
+// Reviews organized by theme - curated from Zillow
+const reviewThemes = [
+  {
+    theme: "Trustworthy & honest",
+    description: "Clients who valued straight talk over salesmanship.",
+    reviews: [
+      {
+        quote: "If you are looking for truthful Realtors who will honestly work on your behalf, then look no further.",
+        name: "Ken",
+        context: "Bought and sold a condo",
+      },
+      {
+        quote: "Mark has a lot of integrity, as demonstrated in the way he handled the sale of our property.",
+        name: "Diane",
+        context: "Sold a home",
+      },
+      {
+        quote: "Mark is professional, a TRUE PARTNER with home owners... he will take care of you and your property as if it was his own and as if you were close and life-long friends.",
+        name: "Amy",
+        context: "Sold a single family home",
+      },
+    ],
+  },
+  {
+    theme: "Calm under pressure",
+    description: "Buying or selling a home is stressful. These clients appreciated a steady hand.",
+    reviews: [
+      {
+        quote: "I was 8½ months pregnant when Mark sold our old home and helped us buy our new one. It was a potentially stressful situation but both transactions closed without a hitch.",
+        name: "Sarah",
+        context: "Bought and sold a home",
+      },
+      {
+        quote: "Mark was more than patient with us and moved at the speed we were comfortable with. We looked at many homes until we found the one that was perfect for us.",
+        name: "Jennifer",
+        context: "Bought and sold a single family home",
+      },
+    ],
+  },
+  {
+    theme: "Responsive & available",
+    description: "Real estate moves fast. These clients appreciated someone who keeps up.",
+    reviews: [
+      {
+        quote: "Mark was available when questions arose and helped us sell our townhome in a very depressed market.",
+        name: "Mike",
+        context: "Sold a townhome",
+      },
+      {
+        quote: "Fast response, did an excellent job advertising the home, had a showing and sold the property before ever getting a 'for sale' sign out front.",
+        name: "Rob",
+        context: "Sold a townhome",
+      },
+      {
+        quote: "He was very responsive and helpful throughout the process.",
+        name: "Marcus",
+        context: "Sold a townhome",
+      },
+    ],
+  },
+  {
+    theme: "Local knowledge",
+    description: "Clients who benefited from someone who actually knows the area.",
+    reviews: [
+      {
+        quote: "Moved to this community as total strangers 11 years ago. We asked locals who was the most knowledgeable, effective and trustworthy realtor. They said, 'Oh, that would be Mark Gores.' Since then Mark has handled 5 transactions for our family.",
+        name: "Bud",
+        context: "Bought a single family home",
+      },
+      {
+        quote: "Mark did a great job of communicating market conditions and helping us get the most value for our home.",
+        name: "Marcus",
+        context: "Sold a townhome",
+      },
+    ],
+  },
+  {
+    theme: "Goes the extra mile",
+    description: "Clients who needed more than what most agents provide.",
+    reviews: [
+      {
+        quote: "We needed someone to be our 'eyes and ears' locally... Mark stepped in, helped identify vendors, and oversaw the work, ensuring quality, appropriate pricing and follow-through—and he approached the project and costs as if he was spending his own money, not ours.",
+        name: "Amy",
+        context: "Sold a single family home (out of state)",
+      },
+      {
+        quote: "Mark went above and beyond to help us sell our property! We live 50 minutes away, so he made all the arrangements for carpet installation, furnace repair and junk to be hauled away.",
+        name: "Diane",
+        context: "Sold a home",
+      },
+      {
+        quote: "Timing and expedience was key in a hot market and Mark delivered exactly what we were after in rapid fashion.",
+        name: "JP",
+        context: "Bought a townhome",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <main>
+    <h1 class="page-title">What Clients Say</h1>
+
+    <div class="content">
+      <p class="intro reveal">
+        I'm not going to write a page about how great I am. Here's what actual clients have said on Zillow—these are their words, not mine.
+      </p>
+
+      <div class="rating-box reveal" data-delay="100">
+        <span class="rating-stars">★★★★★</span>
+        <span class="rating-text">5.0 on Zillow · Every review is five stars</span>
+      </div>
+
+      {reviewThemes.map((section, sectionIndex) => (
+        <section class="review-section reveal" data-delay={String(150 + sectionIndex * 80)}>
+          <h2>{section.theme}</h2>
+          <p class="theme-description">{section.description}</p>
+          <div class="reviews">
+            {section.reviews.map((review) => (
+              <blockquote class="review">
+                <p class="review-quote">"{review.quote}"</p>
+                <footer class="review-footer">
+                  <span class="review-name">{review.name}</span>
+                  <span class="review-context">{review.context}</span>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <div class="zillow-link reveal">
+        <p>
+          These are curated from my <a href="https://www.zillow.com/profile/MarkGoresREMAX" target="_blank" rel="noopener">Zillow profile</a>. You can read them all there.
+        </p>
+      </div>
+
+      <div class="cta-section reveal">
+        <p>Ready to work with someone your neighbors already trust?</p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn">Get in touch</a>
+          <a href="/work-with-me" class="btn btn-secondary">See how I work</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .content {
+    max-width: 600px;
+  }
+
+  .intro {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-sm);
+    line-height: 1.5;
+  }
+
+  .rating-box {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-accent-light);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .rating-stars {
+    color: var(--color-accent);
+    letter-spacing: 1px;
+  }
+
+  .rating-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .review-section {
+    margin-bottom: var(--space-xl);
+  }
+
+  .review-section h2 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-xs);
+    color: var(--color-accent);
+  }
+
+  .theme-description {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .reviews {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .review {
+    margin: 0;
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-accent);
+    transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease, border-left-width 0.2s ease;
+  }
+
+  .review:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border-left-width: 5px;
+  }
+
+  .review-quote {
+    margin: 0 0 var(--space-sm) 0;
+    line-height: 1.6;
+  }
+
+  .review-footer {
+    display: flex;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .review-name {
+    font-weight: 500;
+  }
+
+  .review-context::before {
+    content: "·";
+    margin-right: var(--space-sm);
+  }
+
+  .zillow-link {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cta-section {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cta-section > p {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+</style>

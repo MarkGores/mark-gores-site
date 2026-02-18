@@ -1,0 +1,123 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Mark Gores | Realtor in Prior Lake, Minnesota",
+  description = "Mark Gores is a realtor in Prior Lake, MN with 23 years of experience. 5.0 stars on Zillow. Honest advice, deep local knowledge, and no sales pitch. Call or text 612-201-5447."
+} = Astro.props;
+
+const siteUrl = "https://markgores.com";
+const ogImage = `${siteUrl}/og-image.jpg`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={siteUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Geo Tags (local SEO) -->
+    <meta name="geo.region" content="US-MN" />
+    <meta name="geo.placename" content="Prior Lake" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Mark Gores",
+        "url": "https://markgores.com",
+        "telephone": "+1-612-201-5447",
+        "email": "mark@markgores.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Prior Lake",
+          "addressRegion": "MN",
+          "addressCountry": "US"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Prior Lake"
+        },
+        "worksFor": {
+          "@type": "RealEstateAgent",
+          "name": "RE/MAX Advantage Plus"
+        },
+        "sameAs": [
+          "https://priorlakeevents.com"
+        ]
+      }
+    </script>
+
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- View Transitions for smooth page navigation -->
+    <ViewTransitions />
+  </head>
+  <body>
+    <slot />
+
+    <!-- Scroll reveal observer -->
+    <script>
+      function initReveal() {
+        const reveals = document.querySelectorAll('.reveal');
+        if (reveals.length === 0) return;
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              // Stagger the animations
+              const el = entry.target as HTMLElement;
+              const delay = el.dataset.delay || '0';
+              el.style.animationDelay = `${delay}ms`;
+              el.classList.add('visible');
+              observer.unobserve(el);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        reveals.forEach(el => observer.observe(el));
+      }
+
+      // Run on initial load
+      initReveal();
+      // Re-run after view transitions
+      document.addEventListener('astro:after-swap', initReveal);
+    </script>
+  </body>
+</html>

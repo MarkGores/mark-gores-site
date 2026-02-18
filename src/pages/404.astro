@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Page Not Found | Mark Gores";
+const description = "This page doesn't exist — but I do. Mark Gores, realtor in Prior Lake, MN. 612-201-5447.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <main>
+    <div class="not-found">
+      <div class="not-found-code">404</div>
+      <h1>This page doesn't exist.</h1>
+      <p class="not-found-quip">
+        Kind of like that listing that was "priced to sell" at 40% over comps.
+      </p>
+      <p>
+        Let's get you somewhere useful:
+      </p>
+      <div class="not-found-links">
+        <a href="/" class="btn">Back to home</a>
+        <a href="/contact" class="btn btn-secondary">Get in touch</a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .not-found {
+    text-align: center;
+    padding: var(--space-xl) 0;
+  }
+
+  .not-found-code {
+    font-size: 8rem;
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    background: linear-gradient(145deg, var(--color-accent), var(--color-accent-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-md);
+    opacity: 0.8;
+    user-select: none;
+  }
+
+  .not-found h1 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-sm);
+  }
+
+  .not-found-quip {
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-bottom: var(--space-xl);
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .not-found > p:not(.not-found-quip) {
+    margin-bottom: var(--space-md);
+    color: var(--color-text-muted);
+  }
+
+  .not-found-links {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--space-md);
+  }
+
+  @media (max-width: 480px) {
+    .not-found-code {
+      font-size: 5rem;
+    }
+  }
+</style>

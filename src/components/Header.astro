@@ -1,0 +1,49 @@
+---
+// Header component with sticky navigation
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { href: '/work-with-me', label: 'Work With Me' },
+  { href: '/proof', label: 'Proof' },
+  { href: '/local', label: 'Local' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="header" transition:persist>
+  <div class="header-inner">
+    <a href="/" class="header-name">
+      <span class="header-mark">Mark</span> <span class="header-gores">Gores</span>
+    </a>
+    <nav class="header-nav">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class:list={[{ active: pathname === item.href || pathname === item.href + '/' }]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header-name {
+    display: flex;
+    gap: 0.35em;
+    align-items: baseline;
+  }
+
+  .header-mark {
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .header-gores {
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    font-size: 0.95em;
+  }
+</style>

@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <main>
+    <div class="home-hero">
+      <div class="initials-mark" aria-hidden="true">MG</div>
+      <h1>Mark Gores</h1>
+      <p class="location">Realtor · Prior Lake, Minnesota</p>
+    </div>
+
+    <div class="home-content">
+      <p class="lead reveal">
+        I'm a realtor who will <span class="lead-highlight">talk you out of a bad deal.</span>
+      </p>
+
+      <p class="reveal" data-delay="100">
+        That house with the "great bones" that needs $80k in work? I'll tell you. The neighborhood that floods every spring? I'll mention it. The seller who's testing the market at 15% over comps? I'll save you the trouble.
+      </p>
+
+      <p class="reveal" data-delay="150">
+        I've been doing this since 2003. I've watched people buy at the top, panic at the bottom, stretch into mortgages that kept them up at night, and walk away from houses they'd still be happy in today. That experience shapes every conversation I have.
+      </p>
+
+      <div class="callout reveal" data-delay="200">
+        <p>I live in Prior Lake. My kids go to school here. I'll see you at Lakefront Park or the grocery store in five years. I'd like that to be a good conversation.</p>
+      </div>
+
+      <div class="stats reveal" data-delay="250">
+        <div class="stat">
+          <span class="stat-value" data-count="23">0</span>
+          <span class="stat-label">years in real estate</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value stat-value-text">40 yrs</span>
+          <span class="stat-label">in Prior Lake</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" data-count="5.0" data-decimals="1">0</span>
+          <span class="stat-label">stars on Zillow</span>
+        </div>
+      </div>
+
+      <div class="testimonial-teaser reveal" data-delay="270">
+        <blockquote>
+          <p>"We asked locals who was the most knowledgeable, effective and trustworthy realtor. They said, 'Oh, that would be Mark Gores.' Since then Mark has handled 5 transactions for our family."</p>
+          <footer>— Bud, homebuyer</footer>
+        </blockquote>
+      </div>
+
+      <section class="home-section reveal" data-delay="300">
+        <h2>Something else I built</h2>
+        <p>
+          Prior Lake didn't have a community calendar, so I made one. <a href="https://priorlakeevents.com" target="_blank" rel="noopener">Prior Lake Events</a> now has 625+ subscribers with a 70% open rate. I built it because the town needed it.
+        </p>
+        <p class="aside">
+          That's how I think about most things. If something's missing and I can build it, I will.
+        </p>
+      </section>
+
+      <div class="home-cta reveal" data-delay="350">
+        <a href="/work-with-me" class="btn">See how I work</a>
+        <a href="/proof" class="btn btn-secondary">What clients say</a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .home-hero {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInUp 0.7s var(--ease-out-expo) both;
+  }
+
+  .home-hero h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.03em;
+  }
+
+  .location {
+    color: var(--color-text-muted);
+    font-size: var(--text-base);
+    position: relative;
+  }
+
+  .home-content {
+    max-width: 100%;
+  }
+
+  /* Lead line - the punch */
+  .lead {
+    font-size: var(--text-2xl) !important;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: var(--space-lg);
+    letter-spacing: -0.02em;
+  }
+
+  .lead-highlight {
+    position: relative;
+    display: inline;
+    background: linear-gradient(
+      transparent 60%,
+      var(--color-accent-light) 60%,
+      var(--color-accent-light) 90%,
+      transparent 90%
+    );
+    padding: 0 0.1em;
+  }
+
+  .home-content > p {
+    margin-bottom: var(--space-md);
+  }
+
+  /* Testimonial teaser on home page */
+  .testimonial-teaser {
+    margin: var(--space-lg) 0;
+  }
+
+  .testimonial-teaser blockquote {
+    margin: 0;
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-accent);
+  }
+
+  .testimonial-teaser p {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+  }
+
+  .testimonial-teaser footer {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  .home-section {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .home-section h2 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  .aside {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .home-cta {
+    margin-top: var(--space-xl);
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+</style>
+
+<script>
+  function initCountUp() {
+    const stats = document.querySelectorAll('.stat-value[data-count]');
+    if (stats.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const target = parseFloat(el.dataset.count || '0');
+          const decimals = parseInt(el.dataset.decimals || '0');
+          const duration = 1500;
+          const start = performance.now();
+
+          function easeOutExpo(t: number): number {
+            return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+          }
+
+          function update(now: number) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutExpo(progress);
+            const current = easedProgress * target;
+
+            if (decimals > 0) {
+              el.textContent = current.toFixed(decimals);
+            } else {
+              el.textContent = Math.floor(current).toString();
+            }
+
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              el.textContent = decimals > 0 ? target.toFixed(decimals) : target.toString();
+            }
+          }
+
+          requestAnimationFrame(update);
+          observer.unobserve(el);
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    stats.forEach(stat => observer.observe(stat));
+  }
+
+  // Run on initial load
+  initCountUp();
+  // Re-run after view transitions
+  document.addEventListener('astro:after-swap', initCountUp);
+</script>
