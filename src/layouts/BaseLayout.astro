@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -9,7 +8,7 @@ interface Props {
 
 const {
   title = "Mark Gores | Realtor in Prior Lake, Minnesota",
-  description = "Mark Gores is a realtor in Prior Lake, MN with 23 years of experience. 5.0 stars on Zillow. Honest advice, deep local knowledge, and no sales pitch. Call or text 612-201-5447."
+  description = "22 years of real estate experience in Prior Lake, MN. No pitch, no pressure — just honest advice."
 } = Astro.props;
 
 const siteUrl = "https://markgores.com";
@@ -33,6 +32,11 @@ const ogImage = `${siteUrl}/og-image.jpg`;
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -82,42 +86,8 @@ const ogImage = `${siteUrl}/og-image.jpg`;
     </script>
 
     <meta name="generator" content={Astro.generator} />
-
-    <!-- View Transitions for smooth page navigation -->
-    <ViewTransitions />
   </head>
   <body>
     <slot />
-
-    <!-- Scroll reveal observer -->
-    <script>
-      function initReveal() {
-        const reveals = document.querySelectorAll('.reveal');
-        if (reveals.length === 0) return;
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-              // Stagger the animations
-              const el = entry.target as HTMLElement;
-              const delay = el.dataset.delay || '0';
-              el.style.animationDelay = `${delay}ms`;
-              el.classList.add('visible');
-              observer.unobserve(el);
-            }
-          });
-        }, {
-          threshold: 0.15,
-          rootMargin: '0px 0px -40px 0px'
-        });
-
-        reveals.forEach(el => observer.observe(el));
-      }
-
-      // Run on initial load
-      initReveal();
-      // Re-run after view transitions
-      document.addEventListener('astro:after-swap', initReveal);
-    </script>
   </body>
 </html>

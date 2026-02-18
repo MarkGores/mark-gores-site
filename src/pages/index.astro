@@ -1,229 +1,170 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout>
-  <Header />
 
-  <main>
-    <div class="home-hero">
-      <div class="initials-mark" aria-hidden="true">MG</div>
-      <h1>Mark Gores</h1>
-      <p class="location">Realtor · Prior Lake, Minnesota</p>
-    </div>
+<nav>
+  <a href="#" class="name">Mark Gores</a>
+  <ul class="links">
+    <li><a href="#approach">How I Work</a></li>
+    <li><a href="#proof">Proof</a></li>
+    <li><a href="#community">Local</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <div class="home-content">
-      <p class="lead reveal">
-        I'm a realtor who will <span class="lead-highlight">talk you out of a bad deal.</span>
-      </p>
-
-      <p class="reveal" data-delay="100">
-        That house with the "great bones" that needs $80k in work? I'll tell you. The neighborhood that floods every spring? I'll mention it. The seller who's testing the market at 15% over comps? I'll save you the trouble.
-      </p>
-
-      <p class="reveal" data-delay="150">
-        I've been doing this since 2003. I've watched people buy at the top, panic at the bottom, stretch into mortgages that kept them up at night, and walk away from houses they'd still be happy in today. That experience shapes every conversation I have.
-      </p>
-
-      <div class="callout reveal" data-delay="200">
-        <p>I live in Prior Lake. My kids go to school here. I'll see you at Lakefront Park or the grocery store in five years. I'd like that to be a good conversation.</p>
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-label">Prior Lake, Minnesota · Since 2003</div>
+    <h1>I'm a realtor who will talk you <em>out of</em> a bad deal.</h1>
+    <p class="hero-text">
+      That house with the "great bones" that needs $80k in work? I'll tell you. The neighborhood that floods every spring? I'll mention it. The seller testing the market at 15% over comps? I'll save you the trouble.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">22</span>
+        <span class="stat-label">Years in Real Estate</span>
       </div>
-
-      <div class="stats reveal" data-delay="250">
-        <div class="stat">
-          <span class="stat-value" data-count="23">0</span>
-          <span class="stat-label">years in real estate</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value stat-value-text">40 yrs</span>
-          <span class="stat-label">in Prior Lake</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value" data-count="5.0" data-decimals="1">0</span>
-          <span class="stat-label">stars on Zillow</span>
-        </div>
+      <div class="stat">
+        <span class="stat-number">40</span>
+        <span class="stat-label">Years in Prior Lake</span>
       </div>
-
-      <div class="testimonial-teaser reveal" data-delay="270">
-        <blockquote>
-          <p>"We asked locals who was the most knowledgeable, effective and trustworthy realtor. They said, 'Oh, that would be Mark Gores.' Since then Mark has handled 5 transactions for our family."</p>
-          <footer>— Bud, homebuyer</footer>
-        </blockquote>
-      </div>
-
-      <section class="home-section reveal" data-delay="300">
-        <h2>Something else I built</h2>
-        <p>
-          Prior Lake didn't have a community calendar, so I made one. <a href="https://priorlakeevents.com" target="_blank" rel="noopener">Prior Lake Events</a> now has 625+ subscribers with a 70% open rate. I built it because the town needed it.
-        </p>
-        <p class="aside">
-          That's how I think about most things. If something's missing and I can build it, I will.
-        </p>
-      </section>
-
-      <div class="home-cta reveal" data-delay="350">
-        <a href="/work-with-me" class="btn">See how I work</a>
-        <a href="/proof" class="btn btn-secondary">What clients say</a>
+      <div class="stat">
+        <span class="stat-number">5.0</span>
+        <span class="stat-label">Stars on Zillow</span>
       </div>
     </div>
-  </main>
+  </div>
+</div>
 
-  <Footer />
+<!-- How I Work -->
+<section class="pitch" id="approach">
+  <div class="pitch-inner">
+    <div class="section-label">How I Work</div>
+    <h2>I've watched people buy at the top, panic at the bottom, and stretch into mortgages that kept them up at night.</h2>
+    <p>
+      Twenty-two years of that changes how you do this job. I'm not trying to close you. I'm trying to make sure you're still happy with this decision in five years.
+    </p>
+    <p>
+      I live here. My kids go to school here. I'll see you at Lakefront Park or the grocery store. I'd like that to be a good conversation.
+    </p>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <h3>I'll respond fast</h3>
+        <p>When people work with me, they feel like they're my only client. I pick up the phone. I answer the text. I don't let things sit.</p>
+      </div>
+      <div class="approach-card">
+        <h3>I won't hound you</h3>
+        <p>No drip campaigns. No "just checking in!" emails. When you're ready, I'm here. When you're not, I'll respect that.</p>
+      </div>
+      <div class="approach-card">
+        <h3>I know the deals</h3>
+        <p>Not the scripts — the deals. Inspections, negotiations, contingencies, title issues. The stuff that matters when money is on the line.</p>
+      </div>
+      <div class="approach-card">
+        <h3>I'll be honest</h3>
+        <p>Even when it costs me a commission. Especially then. You're making the biggest purchase of your life — you deserve someone in your corner, not on a sales floor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials" id="proof">
+  <div class="section-label">What People Say</div>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <blockquote>Moved to this community as total strangers. We asked locals who was the most knowledgeable, effective and trustworthy realtor. They said, "Oh, that would be Mark Gores." Since then Mark has handled 5 transactions for our family, ranging from $300K to $1MM.</blockquote>
+      <cite>— Bud, homebuyer</cite>
+    </div>
+    <div class="testimonial">
+      <blockquote>Mark did a great job of communicating market conditions and helping us get the most value for our home. He was very responsive and helpful throughout the process.</blockquote>
+      <cite>— Marcus, home seller</cite>
+    </div>
+    <div class="testimonial">
+      <blockquote>Fast response, did an excellent job advertising the home, had a showing and sold the property before ever getting a "for sale" sign out front. Everything went very smoothly. Mark answered all our questions quickly, provided sound advice on preparing to sell, and handled the entire process with professionalism.</blockquote>
+      <cite>— Robert, home seller</cite>
+    </div>
+    <div class="testimonial">
+      <blockquote>We have owned 10 houses in our lifetimes and Mark provided the most professional and expert purchasing experience to date. He listened closely to our needs and delivered exactly what we were after in rapid fashion.</blockquote>
+      <cite>— John, homebuyer</cite>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- Community -->
+<section class="community" id="community">
+  <div class="section-label">Beyond Real Estate</div>
+  <div class="community-content">
+    <div>
+      <h2>I build things for this town because it needs them.</h2>
+      <p>
+        Prior Lake didn't have a community events calendar. People were scattered across Facebook groups, chamber emails, and word of mouth. So I built one.
+      </p>
+      <p>
+        That's how I think about most things. If something's missing and I can make it, I will. It's not a business strategy — it's just how my brain works.
+      </p>
+    </div>
+    <div class="ple-card">
+      <h3>Prior Lake Events</h3>
+      <p>A community calendar and weekly newsletter covering everything happening in Prior Lake. Fish fries, live music, farmers markets, kids events — if it's happening here, it's on PLE.</p>
+      <a href="https://priorlakeevents.com" class="ple-link" target="_blank" rel="noopener">Visit PriorLakeEvents.com →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Personal -->
+<section class="personal">
+  <div class="personal-inner">
+    <div>
+      <div class="section-label">The Person</div>
+      <h2>Not a headshot with crossed arms in front of a house.</h2>
+      <p>
+        I've lived in Prior Lake since 1986. University of Iowa for college, then right back. My kids went to Jeffers Pond. I can tell you which parks have the best sledding hills and which steakhouse is actually worth it.
+      </p>
+      <p>
+        When I'm not doing real estate, I'm probably playing pickleball, fixing something in a pinball machine, cooking something ambitious, or out on the boat. I also build websites for fun, which is why this one doesn't look like every other realtor's site.
+      </p>
+    </div>
+    <div class="photo-group">
+      <div class="photo-main">
+        <img src="/images/family.jpg" alt="Mark Gores with his family at home in Prior Lake">
+      </div>
+      <div class="photo-secondary">
+        <img src="/images/pickleball.jpg" alt="Mark Gores with a gold medal at Minnesota Pickleball">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="section-label" style="justify-content: center;">Get in Touch</div>
+  <h2>No pitch. No pressure.<br>Just a conversation.</h2>
+  <p>
+    If you're thinking about buying or selling in the Prior Lake area, reach out whenever you're ready. I don't do hard sells — I answer questions.
+  </p>
+  <div class="contact-methods">
+    <div class="contact-method">
+      <span class="label">Call or Text</span>
+      <a href="tel:+16122015447">612-201-5447</a>
+    </div>
+    <div class="contact-method">
+      <span class="label">Email</span>
+      <a href="mailto:mark@markgores.com">mark@markgores.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Mark Gores · RE/MAX Advantage Plus</p>
+  <p class="tagline">Real estate without the pitch.</p>
+</footer>
+
 </BaseLayout>
-
-<style>
-  .home-hero {
-    text-align: center;
-    margin-bottom: var(--space-xl);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeInUp 0.7s var(--ease-out-expo) both;
-  }
-
-  .home-hero h1 {
-    font-size: var(--text-3xl);
-    margin-bottom: var(--space-xs);
-    letter-spacing: -0.03em;
-  }
-
-  .location {
-    color: var(--color-text-muted);
-    font-size: var(--text-base);
-    position: relative;
-  }
-
-  .home-content {
-    max-width: 100%;
-  }
-
-  /* Lead line - the punch */
-  .lead {
-    font-size: var(--text-2xl) !important;
-    font-weight: 600;
-    line-height: 1.3;
-    margin-bottom: var(--space-lg);
-    letter-spacing: -0.02em;
-  }
-
-  .lead-highlight {
-    position: relative;
-    display: inline;
-    background: linear-gradient(
-      transparent 60%,
-      var(--color-accent-light) 60%,
-      var(--color-accent-light) 90%,
-      transparent 90%
-    );
-    padding: 0 0.1em;
-  }
-
-  .home-content > p {
-    margin-bottom: var(--space-md);
-  }
-
-  /* Testimonial teaser on home page */
-  .testimonial-teaser {
-    margin: var(--space-lg) 0;
-  }
-
-  .testimonial-teaser blockquote {
-    margin: 0;
-    padding: var(--space-md) var(--space-lg);
-    background-color: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    border-left: 3px solid var(--color-accent);
-  }
-
-  .testimonial-teaser p {
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: var(--space-sm);
-  }
-
-  .testimonial-teaser footer {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    font-style: normal;
-  }
-
-  .home-section {
-    margin-top: var(--space-xl);
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--color-border);
-  }
-
-  .home-section h2 {
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-sm);
-  }
-
-  .aside {
-    color: var(--color-text-muted);
-    font-style: italic;
-  }
-
-  .home-cta {
-    margin-top: var(--space-xl);
-    display: flex;
-    gap: var(--space-md);
-    flex-wrap: wrap;
-  }
-</style>
-
-<script>
-  function initCountUp() {
-    const stats = document.querySelectorAll('.stat-value[data-count]');
-    if (stats.length === 0) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target as HTMLElement;
-          const target = parseFloat(el.dataset.count || '0');
-          const decimals = parseInt(el.dataset.decimals || '0');
-          const duration = 1500;
-          const start = performance.now();
-
-          function easeOutExpo(t: number): number {
-            return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-          }
-
-          function update(now: number) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const easedProgress = easeOutExpo(progress);
-            const current = easedProgress * target;
-
-            if (decimals > 0) {
-              el.textContent = current.toFixed(decimals);
-            } else {
-              el.textContent = Math.floor(current).toString();
-            }
-
-            if (progress < 1) {
-              requestAnimationFrame(update);
-            } else {
-              el.textContent = decimals > 0 ? target.toFixed(decimals) : target.toString();
-            }
-          }
-
-          requestAnimationFrame(update);
-          observer.unobserve(el);
-        }
-      });
-    }, {
-      threshold: 0.5
-    });
-
-    stats.forEach(stat => observer.observe(stat));
-  }
-
-  // Run on initial load
-  initCountUp();
-  // Re-run after view transitions
-  document.addEventListener('astro:after-swap', initCountUp);
-</script>
