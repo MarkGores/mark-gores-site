@@ -4,11 +4,13 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title = "Mark Gores | Realtor in Prior Lake, Minnesota",
-  description = "Mark Gores — Prior Lake realtor with 22 years of experience and a 5.0 Zillow rating. Honest real estate advice in Prior Lake, Savage, Shakopee, and the south metro. No pitch, no pressure."
+  description = "Mark Gores — Prior Lake realtor with 22 years of experience and a 5.0 Zillow rating. Honest real estate advice in Prior Lake, Savage, Shakopee, and the south metro. No pitch, no pressure.",
+  noindex = false
 } = Astro.props;
 
 const siteUrl = "https://markgores.com";
@@ -25,6 +27,7 @@ const ogImage = `${siteUrl}/og-image.jpg`;
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Canonical -->
     <link rel="canonical" href={siteUrl} />
