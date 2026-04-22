@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout>
 
-<nav>
+<nav aria-label="Primary">
   <a href="#" class="name">Mark Gores</a>
   <ul class="links">
     <li><a href="#approach">How I Work</a></li>
@@ -107,23 +107,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="section-label">Beyond Real Estate</div>
   <div class="community-content">
     <div>
-      <h2>I build things for this town because it needs them.</h2>
+      <h2>Two things I built for Prior Lake.</h2>
       <p>
-        Prior Lake didn't have a community events calendar. People were scattered across Facebook groups, chamber emails, and word of mouth. So I built one.
+        Prior Lake didn't have a public events calendar. It didn't have a decent place to look at MLS numbers either. I wanted both to exist, so I made them.
       </p>
       <p>
-        That's how I think about most things. If something's missing and I can make it, I will. It's not a business strategy — it's just how my brain works.
+        Both are free. Both update on their own. Use them or don't.
       </p>
     </div>
-    <div class="ple-card">
-      <h3>Prior Lake Events</h3>
-      <p>A community calendar and weekly newsletter covering everything happening in Prior Lake. Fish fries, live music, farmers markets, kids events — if it's happening here, it's on PLE.</p>
-      <a href="https://priorlakeevents.com" class="ple-link" target="_blank" rel="noopener">Visit PriorLakeEvents.com →</a>
-    </div>
-    <div class="ple-card">
-      <h3>Prior Lake Market Data</h3>
-      <p>Real MLS data for Prior Lake — updated every 15 minutes. Median prices, days on market, neighborhood breakdowns, waterfront premiums. The numbers, without the spin.</p>
-      <a href="https://priorlake.realestate" class="ple-link" target="_blank" rel="noopener">Visit PriorLake.RealEstate →</a>
+    <div class="ple-stack">
+      <div class="ple-card">
+        <h3>Prior Lake Events</h3>
+        <p>A community calendar and weekly newsletter for Prior Lake. Fish fries, live music, farmers markets, kids events. If it's happening here, it's on PLE.</p>
+        <a href="https://priorlakeevents.com" class="ple-link" target="_blank" rel="noopener">Visit PriorLakeEvents.com →</a>
+      </div>
+      <div class="ple-card">
+        <h3>Prior Lake Market Data</h3>
+        <p>Real MLS data for Prior Lake, updated daily. What's selling, what's sitting, neighborhood breakdowns, waterfront premiums. A way to look at the market without being sold anything.</p>
+        <a href="https://priorlake.realestate" class="ple-link" target="_blank" rel="noopener">Visit PriorLake.RealEstate →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -152,8 +154,50 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="section-label" style="justify-content: center;">Get in Touch</div>
   <h2>No pitch. No pressure.<br>Just a conversation.</h2>
   <p>
-    If you're thinking about buying or selling in the Prior Lake area, reach out whenever you're ready. I don't do hard sells — I answer questions.
+    If you're thinking about buying or selling in the Prior Lake area, reach out whenever you're ready. I don't do hard sells. I answer questions.
   </p>
+
+  <form class="contact-form" id="contact-form" novalidate>
+    <div class="form-row">
+      <label class="form-field">
+        <span>Your name <span class="required">*</span></span>
+        <input name="name" type="text" required autocomplete="name" />
+      </label>
+      <label class="form-field">
+        <span>Email <span class="required">*</span></span>
+        <input name="email" type="email" required autocomplete="email" />
+      </label>
+    </div>
+    <label class="form-field">
+      <span>Phone (optional)</span>
+      <input name="phone" type="tel" autocomplete="tel" />
+    </label>
+    <label class="form-field">
+      <span>What's going on? <span class="required">*</span></span>
+      <textarea name="message" required rows="5"></textarea>
+    </label>
+
+    <div class="honeypot" aria-hidden="true">
+      <label>
+        Company
+        <input name="company" type="text" tabindex="-1" autocomplete="off" />
+      </label>
+    </div>
+
+    <div class="form-error" id="contact-error" hidden></div>
+
+    <button type="submit" class="form-submit" id="contact-submit">
+      <span class="submit-label">Send</span>
+      <span class="submit-loading" hidden>Sending…</span>
+    </button>
+  </form>
+
+  <div class="contact-success" id="contact-success" hidden>
+    <div class="section-label">Got it</div>
+    <h3>Thanks. I'll be in touch within a day.</h3>
+    <p>If it's urgent, call or text me at <a href="tel:+16122015447">612-201-5447</a>.</p>
+  </div>
+
   <div class="contact-methods">
     <div class="contact-method">
       <span class="label">Call or Text</span>
@@ -164,7 +208,63 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <a href="mailto:mark@markgores.com">mark@markgores.com</a>
     </div>
   </div>
+  <p class="contact-newsletter">Not ready to talk? I send a weekly email about what's happening in Prior Lake. Events, live music, community stuff. No real estate. <a href="https://priorlakeevents.com/newsletter" target="_blank" rel="noopener">Join 850+ subscribers →</a></p>
 </section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const errorEl = document.getElementById('contact-error') as HTMLDivElement | null;
+  const successEl = document.getElementById('contact-success') as HTMLDivElement | null;
+  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+
+  if (form && errorEl && successEl && submitBtn) {
+    const submitLabel = submitBtn.querySelector('.submit-label') as HTMLElement;
+    const submitLoading = submitBtn.querySelector('.submit-loading') as HTMLElement;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (submitBtn.disabled) return;
+
+      submitBtn.disabled = true;
+      submitLabel.hidden = true;
+      submitLoading.hidden = false;
+      errorEl.hidden = true;
+      errorEl.textContent = '';
+
+      const data = new FormData(form);
+      const payload = {
+        name: String(data.get('name') ?? '').trim(),
+        email: String(data.get('email') ?? '').trim(),
+        phone: String(data.get('phone') ?? '').trim(),
+        message: String(data.get('message') ?? '').trim(),
+        company: String(data.get('company') ?? ''),
+      };
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.error || 'Something went wrong.');
+        }
+        form.hidden = true;
+        successEl.hidden = false;
+        form.reset();
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        errorEl.textContent = err instanceof Error ? err.message : 'Something went wrong.';
+        errorEl.hidden = false;
+      } finally {
+        submitBtn.disabled = false;
+        submitLabel.hidden = false;
+        submitLoading.hidden = true;
+      }
+    });
+  }
+</script>
 
 </main>
 
