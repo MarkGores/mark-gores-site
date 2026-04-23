@@ -2,7 +2,7 @@
   --cream: #F5F0E8;
   --dark: #1A1A18;
   --warm: #8B7355;
-  --accent: #C4553A;
+  --accent: #4A7BC8;
   --sage: #7A8B6F;
   --light-warm: #E8DFD0;
   --text: #2C2C28;
@@ -238,7 +238,7 @@ section {
   left: 2rem;
   font-family: var(--serif);
   font-size: 20rem;
-  color: rgba(196, 85, 58, 0.08);
+  color: rgba(74, 123, 200, 0.08);
   line-height: 1;
 }
 
@@ -290,7 +290,7 @@ section {
 
 .approach-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(196, 85, 58, 0.45);
+  border-color: rgba(74, 123, 200, 0.45);
   background: rgba(245, 240, 232, 0.08);
 }
 
@@ -655,7 +655,7 @@ section {
 
 .form-error {
   border-left: 2px solid var(--accent);
-  background: rgba(196, 85, 58, 0.08);
+  background: rgba(74, 123, 200, 0.08);
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
   color: var(--dark);
@@ -713,7 +713,7 @@ section {
 .contact-success a {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid rgba(196, 85, 58, 0.4);
+  border-bottom: 1px solid rgba(74, 123, 200, 0.4);
   transition: border-color 0.2s;
 }
 
