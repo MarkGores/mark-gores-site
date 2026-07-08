@@ -1,0 +1,2034 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "A Marketing Plan | Mark Gores";
+const description = "The plan Mark Gores runs for every listing: pricing built on live south metro market evidence, launch mechanics, weekly written reporting, and a published 2.7% fee. In writing, so you can check it.";
+
+/*
+ * Market evidence baked from NorthstarMLS via the local listings.db
+ * (PriorLake.RealEstate sync). To refresh: run scripts/refresh-market-data.py
+ * against the DB and paste the new values + update AS_OF.
+ * Filters: 7 south metro cities, PropertyType Residential, single family
+ * (both PropertySubType conventions), new construction excluded,
+ * ClosePrice/ListPrice sanity 0.5..1.5.
+ */
+const AS_OF = "July 8, 2026";
+const N24 = 4971;   // closed, last 24 months
+const N12 = 2499;   // closed, last 12 months
+const TOPLINE = { sold12: "2,499", medClose: "$474,900", medDom: "15", actives: "738", newCon: "350" };
+
+const PULSE = [
+  { city: "Prior Lake",   n: 315, medClose: 587250, medDom: 19, ppsf: 216,
+    series: [625000,605000,495000,546700,750000,495000,765000,460000,510000,515000,582500,610888,606000,612500,576125,560000,569211,520000,820000,570000,596500,622000,596500,565000] },
+  { city: "Savage",       n: 221, medClose: 464900, medDom: 17, ppsf: 192,
+    series: [520000,490100,482450,515000,490000,439900,489500,419500,478500,470674,475000,532500,528500,432500,490250,460000,474900,450000,426500,433000,431000,454000,540000,463000] },
+  { city: "Shakopee",     n: 301, medClose: 454900, medDom: 15, ppsf: 192,
+    series: [470000,485000,430000,387500,424950,392895,515500,435000,418000,425000,480000,475000,448250,426000,461950,480000,520000,455000,375000,410000,455000,458000,454900,475000] },
+  { city: "Lakeville",    n: 558, medClose: 549900, medDom: 18, ppsf: 195,
+    series: [527500,550950,572000,563500,466000,546500,482500,490000,505000,565000,563000,567000,550000,572500,528000,551862,557000,525500,512500,500000,499625,577500,595500,537895] },
+  { city: "Burnsville",   n: 387, medClose: 425000, medDom: 13, ppsf: 180,
+    series: [417500,410000,400000,413300,425000,399900,430000,435000,430000,430000,420000,423900,416000,410000,470000,423000,410900,402500,377440,410000,400000,442000,470000,454950] },
+  { city: "Apple Valley", n: 310, medClose: 436500, medDom: 14, ppsf: 196,
+    series: [410500,425000,407000,429000,412950,420000,451000,419950,412500,445500,447350,449950,450000,457000,442500,390000,435000,449900,442500,480000,420000,421700,434000,460000] },
+  { city: "Eagan",        n: 407, medClose: 457400, medDom: 12, ppsf: 204,
+    series: [500000,605000,425000,449000,455000,462500,453500,420000,510000,517000,479000,457050,515000,458750,435000,452500,447000,467500,450000,485000,449500,432000,494000,489000] },
+];
+
+// Share of sales at or over final asking price, by days on market.
+const CURVE = {
+  all: [
+    { bucket: "0-7",   n: 1402, medRatio: 101.5, pct: 87 },
+    { bucket: "8-14",  n: 1101, medRatio: 100.0, pct: 76 },
+    { bucket: "15-30", n: 1046, medRatio: 100.0, pct: 53 },
+    { bucket: "31-60", n: 863,  medRatio: 98.8,  pct: 40 },
+    { bucket: "61-90", n: 288,  medRatio: 98.9,  pct: 38 },
+    { bucket: "91+",   n: 261,  medRatio: 97.8,  pct: 26 },
+  ],
+  under400: [
+    { bucket: "0-7",   n: 338, medRatio: 101.4, pct: 84 },
+    { bucket: "8-14",  n: 258, medRatio: 100.5, pct: 79 },
+    { bucket: "15-30", n: 240, medRatio: 100.0, pct: 50 },
+    { bucket: "31-60", n: 198, medRatio: 98.7,  pct: 40 },
+    { bucket: "61-90", n: 60,  medRatio: 98.2,  pct: 32 },
+    { bucket: "91+",   n: 45,  medRatio: 98.7,  pct: 29 },
+  ],
+  b400600: [
+    { bucket: "0-7",   n: 735, medRatio: 102.2, pct: 90 },
+    { bucket: "8-14",  n: 612, medRatio: 100.0, pct: 77 },
+    { bucket: "15-30", n: 578, medRatio: 100.0, pct: 57 },
+    { bucket: "31-60", n: 430, medRatio: 99.1,  pct: 45 },
+    { bucket: "61-90", n: 145, medRatio: 99.1,  pct: 43 },
+    { bucket: "91+",   n: 110, medRatio: 98.4,  pct: 31 },
+  ],
+  over600: [
+    { bucket: "0-7",   n: 329, medRatio: 100.3, pct: 84 },
+    { bucket: "8-14",  n: 231, medRatio: 100.0, pct: 68 },
+    { bucket: "15-30", n: 228, medRatio: 99.6,  pct: 47 },
+    { bucket: "31-60", n: 235, medRatio: 98.3,  pct: 30 },
+    { bucket: "61-90", n: 83,  medRatio: 98.6,  pct: 35 },
+    { bucket: "91+",   n: 106, medRatio: 96.9,  pct: 21 },
+  ],
+};
+
+// Chart geometry (must match the inline client script)
+const CW = 720, CH = 320, PLOT_BOTTOM = 260, PLOT_LEFT = 60, PLOT_RIGHT = 700;
+const BAND = (PLOT_RIGHT - PLOT_LEFT) / 6, BAR_W = 60;
+const yOf = (v: number) => PLOT_BOTTOM - v * 2.2;
+const barX = (i: number) => PLOT_LEFT + i * BAND + (BAND - BAR_W) / 2;
+const barPath = (i: number, v: number) => {
+  const x = barX(i), y = yOf(v), r = 3, w = BAR_W;
+  return `M ${x} ${PLOT_BOTTOM} V ${y + r} Q ${x} ${y} ${x + r} ${y} H ${x + w - r} Q ${x + w} ${y} ${x + w} ${y + r} V ${PLOT_BOTTOM} Z`;
+};
+const fmtN = (n: number) => n.toLocaleString("en-US");
+const fmtUSD = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
+
+// Sparkline paths: 3-month centered rolling mean of monthly medians.
+const smooth = (s: number[]) => s.map((_, i) => {
+  const w = s.slice(Math.max(0, i - 1), Math.min(s.length, i + 2));
+  return w.reduce((a, b) => a + b, 0) / w.length;
+});
+const sparkline = (series: number[]) => {
+  const s = smooth(series);
+  const min = Math.min(...s), max = Math.max(...s), span = max - min || 1;
+  const px = (i: number) => 4 + (i * 104) / (s.length - 1);
+  const py = (v: number) => 30 - ((v - min) / span) * 24;
+  const d = s.map((v, i) => `${i === 0 ? "M" : "L"} ${px(i).toFixed(1)} ${py(v).toFixed(1)}`).join(" ");
+  return { d, ex: px(s.length - 1).toFixed(1), ey: py(s[s.length - 1]).toFixed(1) };
+};
+const pulseCards = PULSE.map((p) => ({ ...p, spark: sparkline(p.series) }));
+
+// The Apple Valley builder case (NorthstarMLS price history, buyer side, closed Jan 2026)
+const CASE_STEPS = ["$464,990", "$459,990", "$449,990", "$439,990", "$434,990"];
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+
+<script is:inline>document.documentElement.classList.add('js');</script>
+
+<div class="progress" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+
+<nav class="doc-nav">
+  <a href="/" class="name">Mark Gores</a>
+  <div class="nav-meta">A Marketing Plan · 2026</div>
+</nav>
+
+<main class="doc">
+
+  <!-- COVER -->
+  <section class="cover" id="top">
+    <div class="cover-content">
+      <div class="doc-label">A Marketing Plan</div>
+      <h1>How your house gets&nbsp;sold.</h1>
+      <p class="cover-text">
+        This is the plan I run for every listing: a price built on market evidence instead of flattery, preparation that removes objections before they get expensive, media buyers actually stop for, and a written report every week so you always know where things stand.
+      </p>
+      <p class="cover-text">
+        It's all on this page, in writing, because claims you can check beat claims you have to take on faith.
+      </p>
+      <div class="cover-signature">Mark</div>
+      <div class="cover-sub">Mark Gores · RE/MAX Advantage Plus · 612-201-5447</div>
+    </div>
+
+    <aside class="doc-card" data-rv>
+      <div class="doc-card-label">The market this plan runs in</div>
+      <div class="chip-rows">
+        <div class="chip-row"><span class="chip-v">{TOPLINE.sold12}</span><span class="chip-l">homes sold, last 12 months</span></div>
+        <div class="chip-row"><span class="chip-v">{TOPLINE.medDom} days</span><span class="chip-l">median time to find a buyer</span></div>
+        <div class="chip-row"><span class="chip-v">{TOPLINE.medClose}</span><span class="chip-l">median sale price</span></div>
+        <div class="chip-row"><span class="chip-v">{TOPLINE.actives}</span><span class="chip-l">homes on the market right now</span></div>
+      </div>
+      <p class="doc-card-foot">
+        South metro single family resales: Prior Lake, Savage, Shakopee, Lakeville, Burnsville, Apple Valley, Eagan. Pulled from my MLS database {AS_OF}.
+      </p>
+      <p class="doc-card-foot web-only">This page prints as a brochure. Cmd+P if you'd rather hold paper.</p>
+    </aside>
+
+    <div class="versus" data-rv>
+      <div class="versus-head">
+        <span class="versus-title">The short version</span>
+        <span class="versus-meta">The rest of the page is the proof · about an 8 minute read</span>
+      </div>
+      <div class="versus-cols" aria-hidden="true"><span>The standard playbook</span><span>This plan</span></div>
+      <div class="versus-row"><span>A price quoted at your kitchen table</span><span>Three numbers in writing, before you commit to anything</span></div>
+      <div class="versus-row"><span>Live whenever the photos are done</span><span>One prepared launch, because the first 14 days decide your price</span></div>
+      <div class="versus-row"><span>30 photos, zero words</span><span>A caption on every photo, listing copy written by a person</span></div>
+      <div class="versus-row"><span>"Call me if you have questions"</span><span>A written report every week, good news or not</span></div>
+      <div class="versus-row"><span>Fees quoted in person, on request</span><span>2.7%, published right on this page</span></div>
+    </div>
+  </section>
+
+  <!-- CONTENTS -->
+  <section class="toc" aria-label="Contents">
+    <div class="section-label">In this plan</div>
+    <ol class="toc-list">
+      <li><a href="#market"><span class="toc-num">01</span> The market right now</a></li>
+      <li><a href="#pricing"><span class="toc-num">02</span> Pricing: the evidence</a></li>
+      <li><a href="#prep"><span class="toc-num">03</span> Getting the house ready</a></li>
+      <li><a href="#media"><span class="toc-num">04</span> The marketing</a></li>
+      <li><a href="#launch"><span class="toc-num">05</span> The launch</a></li>
+      <li><a href="#loop"><span class="toc-num">06</span> The feedback loop</a></li>
+      <li><a href="#offers"><span class="toc-num">07</span> Offers &amp; negotiation</a></li>
+      <li><a href="#fee"><span class="toc-num">08</span> The fee</a></li>
+      <li><a href="#faq"><span class="toc-num">09</span> Questions sellers ask</a></li>
+      <li><a href="#next"><span class="toc-num">10</span> Who's behind this &amp; next steps</a></li>
+    </ol>
+  </section>
+
+  <!-- 01 MARKET -->
+  <section class="market" id="market">
+    <div class="section-label">01 · The market right now</div>
+    <h2>Read the market before you price against it.</h2>
+    <p class="section-intro">
+      Everything in this section comes from NorthstarMLS closed records for seven south metro cities, single family resales only, new construction excluded. My database syncs with the MLS every 15 minutes; these figures were pulled {AS_OF}. Check them against anything you like.
+    </p>
+
+    <div class="pulse-grid">
+      {pulseCards.map((p) => (
+        <div class="pulse-card" data-rv>
+          <div class="pulse-city">{p.city}</div>
+          <div class="pulse-price">{fmtUSD(p.medClose)}</div>
+          <div class="pulse-meta">{p.n} sales · {p.medDom} days median · ${p.ppsf}/sqft</div>
+          <svg class="spark" viewBox="0 0 112 36" aria-label={`Monthly median sale price trend for ${p.city}`} role="img">
+            <path d={p.spark.d} fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx={p.spark.ex} cy={p.spark.ey} r="2.5" fill="var(--accent)" />
+          </svg>
+          <div class="pulse-spark-label">Monthly median, smoothed · Jul '24 to Jun '26</div>
+        </div>
+      ))}
+      <div class="pulse-card pulse-note" data-rv>
+        <p>
+          Half of last year's sellers found their buyer inside about two weeks. This is a quick, price-sensitive market: it rewards the right opening number and quietly punishes the wrong one. The next section shows by how much.
+        </p>
+        <p class="pulse-note-sub">There are also about {TOPLINE.newCon} new construction listings active out here. Builders run a different playbook, so they're kept out of every number on this page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 PRICING EVIDENCE -->
+  <section class="pricing" id="pricing">
+    <div class="section-label">02 · Pricing: the evidence</div>
+    <h2>The first two weeks decide your price.</h2>
+    <p class="section-intro">
+      I pulled every single family resale that closed in these seven cities over the last 24 months, {fmtN(N24)} sales, and grouped them by how long they took to find a buyer. Then I asked one question: how often did the seller get asking price or better?
+    </p>
+
+    <figure class="curve" data-rv>
+      <figcaption class="curve-head">
+        <div class="curve-title">Sold at or over asking price, by days on market</div>
+        <div class="curve-filters web-only" role="group" aria-label="Filter by price band">
+          <button class="chip is-on" data-band="all" aria-pressed="true">All homes</button>
+          <button class="chip" data-band="under400" aria-pressed="false">Under $400K</button>
+          <button class="chip" data-band="b400600" aria-pressed="false">$400K to $600K</button>
+          <button class="chip" data-band="over600" aria-pressed="false">$600K+</button>
+        </div>
+      </figcaption>
+
+      <svg id="curve-svg" viewBox={`0 0 ${CW} ${CH}`} role="img" aria-label="Bar chart: share of homes sold at or over asking price, grouped by days on market">
+        {[0, 25, 50, 75, 100].map((v) => (
+          <g>
+            <line x1={PLOT_LEFT - 6} y1={yOf(v)} x2={PLOT_RIGHT} y2={yOf(v)} class="grid" />
+            <text x={PLOT_LEFT - 12} y={yOf(v) + 4} class="tick">{v}%</text>
+          </g>
+        ))}
+        {CURVE.all.map((b, i) => (
+          <g class="bar-g">
+            <title>{`${b.bucket} days: ${b.pct}% sold at or over ask · median ${b.medRatio}% of ask · ${fmtN(b.n)} sales`}</title>
+            <path id={`bar-${i}`} class="bar" d={barPath(i, b.pct)} />
+            <text id={`bval-${i}`} class="bar-val" x={barX(i) + BAR_W / 2} y={yOf(b.pct) - 10} text-anchor="middle">{b.pct}%</text>
+            <text class="bar-cat" x={barX(i) + BAR_W / 2} y={PLOT_BOTTOM + 22} text-anchor="middle">{b.bucket}</text>
+            <text id={`bn-${i}`} class="bar-n" x={barX(i) + BAR_W / 2} y={PLOT_BOTTOM + 40} text-anchor="middle">{fmtN(b.n)} sales</text>
+          </g>
+        ))}
+        <text x={PLOT_LEFT} y={CH - 4} class="axis-note">Days on market before finding a buyer</text>
+      </svg>
+      <div class="curve-foot">
+        <span id="curve-n">Showing all {fmtN(N24)} sales.</span><span class="web-only"> Hover any bar for the median sale-to-list figure.</span>
+      </div>
+    </figure>
+
+    <div class="callout" data-rv>
+      <div class="callout-label">What it costs to miss the window</div>
+      <p>
+        Homes that sold in their first two weeks got a median <strong>101.0% of asking</strong>. Homes that took more than 90 days got <strong>97.8%</strong>. On a $500,000 house, that gap is about <strong>$16,000</strong>. And it's measured against the final asking price, after any cuts along the way, so the true cost of starting high is larger than this chart can show.
+      </p>
+    </div>
+
+    <p>
+      To be fair about what this is: nobody can prove the slow listings would have done better priced right on day one. But I've watched this market for 22 years, and this pattern is the most expensive lesson sellers learn. My job is to make sure you learn it from other people's listings instead of yours.
+    </p>
+
+    <h3 class="sub-heading">So here's how I set your number</h3>
+    <p>
+      Comps matched the way an appraiser matches them: size, age, basement finish, street. Time adjustments for a moving market, and a street premium where the data shows one. You get three numbers in writing before you commit to anything:
+    </p>
+
+    <div class="tier-row" data-rv>
+      <div class="tier-card">
+        <div class="tier-label">Safe</div>
+        <div class="tier-note">The certainty end. Prices ahead of the comps to compress your timeline.</div>
+      </div>
+      <div class="tier-card recommended">
+        <div class="tier-label">Recommended</div>
+        <div class="tier-note">Where the comps, the street, and your home's condition actually point.</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-label">Stretch</div>
+        <div class="tier-note">Tests the ceiling. Takes patience, great presentation, and a plan for what we do if the market shrugs.</div>
+      </div>
+    </div>
+
+    <p>
+      The call is yours, and I'll list at your number. What I won't do is inflate mine to win your signature. Agents call that buying the listing: quote high, get the contract, then walk you down with cuts once the sign's in the yard. The chart above is what that strategy costs. If my number comes in lower than another agent's, ask us both for our comps in writing. Mine will already be in your hands.
+    </p>
+
+    <div class="aside-note" data-rv>
+      <div class="aside-note-label">A note on round numbers</div>
+      <p>
+        Old pricing wisdom says end in 9: list at $564,900 instead of $565,000. The data doesn't back that up anymore. Round numbers signal confidence and show up in more searches, because buyers filter in $25k and $50k chunks. I'd rather the extra hundred bucks end up in your pocket than in a superstition.
+      </p>
+    </div>
+  </section>
+
+  <!-- 03 PREP -->
+  <section class="prep" id="prep">
+    <div class="section-label">03 · Getting the house ready</div>
+    <h2>Cheap fixes now beat expensive credits later.</h2>
+    <p class="section-intro">
+      Buyers don't price problems the way you would. A $300 repair left undone reads as a $3,000 doubt in an offer, and three of them read as "what else is wrong?" So before photos, we walk the house together and deal with it:
+    </p>
+    <ul class="check-list" data-rv>
+      <li><strong>A photo-ready punch list</strong> from our walkthrough: what to fix, what to leave, what nobody will notice. Ruthlessly practical, not a renovation pitch.</li>
+      <li><strong>A professional staging consultation</strong>, included. Usually it's editing, not furniture rental: what to remove, what to move, which rooms carry the listing.</li>
+      <li><strong>Pre-inspection guidance</strong> if the house needs it, so surprises show up while they're still cheap and private.</li>
+      <li><strong>No artificial deadlines.</strong> The house goes live when it's ready, not when a calendar says so. The launch window matters too much to waste it on an unready house.</li>
+    </ul>
+  </section>
+
+  <!-- 04 MARKETING -->
+  <section class="media" id="media">
+    <div class="section-label">04 · The marketing</div>
+    <h2>What I'll actually do to market your house.</h2>
+    <p class="section-intro">
+      Here's something most agents won't say out loud: nearly every agent you interview has the same basic toolbox. The MLS feeds Zillow, Realtor.com, Redfin, and hundreds of other sites automatically, for every listing, no matter who lists it. Syndication isn't a strategy, it's plumbing, and anyone presenting "exposure on 2,000 websites" as their edge is selling you the water main. What actually separates listings is the finish work: what a buyer sees after the click, and how the people in the transaction get treated. That's where I spend my time.
+    </p>
+
+    <div class="media-grid">
+      <div class="media-card" data-rv>
+        <h3>Photography</h3>
+        <p>Professional interior and exterior photography plus aerial shots, scheduled when the house and the light are ready. Photos are the showing before the showing; they get treated that way.</p>
+      </div>
+      <div class="media-card" data-rv>
+        <h3>A caption on every photo</h3>
+        <p>Most agents upload 30 photos and zero words. I write a caption for each one, because a caption answers the question a photo raises.</p>
+        <div class="caption-demo">
+          <span class="caption-demo-label">e.g.</span>
+          "New LVP flooring, 2024." · "Heated, insulated 3-car garage."
+        </div>
+      </div>
+      <div class="media-card" data-rv>
+        <h3>Copy written by me</h3>
+        <p>The listing description is written by a person who's walked your house, not generated by a tool that hasn't. It sells the two or three things that make your house your house.</p>
+      </div>
+      <div class="media-card" data-rv>
+        <h3>Paid reach</h3>
+        <p>Targeted online advertising, a social campaign, plus print and radio. Not because every channel wins every time, but because the buyer you need only has to be found once.</p>
+      </div>
+      <div class="media-card" data-rv>
+        <h3>A page of its own</h3>
+        <p>Before you've signed anything, your house gets a private page like this one: your comps, your numbers, your street's history, written by me. Not a template with your address pasted in. You're reading the quality bar right now.</p>
+      </div>
+      <div class="media-card" data-rv>
+        <h3>Easy to show, easy to offer</h3>
+        <p>Buyers' agents talk to each other. I answer their questions fast, keep showings simple, and respond to every offer promptly. None of that fits on a flyer. All of it shows up in how smoothly your sale runs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 LAUNCH -->
+  <section class="launch" id="launch">
+    <div class="section-label">05 · The launch</div>
+    <h2>Quiet prep, then one loud week.</h2>
+    <p class="section-intro">
+      The evidence section is why launch discipline matters: your leverage peaks in the first 14 days and never comes back. Every house is different, but the sequence isn't:
+    </p>
+    <ol class="timeline" data-rv>
+      <li class="phase">
+        <div class="phase-tag">Two weeks out</div>
+        <p>Walkthrough, punch list, staging consult. Photography scheduled. Pricing proposal finalized in writing.</p>
+      </li>
+      <li class="phase">
+        <div class="phase-tag">One week out</div>
+        <p>Photos shot and captioned. Copy written. The MLS entry gets built completely before it goes anywhere.</p>
+      </li>
+      <li class="phase">
+        <div class="phase-tag">Day one</div>
+        <p>Live on the MLS and everywhere it feeds, ads on, showings open. Nothing dribbles out early and stale.</p>
+      </li>
+      <li class="phase">
+        <div class="phase-tag">Weeks one &amp; two</div>
+        <p>The decisive window. Showings and feedback tracked daily, and you get the first written report before the first weekend is over.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 06 LOOP -->
+  <section class="loop" id="loop">
+    <div class="section-label">06 · The feedback loop</div>
+    <h2>You shouldn't have to ask what's happening.</h2>
+    <p class="section-intro">
+      Every week you get a written report: showings, buyer feedback, online traffic, my read of it, and a specific recommendation. It shows up whether the news is good or not. Here's the shape of one:
+    </p>
+
+    <div class="report" data-rv>
+      <div class="report-head">
+        <span class="report-title">Weekly listing report · Week 2</span>
+        <span class="report-badge">Illustrative example</span>
+      </div>
+      <div class="report-rows">
+        <div class="report-row"><span>Showings</span><span class="mono">9 this week · 17 total</span></div>
+        <div class="report-row"><span>Online</span><span class="mono">4,210 views · 212 saves</span></div>
+        <div class="report-row"><span>Feedback themes</span><span class="mono">"kitchen" positive ×4 · "backyard smaller than expected" ×2</span></div>
+        <div class="report-row"><span>My read</span><span class="mono">Traffic strong, weekend two conversion soft</span></div>
+        <div class="report-row"><span>Recommendation</span><span class="mono">Hold price through weekend three. Revisit Tuesday if no offer.</span></div>
+      </div>
+      <div class="report-foot">Yours arrives every week, in writing, with real numbers.</div>
+    </div>
+
+    <p>
+      If something needs to change, price, staging, photos, you'll hear it from me first and early, with the data that says so. What I won't do is let a listing sit quietly while everybody avoids the conversation.
+    </p>
+  </section>
+
+  <!-- 07 OFFERS -->
+  <section class="offers" id="offers">
+    <div class="section-label">07 · Offers &amp; negotiation</div>
+    <h2>I read the other side before we answer them.</h2>
+    <p class="section-intro">
+      Every offer gets a written breakdown before we respond: price, financing strength, contingencies, timing, appraisal risk, and where I'd push back. Terms lose sellers more money than price does, so we look at all of it, on paper, before anyone reacts.
+    </p>
+
+    <div class="case" data-rv>
+      <div class="case-label">A real one, from my files</div>
+      <p>
+        Last winter I represented a buyer on a builder's inventory home in Apple Valley. The identical model three doors down had already run the builder's whole playbook, five price cuts over 355 days:
+      </p>
+      <div class="case-steps mono-strip">
+        {CASE_STEPS.map((s, i) => (
+          <span class="case-step">{s}{i < CASE_STEPS.length - 1 && <span class="case-arrow"> · </span>}</span>
+        ))}
+        <span class="case-final">closed $425,000</span>
+      </div>
+      <p>
+        I put that history on one page, and my client bought the twin for $39,990 under the opening ask. As a seller, you get the same preparation pointed the other way: when a buyer pushes, I show you exactly what their agent is looking at, and what the data says we can hold.
+      </p>
+    </div>
+  </section>
+
+  <!-- 08 FEE -->
+  <section class="fee" id="fee">
+    <div class="section-label">08 · The fee</div>
+    <h2>2.7%. Published, so you don't have to ask.</h2>
+    <p class="section-intro">
+      Agents almost never put their fee in writing before the appointment. Here's mine: <strong>2.7%</strong>, under the 3% that's still standard here, and everything in this plan is included for every client. No premium tiers, no marketing fund add-on. It's lower because my costs are lower: I build software that does in minutes what used to take hours, pulling live market data, comparing comps, tracking every listing in the south metro. You've been reading its output this whole page, and <a href="https://priorlake.realestate" target="_blank" rel="noopener">PriorLake.RealEstate</a> is the free public version.
+    </p>
+
+    <div class="included" data-rv>
+      <div class="included-label">Included at 2.7%, every listing</div>
+      <ul class="included-list">
+        <li>Written pricing proposal before you sign</li>
+        <li>Staging consultation</li>
+        <li>Photo-ready punch list</li>
+        <li>Pre-inspection guidance</li>
+        <li>Professional photography</li>
+        <li>Aerial photography</li>
+        <li>Caption on every MLS photo</li>
+        <li>Listing copy written by me</li>
+        <li>NorthstarMLS + full syndication</li>
+        <li>Targeted online advertising</li>
+        <li>Social campaign</li>
+        <li>Print &amp; radio advertising</li>
+        <li>Weekly written report</li>
+        <li>Written offer breakdowns</li>
+        <li>Negotiation &amp; contract-to-close</li>
+        <li>Title company net sheet up front</li>
+      </ul>
+    </div>
+
+    <div class="fee-breakdown" data-rv>
+      <div class="fee-row">
+        <div class="fee-desc">
+          <div class="fee-title">My listing fee</div>
+          <div class="fee-sub">The whole plan above, for every client, no exceptions.</div>
+        </div>
+        <div class="fee-amount">2.7%</div>
+      </div>
+      <div class="fee-row">
+        <div class="fee-desc">
+          <div class="fee-title">Buyer's agent compensation</div>
+          <div class="fee-sub">Separate and negotiable since the 2024 NAR settlement, and it's your decision. Locally it usually lands around 2.7%, sometimes 2.5%. We'll talk through the trade-offs before listing.</div>
+        </div>
+        <div class="fee-amount">~2.7%</div>
+      </div>
+      <div class="fee-row fee-total">
+        <div class="fee-desc">
+          <div class="fee-title">Total agent fees</div>
+          <div class="fee-sub">If you offer the local norm on the buyer side. Selling also costs state deed tax and title fees; the calculator below adds those in so nothing surprises you at closing.</div>
+        </div>
+        <div class="fee-amount">~5.4%</div>
+      </div>
+    </div>
+
+    <div class="calc" id="calc" data-rv>
+      <div class="calc-label">What that means at your number</div>
+
+      <div class="calc-live" id="calc-live" hidden>
+        <label class="calc-input-wrap" for="calc-price">
+          <span class="calc-input-label">Expected sale price</span>
+          <input type="text" id="calc-price" inputmode="numeric" value="$500,000" autocomplete="off" />
+        </label>
+        <input type="range" id="calc-slider" min="200000" max="1500000" step="5000" value="500000" aria-label="Expected sale price slider" />
+        <div class="calc-rows">
+          <div class="calc-row"><div>My listing fee (2.7%)</div><div class="mono" id="calc-listing">$13,500</div></div>
+          <div class="calc-row"><div>Buyer's agent compensation (2.7%)</div><div class="mono" id="calc-buyer">$13,500</div></div>
+          <div class="calc-row"><div>Minnesota state deed tax (0.33%)</div><div class="mono" id="calc-deed">$1,650</div></div>
+          <div class="calc-row"><div>Title &amp; closing fees, estimated</div><div class="mono" id="calc-title">$1,250</div></div>
+          <div class="calc-row calc-final"><div>Total cost to sell</div><div class="mono" id="calc-total">$29,900</div></div>
+          <div class="calc-row calc-clear"><div>What you'd clear, before mortgage payoff &amp; tax prorations</div><div class="mono" id="calc-clear">$470,100</div></div>
+        </div>
+        <p class="calc-compare">Against the 3% listing fee that's still standard here, you keep <strong id="calc-delta">$1,500</strong> more at this price.</p>
+      </div>
+
+      <div class="calc-static" id="calc-static">
+        <div class="table-wrap">
+          <table class="fee-table">
+            <thead>
+              <tr>
+                <th>Sale price</th>
+                <th class="r">Listing 2.7%</th>
+                <th class="r">Buyer 2.7%</th>
+                <th class="r">Deed tax + closing</th>
+                <th class="r">Total cost</th>
+                <th class="r">You'd clear</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>$400,000</td><td class="r">$10,800</td><td class="r">$10,800</td><td class="r">$2,570</td><td class="r">$24,170</td><td class="r">$375,830</td></tr>
+              <tr><td>$550,000</td><td class="r">$14,850</td><td class="r">$14,850</td><td class="r">$3,065</td><td class="r">$32,765</td><td class="r">$517,235</td></tr>
+              <tr><td>$750,000</td><td class="r">$20,250</td><td class="r">$20,250</td><td class="r">$3,725</td><td class="r">$44,225</td><td class="r">$705,775</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p class="calc-note">Deed tax is Minnesota's 0.33% transfer tax on the sale price. Title and closing fees are estimated at $1,250 (settlement, transaction, and conservation fees) from recent Trademark Title net sheets; yours will vary a little. "What you'd clear" excludes your mortgage payoff and prorated property taxes. Before you list, you get a full net sheet prepared by a title company for your specific home, so the number you plan around is exact, not estimated.</p>
+    </div>
+  </section>
+
+  <!-- 09 FAQ -->
+  <section class="faq" id="faq">
+    <div class="section-label">09 · Questions sellers ask</div>
+    <h2>Asked and answered, in writing.</h2>
+
+    <div class="qa-list">
+      <div class="qa" data-rv>
+        <h3>Your fee is lower than most agents quote. What's the catch?</h3>
+        <p>
+          There isn't one, and I understand the suspicion. The fee is lower because my costs are lower, not because the service is thinner. Software I built handles work agents usually do by hand or pay staff to do. And it's published, which is rarer than the discount: you knew my number before we ever spoke. Put me side by side with a 3% agent and compare the included list above, line by line. I want you to.
+        </p>
+      </div>
+      <div class="qa" data-rv>
+        <h3>What if I think my house is worth more than your number?</h3>
+        <p>
+          Then we talk about it with the comps on the table. Sometimes a seller knows something the data doesn't: an update I underweighted, a lot premium, a view. Sometimes it's just hope, and I'll say so kindly. You get Safe, Recommended, and Stretch in writing either way, and it's your call. If you want to try the higher number, we agree up front on what the market needs to show us, and by when, so any adjustment is a plan we made calmly instead of an argument we have later.
+        </p>
+      </div>
+      <div class="qa" data-rv>
+        <h3>Do I have to pay the buyer's agent?</h3>
+        <p>
+          Not automatically, not since the 2024 NAR settlement changed the rules. It's a separate decision we make together before listing. Around here most sellers still offer about 2.7%, because it keeps the widest pool of buyers moving toward your door, and sometimes there's room to negotiate it lower. I'll lay out the trade-offs plainly, and you decide.
+        </p>
+      </div>
+      <div class="qa" data-rv>
+        <h3>What happens if showings stall?</h3>
+        <p>
+          You'll know as soon as I do, because the weekly report doesn't skip the bad weeks. Stalled showings mean the market is telling us something, usually about price, sometimes about presentation. I'll bring the data and a specific recommendation, not a shrug.
+        </p>
+      </div>
+      <div class="qa" data-rv>
+        <h3>Do we have to sit through a listing appointment to get real numbers?</h3>
+        <p>
+          No. Send me your address and I'll run this plan against your house first: comps, a recommended range, and an estimated net, in writing, on a private page like this one. Then we talk at your table, on the phone, or over email, whichever you prefer. By then the conversation is short and useful instead of a two hour pitch.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 WHO + NEXT -->
+  <section class="next" id="next">
+    <div class="section-label">10 · Who's behind this</div>
+    <h2>One agent, on purpose.</h2>
+
+    <div class="who-row">
+      <div class="who-card" data-rv>
+        <p>
+          I'm Mark Gores. Realtor for 22 years, Prior Lake resident since 1986, and I sell across the south metro. I build my own tools: the database behind every number on this page also runs <a href="https://priorlake.realestate" target="_blank" rel="noopener">PriorLake.RealEstate</a>, a free public market dashboard. I hold a 5.0 rating on Zillow. You work with me directly, my cell, not a team inbox. My license hangs at RE/MAX Advantage Plus with a full team behind it, so if I'm ever sick or unreachable, your sale doesn't wait. You hire me, you get me.
+        </p>
+      </div>
+      <figure class="quote" data-rv>
+        <blockquote>Fast response, did an excellent job advertising the home, had a showing and sold the property before ever getting a "for sale" sign out front. Mark answered all our questions quickly, provided sound advice on preparing to sell, and handled the entire process with professionalism.</blockquote>
+        <figcaption>Robert · home seller · Zillow review</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub-heading">Next steps</h3>
+    <ol class="steps">
+      <li class="step" data-rv>
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h3>Send me your address</h3>
+          <p>Text, email, or the form on <a href="/#contact">my homepage</a>. Mention anything you think matters: updates, timing, the neighbor's sale that confused you.</p>
+        </div>
+      </li>
+      <li class="step" data-rv>
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h3>I run this plan against your house</h3>
+          <p>You get a private, written pricing proposal: comps, my recommended range, an estimated net, and every recent sale on your street and in your neighborhood, from my own database. No obligation, and I won't chase you with follow-up calls. That's not politeness, it's policy.</p>
+        </div>
+      </li>
+      <li class="step" data-rv>
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h3>We talk, or we don't</h3>
+          <p>Kitchen table, phone, or email, your choice. If it's not a fit, no hard feelings. If it is, photography and prep can start right away.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="next-contact">
+      <div class="contact-method">
+        <span class="label">Call or Text</span>
+        <a href="tel:+16122015447">612-201-5447</a>
+      </div>
+      <div class="contact-method">
+        <span class="label">Email</span>
+        <a href="mailto:mark@markgores.com">mark@markgores.com</a>
+      </div>
+    </div>
+
+    <p class="next-sign">Mark</p>
+  </section>
+
+</main>
+
+<footer class="doc-footer">
+  <p>&copy; 2026 Mark Gores · RE/MAX Advantage Plus · Prior Lake, MN</p>
+  <p class="footer-disclaimer">
+    Market figures computed from NorthstarMLS records as of {AS_OF}: single family resales in Prior Lake, Savage, Shakopee, Lakeville, Burnsville, Apple Valley, and Eagan, new construction excluded; sale-to-list measured against final list price at time of sale. Sample weekly report shown is illustrative. Nothing on this page is a guarantee of price, timing, or outcome. Markets move, and honest agents say so. Fee shown is my 2026 listing fee; buyer's agent compensation is negotiable and set separately. Information deemed reliable but not guaranteed.
+  </p>
+</footer>
+
+<script is:inline define:vars={{ CURVE, N24 }}>
+  // Reading progress hairline
+  var fill = document.getElementById('progress-fill');
+  if (fill) {
+    var updateFill = function () {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - window.innerHeight;
+      fill.style.width = max > 0 ? (window.scrollY / max) * 100 + '%' : '0%';
+    };
+    window.addEventListener('scroll', updateFill, { passive: true });
+    updateFill();
+  }
+
+  // Reveal on scroll
+  var reveal = document.querySelectorAll('[data-rv]');
+  if ('IntersectionObserver' in window && reveal.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    reveal.forEach(function (el) { io.observe(el); });
+  } else {
+    reveal.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Evidence chart: price-band filter
+  var PLOT_BOTTOM = 260, PLOT_LEFT = 60, PLOT_RIGHT = 700;
+  var BAND = (PLOT_RIGHT - PLOT_LEFT) / 6, BAR_W = 60;
+  var yOf = function (v) { return PLOT_BOTTOM - v * 2.2; };
+  var barX = function (i) { return PLOT_LEFT + i * BAND + (BAND - BAR_W) / 2; };
+  var barPath = function (i, v) {
+    var x = barX(i), y = yOf(v), r = 3, w = BAR_W;
+    return 'M ' + x + ' ' + PLOT_BOTTOM + ' V ' + (y + r) + ' Q ' + x + ' ' + y + ' ' + (x + r) + ' ' + y +
+           ' H ' + (x + w - r) + ' Q ' + (x + w) + ' ' + y + ' ' + (x + w) + ' ' + (y + r) + ' V ' + PLOT_BOTTOM + ' Z';
+  };
+  var fmtN = function (n) { return n.toLocaleString('en-US'); };
+  var chips = document.querySelectorAll('.curve-filters .chip');
+  var curveN = document.getElementById('curve-n');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var band = chip.getAttribute('data-band');
+      var data = CURVE[band];
+      if (!data) return;
+      chips.forEach(function (c) {
+        var on = c === chip;
+        c.classList.toggle('is-on', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      var total = 0;
+      data.forEach(function (b, i) {
+        total += b.n;
+        var bar = document.getElementById('bar-' + i);
+        var val = document.getElementById('bval-' + i);
+        var n = document.getElementById('bn-' + i);
+        if (bar) {
+          bar.setAttribute('d', barPath(i, b.pct));
+          var t = bar.parentNode.querySelector('title');
+          if (t) t.textContent = b.bucket + ' days: ' + b.pct + '% sold at or over ask · median ' + b.medRatio + '% of ask · ' + fmtN(b.n) + ' sales';
+        }
+        if (val) { val.setAttribute('y', yOf(b.pct) - 10); val.textContent = b.pct + '%'; }
+        if (n) n.textContent = fmtN(b.n) + ' sales';
+      });
+      if (curveN) curveN.textContent = band === 'all' ? 'Showing all ' + fmtN(N24) + ' sales.' : 'Showing ' + fmtN(total) + ' sales in this price band.';
+    });
+  });
+
+  // Fee calculator
+  var live = document.getElementById('calc-live');
+  var stat = document.getElementById('calc-static');
+  var priceInput = document.getElementById('calc-price');
+  var slider = document.getElementById('calc-slider');
+  var outListing = document.getElementById('calc-listing');
+  var outBuyer = document.getElementById('calc-buyer');
+  var outDeed = document.getElementById('calc-deed');
+  var outTitle = document.getElementById('calc-title');
+  var outTotal = document.getElementById('calc-total');
+  var outClear = document.getElementById('calc-clear');
+  var outDelta = document.getElementById('calc-delta');
+  if (live && stat && priceInput && slider && outListing && outBuyer && outDeed && outTitle && outTotal && outClear && outDelta) {
+    var LISTING = 0.027, BUYER = 0.027, DEED = 0.0033, TITLE = 1250;
+    var fmt = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+    var clampP = function (n) { return Math.min(5000000, Math.max(100000, n)); };
+    var render = function (price) {
+      var total = price * (LISTING + BUYER + DEED) + TITLE;
+      outListing.textContent = fmt(price * LISTING);
+      outBuyer.textContent = fmt(price * BUYER);
+      outDeed.textContent = fmt(price * DEED);
+      outTitle.textContent = fmt(TITLE);
+      outTotal.textContent = fmt(total);
+      outClear.textContent = fmt(price - total);
+      outDelta.textContent = fmt(price * 0.003);
+      priceInput.value = fmt(price);
+      slider.value = String(Math.min(1500000, Math.max(200000, price)));
+    };
+    priceInput.addEventListener('change', function () {
+      var digits = priceInput.value.replace(/[^0-9]/g, '');
+      render(clampP(Number(digits || '500000')));
+    });
+    priceInput.addEventListener('focus', function () { priceInput.select(); });
+    slider.addEventListener('input', function () { render(Number(slider.value)); });
+    live.hidden = false;
+    stat.classList.add('screen-hidden');
+    render(500000);
+  }
+</script>
+
+</BaseLayout>
+
+<style is:global>
+  /* Reveal-on-scroll: only when JS is present, screen only, motion allowed */
+  @media screen and (prefers-reduced-motion: no-preference) {
+    html.js [data-rv] {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    html.js [data-rv].in {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media print {
+    @page { size: letter; margin: 0.6in 0.65in; }
+    body {
+      background: #fff !important;
+      font-size: 11pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body::before { display: none !important; }
+    astro-dev-toolbar { display: none !important; }
+  }
+</style>
+
+<style>
+  /* ===================== PROGRESS ===================== */
+  .progress {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    z-index: 200;
+    background: transparent;
+  }
+  .progress-fill { height: 100%; width: 0; background: var(--accent); }
+
+  /* ===================== NAV ===================== */
+  .doc-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.25rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 115, 85, 0.12);
+  }
+  .doc-nav .name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--dark);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .doc-nav .nav-meta {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm);
+  }
+
+  /* ===================== SHARED ===================== */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--warm);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--warm);
+    flex-shrink: 0;
+  }
+
+  main.doc section {
+    padding: 5rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  main.doc section h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    line-height: 1.2;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+  main.doc section p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    max-width: 740px;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+  main.doc section p strong { color: var(--dark); font-weight: 500; }
+  main.doc section a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(74, 123, 200, 0.35); }
+  .section-intro { max-width: 780px !important; }
+  .sub-heading {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    color: var(--dark);
+    font-weight: 400;
+    margin: 2.5rem 0 1rem;
+  }
+
+  /* ===================== COVER ===================== */
+  .cover {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: min(92vh, 56rem);
+    padding: 9rem 3rem 4rem !important;
+  }
+  .doc-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--warm);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .doc-label::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--warm);
+  }
+  .cover h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 2rem;
+    font-weight: 400;
+  }
+  .cover-text {
+    font-size: 1.12rem;
+    color: var(--text-light);
+    max-width: 580px;
+    margin-bottom: 1.25rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .cover-signature {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--dark);
+    font-style: italic;
+    margin-top: 2rem;
+  }
+  .cover-sub {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+    margin-top: 0.6rem;
+  }
+
+  .doc-card {
+    border: 1px solid var(--light-warm);
+    background: white;
+    border-radius: 3px;
+    padding: 2.25rem 2.25rem 1.75rem;
+    box-shadow: 0 1px 2px rgba(26, 26, 24, 0.04), 0 10px 30px -18px rgba(26, 26, 24, 0.18);
+  }
+  .doc-card-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--warm);
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--light-warm);
+  }
+  .chip-rows { display: flex; flex-direction: column; }
+  .chip-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(232, 223, 208, 0.7);
+  }
+  .chip-row:last-child { border-bottom: none; }
+  .chip-v {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    color: var(--dark);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .chip-l {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--warm);
+    line-height: 1.5;
+  }
+  .doc-card-foot {
+    margin: 1.1rem 0 0;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.55;
+  }
+
+  /* ===================== SHORT VERSION / VERSUS ===================== */
+  .versus {
+    grid-column: 1 / -1;
+    margin-top: 3rem;
+    padding: 1.75rem 2rem 1.25rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-radius: 3px;
+  }
+  .versus-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .versus-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--dark);
+  }
+  .versus-meta {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+  }
+  .versus-cols {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--light-warm);
+  }
+  .versus-cols span {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm);
+  }
+  .versus-row {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 2rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(232, 223, 208, 0.6);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .versus-row:last-child { border-bottom: none; }
+  .versus-row span:first-child { color: var(--text-light); font-style: italic; }
+  .versus-row span:last-child { color: var(--dark); }
+
+  /* ===================== TOC ===================== */
+  .toc { padding: 0 3rem 4rem !important; }
+  .toc-list {
+    list-style: none;
+    padding: 1.75rem 0 0;
+    margin: 0;
+    border-top: 1px solid var(--light-warm);
+    columns: 2;
+    column-gap: 4rem;
+    max-width: 800px;
+  }
+  .toc-list li { break-inside: avoid; }
+  main.doc .toc-list a {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.45rem 0;
+    font-family: var(--body);
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: none;
+  }
+  main.doc .toc-list a:hover { color: var(--accent); }
+  .toc-num {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--warm);
+    letter-spacing: 0.08em;
+  }
+
+  /* ===================== 01 MARKET ===================== */
+  .market { border-top: 1px solid var(--light-warm); }
+  .pulse-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .pulse-card {
+    padding: 1.5rem 1.5rem 1.25rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-radius: 3px;
+  }
+  .pulse-city {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+  }
+  .pulse-price {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+  .pulse-meta {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--warm);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .spark { width: 100%; height: auto; display: block; }
+  .pulse-spark-label {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+  }
+  .pulse-note {
+    background: var(--light-warm);
+    border-color: var(--light-warm);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .pulse-note p {
+    font-size: 0.95rem !important;
+    color: var(--text) !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.6 !important;
+  }
+  .pulse-note .pulse-note-sub {
+    font-size: 0.8rem !important;
+    color: var(--text-light) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+  }
+
+  /* ===================== 02 EVIDENCE CHART ===================== */
+  .pricing { border-top: 1px solid var(--light-warm); }
+  .curve {
+    margin: 2.5rem 0 2rem;
+    padding: 2rem 2rem 1.5rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-radius: 3px;
+  }
+  .curve-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .curve-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--dark);
+  }
+  .curve-filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .chip {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--warm);
+    background: transparent;
+    border: 1px solid var(--light-warm);
+    border-radius: 2px;
+    padding: 0.45rem 0.8rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .chip:hover { border-color: var(--warm); color: var(--dark); }
+  .chip.is-on {
+    background: var(--dark);
+    border-color: var(--dark);
+    color: var(--cream);
+  }
+  #curve-svg { width: 100%; height: auto; display: block; }
+  #curve-svg .grid { stroke: var(--light-warm); stroke-width: 1; }
+  #curve-svg .tick {
+    font-family: var(--mono);
+    font-size: 11px;
+    fill: var(--warm);
+    text-anchor: end;
+  }
+  #curve-svg .bar { fill: var(--accent); transition: d 0.35s ease; }
+  #curve-svg .bar-g:hover .bar { fill: var(--dark); }
+  #curve-svg .bar-val {
+    font-family: var(--mono);
+    font-size: 13px;
+    fill: var(--dark);
+  }
+  #curve-svg .bar-cat {
+    font-family: var(--mono);
+    font-size: 11px;
+    fill: var(--text);
+    letter-spacing: 0.04em;
+  }
+  #curve-svg .bar-n {
+    font-family: var(--mono);
+    font-size: 10px;
+    fill: var(--warm);
+  }
+  #curve-svg .axis-note {
+    font-family: var(--mono);
+    font-size: 10px;
+    fill: var(--warm);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .curve-foot {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--warm);
+    margin-top: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .callout {
+    padding: 1.75rem 2.25rem;
+    background: var(--dark);
+    color: var(--cream);
+    border-radius: 3px;
+    margin: 2rem 0;
+    max-width: 900px;
+  }
+  .callout-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .callout p {
+    color: rgba(245, 240, 232, 0.85) !important;
+    font-size: 1.02rem !important;
+    margin-bottom: 0 !important;
+    max-width: none !important;
+  }
+  main.doc section .callout p strong { color: var(--cream); }
+
+  .tier-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0 2.5rem;
+  }
+  .tier-card {
+    padding: 1.75rem 1.5rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-radius: 3px;
+  }
+  .tier-card.recommended { background: var(--dark); border-color: var(--dark); }
+  .tier-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm);
+    margin-bottom: 0.75rem;
+  }
+  .tier-card.recommended .tier-label { color: var(--accent); }
+  .tier-note {
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.55;
+  }
+  .tier-card.recommended .tier-note { color: rgba(245, 240, 232, 0.75); }
+
+  .aside-note {
+    margin-top: 2.5rem;
+    padding: 1.75rem 2rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-left: 3px solid var(--sage);
+    border-radius: 3px;
+    max-width: 820px;
+  }
+  .aside-note-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sage);
+    margin-bottom: 0.75rem;
+  }
+  .aside-note p {
+    margin-bottom: 0 !important;
+    font-size: 0.98rem !important;
+    color: var(--text) !important;
+    max-width: none !important;
+  }
+
+  /* ===================== 03 PREP ===================== */
+  .prep { border-top: 1px solid var(--light-warm); }
+  .check-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    max-width: 820px;
+  }
+  .check-list li {
+    padding: 1.1rem 0 1.1rem 2rem;
+    position: relative;
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.65;
+    border-top: 1px solid var(--light-warm);
+  }
+  .check-list li:first-child { border-top: none; }
+  .check-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    top: 1.1rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .check-list strong { color: var(--dark); font-weight: 500; }
+
+  /* ===================== 04 MEDIA ===================== */
+  .media { border-top: 1px solid var(--light-warm); }
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .media-card {
+    padding: 2rem 2rem 1.75rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-radius: 3px;
+  }
+  .media-card h3 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+    font-weight: 400;
+  }
+  .media-card p {
+    font-size: 0.97rem !important;
+    margin-bottom: 0 !important;
+    line-height: 1.6 !important;
+  }
+  .caption-demo {
+    margin-top: 1rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--cream);
+    border: 1px solid var(--light-warm);
+    border-radius: 2px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .caption-demo-label {
+    color: var(--warm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-right: 0.4rem;
+  }
+
+  /* ===================== 05 LAUNCH ===================== */
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .phase {
+    padding: 1.5rem 1.4rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-top: 3px solid var(--accent);
+    border-radius: 3px;
+  }
+  .phase-tag {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .phase p {
+    font-size: 0.92rem !important;
+    margin-bottom: 0 !important;
+    line-height: 1.6 !important;
+    color: var(--text) !important;
+  }
+
+  /* ===================== 06 LOOP / REPORT ===================== */
+  .loop { border-top: 1px solid var(--light-warm); }
+  .report {
+    background: var(--dark);
+    color: var(--cream);
+    border-radius: 3px;
+    padding: 2rem 2.25rem 1.5rem;
+    margin: 2rem 0;
+    max-width: 860px;
+  }
+  .report-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(245, 240, 232, 0.15);
+    margin-bottom: 0.5rem;
+  }
+  .report-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--cream);
+  }
+  .report-badge {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--dark);
+    background: var(--accent);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+  }
+  .report-row {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(245, 240, 232, 0.1);
+    font-size: 0.95rem;
+    color: rgba(245, 240, 232, 0.65);
+  }
+  .report-row:last-child { border-bottom: none; }
+  .report-row .mono {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: rgba(245, 240, 232, 0.9);
+    line-height: 1.6;
+  }
+  .report-foot {
+    font-family: var(--body);
+    font-style: italic;
+    font-size: 0.82rem;
+    color: rgba(245, 240, 232, 0.5);
+    padding-top: 1rem;
+  }
+
+  /* ===================== 07 OFFERS / CASE ===================== */
+  .offers { border-top: 1px solid var(--light-warm); }
+  .case {
+    padding: 2rem 2.25rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    max-width: 860px;
+    margin-top: 2rem;
+  }
+  .case-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .case p {
+    font-size: 1rem !important;
+    color: var(--text) !important;
+    max-width: none !important;
+  }
+  .case p:last-child { margin-bottom: 0 !important; }
+  .mono-strip {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--warm);
+    background: var(--cream);
+    border: 1px solid var(--light-warm);
+    border-radius: 2px;
+    padding: 0.9rem 1.2rem;
+    margin: 1.25rem 0;
+    line-height: 1.8;
+  }
+  .case-final {
+    color: var(--dark);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .case-arrow { color: var(--light-warm); }
+
+  /* ===================== 08 FEE ===================== */
+  .fee { border-top: 1px solid var(--light-warm); }
+  .fee-breakdown {
+    margin: 2.5rem 0;
+    border: 1px solid var(--light-warm);
+    border-radius: 3px;
+    overflow: hidden;
+    background: white;
+    max-width: 900px;
+  }
+  .fee-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--light-warm);
+    align-items: start;
+  }
+  .fee-row:last-child { border-bottom: none; }
+  .fee-row.fee-total { background: var(--light-warm); border-top: 2px solid var(--warm); }
+  .fee-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+  }
+  .fee-sub {
+    font-family: var(--body);
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.55;
+    max-width: 560px;
+  }
+  .fee-amount {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .included {
+    margin: 2rem 0 2.5rem;
+    padding: 1.5rem 2rem 1.25rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-radius: 3px;
+    max-width: 900px;
+  }
+  .included-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .included-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    columns: 3;
+    column-gap: 2rem;
+  }
+  .included-list li {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    padding: 0.3rem 0 0.3rem 1.1rem;
+    position: relative;
+    break-inside: avoid;
+    line-height: 1.5;
+  }
+  .included-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .calc {
+    padding: 2.5rem;
+    background: var(--dark);
+    color: var(--cream);
+    border-radius: 3px;
+    margin-top: 2.5rem;
+    max-width: 900px;
+  }
+  .calc-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .calc-input-wrap { display: block; margin-bottom: 1rem; }
+  .calc-input-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(245, 240, 232, 0.55);
+    margin-bottom: 0.5rem;
+  }
+  .calc input[type="text"] {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--cream);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(245, 240, 232, 0.25);
+    padding: 0.2rem 0 0.4rem;
+    width: 100%;
+    max-width: 320px;
+  }
+  .calc input[type="text"]:focus { outline: none; border-bottom-color: var(--accent); }
+  .calc input[type="range"] {
+    width: 100%;
+    max-width: 480px;
+    accent-color: var(--accent);
+    margin: 0.5rem 0 1.5rem;
+  }
+  .calc-rows { display: flex; flex-direction: column; }
+  .calc-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(245, 240, 232, 0.1);
+    font-size: 1rem;
+    color: rgba(245, 240, 232, 0.85);
+  }
+  .calc-row .mono { font-family: var(--mono); font-size: 0.95rem; }
+  .calc-row.calc-final {
+    border-bottom: none;
+    border-top: 2px solid var(--accent);
+    padding-top: 1rem;
+    margin-top: 0.75rem;
+    font-size: 1.1rem;
+    color: var(--cream);
+  }
+  .calc-row.calc-final .mono { font-size: 1.2rem; color: var(--accent); }
+  .calc-row.calc-clear {
+    border-bottom: none;
+    color: var(--cream);
+    padding-top: 0.9rem;
+  }
+  .calc-row.calc-clear .mono { font-size: 1.1rem; color: var(--cream); }
+  .calc-compare {
+    margin: 1.25rem 0 0 !important;
+    font-size: 0.95rem !important;
+    color: rgba(245, 240, 232, 0.7) !important;
+    max-width: none !important;
+  }
+  main.doc section .calc-compare strong { color: var(--cream); }
+  .calc-note {
+    margin: 1.5rem 0 0 !important;
+    font-size: 0.82rem !important;
+    color: rgba(245, 240, 232, 0.5) !important;
+    font-style: italic;
+    line-height: 1.55 !important;
+    max-width: none !important;
+  }
+  .table-wrap { overflow-x: auto; }
+  .fee-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .fee-table thead { background: rgba(245, 240, 232, 0.08); color: var(--cream); }
+  .fee-table th {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.8rem 0.9rem;
+    text-align: left;
+    font-weight: 400;
+  }
+  .fee-table th.r, .fee-table td.r { text-align: right; }
+  .fee-table td {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+    padding: 0.8rem 0.9rem;
+    border-bottom: 1px solid rgba(245, 240, 232, 0.1);
+    color: rgba(245, 240, 232, 0.85);
+    white-space: nowrap;
+  }
+  .fee-table tr:last-child td { border-bottom: none; }
+  .calc-static.screen-hidden { display: none; }
+
+  /* ===================== 09 FAQ ===================== */
+  .faq { border-top: 1px solid var(--light-warm); }
+  .qa-list { max-width: 820px; margin-top: 2rem; }
+  .qa { padding: 1.75rem 0; border-top: 1px solid var(--light-warm); }
+  .qa:first-child { border-top: none; }
+  .qa h3 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--dark);
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+  .qa p { margin-bottom: 0 !important; font-size: 1rem !important; }
+
+  /* ===================== 10 WHO + NEXT ===================== */
+  .next { border-top: 1px solid var(--light-warm); }
+  .who-row {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.5rem;
+    margin: 2rem 0 1rem;
+    align-items: start;
+  }
+  .who-card {
+    padding: 2rem 2.25rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-radius: 3px;
+  }
+  .who-card p {
+    font-size: 1rem !important;
+    color: var(--text) !important;
+    margin-bottom: 0 !important;
+    max-width: none !important;
+  }
+  .quote {
+    margin: 0;
+    padding: 2rem 2rem 1.75rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-radius: 3px;
+  }
+  .quote blockquote {
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    color: var(--text);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+  .quote figcaption {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+  }
+
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .step {
+    padding: 2rem 1.75rem;
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-radius: 3px;
+  }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.85;
+  }
+  .step-body h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--dark);
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+  }
+  .step-body p { margin-bottom: 0; font-size: 0.95rem !important; }
+
+  .next-contact {
+    display: flex;
+    gap: 4rem;
+    margin: 3rem 0 1rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--light-warm);
+    border-bottom: 1px solid var(--light-warm);
+  }
+  .contact-method { display: flex; flex-direction: column; gap: 0.5rem; }
+  .contact-method .label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm);
+  }
+  .contact-method a {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--dark);
+    text-decoration: none;
+    border-bottom: none !important;
+  }
+  .contact-method a:hover { color: var(--accent); }
+  .next-sign {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-top: 1.5rem !important;
+  }
+
+  /* ===================== FOOTER ===================== */
+  .doc-footer {
+    padding: 2.5rem 3rem 3rem;
+    text-align: center;
+    border-top: 1px solid var(--light-warm);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .doc-footer p {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+    margin-bottom: 0.75rem;
+  }
+  .doc-footer .footer-disclaimer {
+    font-family: var(--body);
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.55;
+    max-width: 860px;
+    margin: 1rem auto 0;
+    font-style: italic;
+  }
+
+  /* ===================== ANIMATION ===================== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .doc-label { animation: fadeUp 0.8s ease both; animation-delay: 0.1s; }
+    .cover h1 { animation: fadeUp 0.8s ease both; animation-delay: 0.25s; }
+    .cover-text { animation: fadeUp 0.8s ease both; animation-delay: 0.4s; }
+    .cover-signature, .cover-sub { animation: fadeUp 0.8s ease both; animation-delay: 0.55s; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .doc-label, .cover h1, .cover-text, .cover-signature, .cover-sub { animation: none; }
+  }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 1080px) {
+    .pulse-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .doc-nav { padding: 1rem 1.5rem; }
+    .doc-nav .nav-meta { display: none; }
+
+    .cover {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      min-height: auto;
+      padding: 7rem 1.5rem 3rem !important;
+    }
+    main.doc section { padding: 4rem 1.5rem; }
+    .toc { padding: 0 1.5rem 3rem !important; }
+    .toc-list { columns: 1; }
+
+    .pulse-grid { grid-template-columns: repeat(2, 1fr); }
+    .versus { padding: 1.25rem 1.25rem 1rem; }
+    .included-list { columns: 2; }
+    .curve { padding: 1.25rem 1rem 1rem; }
+    .curve-head { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .tier-row { grid-template-columns: 1fr; gap: 1rem; }
+    .media-grid { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr 1fr; }
+    .report-row { grid-template-columns: 1fr; gap: 0.2rem; }
+    .who-row { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .fee-row { grid-template-columns: 1fr; gap: 0.75rem; }
+    .fee-amount { font-size: 1.6rem; }
+    .calc { padding: 1.75rem; }
+    .next-contact { flex-direction: column; gap: 1.5rem; }
+  }
+  @media (max-width: 560px) {
+    .cover h1 { font-size: 2.4rem; }
+    .pulse-grid { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr; }
+    .versus-cols { display: none; }
+    .versus-row { grid-template-columns: 1fr; gap: 0.3rem; }
+    .versus-row span:first-child { font-size: 0.85rem; }
+    .versus-row span:first-child::before { content: 'THE DEFAULT · '; font-family: var(--mono); font-size: 0.55rem; font-style: normal; color: var(--warm); letter-spacing: 0.08em; }
+    .versus-row span:last-child::before { content: 'THIS PLAN · '; font-family: var(--mono); font-size: 0.55rem; color: var(--accent); letter-spacing: 0.08em; }
+    .included-list { columns: 1; }
+  }
+
+  /* ===================== PRINT ===================== */
+  @media print {
+    .progress, .doc-nav, .web-only { display: none !important; }
+
+    main.doc section { padding: 0 0 1.2rem; max-width: none; }
+    main.doc section h2 { font-size: 19pt; margin-bottom: 0.8rem; break-after: avoid; }
+    main.doc section p {
+      font-size: 10.5pt;
+      line-height: 1.6;
+      max-width: none;
+      orphans: 3;
+      widows: 3;
+    }
+    main.doc section a { color: inherit; border-bottom: none; }
+    .section-label { margin-bottom: 0.9rem; break-after: avoid; }
+    .sub-heading { break-after: avoid; }
+
+    /* Cover page */
+    .cover {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1.4rem;
+      min-height: auto;
+      padding: 0.4in 0 0 !important;
+      break-after: page;
+    }
+    .cover h1 { font-size: 32pt; margin-bottom: 0.9rem; }
+    .cover-text { font-size: 10.5pt; max-width: 5.8in; margin-bottom: 0.6rem; }
+    .cover-signature { margin-top: 0.6rem; }
+    .doc-card {
+      box-shadow: none;
+      border: 1px solid var(--light-warm);
+      width: 4.6in;
+      padding: 1rem 1.2rem 0.8rem;
+    }
+    .doc-card-label { padding-bottom: 0.5rem; margin-bottom: 0.2rem; }
+    .chip-row { padding: 0.4rem 0; }
+    .chip-v { font-size: 13pt; }
+    .doc-card-foot { margin-top: 0.6rem; font-size: 7.5pt; }
+    .versus {
+      width: 99.6%;
+      margin-top: 0.8rem;
+      padding: 0.9rem 1.1rem 0.6rem;
+      break-inside: avoid;
+    }
+    .versus-title { font-size: 11.5pt; }
+    .versus-row { padding: 0.4rem 0; font-size: 9pt; gap: 1.2rem; }
+    .versus-cols { gap: 1.2rem; padding-bottom: 0.3rem; }
+    .toc { display: none; }
+
+    /* Restore multi-column layouts that the narrow-viewport rules collapse */
+    .pulse-grid { grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-top: 1.2rem; }
+    .pulse-card { padding: 0.9rem 0.9rem 0.75rem; break-inside: avoid; }
+    .pulse-price { font-size: 14pt; }
+    /* The note card spans the full row on paper so the second card row
+       doesn't stretch to match its height */
+    .pulse-grid .pulse-note { grid-column: 1 / -1; }
+    .pulse-note p { font-size: 9.5pt !important; }
+    .pulse-note .pulse-note-sub { font-size: 8pt !important; }
+    .tier-row { grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.2rem 0; break-inside: avoid; }
+    .tier-card { padding: 1.1rem; }
+    .media-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-top: 0.9rem; }
+    .media-card { padding: 0.7rem 0.8rem 0.6rem; break-inside: avoid; }
+    .media-card h3 { font-size: 10pt; margin-bottom: 0.3rem; }
+    .media-card p { font-size: 8pt !important; }
+    .caption-demo { font-size: 6pt; padding: 0.35rem 0.5rem; margin-top: 0.45rem; }
+    .timeline { grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin-top: 1rem; break-inside: avoid; }
+    .phase { padding: 0.8rem 0.8rem; }
+    .phase p { font-size: 8.5pt !important; }
+    .who-row { grid-template-columns: 1.1fr 0.9fr; gap: 1rem; break-inside: avoid; }
+    .steps { grid-template-columns: repeat(3, 1fr); gap: 1rem; break-inside: avoid; }
+    .step { padding: 1.2rem; }
+    .fee-row { grid-template-columns: 1fr auto; gap: 1.5rem; padding: 0.9rem 1.2rem; }
+    .fee-amount { font-size: 1.7rem; }
+    .next-contact { flex-direction: row; gap: 3rem; margin: 1.4rem 0 0.6rem; padding: 1.2rem 0; break-inside: avoid; }
+
+    .curve { break-inside: avoid; padding: 1.2rem 1.2rem 0.9rem; margin: 1.2rem 0; }
+    .curve-foot { font-size: 6.5pt; }
+    .callout {
+      background: var(--dark) !important;
+      break-inside: avoid;
+      padding: 1.2rem 1.4rem;
+      margin: 1.2rem 0;
+    }
+    .aside-note { break-inside: avoid; }
+    .check-list { margin-top: 1rem; }
+    .check-list li { font-size: 9.5pt; padding: 0.5rem 0 0.5rem 1.6rem; break-inside: avoid; }
+    .check-list li::before { top: 0.5rem; }
+    /* hairline safety so right borders on full-width grids never clip at the page edge */
+    .pulse-grid, .tier-row, .media-grid, .timeline, .steps, .who-row, .aside-note, .case, .curve { width: 99.6%; }
+
+    .report {
+      background: var(--dark) !important;
+      break-inside: avoid;
+      padding: 1.1rem 1.3rem 0.8rem;
+      margin: 1rem 0;
+      max-width: none;
+    }
+    .report-title { font-size: 11pt; }
+    .report-head { padding-bottom: 0.6rem; }
+    .report-row { font-size: 9pt; padding: 0.4rem 0; }
+    .report-row .mono { font-size: 7.5pt; }
+    .report-foot { font-size: 7.5pt; padding-top: 0.6rem; }
+
+    .case { break-inside: avoid; max-width: none; margin-top: 1.2rem; padding: 1.3rem 1.5rem; }
+    .mono-strip { font-size: 8pt; padding: 0.7rem 0.9rem; }
+
+    .included { margin: 1rem 0 1.2rem; padding: 0.9rem 1.1rem 0.6rem; break-inside: avoid; max-width: none; }
+    .included-list li { font-size: 7pt; padding: 0.15rem 0 0.15rem 0.9rem; }
+    .fee-breakdown { margin: 1.2rem 0; break-inside: avoid; }
+    .fee-row { padding: 0.8rem 1.2rem; }
+    .calc {
+      background: var(--dark) !important;
+      padding: 1.4rem 1.5rem;
+      margin-top: 1.2rem;
+      break-inside: avoid;
+      max-width: none;
+    }
+    .calc-live { display: none !important; }
+    .calc-static { display: block !important; }
+    .calc-note { font-size: 8pt !important; }
+    .fee-table { font-size: 8.5pt; }
+
+    .qa-list { max-width: none; margin-top: 0.75rem; }
+    .qa { padding: 0.8rem 0; break-inside: avoid; }
+    .qa h3 { font-size: 12pt; margin-bottom: 0.5rem; }
+    .qa p { font-size: 9.5pt !important; }
+
+    .quote { padding: 1.1rem 1.2rem 1rem; }
+    .quote blockquote { font-size: 9pt; }
+    .who-card { padding: 1.2rem 1.4rem; }
+    .who-card p { font-size: 9.5pt !important; }
+
+    /* Page map: one chapter per page; launch+loop share */
+    .market, .pricing, .prep, .media, .launch, .offers, .fee, .faq, .next { break-before: page; }
+    .market, .pricing, .prep, .media, .launch, .loop, .offers, .fee, .faq, .next { border-top: none; }
+
+    .doc-footer { padding: 1rem 0 0; border-top: 1px solid var(--light-warm); }
+    .doc-footer .footer-disclaimer { font-size: 7.5pt; }
+  }
+</style>
+</BaseLayout>
