@@ -209,7 +209,7 @@ const CASE_STEPS = ["$464,990", "$459,990", "$449,990", "$439,990", "$434,990"];
     <div class="section-label">02 · Pricing: the evidence</div>
     <h2>The first two weeks decide your price.</h2>
     <p class="section-intro">
-      I pulled every single family resale that closed in these seven cities over the last 24 months, {fmtN(N24)} sales, and grouped them by how long they took to find a buyer. Then I asked one question: how often did the seller get asking price or better?
+      I pulled every single family resale that closed in these seven cities over the last 24 months, all {fmtN(N24)} of them, and grouped them by how long each one took to find a buyer. Then I asked one question: how often did the seller get asking price or better?
     </p>
 
     <figure class="curve" data-rv>
@@ -242,7 +242,7 @@ const CASE_STEPS = ["$464,990", "$459,990", "$449,990", "$439,990", "$434,990"];
         <text x={PLOT_LEFT} y={CH - 4} class="axis-note">Days on market before finding a buyer</text>
       </svg>
       <div class="curve-foot">
-        <span id="curve-n">Showing all {fmtN(N24)} sales.</span><span class="web-only"> Hover any bar for the median sale-to-list figure.</span>
+        <span id="curve-n">Showing all {fmtN(N24)} south metro sales.</span><span class="web-only"> Hover any bar for the median sale-to-list figure.</span>
       </div>
     </figure>
 
@@ -691,7 +691,7 @@ const CASE_STEPS = ["$464,990", "$459,990", "$449,990", "$439,990", "$434,990"];
         if (val) { val.setAttribute('y', yOf(b.pct) - 10); val.textContent = b.pct + '%'; }
         if (n) n.textContent = fmtN(b.n) + ' sales';
       });
-      if (curveN) curveN.textContent = band === 'all' ? 'Showing all ' + fmtN(N24) + ' sales.' : 'Showing ' + fmtN(total) + ' sales in this price band.';
+      if (curveN) curveN.textContent = band === 'all' ? 'Showing all ' + fmtN(N24) + ' south metro sales.' : 'Showing ' + fmtN(total) + ' south metro sales in this price band.';
     });
   });
 
