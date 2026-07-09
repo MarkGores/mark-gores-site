@@ -5,16 +5,19 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  /** Path to a page-specific share image (e.g. "/images/listings/8204/og.jpg"). */
+  ogImagePath?: string;
 }
 
 const {
   title = "Mark Gores | Realtor in Prior Lake, Minnesota",
   description = "Mark Gores, Prior Lake realtor with 22 years of experience and a 5.0 Zillow rating. Honest real estate advice in Prior Lake, Savage, Shakopee, and the south metro. No pitch, no pressure.",
-  noindex = false
+  noindex = false,
+  ogImagePath = "/og-image.jpg"
 } = Astro.props;
 
 const siteUrl = "https://markgores.com";
-const ogImage = `${siteUrl}/og-image.jpg`;
+const ogImage = `${siteUrl}${ogImagePath}`;
 const canonical = new URL(Astro.url.pathname, siteUrl).href;
 ---
 

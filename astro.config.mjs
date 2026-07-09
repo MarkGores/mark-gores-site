@@ -10,7 +10,8 @@ export default defineConfig({
       // public sitemap. Add new PUBLIC pages here explicitly.
       filter: (page) =>
         page === 'https://markgores.com/' ||
-        page === 'https://markgores.com/how-i-sell/'
+        page === 'https://markgores.com/how-i-sell/' ||
+        page === 'https://markgores.com/listings/8204-horizon-drive/'
     })
   ],
   build: {

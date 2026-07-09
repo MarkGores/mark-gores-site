@@ -1,0 +1,971 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "8204 Horizon Drive, Shakopee | $649,900 | Mark Gores, RE/MAX Advantage Plus";
+const description = "Updated 4 bedroom home on 1.2 private acres in Shakopee. Heated in-ground pool, sunroom, walkout lower level with wet bar, and a 24 x 26 heated outbuilding. Listed by Mark Gores, RE/MAX Advantage Plus.";
+
+const IMG = '/images/listings/8204';
+const pad = (n: number) => String(n).padStart(2, '0');
+
+// Photo captions, written for the MLS. Order matches the MLS photo order.
+const captions: string[] = [
+  "Welcome to 8204 Horizon Dr!",
+  "Escape to your own backyard retreat, where a sparkling pool, expansive outdoor living space, and a private tree-lined setting create the perfect place to entertain or unwind",
+  "Beautiful setting on 1.2 acres",
+  "Experience the best of both worlds with a private, tree-lined setting just minutes from shopping, restaurants, and everyday conveniences",
+  "Beautiful curb appeal",
+  "Wonderful landscaping complements the home",
+  "Inviting first impression as you walk up the front sidewalk",
+  "Covered entry leads you into the home",
+  "The open foyer provides a welcoming entry with a dedicated space for coats, shoes, and everyday storage",
+  "The foyer provides convenient access to both the front entry and attached garage and features a spacious coat closet for added storage",
+  "The main level offers a comfortable living room that flows into the dining area and kitchen, creating an inviting space",
+  "Beautiful light wood floors, updated fixtures, and modern hardware add warmth and style",
+  "Living room offers plenty of natural light",
+  "Enjoy the beautiful style and pride of ownership throughout this well-cared-for home",
+  "The bright dining area is framed by windows and illuminated by an updated light fixture, creating an inviting setting for meals and gatherings",
+  "Dining room",
+  "The kitchen is conveniently located off the dining room and offers a well-appointed space with modern updates and great functionality",
+  "The beautiful kitchen features stainless appliances, island seating, double oven and access to the sunroom",
+  "Kitchen includes a gas range and wall oven",
+  "Kitchen",
+  "Kitchen",
+  "Kitchen",
+  "A perfect place to lounge and take in the backyard views",
+  "Spacious family room leads right out to the deck",
+  "The deck offers a great place to grill and relax while overlooking the pool and backyard",
+  "Perfect spot to tuck your grill",
+  "Deck view",
+  "Family room is centered around a grand stone fireplace",
+  "Family room",
+  "Additional built-in storage off the kitchen",
+  "Updated powder room",
+  "Built-ins for storage off the garage entry",
+  "Main level laundry room with impeccable style",
+  "Upper level offers 2 bedrooms, including one with a private balcony - both could be a great option for the primary bedroom",
+  "A perfect spot to relax in peace and take in the view",
+  "Bedroom balcony views",
+  "Upper level bedroom 2 could also be used as a primary bedroom and offers an ensuite bath, walk-in closet and private balcony",
+  "Ensuite bathroom",
+  "Upper level bedroom offers an ensuite bath and walk-in closet with a window and could be used as the primary bedroom",
+  "Upper level bedroom with ensuite bath",
+  "Ensuite bath",
+  "Ensuite bath",
+  "Walk-in closet with windows offers great natural light",
+  "Descend downstairs to the lower level that includes 2 additional bedrooms, a 3/4 bath and spacious family room with bar",
+  "Lower level bedroom 3",
+  "Bedroom 3",
+  "Lower level bedroom 4",
+  "Bedroom 4",
+  "Down the hall from the bedrooms opens to the large recreation room",
+  "Perfect for entertaining, this space offers easy indoor-outdoor living with direct access to the pool and patio area",
+  "Gorgeous updated look and LVP floors",
+  "Lower level rec room",
+  "Host with ease at the full bar, a great spot for entertaining and socializing",
+  "Bar includes a refrigerator, sink and plenty of cabinet space",
+  "Updated 3/4 bathroom is perfect for rinsing off after the pool",
+  "Large walk-in tile shower",
+  "Rec room with direct access to the backyard",
+  "Covered patio offers shade",
+  "Backyard lounging by the pool",
+  "Relax by the refreshing in-ground pool on those hot summer days",
+  "A private backyard setting",
+  "A large yard includes a fenced-in pool area along with additional open space outside the fence, offering plenty of room for outdoor enjoyment",
+  "Enjoy added storage and functionality with a large backyard detached garage/storage shed, ideal for lawn equipment, tools, and seasonal items",
+  "Backyard",
+  "Heated outbuilding",
+  "Side yard",
+  "Back yard",
+  "Private backyard",
+  "Aerial view of the pool area",
+  "Aerial view of the lot - surrounded by trees",
+  "Aerial view of the lot",
+  "A private setting offers peace and seclusion while remaining conveniently close to shopping, dining, and amenities in Shakopee, Prior Lake, and Savage",
+  "Aerial view of the neighborhood",
+  "Aerial view of the neighborhood",
+];
+
+const photos = captions.map((caption, i) => ({
+  n: i + 1,
+  caption,
+  thumb: `${IMG}/thumb/${pad(i + 1)}.jpg`,
+  full: `${IMG}/full/${pad(i + 1)}.jpg`,
+}));
+
+// Curated highlight wall (photo numbers), ordered to tell the story.
+const highlightNums = [2, 18, 11, 28, 15, 33, 37, 36, 53, 56, 65, 70];
+const highlights = highlightNums.map((n) => photos[n - 1]);
+
+const galleryJson = JSON.stringify(photos.map((p) => ({ full: p.full, caption: p.caption })));
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SingleFamilyResidence",
+  "name": "8204 Horizon Drive, Shakopee, MN 55379",
+  "url": "https://markgores.com/listings/8204-horizon-drive/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "8204 Horizon Drive",
+    "addressLocality": "Shakopee",
+    "addressRegion": "MN",
+    "postalCode": "55379",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 44.7591057, "longitude": -93.4150293 },
+  "numberOfBedrooms": 4,
+  "numberOfBathroomsTotal": 4,
+  "floorSize": { "@type": "QuantitativeValue", "value": 3268, "unitCode": "FTK" },
+  "yearBuilt": 1979,
+  "image": [
+    "https://markgores.com/images/listings/8204/full/01.jpg",
+    "https://markgores.com/images/listings/8204/full/02.jpg",
+    "https://markgores.com/images/listings/8204/full/18.jpg"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": 649900,
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "offeredBy": {
+      "@type": "RealEstateAgent",
+      "name": "Mark Gores",
+      "telephone": "+1-612-201-5447",
+      "worksFor": { "@type": "RealEstateAgent", "name": "RE/MAX Advantage Plus" }
+    }
+  }
+});
+---
+
+<BaseLayout title={title} description={description} ogImagePath="/images/listings/8204/og.jpg">
+
+<script type="application/ld+json" set:html={schema} />
+
+<nav aria-label="Primary" class="listing-nav">
+  <a href="/" class="name">Mark Gores</a>
+  <div class="nav-right">
+    <span class="nav-brokerage">RE/MAX Advantage Plus</span>
+    <a class="nav-phone" href="tel:+16122015447">612-201-5447</a>
+  </div>
+</nav>
+
+<main class="listing">
+
+  <!-- HERO -->
+  <header class="l-hero">
+    <div class="l-hero-content">
+      <div class="hero-label">For Sale &middot; Shakopee, Minnesota</div>
+      <h1>8204 Horizon Drive</h1>
+      <div class="l-price">$649,900</div>
+      <p class="l-hero-sub">
+        An updated 4 bedroom on 1.2 private, wooded acres, with a heated pool out back and a 24 x 26 heated shop beside it. Close to everything, and it doesn't feel like it.
+      </p>
+      <div class="l-hero-stats">
+        <div class="stat"><span class="stat-number">4</span><span class="stat-label">Bedrooms</span></div>
+        <div class="stat"><span class="stat-number">4</span><span class="stat-label">Bathrooms</span></div>
+        <div class="stat"><span class="stat-number">3,268</span><span class="stat-label">Finished Sq Ft</span></div>
+        <div class="stat"><span class="stat-number">1.2</span><span class="stat-label">Acres</span></div>
+      </div>
+      <div class="l-hero-ctas">
+        <a href="#contact" class="cta-primary">Schedule a showing</a>
+        <a href="#photos" class="cta-secondary">See all 74 photos &rarr;</a>
+      </div>
+    </div>
+    <div class="l-hero-image">
+      <img
+        src={`${IMG}/hero.jpg`}
+        srcset={`${IMG}/thumb/01.jpg 800w, ${IMG}/full/01.jpg 1600w, ${IMG}/hero.jpg 1920w`}
+        sizes="(max-width: 768px) 100vw, 540px"
+        alt="8204 Horizon Drive at dusk, updated two story with stone accents and landscaped front yard"
+        fetchpriority="high"
+      />
+      <div class="photo-caption">Horizon Heights &middot; MLS #7087883</div>
+    </div>
+  </header>
+
+  <!-- STORY -->
+  <section class="l-story">
+    <div class="section-label">The Home</div>
+    <h2>Acreage close to town, in a setting that feels worlds away.</h2>
+    <div class="l-story-cols">
+      <p>
+        This beautifully updated 4 bedroom home sits on 1.2 acres and offers a backyard pool oasis, a large outbuilding, and true indoor-outdoor living. Inside you'll find an updated kitchen with knotty alder cabinetry, granite countertops, stainless steel appliances, a gas range, and double ovens. The main level offers multiple living spaces: a cozy living room, formal dining room, and a family room centered on a grand stone fireplace.
+      </p>
+      <p>
+        A spacious sunroom overlooks the pool and park-like backyard, bringing in natural light and views year-round. The welcoming foyer and mudroom include built-ins for organized storage, and main-level laundry adds everyday convenience.
+      </p>
+      <p>
+        Upstairs are two bedrooms, each with its own ensuite bath and walk-in closet, and both offer primary-suite potential. One even has a private balcony. The walkout lower level adds two more bedrooms, a 3/4 bath with a walk-in tile shower (ideal for rinsing off after the pool), and a kitchenette wet bar built for entertaining.
+      </p>
+      <p>
+        Outside, the landscaped yard holds multiple living spaces: a deck, a covered patio, and the fenced, heated pool. The standout is the 24 x 26 heated outbuilding, ideal for a workshop, lawn equipment, or hobby space, plus a lean-to for even more storage. All of it tucked into a serene, wooded setting with easy access to the shopping, dining, and parks of Shakopee, Prior Lake, and Savage.
+      </p>
+    </div>
+  </section>
+
+  <!-- STANDOUTS -->
+  <section class="l-standouts">
+    <div class="section-label">What Stands Out</div>
+    <div class="standout-grid">
+      <div class="standout">
+        <h3>The pool</h3>
+        <p>Heated, in-ground, and fenced, with a new pump and filter in 2026. Deck above, covered patio beside, lounging space all around.</p>
+      </div>
+      <div class="standout">
+        <h3>The kitchen</h3>
+        <p>Knotty alder cabinets, granite counters, stainless appliances, gas range, double ovens, and island seating. Opens to the sunroom.</p>
+      </div>
+      <div class="standout">
+        <h3>Two upper suites</h3>
+        <p>Both upstairs bedrooms have their own ensuite bath and walk-in closet. One adds a private balcony over the backyard.</p>
+      </div>
+      <div class="standout">
+        <h3>The walkout lower level</h3>
+        <p>Rec room with a full wet bar, two more bedrooms, and a walk-in tile shower steps from the pool door.</p>
+      </div>
+      <div class="standout">
+        <h3>The shop</h3>
+        <p>A 24 x 26 heated outbuilding with a lean-to. Workshop, toys, lawn equipment, hobby space. You'll fill it.</p>
+      </div>
+      <div class="standout">
+        <h3>1.2 acres, minutes from town</h3>
+        <p>Tree-lined and private, with open lawn beyond the pool fence. Shakopee, Prior Lake, and Savage amenities are all close.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS -->
+  <section class="l-specs">
+    <div class="section-label">The Details</div>
+    <div class="specs-grid">
+      <div class="spec"><div class="spec-v">$649,900</div><div class="spec-l">List Price</div></div>
+      <div class="spec"><div class="spec-v">4 / 4</div><div class="spec-l">Bed / Bath</div></div>
+      <div class="spec"><div class="spec-v">3,268</div><div class="spec-l">Finished Sq Ft</div></div>
+      <div class="spec"><div class="spec-v">2,167 / 1,101</div><div class="spec-l">Above / Below Grade</div></div>
+      <div class="spec"><div class="spec-v">1.2 ac</div><div class="spec-l">Lot Size</div></div>
+      <div class="spec"><div class="spec-v">2-car + shop</div><div class="spec-l">Garage + Outbuilding</div></div>
+      <div class="spec"><div class="spec-v">1979</div><div class="spec-l">Built, Updated Throughout</div></div>
+      <div class="spec"><div class="spec-v">Shakopee</div><div class="spec-l">School District</div></div>
+    </div>
+    <p class="specs-fine">
+      MLS #7087883 &middot; Horizon Heights &middot; Taxes $6,726 (2026) &middot; Heated in-ground pool &middot; Boiler heat with central air &middot; Private well and septic &middot;
+      <a href="https://maps.google.com/?q=8204+Horizon+Drive+Shakopee+MN+55379" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
+    </p>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="l-gallery" id="photos">
+    <div class="section-label">The Photos</div>
+    <h2>Have a look around.</h2>
+    <div class="gallery-grid">
+      {highlights.map((p, i) => (
+        <button class="g-item" data-idx={p.n - 1} aria-label={`Open photo ${p.n}: ${p.caption}`}>
+          <img src={p.thumb} alt={p.caption} loading={i < 2 ? 'eager' : 'lazy'} width="800" height="533" />
+          <span class="g-cap">{p.caption}</span>
+        </button>
+      ))}
+    </div>
+    <div class="gallery-all">
+      <button class="cta-primary" id="open-gallery">View all 74 photos</button>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="l-contact" id="contact">
+    <div class="section-label" style="justify-content: center;">See It In Person</div>
+    <h2>Want a look at this one?</h2>
+    <p class="l-contact-sub">
+      Call or text me at <a href="tel:+16122015447">612-201-5447</a> and we'll set up a time.
+      Or send a note here and I'll get back to you within a day.
+    </p>
+
+    <form class="contact-form" id="contact-form" method="post">
+      <div class="form-row">
+        <label class="form-field">
+          <span>Your name <span class="required">*</span></span>
+          <input name="name" type="text" required autocomplete="name" />
+        </label>
+        <label class="form-field">
+          <span>Email <span class="required">*</span></span>
+          <input name="email" type="email" required autocomplete="email" />
+        </label>
+      </div>
+      <label class="form-field">
+        <span>Phone (optional)</span>
+        <input name="phone" type="tel" autocomplete="tel" />
+      </label>
+      <label class="form-field">
+        <span>Message <span class="required">*</span></span>
+        <textarea name="message" required rows="4">I'd like to set up a showing of 8204 Horizon Drive.</textarea>
+      </label>
+
+      <div class="honeypot" aria-hidden="true">
+        <label>
+          Company
+          <input name="company" type="text" tabindex="-1" autocomplete="off" />
+        </label>
+      </div>
+
+      <div class="form-error" id="contact-error" hidden></div>
+
+      <button type="submit" class="form-submit" id="contact-submit">
+        <span class="submit-label">Send</span>
+        <span class="submit-loading" hidden>Sending&hellip;</span>
+      </button>
+    </form>
+
+    <div class="contact-success" id="contact-success" hidden>
+      <div class="section-label">Got it</div>
+      <h3>Thanks. I'll be in touch within a day.</h3>
+      <p>If it's urgent, call or text me at <a href="tel:+16122015447">612-201-5447</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <button class="lb-close" id="lb-close" aria-label="Close photo viewer">&times;</button>
+  <button class="lb-prev" id="lb-prev" aria-label="Previous photo">&larr;</button>
+  <figure class="lb-figure">
+    <img id="lb-img" src="" alt="" />
+    <figcaption>
+      <span class="lb-count" id="lb-count"></span>
+      <span class="lb-caption" id="lb-caption"></span>
+    </figcaption>
+  </figure>
+  <button class="lb-next" id="lb-next" aria-label="Next photo">&rarr;</button>
+</div>
+
+<!-- Mobile sticky CTA -->
+<div class="sticky-cta" aria-hidden="false">
+  <a href="tel:+16122015447" class="sticky-call">Call or Text Mark</a>
+  <a href="#contact" class="sticky-tour">Schedule a Showing</a>
+</div>
+
+<footer class="listing-footer">
+  <p>Listed by Mark Gores &middot; RE/MAX Advantage Plus &middot; <a href="tel:+16122015447">612-201-5447</a> &middot; <a href="mailto:mark@markgores.com">mark@markgores.com</a></p>
+  <p class="fine">Information deemed reliable but not guaranteed. Buyer to verify all measurements and details.</p>
+  <p>&copy; 2026 Mark Gores &middot; RE/MAX Advantage Plus</p>
+</footer>
+
+<script type="application/json" id="gallery-data" set:html={galleryJson} />
+
+<script>
+  /* ---------- Lightbox ---------- */
+  const data = JSON.parse(document.getElementById('gallery-data')!.textContent!) as { full: string; caption: string }[];
+  const lb = document.getElementById('lightbox') as HTMLDivElement;
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+  const lbCaption = document.getElementById('lb-caption') as HTMLSpanElement;
+  const lbCount = document.getElementById('lb-count') as HTMLSpanElement;
+  const closeBtn = document.getElementById('lb-close') as HTMLButtonElement;
+  const prevBtn = document.getElementById('lb-prev') as HTMLButtonElement;
+  const nextBtn = document.getElementById('lb-next') as HTMLButtonElement;
+
+  let idx = 0;
+  let lastFocus: HTMLElement | null = null;
+
+  function preload(i: number) {
+    const n = ((i % data.length) + data.length) % data.length;
+    const img = new Image();
+    img.src = data[n].full;
+  }
+
+  function show(i: number) {
+    idx = ((i % data.length) + data.length) % data.length;
+    lbImg.src = data[idx].full;
+    lbImg.alt = data[idx].caption;
+    lbCaption.textContent = data[idx].caption;
+    lbCount.textContent = (idx + 1) + ' / ' + data.length;
+    preload(idx + 1);
+    preload(idx - 1);
+  }
+
+  function openLb(i: number) {
+    lastFocus = document.activeElement as HTMLElement;
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    show(i);
+    closeBtn.focus();
+  }
+
+  function closeLb() {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.g-item').forEach((el) => {
+    el.addEventListener('click', () => openLb(Number(el.dataset.idx ?? 0)));
+  });
+  document.getElementById('open-gallery')?.addEventListener('click', () => openLb(0));
+  closeBtn.addEventListener('click', closeLb);
+  prevBtn.addEventListener('click', () => show(idx - 1));
+  nextBtn.addEventListener('click', () => show(idx + 1));
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb) closeLb();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+    if (e.key === 'Tab') {
+      // Keep keyboard focus inside the dialog (close -> prev -> next -> close).
+      const order = [closeBtn, prevBtn, nextBtn];
+      const at = order.indexOf(document.activeElement as HTMLButtonElement);
+      e.preventDefault();
+      const next = e.shiftKey
+        ? (at <= 0 ? order.length - 1 : at - 1)
+        : (at === -1 || at === order.length - 1 ? 0 : at + 1);
+      order[next].focus();
+    }
+  });
+
+  // Basic swipe
+  let touchX = 0;
+  lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) show(dx > 0 ? idx - 1 : idx + 1);
+  }, { passive: true });
+
+  /* ---------- Contact form ---------- */
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const errorEl = document.getElementById('contact-error') as HTMLDivElement | null;
+  const successEl = document.getElementById('contact-success') as HTMLDivElement | null;
+  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+
+  if (form && errorEl && successEl && submitBtn) {
+    const submitLabel = submitBtn.querySelector('.submit-label') as HTMLElement;
+    const submitLoading = submitBtn.querySelector('.submit-loading') as HTMLElement;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (submitBtn.disabled) return;
+
+      submitBtn.disabled = true;
+      submitLabel.hidden = true;
+      submitLoading.hidden = false;
+      errorEl.hidden = true;
+      errorEl.textContent = '';
+
+      const data = new FormData(form);
+      const rawMessage = String(data.get('message') ?? '').trim();
+      const payload = {
+        name: String(data.get('name') ?? '').trim(),
+        email: String(data.get('email') ?? '').trim(),
+        phone: String(data.get('phone') ?? '').trim(),
+        message: rawMessage.includes('8204 Horizon') ? rawMessage : '[8204 Horizon Drive] ' + rawMessage,
+        company: String(data.get('company') ?? ''),
+      };
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.error || 'Something went wrong.');
+        }
+        form.hidden = true;
+        successEl.hidden = false;
+        form.reset();
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        errorEl.textContent = err instanceof Error ? err.message : 'Something went wrong.';
+        errorEl.hidden = false;
+      } finally {
+        submitBtn.disabled = false;
+        submitLabel.hidden = false;
+        submitLoading.hidden = true;
+      }
+    });
+  }
+</script>
+
+<style>
+  /* ---------- Nav ---------- */
+  .listing-nav .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .nav-brokerage {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm);
+  }
+  .nav-phone {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .nav-phone:hover { color: var(--dark); }
+
+  /* ---------- Hero ---------- */
+  .l-hero {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 9rem 3rem 5rem;
+  }
+  .l-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: var(--dark);
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+  .l-price {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .l-hero-sub {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-light);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .l-hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--light-warm);
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .l-hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .cta-primary {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    background: var(--dark);
+    color: var(--cream);
+    text-decoration: none;
+    border: 0;
+    padding: 0.95rem 2rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .cta-primary:hover { opacity: 0.85; }
+  .cta-secondary {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(74, 123, 200, 0.35);
+    padding-bottom: 3px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .cta-secondary:hover { border-color: var(--accent); color: var(--dark); }
+
+  .l-hero-image {
+    min-width: 0;
+  }
+  .l-hero-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3.4;
+    object-fit: cover;
+    border-radius: 200px 200px 0 0;
+  }
+  .photo-caption {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm);
+    text-align: center;
+    margin-top: 0.9rem;
+  }
+
+  /* ---------- Story ---------- */
+  .l-story {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+  }
+  .l-story h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+    color: var(--dark);
+    font-weight: 400;
+    line-height: 1.25;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+  }
+  .l-story-cols {
+    columns: 2;
+    column-gap: 3.5rem;
+    max-width: 1000px;
+  }
+  .l-story-cols p {
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    break-inside: avoid;
+  }
+
+  /* ---------- Standouts ---------- */
+  .l-standouts {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 3rem 4rem;
+  }
+  .standout-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .standout {
+    background: white;
+    padding: 2rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--sage);
+    box-shadow: 0 1px 2px rgba(26, 26, 24, 0.04), 0 6px 24px -16px rgba(26, 26, 24, 0.12);
+  }
+  .standout h3 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+  .standout p {
+    font-size: 0.93rem;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* ---------- Specs ---------- */
+  .l-specs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 3rem 4rem;
+  }
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--light-warm);
+    border: 1px solid var(--light-warm);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+  }
+  .spec {
+    background: var(--cream);
+    padding: 1.75rem 1.5rem;
+  }
+  .spec-v {
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    color: var(--dark);
+    line-height: 1.15;
+  }
+  .spec-l {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+    margin-top: 0.5rem;
+  }
+  .specs-fine {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--text-light);
+    margin-top: 1.25rem;
+    line-height: 2;
+  }
+  .specs-fine a { color: var(--accent); text-decoration: none; }
+  .specs-fine a:hover { color: var(--dark); }
+
+  /* ---------- Gallery ---------- */
+  .l-gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 3rem 5rem;
+  }
+  .l-gallery h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    color: var(--dark);
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 190px;
+    gap: 0.75rem;
+  }
+  .g-item {
+    position: relative;
+    border: 0;
+    padding: 0;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--light-warm);
+  }
+  .g-item:nth-child(1),
+  .g-item:nth-child(8) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .g-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 300ms ease;
+  }
+  .g-item:hover img { transform: scale(1.03); }
+  .g-cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 1.5rem 0.9rem 0.7rem;
+    background: linear-gradient(transparent, rgba(26, 26, 24, 0.72));
+    color: var(--cream);
+    font-family: var(--body);
+    font-size: 0.78rem;
+    font-weight: 300;
+    text-align: left;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 250ms ease;
+  }
+  .g-item:hover .g-cap,
+  .g-item:focus-visible .g-cap { opacity: 1; }
+  .gallery-all {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  /* ---------- Contact ---------- */
+  .l-contact {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 3rem 6rem;
+    text-align: center;
+  }
+  .l-contact h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+    color: var(--dark);
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .l-contact-sub {
+    color: var(--text-light);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+  .l-contact-sub a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(74, 123, 200, 0.4);
+  }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    background: rgba(26, 26, 24, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox[hidden] { display: none; }
+  .lb-figure {
+    max-width: min(1200px, 88vw);
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    margin: 0;
+  }
+  .lb-figure img {
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 2px;
+  }
+  .lb-figure figcaption {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    max-width: 720px;
+    padding: 0 1rem;
+  }
+  .lb-count {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+    white-space: nowrap;
+  }
+  .lb-caption {
+    font-family: var(--body);
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+  .lb-close, .lb-prev, .lb-next {
+    position: fixed;
+    background: none;
+    border: 1px solid rgba(245, 240, 232, 0.25);
+    color: var(--cream);
+    font-size: 1.3rem;
+    line-height: 1;
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, background-color 0.2s;
+    z-index: 1210;
+  }
+  .lb-close:hover, .lb-prev:hover, .lb-next:hover {
+    border-color: var(--cream);
+    background: rgba(245, 240, 232, 0.08);
+  }
+  .lb-close { top: 1.25rem; right: 1.25rem; }
+  .lb-prev { left: 1.25rem; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 1.25rem; top: 50%; transform: translateY(-50%); }
+
+  /* ---------- Sticky mobile CTA ---------- */
+  .sticky-cta { display: none; }
+
+  /* ---------- Footer ---------- */
+  .listing-footer {
+    padding: 3rem;
+    border-top: 1px solid var(--light-warm);
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .listing-footer p {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    margin-bottom: 0.6rem;
+  }
+  .listing-footer .fine {
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+  .listing-footer a { color: var(--warm); text-decoration: none; }
+  .listing-footer a:hover { color: var(--accent); }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 900px) {
+    .standout-grid { grid-template-columns: 1fr 1fr; }
+    .specs-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    .g-item:nth-child(1), .g-item:nth-child(8) { grid-column: span 2; grid-row: span 2; }
+  }
+
+  @media (max-width: 768px) {
+    .l-hero {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 6.5rem 1.5rem 3.5rem;
+    }
+    .l-hero-image { order: -1; }
+    .l-hero-image img { border-radius: 140px 140px 0 0; aspect-ratio: 4 / 3; }
+    .l-hero-stats { gap: 1.75rem; }
+    .l-story, .l-standouts, .l-specs, .l-gallery { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .l-story { padding-top: 3rem; }
+    .l-story-cols { columns: 1; }
+    .l-contact { padding: 3rem 1.5rem 8rem; }
+    .g-cap { opacity: 1; padding: 1.1rem 0.7rem 0.5rem; font-size: 0.7rem; }
+    .lb-prev, .lb-next { top: auto; bottom: 1.25rem; transform: none; }
+    .lb-figure img { max-height: 66vh; }
+
+    .sticky-cta {
+      display: flex;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 1100;
+      background: rgba(245, 240, 232, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid var(--light-warm);
+      padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom));
+      gap: 0.75rem;
+    }
+    .sticky-cta a {
+      flex: 1;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      padding: 0.85rem 0.5rem;
+      border-radius: 2px;
+    }
+    .sticky-call {
+      color: var(--dark);
+      border: 1px solid var(--dark);
+    }
+    .sticky-tour {
+      background: var(--dark);
+      color: var(--cream);
+    }
+    .listing-footer { padding: 2rem 1.5rem 3rem; }
+  }
+
+  @media (max-width: 520px) {
+    .standout-grid { grid-template-columns: 1fr; }
+    /* Phone lives in the sticky bar down here; keep the brokerage visible. */
+    .nav-phone { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .g-item img, .g-item:hover img { transition: none; transform: none; }
+  }
+</style>
+
+</BaseLayout>
