@@ -1,9 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   site: 'https://markgores.com',
+  // Pages stay prerendered (static); the adapter exists only so
+  // src/pages/api/* endpoints with prerender=false run as functions.
+  adapter: vercel(),
   integrations: [
     sitemap({
       // Allowlist: private client proposal pages must never appear in the
@@ -11,6 +15,7 @@ export default defineConfig({
       filter: (page) =>
         page === 'https://markgores.com/' ||
         page === 'https://markgores.com/how-i-sell/' ||
+        page === 'https://markgores.com/vendors/' ||
         page === 'https://markgores.com/listings/8204-horizon-drive/'
     })
   ],

@@ -1,0 +1,1786 @@
+{
+  "groups": [
+    {
+      "name": "Getting ready to sell",
+      "description": "Staging, deep cleaning, clearing out, and the polish before the sign goes up.",
+      "sections": [
+        {
+          "title": "Home Staging",
+          "sources": [
+            "Home Staging"
+          ],
+          "keywords": [
+            "stager",
+            "furniture staging",
+            "stage to sell",
+            "vacant staging",
+            "decorating to sell",
+            "showcase"
+          ]
+        },
+        {
+          "title": "Home Preparation Services",
+          "sources": [
+            "Home Preparation Services"
+          ],
+          "keywords": [
+            "get ready to sell",
+            "pre-listing",
+            "market prep",
+            "fix up",
+            "touch ups"
+          ]
+        },
+        {
+          "title": "Decluttering Service",
+          "sources": [
+            "Decluttering Service"
+          ],
+          "keywords": [
+            "organizing",
+            "organizer",
+            "clean out",
+            "downsizing",
+            "hoarding",
+            "tidy up"
+          ]
+        },
+        {
+          "title": "Home Cleaning Company",
+          "sources": [
+            "Home Cleaning Company"
+          ],
+          "keywords": [
+            "maid",
+            "house cleaning",
+            "deep clean",
+            "move out cleaning",
+            "housekeeper",
+            "cleaning service",
+            "maid service"
+          ]
+        },
+        {
+          "title": "Carpet/Area Rug Cleaning",
+          "sources": [
+            "Carpet/Area Rug Cleaning"
+          ],
+          "keywords": [
+            "steam clean",
+            "stains",
+            "pet stains",
+            "shampoo",
+            "rug wash",
+            "odor"
+          ]
+        },
+        {
+          "title": "Window Washing",
+          "sources": [
+            "Window Washing"
+          ],
+          "keywords": [
+            "window cleaning",
+            "wash windows",
+            "glass cleaning",
+            "screens",
+            "streak free"
+          ]
+        },
+        {
+          "title": "Power Washing",
+          "sources": [
+            "Power Washing"
+          ],
+          "keywords": [
+            "pressure washing",
+            "deck cleaning",
+            "siding cleaning",
+            "driveway cleaning",
+            "house wash"
+          ]
+        },
+        {
+          "title": "Odor Removal",
+          "sources": [
+            "Odor Removal"
+          ],
+          "keywords": [
+            "smell",
+            "smoke smell",
+            "pet odor",
+            "musty",
+            "cigarette smell",
+            "deodorizing"
+          ]
+        },
+        {
+          "title": "Estate Sales",
+          "sources": [
+            "Estate Sales"
+          ],
+          "keywords": [
+            "liquidation",
+            "sell everything",
+            "auction",
+            "downsizing",
+            "tag sale",
+            "sell contents"
+          ]
+        },
+        {
+          "title": "Antiques/Consignment",
+          "sources": [
+            "Antiques/Consignment"
+          ],
+          "keywords": [
+            "sell furniture",
+            "vintage",
+            "collectibles",
+            "resale",
+            "secondhand",
+            "sell old stuff"
+          ]
+        },
+        {
+          "title": "Minneapolis TISH Inspectors",
+          "sources": [
+            "Minneapolis TISH Inspectors"
+          ],
+          "keywords": [
+            "truth in housing",
+            "truth in sale of housing",
+            "city inspection",
+            "point of sale inspection"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "When something breaks",
+      "description": "The calls you make when the furnace quits, a drain backs up, or the garage door stops moving.",
+      "sections": [
+        {
+          "title": "Handyman",
+          "sources": [
+            "Handyman"
+          ],
+          "keywords": [
+            "odd jobs",
+            "small repairs",
+            "fix it",
+            "honey do list",
+            "minor repairs",
+            "general repairs",
+            "home repairs",
+            "punch list"
+          ]
+        },
+        {
+          "title": "Plumbing",
+          "sources": [
+            "Plumbing"
+          ],
+          "keywords": [
+            "leak",
+            "faucet",
+            "toilet",
+            "garbage disposal",
+            "plumber",
+            "pipes",
+            "sink",
+            "water leak"
+          ]
+        },
+        {
+          "title": "Water Heater",
+          "sources": [
+            "Water Heater"
+          ],
+          "keywords": [
+            "no hot water",
+            "hot water",
+            "tankless",
+            "leaking tank",
+            "pilot light"
+          ]
+        },
+        {
+          "title": "Sewer and Drain Cleaning",
+          "sources": [
+            "Sewer and Drain Cleaning",
+            "Drain Cleaning"
+          ],
+          "keywords": [
+            "clog",
+            "main line",
+            "sewer backup",
+            "roto rooter",
+            "snake",
+            "camera inspection",
+            "tree roots",
+            "clogged sink",
+            "backed up",
+            "slow drain"
+          ]
+        },
+        {
+          "title": "Electrical",
+          "sources": [
+            "Electrical"
+          ],
+          "keywords": [
+            "electrician",
+            "outlet",
+            "wiring",
+            "panel",
+            "breaker",
+            "lights",
+            "ceiling fan",
+            "gfci"
+          ]
+        },
+        {
+          "title": "HVAC",
+          "sources": [
+            "HVAC"
+          ],
+          "keywords": [
+            "furnace",
+            "ac",
+            "air conditioning",
+            "air conditioner",
+            "heating",
+            "cooling",
+            "heat pump",
+            "thermostat"
+          ]
+        },
+        {
+          "title": "Boiler Replace/Repair",
+          "sources": [
+            "Boiler Replace/Repair"
+          ],
+          "keywords": [
+            "radiator",
+            "hot water heat",
+            "hydronic",
+            "no heat",
+            "radiant heat",
+            "baseboard heat"
+          ]
+        },
+        {
+          "title": "Appliance Repair and Installation",
+          "sources": [
+            "Appliance Repair",
+            "Appliance Installation"
+          ],
+          "keywords": [
+            "dishwasher",
+            "refrigerator",
+            "fridge",
+            "washer",
+            "dryer",
+            "stove",
+            "oven",
+            "microwave",
+            "dishwasher install",
+            "hook up stove",
+            "washer dryer install",
+            "microwave install",
+            "refrigerator install"
+          ]
+        },
+        {
+          "title": "Garage Door Repair",
+          "sources": [
+            "Garage Door Repair"
+          ],
+          "keywords": [
+            "opener",
+            "broken spring",
+            "door won't open",
+            "overhead door",
+            "springs",
+            "garage door opener"
+          ]
+        },
+        {
+          "title": "Window Repair",
+          "sources": [
+            "Window Repair"
+          ],
+          "keywords": [
+            "broken glass",
+            "foggy glass",
+            "seal failure",
+            "cracked pane",
+            "screen repair",
+            "sash"
+          ]
+        },
+        {
+          "title": "Glass",
+          "sources": [
+            "Glass"
+          ],
+          "keywords": [
+            "window glass",
+            "mirror",
+            "shower door",
+            "broken window",
+            "glass repair",
+            "tabletop"
+          ]
+        },
+        {
+          "title": "Locksmith",
+          "sources": [
+            "Locksmith"
+          ],
+          "keywords": [
+            "locks",
+            "keys",
+            "rekey",
+            "locked out",
+            "deadbolt",
+            "change locks"
+          ]
+        },
+        {
+          "title": "Fireplaces",
+          "sources": [
+            "Fireplace Repair",
+            "Fireplace Installation"
+          ],
+          "keywords": [
+            "gas fireplace",
+            "pilot light",
+            "won't light",
+            "gas logs",
+            "insert",
+            "hearth",
+            "wood stove",
+            "gas insert"
+          ]
+        },
+        {
+          "title": "Chimney Sweep and Inspection",
+          "sources": [
+            "Chimney Sweep",
+            "Chimney Inspector"
+          ],
+          "keywords": [
+            "flue cleaning",
+            "fireplace cleaning",
+            "creosote",
+            "soot",
+            "wood stove cleaning",
+            "flue",
+            "fireplace inspection",
+            "level 2 inspection",
+            "wood stove",
+            "chimney check"
+          ]
+        },
+        {
+          "title": "Jacuzzi and Sauna Repair",
+          "sources": [
+            "Jacuzzi Tub Repair",
+            "Sauna/Sauna Repair"
+          ],
+          "keywords": [
+            "whirlpool",
+            "jetted tub",
+            "hot tub",
+            "jets not working",
+            "spa tub",
+            "steam room",
+            "home sauna",
+            "infrared",
+            "steam bath"
+          ]
+        },
+        {
+          "title": "Pest Control",
+          "sources": [
+            "Pest Control"
+          ],
+          "keywords": [
+            "bugs",
+            "mice",
+            "ants",
+            "exterminator",
+            "rodents",
+            "wasps",
+            "spiders",
+            "insects"
+          ]
+        },
+        {
+          "title": "Bat Removal Company",
+          "sources": [
+            "Bat Removal Company"
+          ],
+          "keywords": [
+            "bats in attic",
+            "wildlife removal",
+            "animal in attic",
+            "bat exclusion",
+            "guano cleanup"
+          ]
+        },
+        {
+          "title": "Air Duct Cleaning",
+          "sources": [
+            "Air Duct Cleaning"
+          ],
+          "keywords": [
+            "vents",
+            "ductwork",
+            "dryer vent",
+            "dusty vents",
+            "furnace ducts",
+            "allergies"
+          ]
+        },
+        {
+          "title": "Winterize",
+          "sources": [
+            "Winterize"
+          ],
+          "keywords": [
+            "winterization",
+            "close up cabin",
+            "vacant home",
+            "shut off water",
+            "blow out sprinklers",
+            "freeze protection"
+          ]
+        },
+        {
+          "title": "Septic Companies",
+          "sources": [
+            "Septic Companies"
+          ],
+          "keywords": [
+            "septic pumping",
+            "septic tank",
+            "drain field",
+            "sewage",
+            "tank pumping"
+          ]
+        },
+        {
+          "title": "Well Contractor",
+          "sources": [
+            "Well Contractor"
+          ],
+          "keywords": [
+            "well drilling",
+            "well pump",
+            "new well",
+            "well repair",
+            "pressure tank"
+          ]
+        },
+        {
+          "title": "General Contractor",
+          "sources": [
+            "Multiple Repair - General Contractor"
+          ],
+          "keywords": [
+            "gc",
+            "remodel",
+            "renovations",
+            "home repairs",
+            "project manager",
+            "big projects"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Paint, floors, and finishes",
+      "description": "Cosmetic work, whether you're freshening up to list or making the place yours.",
+      "sections": [
+        {
+          "title": "Painters",
+          "sources": [
+            "Painters"
+          ],
+          "keywords": [
+            "painting",
+            "interior paint",
+            "exterior paint",
+            "wall painting",
+            "repaint",
+            "cabinet painting",
+            "staining"
+          ]
+        },
+        {
+          "title": "Drywall Repair",
+          "sources": [
+            "Drywall Repair"
+          ],
+          "keywords": [
+            "sheetrock",
+            "holes in wall",
+            "wall patch",
+            "plaster",
+            "ceiling repair",
+            "texture",
+            "water damage ceiling"
+          ]
+        },
+        {
+          "title": "Wallpaper Removal",
+          "sources": [
+            "Wallpaper Removal"
+          ],
+          "keywords": [
+            "strip wallpaper",
+            "peel wallpaper",
+            "wall covering",
+            "remove border",
+            "wallpaper glue"
+          ]
+        },
+        {
+          "title": "Flooring",
+          "sources": [
+            "Flooring",
+            "Carpet/Carpeting Installation"
+          ],
+          "keywords": [
+            "hardwood",
+            "carpet",
+            "tile",
+            "vinyl plank",
+            "laminate",
+            "lvp",
+            "wood floors",
+            "new carpet",
+            "replace carpet",
+            "padding",
+            "stair runner",
+            "floor covering"
+          ]
+        },
+        {
+          "title": "Floor Sanding and Refinishing",
+          "sources": [
+            "Floor sanding/refinishing"
+          ],
+          "keywords": [
+            "hardwood",
+            "refinish hardwood",
+            "wood floors",
+            "buff",
+            "restain floors",
+            "screen and coat"
+          ]
+        },
+        {
+          "title": "Tile Contractor",
+          "sources": [
+            "Tile Contractor"
+          ],
+          "keywords": [
+            "backsplash",
+            "shower tile",
+            "tile floor",
+            "bathroom tile",
+            "ceramic",
+            "grout",
+            "retile"
+          ]
+        },
+        {
+          "title": "Cabinet Refinishing",
+          "sources": [
+            "Cabinet Refinishing"
+          ],
+          "keywords": [
+            "paint cabinets",
+            "restain cabinets",
+            "cabinet painting",
+            "kitchen cabinet makeover",
+            "update cabinets"
+          ]
+        },
+        {
+          "title": "Countertops",
+          "sources": [
+            "Counter Top Replacements/Refinishing",
+            "Countertops"
+          ],
+          "keywords": [
+            "granite",
+            "quartz",
+            "butcher block",
+            "kitchen island",
+            "laminate counters",
+            "resurfacing",
+            "marble",
+            "laminate",
+            "solid surface"
+          ]
+        },
+        {
+          "title": "Bathtub Resurfacing",
+          "sources": [
+            "Bathtub Resurfacing"
+          ],
+          "keywords": [
+            "tub reglazing",
+            "refinish tub",
+            "chipped tub",
+            "tub repair",
+            "shower refinish"
+          ]
+        },
+        {
+          "title": "Interior Decorating",
+          "sources": [
+            "Interior Decorating"
+          ],
+          "keywords": [
+            "decorator",
+            "interior design",
+            "furniture",
+            "color consult",
+            "paint colors"
+          ]
+        },
+        {
+          "title": "Window Treatments",
+          "sources": [
+            "Window Treatments"
+          ],
+          "keywords": [
+            "blinds",
+            "curtains",
+            "shades",
+            "drapes",
+            "shutters"
+          ]
+        },
+        {
+          "title": "Closet Design",
+          "sources": [
+            "Closet Design"
+          ],
+          "keywords": [
+            "organizers",
+            "shelving",
+            "storage",
+            "walk-in closet",
+            "custom shelving",
+            "pantry organization"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Water, basement, and foundation",
+      "description": "Wet basements, sump pumps, mold, and foundation work.",
+      "sections": [
+        {
+          "title": "Basement Waterproofing",
+          "sources": [
+            "Wet Basement Contractor",
+            "Waterproofing Contractor"
+          ],
+          "keywords": [
+            "water in basement",
+            "basement leak",
+            "damp basement",
+            "basement flooding",
+            "foundation leak",
+            "moisture",
+            "wet basement",
+            "basement leaks",
+            "foundation sealing"
+          ]
+        },
+        {
+          "title": "Drain Tile and Sump Pumps",
+          "sources": [
+            "Drain Tile/Sump Pump Installer",
+            "Sump Pump Repair"
+          ],
+          "keywords": [
+            "wet basement",
+            "basement flooding",
+            "waterproofing",
+            "groundwater",
+            "french drain",
+            "basement water",
+            "pump not working",
+            "battery backup",
+            "pit",
+            "water in basement"
+          ]
+        },
+        {
+          "title": "Foundation Contractor",
+          "sources": [
+            "Foundation Contractor"
+          ],
+          "keywords": [
+            "cracks",
+            "settling",
+            "bowing walls",
+            "basement wall repair",
+            "sinking house",
+            "house leveling"
+          ]
+        },
+        {
+          "title": "Mold Remediation",
+          "sources": [
+            "Mold Remediation"
+          ],
+          "keywords": [
+            "black mold",
+            "mold removal",
+            "mildew",
+            "basement mold",
+            "mold testing",
+            "musty smell"
+          ]
+        },
+        {
+          "title": "Property Restoration",
+          "sources": [
+            "Property Restoration"
+          ],
+          "keywords": [
+            "water damage",
+            "fire damage",
+            "storm damage",
+            "flood cleanup",
+            "disaster cleanup"
+          ]
+        },
+        {
+          "title": "Asbestos Removal",
+          "sources": [
+            "Asbestos Removal"
+          ],
+          "keywords": [
+            "popcorn ceiling",
+            "vermiculite",
+            "old insulation",
+            "abatement",
+            "asbestos testing"
+          ]
+        },
+        {
+          "title": "Fuel Oil Tank Removal",
+          "sources": [
+            "Fuel Oil Tank Removal"
+          ],
+          "keywords": [
+            "oil tank",
+            "buried tank",
+            "underground tank",
+            "heating oil",
+            "tank abatement"
+          ]
+        },
+        {
+          "title": "Structural Engineer",
+          "sources": [
+            "Structural Engineer"
+          ],
+          "keywords": [
+            "foundation cracks",
+            "load bearing wall",
+            "beam",
+            "sagging floor",
+            "structural inspection",
+            "engineering report"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Roof, siding, and exterior",
+      "description": "Everything on the shell of the house, from shingles to stucco.",
+      "sections": [
+        {
+          "title": "Roofing",
+          "sources": [
+            "Roofing"
+          ],
+          "keywords": [
+            "roof leak",
+            "shingles",
+            "new roof",
+            "roof replacement",
+            "hail damage",
+            "roof repair",
+            "flat roof"
+          ]
+        },
+        {
+          "title": "Ice Dam Removal",
+          "sources": [
+            "Ice Dam Removal"
+          ],
+          "keywords": [
+            "roof ice",
+            "icicles",
+            "ice on roof",
+            "roof steaming",
+            "winter roof leak"
+          ]
+        },
+        {
+          "title": "Gutters",
+          "sources": [
+            "Gutters"
+          ],
+          "keywords": [
+            "downspouts",
+            "gutter cleaning",
+            "leaf guards",
+            "rain gutters",
+            "gutter guards",
+            "seamless",
+            "drainage"
+          ]
+        },
+        {
+          "title": "Siding",
+          "sources": [
+            "Siding"
+          ],
+          "keywords": [
+            "vinyl siding",
+            "james hardie",
+            "lp smartside",
+            "steel siding",
+            "cedar",
+            "house exterior"
+          ]
+        },
+        {
+          "title": "Stucco Inspections and Repair",
+          "sources": [
+            "Stucco Inspections/Repair"
+          ],
+          "keywords": [
+            "stucco cracks",
+            "moisture testing",
+            "eifs",
+            "exterior cracks",
+            "stucco damage"
+          ]
+        },
+        {
+          "title": "Exterior Contractor",
+          "sources": [
+            "Exterior Contractor"
+          ],
+          "keywords": [
+            "siding",
+            "trim",
+            "soffit",
+            "fascia",
+            "outside repairs",
+            "house exterior"
+          ]
+        },
+        {
+          "title": "Windows",
+          "sources": [
+            "Windows"
+          ],
+          "keywords": [
+            "window replacement",
+            "new windows",
+            "foggy glass",
+            "energy efficient",
+            "double pane",
+            "glass"
+          ]
+        },
+        {
+          "title": "Insulation",
+          "sources": [
+            "Insulation"
+          ],
+          "keywords": [
+            "attic insulation",
+            "spray foam",
+            "blown in",
+            "drafty",
+            "cold rooms",
+            "energy efficiency"
+          ]
+        },
+        {
+          "title": "Masonry, Stone, and Tuckpointing",
+          "sources": [
+            "Masonry",
+            "Stone Mason",
+            "Tuck Pointer"
+          ],
+          "keywords": [
+            "brick",
+            "stone",
+            "block",
+            "mortar",
+            "brick repair",
+            "stone work",
+            "chimney repair",
+            "fieldstone",
+            "veneer",
+            "retaining wall",
+            "flagstone",
+            "natural stone",
+            "tuckpointing",
+            "mortar repair",
+            "brick joints",
+            "repointing",
+            "chimney mortar",
+            "crumbling mortar"
+          ]
+        },
+        {
+          "title": "Solar Panels",
+          "sources": [
+            "Solar Panels"
+          ],
+          "keywords": [
+            "solar energy",
+            "solar install",
+            "photovoltaic",
+            "solar power",
+            "rooftop solar"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yard, driveway, and outside",
+      "description": "Lawn, trees, fences, concrete, and snow.",
+      "sections": [
+        {
+          "title": "Landscaper",
+          "sources": [
+            "Landscaper"
+          ],
+          "keywords": [
+            "landscaping",
+            "yard work",
+            "mulch",
+            "plants",
+            "retaining wall",
+            "sod",
+            "garden design"
+          ]
+        },
+        {
+          "title": "Lawn Care",
+          "sources": [
+            "Lawn Care"
+          ],
+          "keywords": [
+            "mowing",
+            "fertilizing",
+            "weed control",
+            "grass",
+            "aeration",
+            "yard maintenance"
+          ]
+        },
+        {
+          "title": "Tree Removal",
+          "sources": [
+            "Tree Removal"
+          ],
+          "keywords": [
+            "cut down tree",
+            "stump grinding",
+            "fallen tree",
+            "tree trimming",
+            "storm damage tree",
+            "dead tree"
+          ]
+        },
+        {
+          "title": "Arborist",
+          "sources": [
+            "Arborist"
+          ],
+          "keywords": [
+            "tree trimming",
+            "tree pruning",
+            "tree health",
+            "sick tree",
+            "tree doctor",
+            "tree care"
+          ]
+        },
+        {
+          "title": "Fence",
+          "sources": [
+            "Fence"
+          ],
+          "keywords": [
+            "fencing",
+            "privacy fence",
+            "chain link",
+            "gate",
+            "dog fence",
+            "vinyl fence"
+          ]
+        },
+        {
+          "title": "Invisible Fencing",
+          "sources": [
+            "Invisible Fencing"
+          ],
+          "keywords": [
+            "dog fence",
+            "underground fence",
+            "pet containment",
+            "electric fence",
+            "dog containment"
+          ]
+        },
+        {
+          "title": "Decks",
+          "sources": [
+            "Decks"
+          ],
+          "keywords": [
+            "patio",
+            "porch",
+            "composite",
+            "trex",
+            "railing",
+            "pergola",
+            "deck builder"
+          ]
+        },
+        {
+          "title": "Concrete",
+          "sources": [
+            "Concrete"
+          ],
+          "keywords": [
+            "driveway",
+            "sidewalk",
+            "patio",
+            "steps",
+            "slab",
+            "cement",
+            "garage floor",
+            "footings"
+          ]
+        },
+        {
+          "title": "Stamped Concrete Patio",
+          "sources": [
+            "Stamped Concrete Patio"
+          ],
+          "keywords": [
+            "decorative concrete",
+            "colored concrete",
+            "patterned patio",
+            "concrete design"
+          ]
+        },
+        {
+          "title": "Asphalt Driveways and Sealcoating",
+          "sources": [
+            "Asphalt Driveways",
+            "Driveway-Sealcoating"
+          ],
+          "keywords": [
+            "blacktop",
+            "paving",
+            "driveway repair",
+            "resurfacing",
+            "potholes",
+            "new driveway",
+            "blacktop sealing",
+            "asphalt sealing",
+            "crack filling",
+            "seal driveway",
+            "asphalt maintenance"
+          ]
+        },
+        {
+          "title": "Garage Floor Epoxy",
+          "sources": [
+            "Garage Floor Epoxy"
+          ],
+          "keywords": [
+            "floor coating",
+            "polyaspartic",
+            "concrete coating",
+            "garage coating",
+            "sealed floor"
+          ]
+        },
+        {
+          "title": "Snow Plowing",
+          "sources": [
+            "Snow Plowing"
+          ],
+          "keywords": [
+            "snow removal",
+            "driveway clearing",
+            "shoveling",
+            "salting",
+            "winter service"
+          ]
+        },
+        {
+          "title": "Dock Services",
+          "sources": [
+            "Dock Services"
+          ],
+          "keywords": [
+            "boat lift",
+            "lakeshore",
+            "pier",
+            "waterfront",
+            "dock install",
+            "dock removal"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Remodeling and big projects",
+      "description": "Kitchens, bathrooms, basements, additions, and ground-up builds.",
+      "sections": [
+        {
+          "title": "Remodeling and Additions",
+          "sources": [
+            "Remodeling",
+            "Home Remodeling and Additions-Refresh"
+          ],
+          "keywords": [
+            "renovation",
+            "kitchen remodel",
+            "bathroom remodel",
+            "basement finish",
+            "addition",
+            "update home",
+            "reno",
+            "bump out",
+            "second story",
+            "expand",
+            "update house"
+          ]
+        },
+        {
+          "title": "Interior Contractor",
+          "sources": [
+            "Interior Contractor"
+          ],
+          "keywords": [
+            "basement finish",
+            "remodel",
+            "renovation",
+            "basement finishing",
+            "drywall",
+            "trim"
+          ]
+        },
+        {
+          "title": "Bathroom Contractor",
+          "sources": [
+            "Bathroom Contractor"
+          ],
+          "keywords": [
+            "bathroom remodel",
+            "shower",
+            "tub",
+            "vanity",
+            "shower tile",
+            "bathroom renovation"
+          ]
+        },
+        {
+          "title": "Cabinets and Flooring",
+          "sources": [
+            "Cabinets and Flooring"
+          ],
+          "keywords": [
+            "kitchen remodel",
+            "cupboards",
+            "hardwood",
+            "laminate",
+            "vinyl plank",
+            "tile floor"
+          ]
+        },
+        {
+          "title": "Egress Windows",
+          "sources": [
+            "Egress Windows"
+          ],
+          "keywords": [
+            "basement bedroom",
+            "window well",
+            "basement window",
+            "escape window",
+            "code compliance"
+          ]
+        },
+        {
+          "title": "Finish Carpenter",
+          "sources": [
+            "Finish Carpenter"
+          ],
+          "keywords": [
+            "trim work",
+            "molding",
+            "baseboards",
+            "wainscoting",
+            "crown molding",
+            "built-ins",
+            "woodwork"
+          ]
+        },
+        {
+          "title": "Framer",
+          "sources": [
+            "Framer"
+          ],
+          "keywords": [
+            "framing",
+            "wall framing",
+            "stud walls",
+            "rough carpentry",
+            "basement framing",
+            "addition framing"
+          ]
+        },
+        {
+          "title": "Builder",
+          "sources": [
+            "Builder"
+          ],
+          "keywords": [
+            "new construction",
+            "custom home",
+            "build a house",
+            "new home",
+            "spec home",
+            "general contractor"
+          ]
+        },
+        {
+          "title": "Garage Builder",
+          "sources": [
+            "Garage Builder"
+          ],
+          "keywords": [
+            "detached garage",
+            "new garage",
+            "pole barn",
+            "shed",
+            "outbuilding"
+          ]
+        },
+        {
+          "title": "203K Contractor",
+          "sources": [
+            "203K Contractor"
+          ],
+          "keywords": [
+            "renovation loan",
+            "rehab loan",
+            "fha renovation",
+            "fixer upper",
+            "construction loan"
+          ]
+        },
+        {
+          "title": "Demolition and Tear Down",
+          "sources": [
+            "Demolition",
+            "Tear Down"
+          ],
+          "keywords": [
+            "tear out",
+            "gut",
+            "knock down",
+            "wrecking",
+            "demo",
+            "removal",
+            "demolition",
+            "knock down house",
+            "raze",
+            "teardown",
+            "lot clearing"
+          ]
+        },
+        {
+          "title": "Excavating",
+          "sources": [
+            "Excavating"
+          ],
+          "keywords": [
+            "digging",
+            "grading",
+            "dirt work",
+            "land clearing",
+            "trenching",
+            "backhoe"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Inspections and testing",
+      "description": "For buying, selling, or peace of mind.",
+      "sections": [
+        {
+          "title": "Home Inspections",
+          "sources": [
+            "Home Inspections"
+          ],
+          "keywords": [
+            "inspector",
+            "buyer inspection",
+            "pre-listing inspection",
+            "house inspection",
+            "truth in housing"
+          ]
+        },
+        {
+          "title": "Radon Testing and Mitigation",
+          "sources": [
+            "Radon Testing - Mitigation"
+          ],
+          "keywords": [
+            "radon system",
+            "radon fan",
+            "radon levels",
+            "basement air",
+            "gas testing"
+          ]
+        },
+        {
+          "title": "Air Quality Inspections",
+          "sources": [
+            "Air Quality Inspections"
+          ],
+          "keywords": [
+            "indoor air",
+            "mold in air",
+            "allergens",
+            "air testing",
+            "voc",
+            "musty smell"
+          ]
+        },
+        {
+          "title": "Water Testing",
+          "sources": [
+            "Water Testing"
+          ],
+          "keywords": [
+            "well water test",
+            "drinking water",
+            "water quality",
+            "contamination",
+            "nitrates",
+            "lead in water"
+          ]
+        },
+        {
+          "title": "Well Inspections",
+          "sources": [
+            "Well Inspections"
+          ],
+          "keywords": [
+            "well testing",
+            "water flow test",
+            "pump check",
+            "well compliance",
+            "well water"
+          ]
+        },
+        {
+          "title": "Septic Testing",
+          "sources": [
+            "Septic Testing"
+          ],
+          "keywords": [
+            "septic inspection",
+            "compliance test",
+            "point of sale septic",
+            "septic cert",
+            "tank inspection"
+          ]
+        },
+        {
+          "title": "Swimming Pool Inspections",
+          "sources": [
+            "Swimming Pool Inspections"
+          ],
+          "keywords": [
+            "pool safety",
+            "pool leak",
+            "pool condition",
+            "hot tub inspection",
+            "pool equipment"
+          ]
+        },
+        {
+          "title": "Lead Testing",
+          "sources": [
+            "Lead Testing"
+          ],
+          "keywords": [
+            "lead paint",
+            "lead in water",
+            "old paint",
+            "paint testing",
+            "lead inspection"
+          ]
+        },
+        {
+          "title": "Soil Testing",
+          "sources": [
+            "Soil Testing"
+          ],
+          "keywords": [
+            "perc test",
+            "soil boring",
+            "dirt test",
+            "ground testing",
+            "soil sample"
+          ]
+        },
+        {
+          "title": "Framing Inspector",
+          "sources": [
+            "Framing Inspector"
+          ],
+          "keywords": [
+            "structural inspection",
+            "rough-in inspection",
+            "new build inspection",
+            "wall inspection"
+          ]
+        },
+        {
+          "title": "Geothermal Inspector",
+          "sources": [
+            "Geothermal Inspector"
+          ],
+          "keywords": [
+            "ground source",
+            "heat pump",
+            "geo system",
+            "ground loop"
+          ]
+        },
+        {
+          "title": "Surveyor",
+          "sources": [
+            "Surveyor"
+          ],
+          "keywords": [
+            "property lines",
+            "lot survey",
+            "boundary",
+            "stakes",
+            "plat",
+            "land survey"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Moving and clearing out",
+      "description": "Movers, junk haulers, and help getting from one house to the next.",
+      "sections": [
+        {
+          "title": "Movers and Moving Supplies",
+          "sources": [
+            "Movers - Moving Supplies",
+            "Moving - Box Rental"
+          ],
+          "keywords": [
+            "moving company",
+            "boxes",
+            "packing",
+            "local move",
+            "long distance move",
+            "relocation",
+            "plastic bins",
+            "reusable boxes",
+            "packing boxes",
+            "tote rental",
+            "crate rental"
+          ]
+        },
+        {
+          "title": "Moving Help and Organization",
+          "sources": [
+            "Moving Help/Organization"
+          ],
+          "keywords": [
+            "packing help",
+            "unpacking",
+            "organizer",
+            "downsizing",
+            "move coordination",
+            "senior move"
+          ]
+        },
+        {
+          "title": "Piano, Safe, and Hot Tub Moving",
+          "sources": [
+            "Piano and Safe Moving",
+            "Hot Tub Movers"
+          ],
+          "keywords": [
+            "move piano",
+            "gun safe",
+            "heavy items",
+            "baby grand",
+            "safe relocation",
+            "spa moving",
+            "jacuzzi",
+            "move spa",
+            "hot tub removal",
+            "hot tub relocation"
+          ]
+        },
+        {
+          "title": "Junk Removal",
+          "sources": [
+            "Junk Removal",
+            "Garage clean-out"
+          ],
+          "keywords": [
+            "haul away",
+            "trash removal",
+            "cleanout",
+            "garbage",
+            "hauling",
+            "get rid of stuff",
+            "debris",
+            "garage junk",
+            "declutter garage",
+            "garage cleanup",
+            "clear out"
+          ]
+        },
+        {
+          "title": "Dumpsters",
+          "sources": [
+            "Dumpsters"
+          ],
+          "keywords": [
+            "roll off",
+            "waste container",
+            "trash container",
+            "debris removal",
+            "garbage bin",
+            "rent a bin"
+          ]
+        },
+        {
+          "title": "Piano Donation",
+          "sources": [
+            "Piano Donation"
+          ],
+          "keywords": [
+            "donate piano",
+            "get rid of piano",
+            "piano removal",
+            "free piano pickup",
+            "old piano"
+          ]
+        },
+        {
+          "title": "Short Term Lease Options",
+          "sources": [
+            "Short Term Lease Options"
+          ],
+          "keywords": [
+            "rent back",
+            "temporary housing",
+            "month to month",
+            "rental after closing",
+            "interim housing"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Money, insurance, and paperwork",
+      "description": "The financial side: lenders, attorneys, taxes, and coverage.",
+      "sections": [
+        {
+          "title": "Mortgages",
+          "sources": [
+            "Mortgages"
+          ],
+          "keywords": [
+            "lender",
+            "loan",
+            "refinance",
+            "home loan",
+            "pre-approval",
+            "financing",
+            "mortgage broker"
+          ]
+        },
+        {
+          "title": "Islamic Lenders",
+          "sources": [
+            "Islamic Lenders"
+          ],
+          "keywords": [
+            "sharia",
+            "halal mortgage",
+            "no interest",
+            "riba free",
+            "muslim financing",
+            "sharia compliant"
+          ]
+        },
+        {
+          "title": "Credit Repair",
+          "sources": [
+            "Credit Repair"
+          ],
+          "keywords": [
+            "credit score",
+            "fix credit",
+            "bad credit",
+            "credit report",
+            "boost score",
+            "dispute"
+          ]
+        },
+        {
+          "title": "Appraiser",
+          "sources": [
+            "Appraiser"
+          ],
+          "keywords": [
+            "home value",
+            "appraisal",
+            "valuation",
+            "what my house is worth",
+            "market value"
+          ]
+        },
+        {
+          "title": "Attorney",
+          "sources": [
+            "Attorney"
+          ],
+          "keywords": [
+            "lawyer",
+            "legal",
+            "real estate lawyer",
+            "closing",
+            "title issue",
+            "contract review"
+          ]
+        },
+        {
+          "title": "Short Sale Attorney",
+          "sources": [
+            "Short Sale Attorney"
+          ],
+          "keywords": [
+            "underwater mortgage",
+            "foreclosure",
+            "behind on payments",
+            "loan negotiation",
+            "distressed sale"
+          ]
+        },
+        {
+          "title": "Accountant and CPA",
+          "sources": [
+            "Accountant - CPA"
+          ],
+          "keywords": [
+            "taxes",
+            "tax prep",
+            "bookkeeping",
+            "tax return",
+            "tax advisor",
+            "filing taxes"
+          ]
+        },
+        {
+          "title": "1031 Exchange",
+          "sources": [
+            "1031 Exchange"
+          ],
+          "keywords": [
+            "tax deferred",
+            "like kind",
+            "investment property sale",
+            "capital gains",
+            "defer taxes",
+            "qualified intermediary"
+          ]
+        },
+        {
+          "title": "Contract for Deed",
+          "sources": [
+            "Contract for Deed"
+          ],
+          "keywords": [
+            "seller financing",
+            "owner financing",
+            "rent to own",
+            "land contract",
+            "no bank financing"
+          ]
+        },
+        {
+          "title": "Insurance",
+          "sources": [
+            "Insurance"
+          ],
+          "keywords": [
+            "homeowners insurance",
+            "home insurance",
+            "coverage",
+            "agent",
+            "policy",
+            "claims"
+          ]
+        },
+        {
+          "title": "Home Warranty",
+          "sources": [
+            "Home Warranty"
+          ],
+          "keywords": [
+            "warranty plan",
+            "protection plan",
+            "appliance coverage",
+            "systems coverage"
+          ]
+        }
+      ]
+    }
+  ]
+}

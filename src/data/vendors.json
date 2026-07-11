@@ -1,0 +1,4516 @@
+{
+  "source": "https://www.mnrealestateteamvendors.com/",
+  "scrapedAt": "2026-07-10T22:07:57+00:00",
+  "scrapedOn": "2026-07-10",
+  "categoryCount": 135,
+  "vendorCount": 479,
+  "categories": [
+    {
+      "category": "1031 Exchange",
+      "vendors": [
+        {
+          "company": "Guidance Residential",
+          "contact": "Hoda Ashour",
+          "phone": "612-299-1522",
+          "email": "hoda.ashour@guidanceresidential.com",
+          "website": "https://www.guidanceresidential.com/",
+          "notes": ""
+        },
+        {
+          "company": "Top Tier",
+          "contact": "Brett",
+          "phone": "612-472-7792",
+          "email": "toptierpropainting@gmail.com",
+          "website": "https://toptierpropainting.com/",
+          "notes": "Located in Woodbury. Mostly East Metro but do travel."
+        },
+        {
+          "company": "Commercial Partners Exchange Company",
+          "contact": "Jeff Peterson or Marna Peterson",
+          "phone": "612-643-1031",
+          "email": "JeffP@cpec1031.com; Marna@cpec1031.com",
+          "website": "https://www.cpec1031.com/",
+          "notes": ""
+        },
+        {
+          "company": "Engel Professional Association",
+          "contact": "Ken Engel",
+          "phone": "612-987-2828",
+          "email": "kene@kselaw.com",
+          "website": "http://www.kselaw.com",
+          "notes": "MN and WI"
+        }
+      ]
+    },
+    {
+      "category": "203K Contractor",
+      "vendors": [
+        {
+          "company": "Bella Remodeling and Roofing",
+          "contact": "Eric Prchal",
+          "phone": "612-760-0949",
+          "email": "ericprchal@gmail.com",
+          "website": "http://www.bellaremodelingandroofing.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Accountant - CPA",
+      "vendors": [
+        {
+          "company": "Novak Tax and Accounting, LLC",
+          "contact": "Justin Novak, CPA",
+          "phone": "952-297-6765",
+          "email": "Justin@novaktax.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Olsen Thielen & Co. Ltd.",
+          "contact": "Greg Nelson CPA, MBT",
+          "phone": "952-829-3402",
+          "email": "gnelson@otcpas.com",
+          "website": "http://www.otcpas.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Air Duct Cleaning",
+      "vendors": [
+        {
+          "company": "ZEROREZ of Minnesota",
+          "contact": "ZEROREZ",
+          "phone": "(651) 779-8888",
+          "email": "email@zerorezmn.com",
+          "website": "http://www.zerorezmn.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Air Quality Inspections",
+      "vendors": [
+        {
+          "company": "Healthy Indoor Air",
+          "contact": "Healthy Indoor Air",
+          "phone": "952-767-0430",
+          "email": "boyd@breatheclean.com",
+          "website": "http://www.healthyindoorairllc.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Antiques/Consignment",
+      "vendors": [
+        {
+          "company": "Hunt & Gather",
+          "contact": "",
+          "phone": "612-455-0250",
+          "email": "info@huntandgatherantiques.com",
+          "website": "http://www.huntandgatherantiques.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Appliance Installation",
+      "vendors": [
+        {
+          "company": "Appliance Connections, Inc.",
+          "contact": "Appliance Connections, Inc.",
+          "phone": "952-445-4803",
+          "email": "applianceconnections@yahoo.com",
+          "website": "http://www.applianceconnectionsinc.com/About_Us.html",
+          "notes": "12850 Chestnut Blvd.\nShakopee, MN 55379"
+        }
+      ]
+    },
+    {
+      "category": "Appliance Repair",
+      "vendors": [
+        {
+          "company": "Anderson's Mechanical",
+          "contact": "",
+          "phone": "651-784-2150",
+          "email": "andersonsmechanical@hotmail.com",
+          "website": "http://www.andersonsmechanical.com",
+          "notes": "10611 Baltimore st ne #100, PO 490293\nBlaine, MN 55449"
+        },
+        {
+          "company": "Omega Appliance Repair",
+          "contact": "Phil",
+          "phone": "763-219-9492",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Appraiser",
+      "vendors": [
+        {
+          "company": "Excelsior Appraisals, LLC",
+          "contact": "Michelle Leigh",
+          "phone": "612-500-1696",
+          "email": "Michelle@ExcelsiorAppraisals.com",
+          "website": "http://www.excelsiorappraisals.com",
+          "notes": "*Does not appraise within the City of Minnetonka*"
+        },
+        {
+          "company": "HPS Appraisal Services",
+          "contact": "Marvin Peters",
+          "phone": "952-956-2585",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Pastime Appraisals",
+          "contact": "Brent Turner",
+          "phone": "952-994-7634",
+          "email": "Pastime@integra.net",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Simonson Appraisals",
+          "contact": "MaryAlice Beevore",
+          "phone": "612-554-5901",
+          "email": "mbeevore@gmail.com",
+          "website": "",
+          "notes": "Commercial Real Estate Appraiser"
+        }
+      ]
+    },
+    {
+      "category": "Arborist",
+      "vendors": [
+        {
+          "company": "North Star Tree",
+          "contact": "John Boeder",
+          "phone": "(612) 419-7446",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Asbestos Removal",
+      "vendors": [
+        {
+          "company": "Aztec Asbestos Removal LLC",
+          "contact": "Christian Jimenez- Owner",
+          "phone": "612-408-5595",
+          "email": "aztecasbestos@yahoo.com",
+          "website": "https://aztecasbestos.com/",
+          "notes": ""
+        },
+        {
+          "company": "ENVIROBATE",
+          "contact": "ENVIROBATE",
+          "phone": "800-926-1776",
+          "email": "",
+          "website": "http://envirobate.com/",
+          "notes": "Or for Commercial/Industrial - Dana Krakowski - 612-437-5797"
+        }
+      ]
+    },
+    {
+      "category": "Asphalt Driveways",
+      "vendors": [
+        {
+          "company": "Plehal Asphalt",
+          "contact": "Don LaBoda",
+          "phone": "952-445-7676",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Prior Lake Black Top",
+          "contact": "",
+          "phone": "952-447-6003",
+          "email": "",
+          "website": "",
+          "notes": "referral from Al Maas"
+        }
+      ]
+    },
+    {
+      "category": "Attorney",
+      "vendors": [
+        {
+          "company": "The Engel Firm, PLLC",
+          "contact": "Matthew A. Engel",
+          "phone": "612-373-7060",
+          "email": "matt@theengellawfirm.com",
+          "website": "http://www.theengellawfirm.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Bat Removal Company",
+      "vendors": [
+        {
+          "company": "Bat Free LLC",
+          "contact": "",
+          "phone": "612.323.5313",
+          "email": "",
+          "website": "http://www.batfree.net",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Bathroom Contractor",
+      "vendors": [
+        {
+          "company": "MODbath USA",
+          "contact": "Nick Zobel",
+          "phone": "612-502-8835",
+          "email": "Nick@modbathusa.com",
+          "website": "https://www.modbathusa.com/",
+          "notes": ""
+        },
+        {
+          "company": "Brolsma Design Build",
+          "contact": "David Lindblom",
+          "phone": "763-772-3722",
+          "email": "dave@brolsmadesign.com",
+          "website": "http://www.brolsmadesign.com",
+          "notes": "(Metro, out of Bloomington - Interior Remodeling/Additions/Large Renovations)"
+        },
+        {
+          "company": "HonesTy Home Solutions LLC",
+          "contact": "Tyler Owen",
+          "phone": "612-987-3798",
+          "email": "tyler@honestyhomesolutions.com",
+          "website": "https://www.facebook.com/profile.php?id=61573558671869",
+          "notes": "Referral from Matt Cullen. He does personal remodel projects. Kitchens, Bathrooms, Basements, Carpentry, Trim, Decks, Handyman and small jobs."
+        },
+        {
+          "company": "Just Us Construction & Restoration",
+          "contact": "Ben Garnhardt",
+          "phone": "612-236-8592",
+          "email": "ben@justusrestoration.com",
+          "website": "http://www.JustUsRestoration.com",
+          "notes": "(Metro, out of Anoka - Kitchens, Baths, Interior Remodeling)"
+        }
+      ]
+    },
+    {
+      "category": "Bathtub Resurfacing",
+      "vendors": [
+        {
+          "company": "Surface Renew",
+          "contact": "Surface Renew",
+          "phone": "952-777-3864",
+          "email": "info@surfacerenew.net",
+          "website": "http://surfacerenew.net/",
+          "notes": "9635 Humboldt Ave. S, Bloomington, MN 55431\nSouth Metro Area: (952) 946-1460\nMinneapolis Area: (952) 946-1460\nNorth Metro Area: (763) 253-2300\nSaint Paul Area: (651) 251-2100"
+        },
+        {
+          "company": "The Tub Guys",
+          "contact": "Shane",
+          "phone": "612-239-5835",
+          "email": "shane@thetubguys.net",
+          "website": "http://thetubguys.net/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Boiler Replace/Repair",
+      "vendors": [
+        {
+          "company": "Total Home Solutions",
+          "contact": "Troy Rasmussen",
+          "phone": "952-207-6995",
+          "email": "Troy.CallTHS@Gmail.com",
+          "website": "https://callths.com/",
+          "notes": ""
+        },
+        {
+          "company": "Cities1 Plumbing/Heating/AC",
+          "contact": "Charles",
+          "phone": "651-776-4585",
+          "email": "michelle@cities1plumbing.com",
+          "website": "https://www.cities1plumbing.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Builder",
+      "vendors": [
+        {
+          "company": "Pebble Creek Custom Homes",
+          "contact": "Derek Walgrave",
+          "phone": "612-850-2119",
+          "email": "Derek@Walgrave.com",
+          "website": "https://www.pebblecreekch.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Cabinet Refinishing",
+      "vendors": [
+        {
+          "company": "Jason Daly",
+          "contact": "Jason Daly",
+          "phone": "612-388-4549",
+          "email": "dalypaint@yahoo.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Cabinets and Flooring",
+      "vendors": [
+        {
+          "company": "Building Materials Outlet",
+          "contact": "Building Materials Outlet",
+          "phone": "651-365-1141",
+          "email": "info@bmomn.com",
+          "website": "http://www.bmomn.com/",
+          "notes": "3045 Sibley Memorial Hwy\nEagan, MN 55121"
+        },
+        {
+          "company": "Cabinets and Flooring Liquidators",
+          "contact": "Fadel Naass",
+          "phone": "612.805.1445",
+          "email": "fadel.naass@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Zaxx Cabinets",
+          "contact": "Zack Meskill",
+          "phone": "800-660-0408, 715-781-1089, 715-246-5430",
+          "email": "Zack@zaxxcabinets.com",
+          "website": "http://zaxxcabinets.com/",
+          "notes": ""
+        },
+        {
+          "company": "HonesTy Home Solutions LLC",
+          "contact": "Tyler Owen",
+          "phone": "612-987-3798",
+          "email": "tyler@honestyhomesolutions.com",
+          "website": "https://www.facebook.com/profile.php?id=61573558671869",
+          "notes": "Referral from Matt Cullen. He does personal remodel projects. Kitchens, Bathrooms, Basements, Carpentry, Trim, Decks, Handyman and small jobs."
+        },
+        {
+          "company": "Paulson Brothers",
+          "contact": "Paulson Brothers",
+          "phone": "952-746-7600",
+          "email": "info@paulsonbrothers.com",
+          "website": "http://www.paulsonbrothers.com/",
+          "notes": "12750 Creek View Ave Savage, MN 55378"
+        },
+        {
+          "company": "Whole House Cabinetry",
+          "contact": "Alissa Gram",
+          "phone": "(651) 463-4004",
+          "email": "alissa@customcabinetswhc.com",
+          "website": "http://www.customcabinetswhc.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Carpet/Area Rug Cleaning",
+      "vendors": [
+        {
+          "company": "Clifford the Carpet Cleaner",
+          "contact": "Clifford",
+          "phone": "(763) 545-1505",
+          "email": "cliffordthecarpetcleaner@gmail.com",
+          "website": "https://www.cliffordthecarpetcleaner.com/",
+          "notes": ""
+        },
+        {
+          "company": "Red Rock Carpet Cleaning",
+          "contact": "Nick Angell",
+          "phone": "(612) 801-9890",
+          "email": "redrockcarpetcleaningmn@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "COIT Cleaning",
+          "contact": "Alan Wohl",
+          "phone": "612-716-6044",
+          "email": "Alan.wohl@coit.com",
+          "website": "",
+          "notes": "Carpet cleaning, duct cleaning, stone and tile"
+        },
+        {
+          "company": "ZEROREZ of Minnesota",
+          "contact": "ZEROREZ",
+          "phone": "(651) 779-8888",
+          "email": "email@zerorezmn.com",
+          "website": "http://www.zerorezmn.com",
+          "notes": ""
+        },
+        {
+          "company": "Nature's Hand Carpet Cleaning",
+          "contact": "Josh Carlson",
+          "phone": "952-201-7592",
+          "email": "",
+          "website": "",
+          "notes": "Billy Gabler referral"
+        }
+      ]
+    },
+    {
+      "category": "Carpet/Carpeting Installation",
+      "vendors": [
+        {
+          "company": "Bloomington Carpet One",
+          "contact": "Josh Loren",
+          "phone": "612-500-3025",
+          "email": "Josh@bloomingtoncarpetone.com",
+          "website": "http://www.BloomingtonCarpetOne.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Chimney Inspector",
+      "vendors": [
+        {
+          "company": "ProTech Chimney Restoration",
+          "contact": "",
+          "phone": "612-567-0068",
+          "email": "info@protechchimneyrestoration.com",
+          "website": "http://www.protechchimneyrestoration.com",
+          "notes": "Level II Chimney Inspector/Repair"
+        },
+        {
+          "company": "Blue Sky Chimney",
+          "contact": "Blue Sky Chimney",
+          "phone": "952-944-1744",
+          "email": "info@mplsblueskychimneysweeps.com",
+          "website": "https://www.mplsblueskychimneysweeps.com/",
+          "notes": ""
+        },
+        {
+          "company": "Jimney Sweeps",
+          "contact": "James Kreml",
+          "phone": "763-263-5688",
+          "email": "jameskreml@yahoo.com",
+          "website": "https://jimneysweeps.com/",
+          "notes": "24690 116th St, Zimmerman, MN 55398"
+        }
+      ]
+    },
+    {
+      "category": "Chimney Sweep",
+      "vendors": [
+        {
+          "company": "London Chimney Sweeps, Ltd",
+          "contact": "",
+          "phone": "(952) 835-3585",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Closet Design",
+      "vendors": [
+        {
+          "company": "Dean's Custom Design",
+          "contact": "",
+          "phone": "(612) 242-6861",
+          "email": "contact@deanosclosets.com",
+          "website": "http://www.deanosclosets.com/",
+          "notes": ""
+        },
+        {
+          "company": "Perfection Custom Closets",
+          "contact": "Heidi Preslicka",
+          "phone": "612-875-6630",
+          "email": "heidi@aperfectcloset.com",
+          "website": "https://www.aperfectcloset.com",
+          "notes": "21600 Hamburg Avenue in Lakeville\nM-Th 7:30-4:30, Fri 7:30-11:30, or by appointment"
+        }
+      ]
+    },
+    {
+      "category": "Concrete",
+      "vendors": [
+        {
+          "company": "Blue Frog",
+          "contact": "Ben Hanf",
+          "phone": "651-214-7772",
+          "email": "benhanf@gmail.com",
+          "website": "https://bluefrogpond.com/",
+          "notes": ""
+        },
+        {
+          "company": "Herd Construction",
+          "contact": "Michael Herd",
+          "phone": "952-857-9262",
+          "email": "Herdmp@gmail.com",
+          "website": "https://www.herdconstruction.com/",
+          "notes": "16520 74th Street New Germany, MN 55367- specializes in concrete and also builds pole sheds."
+        },
+        {
+          "company": "Able Concrete Raising",
+          "contact": "Dale",
+          "phone": "",
+          "email": "ableconcreteraising@comcast.net",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Croix Valley Construction",
+          "contact": "Alex Berres",
+          "phone": "651-342-9536",
+          "email": "Alex@CroixValleyConstruction.com",
+          "website": "https://www.croixvalleyconstruction.com/",
+          "notes": "Out of Stillwater. Recommended by Tyler Berres."
+        },
+        {
+          "company": "Innovative Basement Authority",
+          "contact": "Innovative Basement Authority",
+          "phone": "612-887-3624",
+          "email": "",
+          "website": "https://innovativebasementauthority.com/",
+          "notes": ""
+        },
+        {
+          "company": "J&W Concrete",
+          "contact": "Jeff",
+          "phone": "612-210-1082",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Safe Basements",
+          "contact": "",
+          "phone": "866-353-7881",
+          "email": "",
+          "website": "https://www.safebasements.com/",
+          "notes": ""
+        },
+        {
+          "company": "Masonry Living",
+          "contact": "Loren",
+          "phone": "320-319-1134",
+          "email": "info@masonryliving.com",
+          "website": "http://www.masonryliving.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Contract for Deed",
+      "vendors": [
+        {
+          "company": "A Good Deed",
+          "contact": "Chad Banken",
+          "phone": "952-417-0000",
+          "email": "Chad@a-good-deed.com",
+          "website": "http://www.A-Good-Deed.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Counter Top Replacements/Refinishing",
+      "vendors": [
+        {
+          "company": "Granite and Marble Direct",
+          "contact": "Alex Burlak",
+          "phone": "651-497-8358",
+          "email": "alexburlak@graniteandmarbledirect.com",
+          "website": "http://graniteandmarbledirect.com/",
+          "notes": "1021 1st Street NW\nNew Brighton, MN 55112"
+        },
+        {
+          "company": "Miracle Method - Countertop Refininishing",
+          "contact": "Miracle Method",
+          "phone": "888-271-7690",
+          "email": "",
+          "website": "http://www.MiracleMethod.com",
+          "notes": ""
+        },
+        {
+          "company": "Zaxx Cabinets",
+          "contact": "Zack Meskill",
+          "phone": "800-660-0408, 715-781-1089, 715-246-5430",
+          "email": "Zack@zaxxcabinets.com",
+          "website": "http://zaxxcabinets.com/",
+          "notes": ""
+        },
+        {
+          "company": "Astonia",
+          "contact": "",
+          "phone": "763-428-0186",
+          "email": "info@astoniaco.com",
+          "website": "https://astoniaco.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Countertops",
+      "vendors": [
+        {
+          "company": "Rock Solid Tops MN",
+          "contact": "Heidi Gedis",
+          "phone": "612-270-4239",
+          "email": "rocksolidtopsmn@gmail.com",
+          "website": "https://rocksolidtops.com/",
+          "notes": "We're a custom fabricator/installer of countertops. Solid surface, granite, quartz, quartzite and other types of stone.\nWe will joyfully give ANY of your customers and your team a 5% discount on any countertop job!"
+        }
+      ]
+    },
+    {
+      "category": "Credit Repair",
+      "vendors": [
+        {
+          "company": "Credilife",
+          "contact": "Brian Del Terzo & Jerrad Havins",
+          "phone": "(800) 576-4890",
+          "email": "info@credilife.com",
+          "website": "https://credilife.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Decks",
+      "vendors": [
+        {
+          "company": "Armor Construction, Inc",
+          "contact": "",
+          "phone": "763.234.9494",
+          "email": "jasonp@armorconstructionpro.com",
+          "website": "http://www.armorconstructionpro.com",
+          "notes": ""
+        },
+        {
+          "company": "All Around",
+          "contact": "Charles Thayer & Nick Zeman",
+          "phone": "763-447-3944",
+          "email": "Info@AllAround.com",
+          "website": "http://www.AllAround.com",
+          "notes": "Roofs, siding, decks."
+        },
+        {
+          "company": "HonesTy Home Solutions LLC",
+          "contact": "Tyler Owen",
+          "phone": "612-987-3798",
+          "email": "tyler@honestyhomesolutions.com",
+          "website": "https://www.facebook.com/profile.php?id=61573558671869",
+          "notes": "Referral from Matt Cullen. He does personal remodel projects. Kitchens, Bathrooms, Basements, Carpentry, Trim, Decks, Handyman and small jobs."
+        },
+        {
+          "company": "Corbin Exteriors",
+          "contact": "Brad Lein",
+          "phone": "651-269-3100",
+          "email": "brad@corbinexteriors.com",
+          "website": "https://www.corbinexteriors.com/",
+          "notes": "1115 Southview Blvd\nSouth St Paul, MN 55075\nReferral from Laura Marquart"
+        }
+      ]
+    },
+    {
+      "category": "Decluttering Service",
+      "vendors": [
+        {
+          "company": "Sunrise Services",
+          "contact": "Dean Mitchell",
+          "phone": "651-983-2329",
+          "email": "info@sunriseservicesmnwi.com",
+          "website": "https://www.facebook.com/SunriseServicesIncMNWI/",
+          "notes": "We offer a full service cleaning and decluttering of your property. Whether it is a one time or year round contract. We provide quality equipment, contractors, and service with you and your investment in mind. Also offered is our snow and land services if needed too!"
+        },
+        {
+          "company": "She Organized, Inc.",
+          "contact": "",
+          "phone": "763.257.3293",
+          "email": "sheila@sheorganized.com",
+          "website": "https://www.sheorganized.com/",
+          "notes": ""
+        },
+        {
+          "company": "Dave's Bull Scrap",
+          "contact": "David Aubin",
+          "phone": "651-592-3855",
+          "email": "Daveemcgee@outlook.com",
+          "website": "",
+          "notes": "We specialize in estate clean outs - but have done everything from mow a lawn for a client a day before closing, to renting 6 - 20 yard dumpsters, to clean out a complete house and garage in 5 days."
+        }
+      ]
+    },
+    {
+      "category": "Demolition",
+      "vendors": [
+        {
+          "company": "Dave's Bull Scrap",
+          "contact": "David Aubin",
+          "phone": "651-592-3855",
+          "email": "Daveemcgee@outlook.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Kamish Excavating Inc.",
+          "contact": "Brad?",
+          "phone": "651-457-3600",
+          "email": "info@kamishexcavating.com",
+          "website": "http://www.kamishexcavating.com/",
+          "notes": "1301 Concord Street South\nSouth Saint Paul, MN 55075"
+        }
+      ]
+    },
+    {
+      "category": "Dock Services",
+      "vendors": [
+        {
+          "company": "Marine Contractor: Tonka Built, LLC",
+          "contact": "Jake Youngren",
+          "phone": "952-221-5340",
+          "email": "jake@tonkabuilt.com",
+          "website": "http://www.tonkabuilt.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Drain Cleaning",
+      "vendors": [
+        {
+          "company": "Jetter Clean Advanced Drain Cleaning",
+          "contact": "Andy",
+          "phone": "952-469-5533",
+          "email": "",
+          "website": "https://jettercleanlakeville.com/",
+          "notes": "They service the entire Metro."
+        },
+        {
+          "company": "OnlyDrainz",
+          "contact": "Jacob Zwack",
+          "phone": "(763) 274-8147",
+          "email": "OnlyDrainzmn@gmail.com",
+          "website": "http://Onlydrainzmn.com",
+          "notes": "\"OnlyDrainz specializes in drainage service for residential and commercial properties. From sinks, tubs, utility drains, floor drains, and main sewer lines OnlyDrainz provides relief when your drainage system fails.\" Open 24 hours for calls."
+        }
+      ]
+    },
+    {
+      "category": "Drain Tile/Sump Pump Installer",
+      "vendors": [
+        {
+          "company": "Advanced Construction",
+          "contact": "",
+          "phone": "952-562-8100",
+          "email": "office@advancedconstructionmn.com",
+          "website": "http://www.advancedconstructionmn.com",
+          "notes": "Savage, MN"
+        },
+        {
+          "company": "Installed Building Solutions",
+          "contact": "",
+          "phone": "651-968-1173",
+          "email": "",
+          "website": "https://www.installbuild.com/",
+          "notes": "21025 Edmonton Avenue Farmington, MN 55024- insulation, water proofing, drain tile."
+        },
+        {
+          "company": "Rite-Way Waterproofing",
+          "contact": "",
+          "phone": "651-786-0550",
+          "email": "",
+          "website": "http://www.rite-waywaterproofing.com",
+          "notes": "448 Lilac Street\nLino Lakes, MN 55014\nEast Metro: (651) 786-0550\nNorth West Metro: (763) 786-0550\nSouth West Metro: (952) 884-7151"
+        },
+        {
+          "company": "Safe Basements of MN",
+          "contact": "Safe Basements of MN",
+          "phone": "800-430-5851",
+          "email": "",
+          "website": "https://www.safebasements.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Driveway-Sealcoating",
+      "vendors": [
+        {
+          "company": "JBX Sealcoating & Asphalt Maintenance",
+          "contact": "Brandon Gilk",
+          "phone": "612-889-7726",
+          "email": "JBXSealcoating@gmail.com",
+          "website": "",
+          "notes": "16418 Minnetonka Blvd,\nMinnetonka, MN 55345\nReferral from Raj Bahl."
+        }
+      ]
+    },
+    {
+      "category": "Drywall Repair",
+      "vendors": [
+        {
+          "company": "Trusted Remodeling Const.",
+          "contact": "Zavier Biscott",
+          "phone": "952-270-7277",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "John Slate",
+          "contact": "John Slate",
+          "phone": "651-261-7726",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "RW Ceilings and Walls",
+          "contact": "Roger",
+          "phone": "763-586-9771",
+          "email": "rwceilings@comcast.net",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Tom Policano",
+          "contact": "Tom Policano",
+          "phone": "",
+          "email": "651-503-7084",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "M&M Painting and Drywall",
+          "contact": "Marcos Menjivar",
+          "phone": "865-455-5923 or Mariella at 208-821-5520",
+          "email": "info@mmpaintingdrywallmn.com",
+          "website": "https://mmpaintingdrywallmn.com/",
+          "notes": "1948 Nebraska Ave E, St Paul, Minnesota, 55119"
+        }
+      ]
+    },
+    {
+      "category": "Dumpsters",
+      "vendors": [
+        {
+          "company": "A-1 Roll Off Dumpster",
+          "contact": "Blake",
+          "phone": "763-307-1596",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "AACE Services",
+          "contact": "Jim & Kyle",
+          "phone": "612-708-2689",
+          "email": "",
+          "website": "",
+          "notes": "Bagster or Dumpster Pick Up"
+        },
+        {
+          "company": "Wizard Roll Off Dumpster",
+          "contact": "Brendan",
+          "phone": "763-537-9600",
+          "email": "info@wizardmn.com",
+          "website": "https://www.wizardmn.com/",
+          "notes": ""
+        },
+        {
+          "company": "Crew’s Dumpster Trailer Rentals",
+          "contact": "Nick Angell",
+          "phone": "612-845-6122",
+          "email": "crewstrailersmn@gmail.com",
+          "website": "",
+          "notes": "Dumpster rentals, junk removal, storage unit cleanout. Located in Shakopee"
+        }
+      ]
+    },
+    {
+      "category": "Egress Windows",
+      "vendors": [
+        {
+          "company": "Egress Window Guy",
+          "contact": "Egress Window Guy",
+          "phone": "612-221-4714",
+          "email": "info@egresswindowguy.com",
+          "website": "http://www.egresswindowguy.com",
+          "notes": "Located in Plymouth"
+        },
+        {
+          "company": "Kent Klescewski",
+          "contact": "Kent Klescewski",
+          "phone": "612-743-0699",
+          "email": "windowexperts@msn.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Midwest Egress",
+          "contact": "Jake or Roger",
+          "phone": "612-812-0328",
+          "email": "jake@MidwestEgress.com",
+          "website": "https://stpaulcorrugating.com/index.html",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Electrical",
+      "vendors": [
+        {
+          "company": "Nicks Electric",
+          "contact": "Nicks Electric",
+          "phone": "612-280-2018",
+          "email": "Info@nickselectricmn.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Electric City Corporation",
+          "contact": "JoAnne Krych",
+          "phone": "952-406-8238",
+          "email": "JoAnneK@ElectricCityCorp.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "M&K Electric",
+          "contact": "Mike Egan",
+          "phone": "612-867-0275",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Day 4 Electric",
+          "contact": "Tim Johnson",
+          "phone": "763-284-3294",
+          "email": "Tim@Day-4.com",
+          "website": "http://www.day-4.com",
+          "notes": "Anoka County focused, but will travel."
+        },
+        {
+          "company": "Nash Electric",
+          "contact": "Pete Nash",
+          "phone": "612-599-7696",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Park Grove Electric",
+          "contact": "Park Grove Electric",
+          "phone": "651-459-8888",
+          "email": "",
+          "website": "https://parkgroveelectric.com/",
+          "notes": "Proudly serving St. Paul Park, Cottage Grove, Newport and Woodbury since 1973. ​"
+        },
+        {
+          "company": "Knight Light Electric",
+          "contact": "Dan Heidelberger",
+          "phone": "612-930-6033",
+          "email": "knightlightelectric@yahoo.com",
+          "website": "https://www.knightlightelectricians.com/",
+          "notes": "3851 Lovell RD Circle Pines, MN 55014"
+        }
+      ]
+    },
+    {
+      "category": "Estate Sales",
+      "vendors": [
+        {
+          "company": "Willmatt Hill Estate Sales",
+          "contact": "",
+          "phone": "612-462-2293",
+          "email": "abernstein@willmatthill.com",
+          "website": "https://willmatthill.com/",
+          "notes": "3639 Elmo Rd.\nMinnetonka, MN 55305"
+        },
+        {
+          "company": "Kathy Educate",
+          "contact": "Kathy Educate",
+          "phone": "",
+          "email": "keducate5@aol.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Two Dames and Friends",
+          "contact": "Tracey Neary",
+          "phone": "612-578-7880",
+          "email": "tracey@twodamesandfriends.com",
+          "website": "http://www.twodamesandfriends.com/",
+          "notes": ""
+        },
+        {
+          "company": "Dave's Bull Scrap",
+          "contact": "David Aubin",
+          "phone": "651-592-3855",
+          "email": "Daveemcgee@outlook.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Excavating",
+      "vendors": [
+        {
+          "company": "JT Construction Services Midwest LLC",
+          "contact": "Jeff 651-308-2240",
+          "phone": "Gavyn 612-239-3543",
+          "email": "jtconstructionservicesmn@gmail.com",
+          "website": "https://jtconstructionservicesmn.com",
+          "notes": "We provide land clearing, excavation, site prep, and grading services."
+        },
+        {
+          "company": "SB Construction",
+          "contact": "Pat",
+          "phone": "651-246-7221",
+          "email": "Pats@sbconstructionllc.com",
+          "website": "http://www.SBConstructionLLC.com",
+          "notes": "Specializes in HDPE Pipe Fusing, Dewatering, Speciality Excavation, Decorative Concrete."
+        },
+        {
+          "company": "Jericho Construction LLC",
+          "contact": "James Dill",
+          "phone": "651-325-6834",
+          "email": "james@jerichoconstructionllc.com",
+          "website": "http://www.JerichoConstructionLLC.com",
+          "notes": ""
+        },
+        {
+          "company": "Kamish Excavating Inc.",
+          "contact": "Brad?",
+          "phone": "651-457-3600",
+          "email": "info@kamishexcavating.com",
+          "website": "http://www.kamishexcavating.com/",
+          "notes": "1301 Concord Street South\nSouth Saint Paul, MN 55075"
+        }
+      ]
+    },
+    {
+      "category": "Exterior Contractor",
+      "vendors": [
+        {
+          "company": "All Around",
+          "contact": "Charles Thayer- owner",
+          "phone": "763-447-3944",
+          "email": "Info@AllAround.com",
+          "website": "http://www.AllAround.com",
+          "notes": ""
+        },
+        {
+          "company": "CZR Exteriors dba CZR Construction",
+          "contact": "Andrew Zimmerman",
+          "phone": "425-530-6985",
+          "email": "office@czrexteriors.com",
+          "website": "https://czrexteriors.com",
+          "notes": "Small business / Local company out of Shakopee\nAt CZR exteriors our mission is to deliver create relationships with our customers so they trust us to do dependable, high-quality roofing, siding, and window solutions that enhance their property value and curb appeal. With a focus on integrity, efficiency, and craftsmanship, we ensure every project is completed on time, on budget, and to the highest standard, helping you present every property at its best."
+        },
+        {
+          "company": "Plonsky Construction",
+          "contact": "Ryan Plonsky",
+          "phone": "651-894-3674",
+          "email": "ryanplonsky@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Corbin Exteriors",
+          "contact": "Brad Lein",
+          "phone": "651-269-3100",
+          "email": "brad@corbinexteriors.com",
+          "website": "http://www.corbinexteriors.com",
+          "notes": "1115 Southview Blvd\nSouth St Paul, MN 55075\nReferral from Laura Marquart"
+        }
+      ]
+    },
+    {
+      "category": "Fence",
+      "vendors": [
+        {
+          "company": "Town & Country Fence",
+          "contact": "Matt Cassada",
+          "phone": "763-425-5050",
+          "email": "Info@TCFence.com",
+          "website": "https://tcfence.com",
+          "notes": ""
+        },
+        {
+          "company": "Dakota Unlimited",
+          "contact": "Steve Lavigne",
+          "phone": "612-919-0730",
+          "email": "steve.lavigne@dakotaunlimited.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Metro Fence",
+          "contact": "Derek",
+          "phone": "612-251-1605",
+          "email": "Metrofencemn@gmail.com",
+          "website": "http://www.metrofencemn.com",
+          "notes": ""
+        },
+        {
+          "company": "Midwest Fence",
+          "contact": "Derek Streissguth",
+          "phone": "651-451-2222",
+          "email": "derekstreissguth@yahoo.com",
+          "website": "http://www.midwestfence.com",
+          "notes": ""
+        },
+        {
+          "company": "Dave's Bull Scrap",
+          "contact": "David Aubin",
+          "phone": "651-592-3855",
+          "email": "Daveemcgee@outlook.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Finish Carpenter",
+      "vendors": [
+        {
+          "company": "Platinum Remodeling",
+          "contact": "Josh Schonkwiler",
+          "phone": "612-823-5592",
+          "email": "josh@platinumremodeling.com",
+          "website": "https://www.platinumremodeling.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Fireplace Installation",
+      "vendors": [
+        {
+          "company": "Glowing Hearth & Home",
+          "contact": "Glowing Hearth & Home",
+          "phone": "952-492-9276 or 952-808-0754",
+          "email": "",
+          "website": "http://www.GlowHearth.com",
+          "notes": "4425 W 123rd St, Savage\n952-808-0754\n100 Eldorado Drive, Jordan\n952-492-9276"
+        }
+      ]
+    },
+    {
+      "category": "Fireplace Repair",
+      "vendors": [
+        {
+          "company": "Anderson's Mechanical",
+          "contact": "",
+          "phone": "651-784-2150",
+          "email": "andersonsmechanical@hotmail.com",
+          "website": "https://www.andersonsmechanical.com/fireplace",
+          "notes": "10611 Baltimore St NE #100\nBlaine, MN 55449"
+        },
+        {
+          "company": "Sela Roofing",
+          "contact": "",
+          "phone": "(612) 823-8046",
+          "email": "info@selaroofing.com",
+          "website": "https://selaroofing.com/",
+          "notes": "https://selaroofing.com/service-area/\nhttps://selaroofing.com/2018/08/20/chimney-fireplace-restoration-repair-by-sela/"
+        },
+        {
+          "company": "The Fireplace Doctor",
+          "contact": "",
+          "phone": "(763) 258-3109",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Floor sanding/refinishing",
+      "vendors": [
+        {
+          "company": "Dave's Floor Sanding & Installing, Inc.",
+          "contact": "Dave",
+          "phone": "763-784-3000",
+          "email": "",
+          "website": "https://davesfloorsanding.com/",
+          "notes": "MAIN OFFICE\n1451 92nd Lane NE\nBlaine, MN 55449"
+        },
+        {
+          "company": "Rawlings Hardwood Floor Service",
+          "contact": "",
+          "phone": "651-778-8277",
+          "email": "rawlingsfloors@aol.com",
+          "website": "http://www.rawlingshardwoodfloors.com/",
+          "notes": "Installation, Sanding, Refinishing"
+        },
+        {
+          "company": "Citywide Wood Floors",
+          "contact": "Citywide Wood Floors",
+          "phone": "952-442-9001",
+          "email": "http://www.citywidewoodfloors.com/contact-us.html",
+          "website": "http://www.citywidewoodfloors.com/home.html",
+          "notes": "PO Box 230 Cologne, MN 55322"
+        }
+      ]
+    },
+    {
+      "category": "Flooring",
+      "vendors": [
+        {
+          "company": "M.W. Flooring Inc.",
+          "contact": "Matt Wells",
+          "phone": "612-308-2859",
+          "email": "m.w.flooringinc@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Solid Stone & Tile LLC",
+          "contact": "Tim Mamedaliev",
+          "phone": "(612) 432-7303",
+          "email": "Solidstonetilemn@gmail.com",
+          "website": "",
+          "notes": "Contractor for Tile, Stone, Pavers and LVP Flooring install"
+        },
+        {
+          "company": "Bloomington Carpet One",
+          "contact": "Josh Loren",
+          "phone": "612-500-3025",
+          "email": "Josh@bloomingtoncarpetone.com",
+          "website": "http://www.bloomingtoncarpetone.com",
+          "notes": ""
+        },
+        {
+          "company": "Flooring Expo",
+          "contact": "Dylan Lundmark",
+          "phone": "952-393-3265",
+          "email": "dylanlundmark@flooringexpo.com",
+          "website": "https://www.flooringexpo.com/",
+          "notes": "multiple locations"
+        },
+        {
+          "company": "HOMEstretch Home Services",
+          "contact": "Tom DiDonato",
+          "phone": "612-260-9787",
+          "email": "tom.didonato@home-stretch.com",
+          "website": "http://www.home-stretch.com",
+          "notes": ""
+        },
+        {
+          "company": "Paveman Designs",
+          "contact": "Paveman Designs",
+          "phone": "507-258-4047",
+          "email": "info@pavemandesigns.com",
+          "website": "https://pavemandesigns.com/",
+          "notes": "3925 Marion Rd SE\nRochester, MN 55904"
+        },
+        {
+          "company": "Dave's Bull Scrap",
+          "contact": "David Aubin",
+          "phone": "651-592-3855",
+          "email": "Daveemcgee@outlook.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Foundation Contractor",
+      "vendors": [
+        {
+          "company": "Blue Frog LLC Foundation Repair",
+          "contact": "Kim Brimley",
+          "phone": "952-960-4849",
+          "email": "kimb.bluefrog@gmail.com",
+          "website": "http://bluefrogpond.com",
+          "notes": ""
+        },
+        {
+          "company": "Duffy Engineering",
+          "contact": "Duffy Engineering",
+          "phone": "320-259-6575",
+          "email": "info@duffyeng.com",
+          "website": "http://duffyeng.com/",
+          "notes": "For St. Cloud area"
+        },
+        {
+          "company": "Innovative Basement Authority",
+          "contact": "Innovative Basement Authority",
+          "phone": "320-208-9362",
+          "email": "",
+          "website": "https://innovativebasementauthority.com/",
+          "notes": "Rush City Office: 320-523-0001\nKasota Office: 320-591-3111"
+        },
+        {
+          "company": "Jesse Trebil Foundation Systems",
+          "contact": "Jesse Trebil",
+          "phone": "866-491-0258",
+          "email": "",
+          "website": "http://www.SafeBasements.com",
+          "notes": "Foundation repair, basement waterproofing, bowed basement wall repair, settling foundation repair"
+        }
+      ]
+    },
+    {
+      "category": "Framer",
+      "vendors": [
+        {
+          "company": "Adam Klingelhutz",
+          "contact": "Adam Klingelhutz",
+          "phone": "952-292-9824",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Framing Inspector",
+      "vendors": [
+        {
+          "company": "Structure Tech",
+          "contact": "Reuben Saltzman",
+          "phone": "",
+          "email": "Reuben@structuretech1.com",
+          "website": "http://www.structuretech1.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Fuel Oil Tank Removal",
+      "vendors": [
+        {
+          "company": "Dean’s Tank, inc",
+          "contact": "",
+          "phone": "763-219-1064",
+          "email": "",
+          "website": "http://www.deanstank.net/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Garage Builder",
+      "vendors": [
+        {
+          "company": "Brolsma Design Build",
+          "contact": "David Lindblom",
+          "phone": "763-772-3722",
+          "email": "dave@brolsmadesign.com",
+          "website": "http://www.brolsmadesign.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Garage clean-out",
+      "vendors": [
+        {
+          "company": "Plonsky Construction",
+          "contact": "Ryan Plonsky",
+          "phone": "651-894-3674",
+          "email": "ryanplonsky@gmail.com",
+          "website": "",
+          "notes": "We do simple garage clean outs for as low as $250 and we also do complete garage remodels. Besides just garages I also work with contractors on job site clean up."
+        }
+      ]
+    },
+    {
+      "category": "Garage Door Repair",
+      "vendors": [
+        {
+          "company": "Mr. Spring",
+          "contact": "Lee Syndergaard",
+          "phone": "C: 612-473-4144 O: 763-251-2910",
+          "email": "lsyndergaard@callmrspring.com",
+          "website": "https://mrspringgaragedoors.com",
+          "notes": "Residential | Commercial | Install | Repair | Free Quotes & Inspections"
+        },
+        {
+          "company": "RL Garage Door Service Inc.",
+          "contact": "Robert Lombardi",
+          "phone": "651-675-6007",
+          "email": "robertlombarditfb@gmail.com",
+          "website": "http://www.rlgaragemn.com",
+          "notes": ""
+        },
+        {
+          "company": "JLR Garage Door Service",
+          "contact": "Brad",
+          "phone": "763-972-6311",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Precision Garage Door Service",
+          "contact": "Precision Garage Door Service",
+          "phone": "877-820-5135",
+          "email": "",
+          "website": "https://precisiondoormn.com/",
+          "notes": "They service the entire Twin Cities and Western Wisconsin."
+        },
+        {
+          "company": "Sam's Garage Door & Home Services",
+          "contact": "Naomi",
+          "phone": "612-800-4794",
+          "email": "samsgarageservices@gmail.com",
+          "website": "https://samgarageservices.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Garage Floor Epoxy",
+      "vendors": [
+        {
+          "company": "Jason Daly",
+          "contact": "Jason Daly",
+          "phone": "612-388-4549",
+          "email": "dalypaint@yahoo.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Geothermal Inspector",
+      "vendors": [
+        {
+          "company": "Air Mechanical",
+          "contact": "",
+          "phone": "763-634-8030",
+          "email": "",
+          "website": "https://www.airmechanical.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Glass",
+      "vendors": [
+        {
+          "company": "The Glass Guru",
+          "contact": "Peter Bateman",
+          "phone": "952-456-6278",
+          "email": "peter@theglassguru.com",
+          "website": "http://www.theglassguru.com/westminneapolis",
+          "notes": "The Glass Guru is a leading franchised glass and window repair and replacement Company and marketer of a patent-pending moisture removal technology for failed dual pane windows. With an emphasis on environmentally responsible and money-saving restoration services bundled with traditional replacement services"
+        },
+        {
+          "company": "Glass Trends, LLC",
+          "contact": "Matthew Azen",
+          "phone": "612-270-0533",
+          "email": "matthew@glasstrendsmn.com",
+          "website": "https://www.glasstrendsmn.com/",
+          "notes": "Residential or commercial glass - insulated glass replacement, office patricians, store front, shower enclosures, etc."
+        },
+        {
+          "company": "Premier Glass LLC",
+          "contact": "Mark Ebert",
+          "phone": "763-205-6848",
+          "email": "mebert@premierglassmn.com",
+          "website": "https://premierglassmn.com",
+          "notes": "8623 Jefferson Highway, Osseo, MN 55369\nCell 612-750-1514"
+        }
+      ]
+    },
+    {
+      "category": "Gutters",
+      "vendors": [
+        {
+          "company": "Corbin Exteriors",
+          "contact": "Brad Lein",
+          "phone": "651-269-3100",
+          "email": "brad@corbinexteriors.com",
+          "website": "https://www.corbinexteriors.com/",
+          "notes": "1115 Southview Blvd\nSouth St Paul, MN 55075\nReferral from Laura Marquart"
+        },
+        {
+          "company": "Gutter Helmet of MN",
+          "contact": "Adam Tellers",
+          "phone": "763-271-3366",
+          "email": "info@gutterhelmetmn.com",
+          "website": "https://www.gutterhelmetmn.com/",
+          "notes": ""
+        },
+        {
+          "company": "J & S Siding & Gutters",
+          "contact": "J & S Siding & Gutters",
+          "phone": "651-459-6635",
+          "email": "info@jandssiding.com",
+          "website": "http://jandssiding.com/",
+          "notes": "8617 West Point Douglas Road #140,\nCottage Grove, MN 55016"
+        },
+        {
+          "company": "Refresh Exteriors",
+          "contact": "Refresh Exteriors",
+          "phone": "612-324-7663",
+          "email": "info@refreshext.com",
+          "website": "https://refreshexteriorsmidwest.com/",
+          "notes": "7820 Terrey Pine Ct #80,\nEden Prairie, MN 55347"
+        },
+        {
+          "company": "Roof Panels Plus",
+          "contact": "Tony Hackbarth",
+          "phone": "612-231-7937",
+          "email": "anthonyhackbarth@gmail.com",
+          "website": "https://www.roofpanelsplus.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Handyman",
+      "vendors": [
+        {
+          "company": "Bellisimo Handyman LLC",
+          "contact": "Bairon Molina",
+          "phone": "651-703-5512",
+          "email": "bellisimohandymanllc@gmail.com",
+          "website": "http://www.bellisimohandymanllc.com",
+          "notes": "Specializes in Drywall Install/Repair, Carpentry, Painting, minor plumbing and electrical and much more."
+        },
+        {
+          "company": "Bob Mannhardt",
+          "contact": "Bob Mannhardt",
+          "phone": "651-356-4934",
+          "email": "mannhardt1548@gmail.com",
+          "website": "",
+          "notes": "I can take on tasks that would fall into normal homeowner “DIY” maintenance.\n- Replacing light fixtures, outlets and switches.\n- Replacing faucets, toilets and sinks.\n- Paint touch up, drywall repair and trim install.\n- Garage door repair.\n- Tree trimming, Lawn and landscape clean up.\nFor DIY type of maintenance I charge $75hr. I prefer you buy the materials. I’ll provide the list. If I buy materials I will add 10%."
+        },
+        {
+          "company": "Dave's Bull Scrap LLC",
+          "contact": "Dave Aubin",
+          "phone": "651-592-3855",
+          "email": "daveemcgee@outlook.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Dennis Huberty",
+          "contact": "Dennis Huberty",
+          "phone": "763-227-1999",
+          "email": "HubertyDennis555@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Holland's Handyman Service",
+          "contact": "Alison Seaton",
+          "phone": "",
+          "email": "",
+          "website": "https://hollandhandymanservices.com/",
+          "notes": ""
+        },
+        {
+          "company": "Olsen Servicing",
+          "contact": "JT Olsen",
+          "phone": "209-595-9492",
+          "email": "olsenservicingllc@gmail.com",
+          "website": "",
+          "notes": "Handyman services all the way to exterior remodels. (Retaining walls, decks, fences, siding, roofing, etc)"
+        },
+        {
+          "company": "R&A² Remodeling",
+          "contact": "Ryan Berres",
+          "phone": "612-558-9231",
+          "email": "ryanberres.mn@gmail.com",
+          "website": "https://ra2remodeling.com",
+          "notes": ""
+        },
+        {
+          "company": "TruBlue",
+          "contact": "Tim and Jennifer Bauernfeind",
+          "phone": "763-400-3748 office",
+          "email": "LetUsHelpMNMetro@trublueally.com or tbauernfeind@trublueally.com",
+          "website": "http://www.trublueally.com",
+          "notes": ""
+        },
+        {
+          "company": "Bob Miller",
+          "contact": "Bob Miller",
+          "phone": "952-292-8505",
+          "email": "bobsxfilesmiller@aol.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Chris Moorman",
+          "contact": "Chris Moorman",
+          "phone": "612-919-7374",
+          "email": "cmm138@q.com",
+          "website": "",
+          "notes": "will work northern metro"
+        },
+        {
+          "company": "Dead Level Handyman Company",
+          "contact": "CJ Brecht",
+          "phone": "651-248-3789",
+          "email": "",
+          "website": "https://www.instagram.com/deadlevelhandyman?igsh=dGh5b3U5MzdkOGl3",
+          "notes": "Referral from Kevin Curtis."
+        },
+        {
+          "company": "Home Worx Handyman Services",
+          "contact": "Matt Steiner",
+          "phone": "651-560-6855",
+          "email": "matt.steiner@comcast.net; homeworxmn@gmail.com",
+          "website": "https://homeworxhandyman.com",
+          "notes": ""
+        },
+        {
+          "company": "HOMEstretch Home Services",
+          "contact": "Tom DiDonato",
+          "phone": "612-260-9787",
+          "email": "tom.didonato@home-stretch.com",
+          "website": "http://www.home-stretch.com",
+          "notes": "- Home Clear Outs (Removal of any unwanted items from the home)\n- Painting (Interior/Exterior)\n- Carpet and Flooring (Removal/Install of LVT, LVP & Carpet)\n- Home Cleaning (Cleaning prior to listing photos)\n- Landscape Cleanup (Mulching, Trimming, Pressure washing)\n- Handyman Services (New light fixtures, doorknobs, baseboard installation, etc.)"
+        },
+        {
+          "company": "Hagberg Home Services",
+          "contact": "Blake Hagberg",
+          "phone": "612-245-3823",
+          "email": "",
+          "website": "",
+          "notes": "Servies West Metro"
+        },
+        {
+          "company": "HonesTy Home Solutions LLC",
+          "contact": "Tyler Owen",
+          "phone": "612-987-3798",
+          "email": "tyler@honestyhomesolutions.com",
+          "website": "https://www.facebook.com/profile.php?id=61573558671869",
+          "notes": "Referral from Matt Cullen. He does personal remodel projects. Kitchens, Bathrooms, Basements, Carpentry, Trim, Decks, Handyman and small jobs."
+        },
+        {
+          "company": "Sean Conley",
+          "contact": "Sean Conley",
+          "phone": "952-686-1681",
+          "email": "SConleyEst.87@gmail.com",
+          "website": "",
+          "notes": "Handyman/Carpenter recommendation from Maria Bujak."
+        },
+        {
+          "company": "Aaron's Painting Plus, LLC",
+          "contact": "Aaron Glagavs (pronounced like Vegas)",
+          "phone": "651-238-3265",
+          "email": "aaron@aaronspaintingplusllc.com",
+          "website": "http://www.aaronspaintingplusllc.com",
+          "notes": "Handyman Services, no job too small.\nBased in East Metro. Recommendation from David Meyer"
+        },
+        {
+          "company": "Highline Remodeling",
+          "contact": "Zack Spetzman",
+          "phone": "763-276-3929",
+          "email": "highlineremodel@gmail.com",
+          "website": "https://www.highlineremodel.com/",
+          "notes": "General Contractor\nRemodeling Services\nHandyman Services"
+        },
+        {
+          "company": "Matt Barth",
+          "contact": "Matt Barth",
+          "phone": "952-212-2953",
+          "email": "",
+          "website": "",
+          "notes": "Recommendation from Rob Andert- he is also a general contractor."
+        },
+        {
+          "company": "Morf The Handyman",
+          "contact": "Jordan Morfitt",
+          "phone": "715-501-8059",
+          "email": "jordan.morfitt@gmail.com",
+          "website": "",
+          "notes": "Prefers to work east Metro/WI. Referral from David Meyer."
+        },
+        {
+          "company": "Nate Rylander",
+          "contact": "Nate Rylander",
+          "phone": "952-917-9479",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "The Odd Job Guys",
+          "contact": "Billy",
+          "phone": "612-916-9000",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "ZZ The HandyMan Corp",
+          "contact": "",
+          "phone": "612-900-0789",
+          "email": "zzthehandymannow@gmail.com",
+          "website": "https://zzthehandyman.com/",
+          "notes": ""
+        },
+        {
+          "company": "Casio's Handyman Service",
+          "contact": "Casio",
+          "phone": "952-457-6577",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Home Cleaning Company",
+      "vendors": [
+        {
+          "company": "Clean Machine",
+          "contact": "Mirranda Kager",
+          "phone": "763-310-7443",
+          "email": "cleanmachinemn@gmail.com",
+          "website": "http://facebook.com/cleanmachineMN",
+          "notes": ""
+        },
+        {
+          "company": "Kristy and David Dickerson",
+          "contact": "Kristy Dickerson",
+          "phone": "651-271-0861",
+          "email": "david_dickerson01@comcast.net",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Sunrise Services",
+          "contact": "Dean Mitchell",
+          "phone": "651-983-2329",
+          "email": "info@sunriseservicesmnwi.com",
+          "website": "https://www.facebook.com/SunriseServicesIncMNWI/",
+          "notes": "We offer a full service cleaning and decluttering of your property. Whether it is a one time or year round contract. We provide quality equipment, contractors, and service with you and your investment in mind. Also offered is our snow and land services if needed too !"
+        },
+        {
+          "company": "Details Home Services",
+          "contact": "Details Home Services",
+          "phone": "612-216-1751",
+          "email": "info@detailsservices.com",
+          "website": "http://www.detailsservices.com",
+          "notes": ""
+        },
+        {
+          "company": "Ella’s Cleaning Company",
+          "contact": "Ella",
+          "phone": "952-220-7718",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Molly Maids",
+          "contact": "Jeff Henning",
+          "phone": "651-457-3006",
+          "email": "dakotamollymaid@yahoo.com",
+          "website": "https://www.mollymaid.com/north-dakota-county/?L=true",
+          "notes": "Reyna- operations manager\nJosephine- office manager\nCan cover from Hugo to Owatonna and Hudson to Bloomington.\nTwo other owners up here cover West of Hwy 100 but we can refer to them if needed."
+        },
+        {
+          "company": "Astra Cleaning Services",
+          "contact": "Omar Noguera",
+          "phone": "763-343-5487",
+          "email": "omar@astracleanservices.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Clean Living",
+          "contact": "Jamie Johnson",
+          "phone": "651-270-8702",
+          "email": "jsjohnson805@gmail.com",
+          "website": "",
+          "notes": "Referral from Matt Cullen."
+        },
+        {
+          "company": "NorthStar Cleaning Services",
+          "contact": "Tim Schumann",
+          "phone": "952-393-2773",
+          "email": "",
+          "website": "https://northstarcleaningservices.bookingkoala.com/",
+          "notes": ""
+        },
+        {
+          "company": "Neat N Clean Co.",
+          "contact": "Brittney",
+          "phone": "651-414-1394",
+          "email": "Brittney@neatncleanco.com",
+          "website": "https://neatncleanco.com/",
+          "notes": ""
+        },
+        {
+          "company": "HOMEstretch Home Services",
+          "contact": "Tom DiDonato",
+          "phone": "612-260-9787",
+          "email": "tom.didonato@home-stretch.com",
+          "website": "http://www.home-stretch.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Home Inspections",
+      "vendors": [
+        {
+          "company": "Home In Sight Inspections",
+          "contact": "Charles Daws",
+          "phone": "612-242-7898",
+          "email": "charles@homeinsightinspect.com",
+          "website": "http://www.homeinsightinspect.com",
+          "notes": ""
+        },
+        {
+          "company": "Structure Tech",
+          "contact": "",
+          "phone": "952-915-6466",
+          "email": "info@structuretech.com",
+          "website": "https://structuretech.com",
+          "notes": "Licensed in WI as well."
+        },
+        {
+          "company": "World Inspection Network",
+          "contact": "Steve Stalock, CRI",
+          "phone": "952-891-4455",
+          "email": "sstalock@wini.com",
+          "website": "http://www.wini.com/Burnsville",
+          "notes": ""
+        },
+        {
+          "company": "Ted Koltes",
+          "contact": "Ted Koltes",
+          "phone": "(763) 478-1040",
+          "email": "tkted1969@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Luke Bristlin Home Properties LLC",
+          "contact": "Luke Bristlin",
+          "phone": "952-412-8304",
+          "email": "lwbristlin1@gmail.com",
+          "website": "http://www.callithomeproperties.com",
+          "notes": "Home Inspections\nAnd Radon Mitigation"
+        }
+      ]
+    },
+    {
+      "category": "Home Preparation Services",
+      "vendors": [
+        {
+          "company": "Home Stretch",
+          "contact": "Tom DiDonato",
+          "phone": "612-260-9787",
+          "email": "tom.didonato@home-stretch.com",
+          "website": "http://www.home-stretch.com/minneapolis",
+          "notes": "Stop juggling multiple vendors, painters, flooring installers, cleaners, and handymen. HOMEstretch coordinates it all so you can focus on selling while we elevate the home’s condition to help it sell faster for maximum dollars.\nHOMEstretch specializes in cosmetic upgrades to get homes ready in times of transition. If you're looking to be market-ready for sale or move-in ready after buying, we can do it all. We focus on:\nHome Clear Outs (Removal of unwanted items from the home)\nPainting (Interior/exterior)\nCarpet & Flooring (Removal/install of LVT, LVP & carpet)\nHome Cleaning (Pre-listing deep cleans)\nLandscape Cleanup (Mulching, trimming, pressure washing)\nHandyman Services (Doorknobs, baseboards, etc.)\nWe answer the phone, provide a free consultation within 24 hours of contact, and deliver quotes within 24 hours after that consultation. With multiple crews available, we can typically start work within 3-5 days. We also offer two forms of financing to help meet your clients’ needs."
+        }
+      ]
+    },
+    {
+      "category": "Home Remodeling and Additions-Refresh",
+      "vendors": [
+        {
+          "company": "The PM Network | Remodeler's Edge MN",
+          "contact": "James Dill",
+          "phone": "(651) 325-6834",
+          "email": "james@yourpmnetwork.com",
+          "website": "http://yourpmnetwork.com,remodelersedgemn.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Home Staging",
+      "vendors": [
+        {
+          "company": "Shine Bureau",
+          "contact": "Michelle Havens",
+          "phone": "612-229-6064",
+          "email": "michelle@shinebureau.net",
+          "website": "https://www.shinebureau.net/",
+          "notes": ""
+        },
+        {
+          "company": "St. Paul Home Staging",
+          "contact": "Laura Ghera",
+          "phone": "708-280-1608",
+          "email": "info@stpaulhomestaging.com",
+          "website": "http://stpaulhomestaging.com",
+          "notes": ""
+        },
+        {
+          "company": "Hidden Gem Design and Staging",
+          "contact": "Holly Sheppard",
+          "phone": "612-258-7206",
+          "email": "hollyhgdesign@gmail.com",
+          "website": "http://www.hgdesign.me",
+          "notes": ""
+        },
+        {
+          "company": "Revampit Staging",
+          "contact": "Heather Rectenwal",
+          "phone": "612-387-8966",
+          "email": "Heather@HeatherRectenwal.com",
+          "website": "http://www.revampitstaging.com",
+          "notes": ""
+        },
+        {
+          "company": "Savvy Co Staging",
+          "contact": "Olivia Savageau",
+          "phone": "651-925-7220",
+          "email": "savvycostaging@gmail.com",
+          "website": "https://www.facebook.com/profile.php?id=100095031979963&mibextid=LQQJ4d",
+          "notes": ""
+        },
+        {
+          "company": "Uniquely Yours Home",
+          "contact": "Donna Busch",
+          "phone": "763-274-0736",
+          "email": "uniquelyyourshome@gmail.com",
+          "website": "https://www.uniquelyyourshome.com/",
+          "notes": "Stager for North Metro"
+        },
+        {
+          "company": "A Home Revival",
+          "contact": "Kelly Zabel, owner",
+          "phone": "952-412-3046",
+          "email": "kelly@ahomerevival.com",
+          "website": "https://www.ahomerevival.com/",
+          "notes": ""
+        },
+        {
+          "company": "Staged 2 Sell",
+          "contact": "Angella Meyer",
+          "phone": "612-644-5400",
+          "email": "",
+          "website": "",
+          "notes": "Referral from Stevie Wimber on the team."
+        },
+        {
+          "company": "T Leaf Designs",
+          "contact": "Tammy Leaf",
+          "phone": "(612) 987-7799",
+          "email": "tleafdesigns8@gmail.com",
+          "website": "https://tleafdesigns.com",
+          "notes": "I am a HSR Certified Professional home staging and interior redesign organization serving the St Louis Park, Edina, Golden Valley, Plymouth, Minnetonka and surrounding area. I have completed the most comprehensive and intensive home staging and redesign certification courses in North America provided by the Home Staging Resource.\nThe HSR Certification program was the first and is one of the only Accredited staging training by the Real Estate Staging Assocation (RESA) who is the governing body for the home staging industry."
+        },
+        {
+          "company": "Two Dames and Friends",
+          "contact": "Tracey Neary",
+          "phone": "612-578-7880",
+          "email": "hello@twodamesandfriends.com",
+          "website": "https://www.twodamesandfriends.com/",
+          "notes": "We are the reputed home stagers in Minneapolis with a huge exposure in house clean out services and packing services, and excel in a wide range of services that include move management, small home repairs, home designing, decoration and organizing. Our services speak for nothing but class and quality with every output. Let’s show you a glimpse of what we do!"
+        }
+      ]
+    },
+    {
+      "category": "Home Warranty",
+      "vendors": [
+        {
+          "company": "ACHOSA",
+          "contact": "Shelley Goldman",
+          "phone": "612-360-1777",
+          "email": "ShelleyG@achosahw.com",
+          "website": "http://shelleyg@achosahw.com",
+          "notes": ""
+        },
+        {
+          "company": "Cinch Home Services",
+          "contact": "Jennifer Gagne or Jason Blume",
+          "phone": "612-267-7340 Jennifer, 612-475-6947 Jason",
+          "email": "jgagne@cinchhs.com, jblume@cinchhs.com",
+          "website": "https://www.cinchhomeservices.com/partners/real-estate/overview",
+          "notes": "Cinch also has \"choose your own contractor\" plans available. For more information visit bringyourownpro.com"
+        },
+        {
+          "company": "Home Warranty of America, Inc.",
+          "contact": "Alan Loewenstern",
+          "phone": "312-505-4118",
+          "email": "aloewenstern@hwahomewarranty.com",
+          "website": "http://www.hwahomewarranty.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Hot Tub Movers",
+      "vendors": [
+        {
+          "company": "Mighty Hot Tub Movers",
+          "contact": "Evan Swenson",
+          "phone": "952-412-0404",
+          "email": "mightyhottubmovers.evan@gmail.com",
+          "website": "https://www.mightyhottubmovers.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "HVAC",
+      "vendors": [
+        {
+          "company": "Benjamin Franklin",
+          "contact": "Joe Stark",
+          "phone": "763-294-1000",
+          "email": "Benfranklinjstark@gmail.com",
+          "website": "",
+          "notes": "He's servicing the entire twin cities with a 50-mile radius around MPLS. Licensed in all cities. - HVAC, Plumbing and Electrical and Sewer line repair/cleaning.\n'He is very responsive and looks out for the best interests of the client. We loved working with Joe!' -Zach and Angie Savageau"
+        },
+        {
+          "company": "*Total Home Solutions",
+          "contact": "Troy Rasmussen",
+          "phone": "952-207-6995",
+          "email": "Troy.CallTHS@Gmail.com",
+          "website": "http://www.callths.com",
+          "notes": "Radio Show Partner:\nLocated in South Metro but work all over the Twin Cities.\n1008 Prospect Pointe Rd, Jordan, MN 55352"
+        },
+        {
+          "company": "Bob Miller",
+          "contact": "Bob Miller",
+          "phone": "952-292-8505",
+          "email": "bobsxfilesmiller@aol.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "ClearPath Mechanical",
+          "contact": "Jason Brisson",
+          "phone": "651-413-4634",
+          "email": "jason@clearpathmechanical.com",
+          "website": "https://www.instagram.com/clear_pathhvac/",
+          "notes": "Referral from David Meyer"
+        },
+        {
+          "company": "Deschene Enterprises, Inc",
+          "contact": "Jim Deschene",
+          "phone": "763-568-2974",
+          "email": "deschenelinda@yahoo.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Groffs Heating & Air Conditioning",
+          "contact": "Groffs Heating & Air Conditioning",
+          "phone": "651-423-3802",
+          "email": "",
+          "website": "https://www.gogroffs.com/",
+          "notes": "12365 Dodd Blvd,\nRosemount, MN 55068"
+        },
+        {
+          "company": "High Road Heating & Cooling Co.",
+          "contact": "Robin Johnson",
+          "phone": "763-477-3331",
+          "email": "robinj@highroadheating.com",
+          "website": "http://www.highroadheating.com",
+          "notes": ""
+        },
+        {
+          "company": "Loftgren Heating and Air",
+          "contact": "",
+          "phone": "952-431-5811",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Quality Air Mechanical in Blaine",
+          "contact": "Jim Johnson",
+          "phone": "(763) 757-3206",
+          "email": "qamechanical@comcast.net",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Flare Heaating & Air Conditioning",
+          "contact": "Dave Jurek",
+          "phone": "763-542-1166",
+          "email": "Djurek@flareheating.com",
+          "website": "http://www.flareheating.com",
+          "notes": "We pride ourselves on:\nPre‑sale inspections to identify issues early and avoid surprises during inspection.\nPost‑sale tune‑ups to ensure new homeowners move into a safe, efficient system.\nCertifications and documentation agents can share with buyers or sellers.\nFast turnaround on repairs or replacements to help keep closings on track.\nHonest, no‑pressure assessments your clients can trust."
+        }
+      ]
+    },
+    {
+      "category": "Ice Dam Removal",
+      "vendors": [
+        {
+          "company": "Englund Roofing & Sheet Metal",
+          "contact": "Jimmy Englund",
+          "phone": "651-263-5023",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Lions Share Maintenance",
+          "contact": "",
+          "phone": "651-330-2810",
+          "email": "",
+          "website": "https://www.lsmain.com/",
+          "notes": ""
+        },
+        {
+          "company": "Roof To Deck Restoration",
+          "contact": "Mike Hilborn",
+          "phone": "651-699-3504",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Insulation",
+      "vendors": [
+        {
+          "company": "UZ insulation",
+          "contact": "Mike Ubl",
+          "phone": "763-286-1128",
+          "email": "uzinsulation@msn.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Insurance",
+      "vendors": [
+        {
+          "company": "Farmers Insurance - Brad Sanford",
+          "contact": "Brad Sanford",
+          "phone": "(651) 690-2076",
+          "email": "bsanford@farmersagent.com",
+          "website": "https://agents.farmers.com/mn/saint-paul/bradley-sanford",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Interior Contractor",
+      "vendors": [
+        {
+          "company": "HonesTy Home Solutions LLC",
+          "contact": "Tyler Owen",
+          "phone": "612-987-3798",
+          "email": "tyler@honestyhomesolutions.com",
+          "website": "https://www.facebook.com/profile.php?id=61573558671869",
+          "notes": "Referral from Matt Cullen. He does personal remodel projects. Kitchens, Bathrooms, Basements, Carpentry, Trim, Decks, Handyman and small jobs."
+        },
+        {
+          "company": "R & A Remodeling, Inc.",
+          "contact": "Ryan Berres",
+          "phone": "612-558-9231",
+          "email": "ryanberres.mn@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Redstone Remodeling",
+          "contact": "Boris Belousov",
+          "phone": "763-300-9343",
+          "email": "contact@buildwithredstone.com",
+          "website": "https://buildwithredstone.com/",
+          "notes": "We do interior and exterior Remodeling, mold, water, fire restoration and remediation."
+        },
+        {
+          "company": "Sandau Construction Co., Inc.",
+          "contact": "Sandau Construction",
+          "phone": "952-403-9100",
+          "email": "info@sandauinc.com",
+          "website": "https://sandauinc.com/",
+          "notes": "9025 W Hwy 101 Frontage Rd\nSavage, MN 55378"
+        },
+        {
+          "company": "Strong Remodeling",
+          "contact": "Kelly Strong",
+          "phone": "952-999-2341",
+          "email": "",
+          "website": "",
+          "notes": "Services South of the River (Dakota, Scott, Rice Counties)"
+        },
+        {
+          "company": "Trumper Construction",
+          "contact": "John Trumper",
+          "phone": "651-247-0575",
+          "email": "Jtrumper.tci@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "White Birch Design LLC",
+          "contact": "Steve McDonald",
+          "phone": "612-910-2955",
+          "email": "Steve@MnRealEstateTeam.com",
+          "website": "",
+          "notes": "or 952-686-8443"
+        },
+        {
+          "company": "Bruce Zupan",
+          "contact": "Bruce Zupan",
+          "phone": "612-282-9269",
+          "email": "kbzupan@nuveramail.net",
+          "website": "https://www.buzzfile.com/business/Kbz-Properties-LLC-952-226-5017",
+          "notes": "Recommended by Steve DeLarosby."
+        },
+        {
+          "company": "Plonsky Construction",
+          "contact": "Ryan Plonsky",
+          "phone": "651-894-3674",
+          "email": "ryanplonsky@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Solid Stone and Tile LLC",
+          "contact": "Tim Mamedaliev",
+          "phone": "612-432-7303",
+          "email": "Solidstonetilemn@gmail.com",
+          "website": "",
+          "notes": "Interior Contractor, painting, stone and tile installation. Referral from Zamira Selyukov."
+        },
+        {
+          "company": "ROOMSMITH",
+          "contact": "Eric Smith, CEO",
+          "phone": "763-910-4545",
+          "email": "eric.smith@room-smith.com",
+          "website": "http://www.room-smith.com",
+          "notes": ""
+        },
+        {
+          "company": "Highline Remodeling",
+          "contact": "Zack Spetzman",
+          "phone": "763-276-3929",
+          "email": "highlineremodel@gmail.com",
+          "website": "https://www.highlineremodel.com/",
+          "notes": "General Contractor\nRemodeling Services\nHandyman Services"
+        },
+        {
+          "company": "Tschida Service Company",
+          "contact": "Peter Benton",
+          "phone": "612-434-7704",
+          "email": "fordservmn@gmail.com",
+          "website": "",
+          "notes": "Recommendation from David Meyer"
+        }
+      ]
+    },
+    {
+      "category": "Interior Decorating",
+      "vendors": [
+        {
+          "company": "1st Impressions Design",
+          "contact": "Deb Garvin",
+          "phone": "507-430-7938",
+          "email": "deb.1st.impress@gmail.com",
+          "website": "https://1stimpressionsdesign.com/",
+          "notes": "Color Consultation, E-Design Services, Designer By Your Side Shopping Services, Designer for a Day Installation Services & Short-Term Vacation Rental Design Services"
+        },
+        {
+          "company": "A Home Rivival",
+          "contact": "Kelly Zabel, owner",
+          "phone": "952-412-3046",
+          "email": "kelly@ahomerevival.com",
+          "website": "https://www.ahomerevival.com/",
+          "notes": ""
+        },
+        {
+          "company": "Zoey’s Event & Décor",
+          "contact": "Kabeah Weeks",
+          "phone": "612-702-0832",
+          "email": "",
+          "website": "",
+          "notes": "Services Offered: Cleaning, Event Planning, Staging, Interior Decorating"
+        }
+      ]
+    },
+    {
+      "category": "Invisible Fencing",
+      "vendors": [
+        {
+          "company": "DogWatch",
+          "contact": "Guy Treanor",
+          "phone": "952-937-8258",
+          "email": "guy@dogwatchtc.com",
+          "website": "http://www.dogwatchtc.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Islamic Lenders",
+      "vendors": [
+        {
+          "company": "Guidance Residential- Muhammed Khan",
+          "contact": "Muhammed Khan",
+          "phone": "703-885-0869",
+          "email": "mkhan@guidanceresidential.com",
+          "website": "https://www.guidanceresidential.com/account-executive-profile/mkhan",
+          "notes": ""
+        },
+        {
+          "company": "Luminate Bank",
+          "contact": "Hudson Murphy",
+          "phone": "651-276-2349",
+          "email": "hudson.murphy@goluminate.com",
+          "website": "http://www.hudsonmurphy.com",
+          "notes": "https://simplebooklet.com/halalfinancingprogram"
+        },
+        {
+          "company": "Guidance Residential- Mahamud Gorod",
+          "contact": "Mahamud Gorod",
+          "phone": "612-351-1245",
+          "email": "mahamud.gorod@guidanceresidential.com",
+          "website": "https://www.guidanceresidential.com/guidanceresidential.com/account-executive-profile/mgorod",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Jacuzzi Tub Repair",
+      "vendors": [
+        {
+          "company": "MinnSpas",
+          "contact": "MinnSpas",
+          "phone": "763-200-7727",
+          "email": "",
+          "website": "http://www.minnspas.com",
+          "notes": ""
+        },
+        {
+          "company": "Twin City Jacuzzi",
+          "contact": "",
+          "phone": "Burnsville: 952-890-7727",
+          "email": "St. Louis Park: 952-658-6540",
+          "website": "https://www.twincityjacuzzi.com/",
+          "notes": ""
+        },
+        {
+          "company": "Primo Appliance",
+          "contact": "Eric",
+          "phone": "651-779-2313",
+          "email": "",
+          "website": "http://primo-appliance.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Junk Removal",
+      "vendors": [
+        {
+          "company": "Clean Sweep Junk Removal",
+          "contact": "Austin Hechtel",
+          "phone": "651-329-4412",
+          "email": "cleansweepjunk.etc@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Crew’s Dumpster Trailer Rentals & Junk Removal",
+          "contact": "Nick Angell",
+          "phone": "(952) 295-3323",
+          "email": "crewstrailersmn@gmail.com",
+          "website": "http://Crew'sJunkRemoval'sWebsite",
+          "notes": ""
+        },
+        {
+          "company": "Gotta Go Junk Removal LLC, MN",
+          "contact": "Evan & Mackenzie Byers",
+          "phone": "612-408-0562",
+          "email": "gottagojunkremoval@gmail.com",
+          "website": "https://gottagojunk.net/",
+          "notes": ""
+        },
+        {
+          "company": "HOMEstretch Home Services",
+          "contact": "Tom DiDonato",
+          "phone": "612-260-9787",
+          "email": "tom.didonato@home-stretch.com",
+          "website": "http://www.home-stretch.com",
+          "notes": "- Home Clear Outs (Removal of any unwanted items from the home)\n- Painting (Interior/Exterior)\n- Carpet and Flooring (Removal/Install of LVT, LVP & Carpet)\n- Home Cleaning (Cleaning prior to listing photos)\n- Landscape Cleanup (Mulching, Trimming, Pressure washing)\n- Handyman Services (New light fixtures, doorknobs, baseboard installation, etc.)"
+        },
+        {
+          "company": "N2L Services LLC",
+          "contact": "Raymond Andrews",
+          "phone": "(612) 450-4777",
+          "email": "N2L.Mpls@gmail.com",
+          "website": "https://n2lservices.com",
+          "notes": ""
+        },
+        {
+          "company": "SDJ Junk and Waste",
+          "contact": "Samuel Jones",
+          "phone": "(612) 599-0306",
+          "email": "samjones@sdjjunkandwaste.com",
+          "website": "https://www.sdjjunk.com",
+          "notes": "Pre-Listing Cleanout & Dumpster Services"
+        },
+        {
+          "company": "Tidy Truck Junk Removal",
+          "contact": "JC Haight",
+          "phone": "480-369-3237",
+          "email": "",
+          "website": "https://www.tidytruckjunk.com",
+          "notes": "Referral from Andy McNair.\nServing The Entire Twin Cities Metro"
+        },
+        {
+          "company": "Two Dames and Friends",
+          "contact": "Tracey Neary",
+          "phone": "612-578-7880",
+          "email": "tracey@twodamesandfriends.com",
+          "website": "http://www.twodamesandfriends.com/",
+          "notes": ""
+        },
+        {
+          "company": "Viking Junk Removal",
+          "contact": "Viking Junk Removal",
+          "phone": "612-448-9506",
+          "email": "sales@vikingjunkremovalmn.com",
+          "website": "http://www.vikingjunkremovalmn.com",
+          "notes": ""
+        },
+        {
+          "company": "Empty the Nest",
+          "contact": "Empty the Nest",
+          "phone": "612-998-0102",
+          "email": "Info@EmptyTheNest.net",
+          "website": "http://www.emptythenest.net",
+          "notes": ""
+        },
+        {
+          "company": "Junkluggers",
+          "contact": "Junkluggers",
+          "phone": "612-540-0990",
+          "email": "info@junkluggers.com",
+          "website": "https://www.junkluggers.com/minnesota",
+          "notes": ""
+        },
+        {
+          "company": "RAC Enterprises, LLC",
+          "contact": "Wendy",
+          "phone": "612-423-0602",
+          "email": "richwendy11@msn.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "1-800-GOT-JUNK?",
+          "contact": "Paige McHugh",
+          "phone": "612-405-6625",
+          "email": "paige.mchugh@1800gotjunk.com",
+          "website": "https://1800gotjunk.com/us_en",
+          "notes": ""
+        },
+        {
+          "company": "Belle Plaine Junk Removal and Transport",
+          "contact": "Chris Kinnaman",
+          "phone": "952-261-8683",
+          "email": "bpjunkremovalandtransport@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Minne Movers",
+          "contact": "Clint Lewis",
+          "phone": "218-820-8104",
+          "email": "Clint@minnemovers.com",
+          "website": "https://www.minnemovers.com",
+          "notes": ""
+        },
+        {
+          "company": "Mullet Mans Junk Removal LLC",
+          "contact": "Anthony",
+          "phone": "320-761-8012",
+          "email": "removal@gmail.com",
+          "website": "https://www.facebook.com/profile.php?id=61583608314929",
+          "notes": "Referral from Karl Ritzman- south metro Prior Lake to Cannon Falls and surrounding."
+        },
+        {
+          "company": "Bag The Junk LLC",
+          "contact": "James Miller",
+          "phone": "651-502-6560",
+          "email": "james.miller@junkdisposalexperts.pro",
+          "website": "https://bagthejunk.com/",
+          "notes": ""
+        },
+        {
+          "company": "Eye-Sore Junk Removal",
+          "contact": "Eye-Sore Junk Removal",
+          "phone": "507-330-9916",
+          "email": "",
+          "website": "https://g.co/kgs/azWfAa8",
+          "notes": "1055 S Fillmore Cir NE, Minneapolis, MN 55432"
+        },
+        {
+          "company": "Junk King",
+          "contact": "Robert Eugene Huss",
+          "phone": "612-803-3058",
+          "email": "robert.huss@junk-king.com",
+          "website": "https://www.junk-king.com/",
+          "notes": ""
+        },
+        {
+          "company": "KNS Junk Removal",
+          "contact": "Spencer Christensen",
+          "phone": "651-300-7931",
+          "email": "knsservices007@gmail.com",
+          "website": "http://knsservicesllc.com",
+          "notes": ""
+        },
+        {
+          "company": "Dave's Bull Scrap",
+          "contact": "David Aubin",
+          "phone": "651-592-3855",
+          "email": "Daveemcgee@outlook.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Landscaper",
+      "vendors": [
+        {
+          "company": "Curbside Landscape",
+          "contact": "Al King",
+          "phone": "952-403-9012",
+          "email": "AKing@curbsidelawn.com",
+          "website": "https://www.curbsidelandscape.com",
+          "notes": ""
+        },
+        {
+          "company": "GonzoBros Landscape and Services",
+          "contact": "Chris Gonzales",
+          "phone": "612-503-7621",
+          "email": "Chris@gonzobroslandscape.com",
+          "website": "https://gonzobroslandscape.com/",
+          "notes": "Lawn care/maintenance including mowing, trimming, fertilizing, aeration.\nSnow removal for residential or commercial properties\nLandscaping services include: Complete design, retaining walls, patios, rock, etc."
+        },
+        {
+          "company": "One More Yard LLC Landscaping",
+          "contact": "Rob Hussey",
+          "phone": "216.470.4365",
+          "email": "onemoreyardmn@gmail.com",
+          "website": "https://onemoreyard.my.canva.site",
+          "notes": ""
+        },
+        {
+          "company": "SouthView Design",
+          "contact": "Savanna Ellena",
+          "phone": "651-203-3000",
+          "email": "info@southviewdesign.com",
+          "website": "http://www.southviewdesign.com",
+          "notes": "Southview Design is a full-service landscape design, build, and maintenance firm serving the Twin Cities’ most sought-after neighborhoods, from Edina and Minnetonka to Wayzata, Lake Minnetonka, and beyond. With 45+ years of experience, we help homeowners maximize curb appeal, enhance outdoor living spaces, and protect their investment with year-round property care.\nHow we support your clients\n• Pre-listing landscape improvements that boost curb appeal and market readiness\n• Post-closing enhancements that help new homeowners personalize their space\n• Ongoing landscape care, irrigation, and snow services to maintain property value"
+        },
+        {
+          "company": "TrioPro Landscapes",
+          "contact": "Vinny Schumacher, Co-Owner",
+          "phone": "(612) 456-9150",
+          "email": "trioprolandscapesllc@gmail.com",
+          "website": "http://www.trioprolandscapes.com",
+          "notes": "Service Area: Minneapolis-St. Paul Metro Area\nLicense & Insurance: Fully Licensed and Insured"
+        },
+        {
+          "company": "Evolving Environments",
+          "contact": "John McGrane",
+          "phone": "612-242-7171",
+          "email": "john@evolvingenvironments.com",
+          "website": "https://evolvingenvironments.com/index.html",
+          "notes": ""
+        },
+        {
+          "company": "Platinum Lawn & Landscape",
+          "contact": "James Swenson",
+          "phone": "612-644-7576",
+          "email": "platinumlawn123@gmail.com",
+          "website": "",
+          "notes": "Located in Victoria"
+        },
+        {
+          "company": "Precision Landscaping",
+          "contact": "Precision Landscaping",
+          "phone": "651-437-2305",
+          "email": "info@precisionlandscape-inc.com",
+          "website": "https://precisionlandscape-inc.com/",
+          "notes": "14923 Jacob Ave. Hastings, MN 55033"
+        },
+        {
+          "company": "Viens Lawn and Snow Service",
+          "contact": "Steve Viens",
+          "phone": "952-888-4296",
+          "email": "steve@vienslawncare.com",
+          "website": "http://www.vienslawncare.com",
+          "notes": ""
+        },
+        {
+          "company": "J&J Outdoor Innovations",
+          "contact": "",
+          "phone": "651-285-4941",
+          "email": "jjoutdoorinnovationsllc@gmail.com",
+          "website": "https://www.facebook.com/share/16UUFuZ58t/?mibextid=wwXIfr",
+          "notes": "Located in Blaine, referral from Matt Cullen."
+        },
+        {
+          "company": "Dave's Bull Scrap",
+          "contact": "David Aubin",
+          "phone": "651-592-3855",
+          "email": "Daveemcgee@outlook.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Lawn Care",
+      "vendors": [
+        {
+          "company": "CB Services",
+          "contact": "CB Services",
+          "phone": "612-548-4452",
+          "email": "office@cbservicesmn.com",
+          "website": "https://www.cbserviceslawnlandscapeirrigation.com/",
+          "notes": "Lawn, landscape and irrigation.\n11504 96th Ave N\nMaple Grove, MN 55369"
+        },
+        {
+          "company": "Northern Pines Lawn Care",
+          "contact": "Erik Porten",
+          "phone": "952-484-4989",
+          "email": "northernpineslawncare@gmail.com",
+          "website": "",
+          "notes": "Friend of David Meyer's"
+        },
+        {
+          "company": "Plowz & Mowz",
+          "contact": "Plowz & Mowz",
+          "phone": "",
+          "email": "",
+          "website": "https://www.plowzandmowz.com/reviews/",
+          "notes": "This is an app that you can download thru the app store or google play, and find someone anytime to help, or when you're in a pinch!"
+        },
+        {
+          "company": "RB Lawn Care Specialist",
+          "contact": "RB Lawn Care Specialist",
+          "phone": "952-388-8776",
+          "email": "rblawncarespecialist@gmail.com",
+          "website": "",
+          "notes": "Recommended by Gary Timm"
+        },
+        {
+          "company": "North Metro Outdoor Services",
+          "contact": "Bryson Swenson",
+          "phone": "763-498-1090",
+          "email": "bryson.swenson@northmetrooutdoorservices.com",
+          "website": "https://www.nmosmn.com/",
+          "notes": "https://www.facebook.com/profile.php?id=100089200713030\nCovering Andover, coon rapids, anoka, Champlin, ham lake, oak grove, Ramsey, Blaine and surrounding areas"
+        },
+        {
+          "company": "J&J Outdoor Innovations",
+          "contact": "J&J Outdoor Innovations",
+          "phone": "651-285-4941",
+          "email": "jjoutdoorinnovationsllc@gmail.com",
+          "website": "https://www.facebook.com/share/16UUFuZ58t/?mibextid=wwXIfr",
+          "notes": "Located in Blaine. Referral from Matt Cullen."
+        }
+      ]
+    },
+    {
+      "category": "Lead Testing",
+      "vendors": [
+        {
+          "company": "Minnesota Lead Testers",
+          "contact": "Paul",
+          "phone": "952-200-5044",
+          "email": "Paul@MnLeadTesters.com",
+          "website": "http://www.mnleadtesters.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Locksmith",
+      "vendors": [
+        {
+          "company": "All Areas Lock and Key",
+          "contact": "Luke Krohn",
+          "phone": "612-655-0302",
+          "email": "Allareaslockandkey@yahoo.com",
+          "website": "https://www.locksmith-rosevillemn.com/",
+          "notes": "All Areas Lock And Key is an exceptional locksmith in Minneapolis, MN. At All Areas Lock And Key, we can handle all of your lock needs. Whether you've locked your keys in your car and need emergency lock service or you need commercial or residential locks changed on your home or business, we can help!"
+        }
+      ]
+    },
+    {
+      "category": "Masonry",
+      "vendors": [
+        {
+          "company": "Chris Willsch",
+          "contact": "",
+          "phone": "612-987-2785",
+          "email": "",
+          "website": "",
+          "notes": "Prior Lake guy, willing to do small jobs too."
+        },
+        {
+          "company": "JLM Concrete and Masonry",
+          "contact": "Jeff",
+          "phone": "612-210-1082",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Moeller Masonry",
+          "contact": "James Moeller",
+          "phone": "612-327-8828",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Minneapolis TISH Inspectors",
+      "vendors": [
+        {
+          "company": "Minneapolis TISH Inspectors",
+          "contact": "",
+          "phone": "",
+          "email": "",
+          "website": "http://apps.ci.minneapolis.mn.us/evaluatorfinderapp/evaluatorfinderrpt.aspx",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Mold Remediation",
+      "vendors": [
+        {
+          "company": "PuroClean",
+          "contact": "Marissa Volstad",
+          "phone": "952-208-0860",
+          "email": "marissa@purocleanwaconia.com",
+          "website": "https://www.puroclean.com/waconia-mn-puroclean-waconia/services/",
+          "notes": ""
+        },
+        {
+          "company": "AdvantaClean of Southwest Minneapolis",
+          "contact": "Erik Mortensen",
+          "phone": "952-270-6690",
+          "email": "erik.mortensen@advantaclean.com",
+          "website": "http://www.advantaclean.com/location/minneapolis-mn/about-us/meet-the-team/",
+          "notes": ""
+        },
+        {
+          "company": "CCS Remediation",
+          "contact": "",
+          "phone": "507-330-3464",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Michaels Engineering",
+          "contact": "Tom Kapfer",
+          "phone": "612-414-1690.",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Precision Contracting",
+          "contact": "Dan Emery",
+          "phone": "651-503-0822",
+          "email": "Dan@PrecisionContractingMN.com",
+          "website": "http://www.PrecisionContractingMN.com",
+          "notes": "Dan's Office #: 612-844-1012"
+        },
+        {
+          "company": "Certified Moisture Testing",
+          "contact": "Alan Powell",
+          "phone": "651-272-5552",
+          "email": "info@cmtpros.com",
+          "website": "https://www.certifiedmoisturetesting.com/our-services/mold-testing-and-locating/",
+          "notes": "Recommened for mold testing by Steve Stalock, home inspector."
+        },
+        {
+          "company": "Redstone Remodeling",
+          "contact": "Boris Belousov",
+          "phone": "763-300-9343",
+          "email": "contact@buildwithredstone.com",
+          "website": "https://buildwithredstone.com/",
+          "notes": "We do interior and exterior Remodeling, mold, water, fire restoration and remediation."
+        }
+      ]
+    },
+    {
+      "category": "Mortgages",
+      "vendors": [
+        {
+          "company": "Luminate Bank",
+          "contact": "Mike Ouverson",
+          "phone": "612.202.8321",
+          "email": "Mike.Ouverson@goluminate.com",
+          "website": "http://www.ApplyWithMike.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Movers - Moving Supplies",
+      "vendors": [
+        {
+          "company": "Collegiate Power Movers",
+          "contact": "Luke Speer",
+          "phone": "507-993-1858",
+          "email": "cpmtransport@collegiatepowermovers.com",
+          "website": "http://www.collegiatepowermovers.com",
+          "notes": "Fully licensed and insured in Minnesota\nProfessional, dependable crews\nTransparent pricing and communication\nPriority scheduling for referred clients when possible"
+        },
+        {
+          "company": "Minnē Movers",
+          "contact": "Clint Lewis",
+          "phone": "651-460-9952",
+          "email": "clint@minnemovers.com",
+          "website": "https://www.minnemovers.com/",
+          "notes": ""
+        },
+        {
+          "company": "Sparrow Movers",
+          "contact": "Mark and Matt",
+          "phone": "(612)444-1284",
+          "email": "info@sparrowmovers.com, Mark@sparrowmovers.com, Matt@sparrowmovers.com",
+          "website": "http://sparrowmovers.com",
+          "notes": "Range includes 50 miles around Minneapolis\nAt Sparrow Moving & Storage, we believe a great move is about more than boxes, it’s about people. We’re a family owned, faith based moving company serving the Twin Cities area."
+        },
+        {
+          "company": "Metcalf Moving & Storage",
+          "contact": "Larry Regenscheid",
+          "phone": "651-484-0211/651-269-6471",
+          "email": "lregenscheid@metcalfmoving.com",
+          "website": "http://metcalfmoving.com",
+          "notes": ""
+        },
+        {
+          "company": "5-Star Movers",
+          "contact": "Nick Porchetta",
+          "phone": "414-731-0489",
+          "email": "",
+          "website": "https://www.5starmoversmn.com/",
+          "notes": "6325 Cambridge St,\nSt Louis Park, MN 55416\nRecommendation from Sue Marty"
+        },
+        {
+          "company": "Best Life Relocation Services",
+          "contact": "Thomas Scott",
+          "phone": "612-200-3820",
+          "email": "thomas.scott@bestliferelocationservices.com",
+          "website": "https://sites.google.com/bestliferelocationservices.com/web/",
+          "notes": "We have not used this company, but I thought they sounded like a nice option. They reached out to us on Realtor.com. They help seniors transition into senior living out of their home and also junk removal. -Jaelynn"
+        },
+        {
+          "company": "Lighthouse Moving",
+          "contact": "Antoine",
+          "phone": "651-387-2955",
+          "email": "Lthousemoving@gmail.com",
+          "website": "https://lighthousemoving.com/",
+          "notes": "473 Smith Ave North\nSaint Paul, MN. 55102"
+        },
+        {
+          "company": "Blue Dolly Moving & Storage",
+          "contact": "Brian Waddick",
+          "phone": "612-268-5499",
+          "email": "brian@bluedollymoving.com",
+          "website": "https://bluedollymoving.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Moving - Box Rental",
+      "vendors": [
+        {
+          "company": "Big Blue Boxes",
+          "contact": "Big Blue Boxes",
+          "phone": "888-782-2363",
+          "email": "sales@bigblueboxes.com",
+          "website": "https://bigblueboxes.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Moving Help/Organization",
+      "vendors": [
+        {
+          "company": "Sparrow Movers",
+          "contact": "Mark and Matt",
+          "phone": "(612)444-1284",
+          "email": "info@sparrowmovers.com, Mark@sparrowmovers.com,Matt@sparrowmovers.com",
+          "website": "http://sparrowmovers.com",
+          "notes": "Range includes 50 miles around Minneapolis"
+        },
+        {
+          "company": "Bluebird Nest Organizing",
+          "contact": "Jennifer Cofer",
+          "phone": "(763) 350-0097",
+          "email": "jennifer@bluebirdnestorganizing.com",
+          "website": "http://bluebirdnestorganizing.com",
+          "notes": "Jennifer Cofer, owner of Bluebird Nest Organizing in the Twin Cities.\nAs a Professional Organizer, I help make this part of the journey easier for families. Whether they’re preparing to sell a home or settling into a new one, we handle the details that can feel overwhelming, including decluttering, packing, coordinating the move, and setting up their new space so it feels like home from the start."
+        },
+        {
+          "company": "Metcalf Moving & Storage",
+          "contact": "Larry Regenscheid",
+          "phone": "651-484-0211/651-269-6471",
+          "email": "lregenscheid@metcalfmoving.com",
+          "website": "http://metcalfmoving.com",
+          "notes": ""
+        },
+        {
+          "company": "Two Dames and Friends",
+          "contact": "Tracey Neary, owner",
+          "phone": "612-578-7880",
+          "email": "hello@twodamesandfriends.com",
+          "website": "http://www.twodamesandfriends.com",
+          "notes": ""
+        },
+        {
+          "company": "Organized by Lettie",
+          "contact": "Lettie Fundanet",
+          "phone": "952-412-4321",
+          "email": "organizedbylettie@gmail.com",
+          "website": "https://organizedbylettie.com/",
+          "notes": "Help you get your home SOLD faster and for more money by creating a minimalist look and setting the stage for all your home has to offer. After you sell I can help you plan a stress free move and set up your new house so it makes sense and flows."
+        },
+        {
+          "company": "Best Life Relocation Services",
+          "contact": "Thomas Scott",
+          "phone": "612-200-3820",
+          "email": "thomas.scott@bestliferelocationservices.com",
+          "website": "https://sites.google.com/bestliferelocationservices.com/web/",
+          "notes": "We have not used this company, but I thought they sounded like a nice option. They reached out to us on Realtor.com. They help seniors transition into senior living out of their home and also junk removal. -Jaelynn"
+        },
+        {
+          "company": "Minnē Movers",
+          "contact": "Clint Lewis",
+          "phone": "651-460-9952",
+          "email": "clint@minnemovers.com",
+          "website": "https://www.minnemovers.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Multiple Repair - General Contractor",
+      "vendors": [
+        {
+          "company": "The PM Network | Remodeler's Edge MN",
+          "contact": "James Dill",
+          "phone": "(651) 325-6834",
+          "email": "james@yourpmnetwork.com",
+          "website": "https://www.remodelersedgemn.com,https://www.yourpmnetwork.com",
+          "notes": ""
+        },
+        {
+          "company": "All Around",
+          "contact": "Charles Thayer- owner",
+          "phone": "763-447-3944",
+          "email": "Info@AllAround.com",
+          "website": "http://www.AllAround.com",
+          "notes": "Exterior Contractor - Roofs, Siding, Windows, Decks"
+        }
+      ]
+    },
+    {
+      "category": "Odor Removal",
+      "vendors": [
+        {
+          "company": "Riddhi Group, LLC",
+          "contact": "Raj Bahl",
+          "phone": "651-357-4348",
+          "email": "Raj@mnrealestateteam.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "EIEIOdors",
+          "contact": "EIEIOdors",
+          "phone": "Office:952-831-6205, Cell:952-818-7055",
+          "email": "adchapman4@juno.com",
+          "website": "https://eieiodors.com/index.html",
+          "notes": "Mankato, Northfield and Faribault, MN areas contact Jeff Raaen at 952-239-5128."
+        },
+        {
+          "company": "Odor Eliminators",
+          "contact": "",
+          "phone": "612-260-4723",
+          "email": "",
+          "website": "http://www.odoreliminators02.com/odor-removal",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Painters",
+      "vendors": [
+        {
+          "company": "April Nolte Interior Painting",
+          "contact": "April Nolte",
+          "phone": "612-559-2089",
+          "email": "AprilNolteMN@gmail.com",
+          "website": "http://https://www.facebook.com/AprilNolteInteriorPainting/",
+          "notes": ""
+        },
+        {
+          "company": "Doug Selander",
+          "contact": "Doug Selander",
+          "phone": "612-834-0031",
+          "email": "",
+          "website": "",
+          "notes": "Southern metro area"
+        },
+        {
+          "company": "HOMEstretch Home Services",
+          "contact": "Tom DiDonato",
+          "phone": "612--260-9787",
+          "email": "tom.didonato@home-stretch.com",
+          "website": "http://www.home-stretch.com",
+          "notes": "- Home Clear Outs (Removal of any unwanted items from the home)\n- Painting (Interior/Exterior)\n- Carpet and Flooring (Removal/Install of LVT, LVP & Carpet)\n- Home Cleaning (Cleaning prior to listing photos)\n- Landscape Cleanup (Mulching, Trimming, Pressure washing)\n- Handyman Services (New light fixtures, doorknobs, baseboard installation, etc.)"
+        },
+        {
+          "company": "Jason Daly",
+          "contact": "",
+          "phone": "612-388-4549",
+          "email": "Sales@propaintersmn.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Maxi Painter & Drywall, INC",
+          "contact": "Ivan Flores",
+          "phone": "612-323-3539",
+          "email": "info@maxipainter.com",
+          "website": "https://www.maxipainter.com",
+          "notes": "26148 Newton Cir #2, Elko, MN 55020"
+        },
+        {
+          "company": "Painted Spaces LLC",
+          "contact": "Andrea Haedge",
+          "phone": "(612) 916-0666",
+          "email": "lovetopaint@frontier.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Paris Painting",
+          "contact": "Brandon Stahnke",
+          "phone": "(763) 335-1481",
+          "email": "brandon.stahnke@parispaintingmn.com",
+          "website": "http://www.paris-painting.com",
+          "notes": "Specialize in:\n- Painting entire interiors before move in\n- Painting homes in prep for listing\n- Quick turnarounds\n- Wallpaper removal"
+        },
+        {
+          "company": "Rainwater Painting",
+          "contact": "Kati Rainwater",
+          "phone": "952-210-6749",
+          "email": "rainwaterpainting@gmail.com",
+          "website": "",
+          "notes": "Recommendation from Dan Frank. South Metro."
+        },
+        {
+          "company": "WOW 1 DAY PAINTING",
+          "contact": "Mike Sandness/Hans Hoeg",
+          "phone": "320-282-2547",
+          "email": "mike.sandness@wow1day.com / hans.hoeg@wow1day.com",
+          "website": "https://www.wow1day.com",
+          "notes": ""
+        },
+        {
+          "company": "Certa Pro painters",
+          "contact": "Steve Edwards (Exteriors)",
+          "phone": "",
+          "email": "SEdwards@certapro.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Dwight Ackerson",
+          "contact": "",
+          "phone": "612-695-2209",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Esther Drew",
+          "contact": "",
+          "phone": "952-270-6688",
+          "email": "esther@classichomepainting.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Lenzen Painting",
+          "contact": "Rob Lenzen",
+          "phone": "507-317-6832",
+          "email": "",
+          "website": "http://www.lenzenpainting.com",
+          "notes": "Services South of the River (Dakota, Scott, Rice, Goodhue, Steele Counties)"
+        },
+        {
+          "company": "Liquid Accent Painting, LLC",
+          "contact": "Rob Hicks",
+          "phone": "612-221-0985",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Nordeast Reclaim and Paint",
+          "contact": "Shawn Bortel",
+          "phone": "952-484-5901",
+          "email": "nordeastreclaimandpaint@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Randy Olson Painting",
+          "contact": "Randy Olson",
+          "phone": "952-412-3755",
+          "email": "",
+          "website": "",
+          "notes": "Recommendation fro Dan Vigdal."
+        },
+        {
+          "company": "Remodeler's Choice Painting",
+          "contact": "James Dill",
+          "phone": "651-325-6834",
+          "email": "rcpschedule@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Scotch Painting, LLC (Interior and Exterior)",
+          "contact": "Sam Osborn",
+          "phone": "651-214-3064",
+          "email": "scotchpainting@gmail.com",
+          "website": "https://www.facebook.com/ScotchPainting/",
+          "notes": "Also does Cabinet refinishes/color change, and popcorn ceiling removal."
+        },
+        {
+          "company": "Top Shelf Painting & Services",
+          "contact": "Riley Grohs",
+          "phone": "763-213-5900",
+          "email": "topshelfpainting7@gmail.com",
+          "website": "",
+          "notes": "Albertville, MN"
+        },
+        {
+          "company": "Minnesota Paint King",
+          "contact": "Mark Busch",
+          "phone": "952-797-2963",
+          "email": "mark@PaintKingMN.com",
+          "website": "http://www.PaintKingMN.com",
+          "notes": ""
+        },
+        {
+          "company": "TwinStar Coatings",
+          "contact": "Garrett Grandy",
+          "phone": "651-363-1854",
+          "email": "twinstarcoatings@gmail.com",
+          "website": "https://twinstarcoatings.com/",
+          "notes": "Located in Oakdale. They do residential and commercial, as well as custom epoxy flooring solutions."
+        },
+        {
+          "company": "Zick Painting",
+          "contact": "Mason Zick",
+          "phone": "507-649-2904",
+          "email": "zickpainting@gmail.com",
+          "website": "https://zickpainting.com/",
+          "notes": "Based out of Northfield."
+        },
+        {
+          "company": "Bobby the Painter",
+          "contact": "Bobby",
+          "phone": "651-216-8028",
+          "email": "rhrb@comcast.net",
+          "website": "",
+          "notes": "specializes in interior rooms and cabinets"
+        },
+        {
+          "company": "Cover-All Painting",
+          "contact": "Dave Deloia",
+          "phone": "612-419-6910",
+          "email": "cover_allpainting@yahoo.com",
+          "website": "",
+          "notes": "Recommended by Karen Lunzer"
+        },
+        {
+          "company": "JMJ Painters",
+          "contact": "Tim Rosensteel",
+          "phone": "952-952-9951",
+          "email": "tom@jmjpainterscompany.com",
+          "website": "https://jmjpainters.com/",
+          "notes": "800 Pleasant View Rd\nChanhassen, MN 55317"
+        },
+        {
+          "company": "Smooth Painting",
+          "contact": "Nelson Portillo",
+          "phone": "612-440-3665",
+          "email": "smoothpaintingco@gmail.com",
+          "website": "https://smoothpaintingmn.com/",
+          "notes": "Maplewood, MN"
+        },
+        {
+          "company": "M&M Painting and Drywall",
+          "contact": "Marcos Menjivar",
+          "phone": "865-455-5923 or Mariella at 208-821-5520",
+          "email": "info@mmpaintingdrywallmn.com",
+          "website": "https://mmpaintingdrywallmn.com/",
+          "notes": "1948 Nebraska Ave E, St Paul, Minnesota, 55119"
+        },
+        {
+          "company": "Roell Painting Company",
+          "contact": "Nick Roell",
+          "phone": "763-559-5296",
+          "email": "estimates@roellpainting.com",
+          "website": "https://www.facebook.com/RoellPainting/",
+          "notes": "http://www.roellpainting.com/blog"
+        },
+        {
+          "company": "Interior Painter",
+          "contact": "Tiffany Pollard",
+          "phone": "612-403-7135",
+          "email": "",
+          "website": "",
+          "notes": "Referral from Stevie Wimber on the team."
+        },
+        {
+          "company": "Matt Carlson",
+          "contact": "Matt Carlson",
+          "phone": "612-386-7043",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Pest Control",
+      "vendors": [
+        {
+          "company": "Adam's Pest Control",
+          "contact": "",
+          "phone": "(763) 478-9810",
+          "email": "",
+          "website": "http://www.adamspestcontrol.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Piano and Safe Moving",
+      "vendors": [
+        {
+          "company": "Manny's Piano Moving",
+          "contact": "Roland \"Manny\" and Judy Schwartz",
+          "phone": "(612) 529-4268",
+          "email": "mannys.info@gmail.com",
+          "website": "https://www.mannyspianomovinginc.com/",
+          "notes": "Manny’s Piano Moving is a full-service specialty moving company in Spring Lake Park, MN. We’re the team you can count on to safely move your piano or organ, as well as other heavyweight specialty items such as safes."
+        },
+        {
+          "company": "Matt's Moving LLC.",
+          "contact": "",
+          "phone": "612-216-2665",
+          "email": "",
+          "website": "http://www.mattsmoving.com/services/specialty-moving-services/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Piano Donation",
+      "vendors": [
+        {
+          "company": "Beethoven Foundation",
+          "contact": "",
+          "phone": "",
+          "email": "",
+          "website": "http://www.beethovenfoundation.com/donatepiano",
+          "notes": ""
+        },
+        {
+          "company": "Keys 4/4 Kids",
+          "contact": "Keys 4/4 Kids",
+          "phone": "651-698-3280",
+          "email": "info@k44k.org",
+          "website": "https://k44k.org/donate-a-piano/",
+          "notes": ""
+        },
+        {
+          "company": "Piano Adoption",
+          "contact": "",
+          "phone": "",
+          "email": "",
+          "website": "https://pianoadoption.com/location/minnesota/",
+          "notes": ""
+        },
+        {
+          "company": "Pianos For Education",
+          "contact": "",
+          "phone": "",
+          "email": "",
+          "website": "http://pianosforeducation.org/Donate-Piano",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Plumbing",
+      "vendors": [
+        {
+          "company": "AJ Alberts Plumbing",
+          "contact": "Steve Grohn",
+          "phone": "651-738-0580",
+          "email": "Service@ajalberts.com",
+          "website": "https://ajalberts.com/",
+          "notes": "We have six plumbers and serve the 7 county metro area. Water heaters, water softeners, moving plumbing, remodeling, leaks, garbage disposals, RO systems, sump pumps, toilets, faucets, gas line, repipes. Showroom in Woodbury."
+        },
+        {
+          "company": "DC Annis Sewer",
+          "contact": "",
+          "phone": "",
+          "email": "office@cloggedplumbing.com",
+          "website": "https://cloggedplumbing.com",
+          "notes": "for Sewer and Drain Video Inspection. Minneapolis: 612-861-6425, St. Paul: 651-209-0275, South & West: 952-746-4706, North: 763-572-9839"
+        },
+        {
+          "company": "HomeWorks Plumbing Heating & Air",
+          "contact": "HomeWorks Plumbing Heating & Air",
+          "phone": "651-401-8068",
+          "email": "",
+          "website": "http://www.callhomeworks.com",
+          "notes": "1230 Eagan Industrial Rd Suite 117, Eagan, MN 55121\nWhirlpool tub repair"
+        },
+        {
+          "company": "Jake the Plumber, LLC",
+          "contact": "",
+          "phone": "651-212-5253",
+          "email": "",
+          "website": "http://www.jaketheplumbercompany.com",
+          "notes": "They are located in Maplewood, and service a 15 mile radius from there."
+        },
+        {
+          "company": "Keppers Plumbing, LLC",
+          "contact": "Dave Keppers",
+          "phone": "507-210-7148",
+          "email": "",
+          "website": "",
+          "notes": "Master Plumber- South Metro (located in Lakeville)"
+        },
+        {
+          "company": "Riverside Plumbing",
+          "contact": "Fred Nissen",
+          "phone": "612-749-6701",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Rooterman",
+          "contact": "Rick",
+          "phone": "612-532-0143",
+          "email": "rootermantwincities@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Tim's Quality Plumbing",
+          "contact": "",
+          "phone": "612-827-7951",
+          "email": "speedyplumbing@comcast.net",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Top Choice Plumbing LLC",
+          "contact": "Eugene Selyukov",
+          "phone": "952-457-0033",
+          "email": "Topchoiceplumbingmn@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Breski Plumbing",
+          "contact": "Rusty Breheim",
+          "phone": "651-775-6196",
+          "email": "rusty@breskiplumbing.com",
+          "website": "http://breskiplumbing.com/",
+          "notes": "Lake Elmo area"
+        }
+      ]
+    },
+    {
+      "category": "Power Washing",
+      "vendors": [
+        {
+          "company": "Shine Window Cleaning",
+          "contact": "Nolan Rinta",
+          "phone": "651-323-0946",
+          "email": "",
+          "website": "",
+          "notes": "They do power washing of all sorts, not just windows. Kyle Hansen referral."
+        },
+        {
+          "company": "RoofToDeck.com",
+          "contact": "Mike Hillborn",
+          "phone": "",
+          "email": "",
+          "website": "http://rooftodeck.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Property Restoration",
+      "vendors": [
+        {
+          "company": "PuroClean",
+          "contact": "Marissa Volstad",
+          "phone": "952-246-0200 or 952-208-0860",
+          "email": "Marissa@purocleanwaconia.com",
+          "website": "https://www.puroclean.com/waconia-mn-puroclean-waconia/services/",
+          "notes": ""
+        },
+        {
+          "company": "SERVPRO®",
+          "contact": "Aimee Schaaf",
+          "phone": "612-421-2040",
+          "email": "aschaaf@servpromsp.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Radon Testing - Mitigation",
+      "vendors": [
+        {
+          "company": "One Day Radon",
+          "contact": "Clif Blaesar",
+          "phone": "763-373-6972",
+          "email": "clif@onedayradon.com",
+          "website": "http://onedayradon.com",
+          "notes": "Twin cities first choice in radon mitigation. Solve your homes radon issues cleanly, efficiently, economically all in one day. Guaranteed to bring your home compliant to EPA standards to ensure a marketable home. We cater to clients in real estate transactions with quick scheduling and one day installations."
+        },
+        {
+          "company": "Structure Tech",
+          "contact": "Mindy Barnhill",
+          "phone": "952-915-6466",
+          "email": "mindy@structuretech.com",
+          "website": "https://structuretech.com/",
+          "notes": "Reuben Saltzman Reuben@structuretech1.com"
+        },
+        {
+          "company": "Luke Bristlin Home Properties LLC",
+          "contact": "Luke Bristlin",
+          "phone": "952-412-8304",
+          "email": "lwbristlin1@gmail.com",
+          "website": "http://www.callithomeproperties.com",
+          "notes": "Home Inspections\nAnd Radon Mitigation"
+        }
+      ]
+    },
+    {
+      "category": "Remodeling",
+      "vendors": [
+        {
+          "company": "RA² Remodeling",
+          "contact": "Ryan Berres",
+          "phone": "612-558-9231",
+          "email": "ryanberres.mn@gmail.com",
+          "website": "http://RA2Remodeling.com",
+          "notes": ""
+        },
+        {
+          "company": "The PM Network | Remodeler's Edge MN",
+          "contact": "James Dill",
+          "phone": "(651) 325-6834",
+          "email": "james@yourpmnetwork.com",
+          "website": "https://www.remodelersedgemn.com,https://www.yourpmnetwork.com",
+          "notes": ""
+        },
+        {
+          "company": "White Birch Design LLC",
+          "contact": "Steve McDonald",
+          "phone": "952-686-8443",
+          "email": "Steve@MnRealEstateTeam.com",
+          "website": "https://whitebirchdesignllc.com/",
+          "notes": ""
+        },
+        {
+          "company": "HonesTy Home Solutions LLC",
+          "contact": "Tyler Owen",
+          "phone": "612-987-3798",
+          "email": "tyler@honestyhomesolutions.com",
+          "website": "https://www.facebook.com/profile.php?id=61573558671869",
+          "notes": "Referral from Matt Cullen. He does personal remodel projects. Kitchens, Bathrooms, Basements, Carpentry, Trim, Decks, Handyman and small jobs."
+        },
+        {
+          "company": "Redstone Remodeling",
+          "contact": "Boris Belousov",
+          "phone": "763-300-9343",
+          "email": "contact@buildwithredstone.com",
+          "website": "http://www.buildwithredstone.com",
+          "notes": ""
+        },
+        {
+          "company": "ROOMSMITH",
+          "contact": "Eric Smith, CEO",
+          "phone": "763-910-4545",
+          "email": "eric.smith@room-smith.com",
+          "website": "https://www.room-smith.com/",
+          "notes": ""
+        },
+        {
+          "company": "Excel Construction Services LLC",
+          "contact": "Hector Perez",
+          "phone": "952-900-6610",
+          "email": "",
+          "website": "https://www.excelconstructionservicesllc.renoprocrm.com/",
+          "notes": "Located in Jordan."
+        }
+      ]
+    },
+    {
+      "category": "Roofing",
+      "vendors": [
+        {
+          "company": "Armor Construction, Inc",
+          "contact": "David Luna",
+          "phone": "612-300-2285",
+          "email": "davidl@armorconstructionpro.com",
+          "website": "http://www.armorconstructionpro.com",
+          "notes": ""
+        },
+        {
+          "company": "CZR Exteriors dba CZR Construction",
+          "contact": "Andrew Zimmerman",
+          "phone": "425-530-6985",
+          "email": "office@czrexteriors.com",
+          "website": "https://czrexteriors.com/",
+          "notes": "Small business / Local company out of Shakopee\nAt CZR exteriors our mission is to deliver create relationships with our customers so they trust us to do dependable, high-quality roofing, siding, and window solutions that enhance their property value and curb appeal. With a focus on integrity, efficiency, and craftsmanship, we ensure every project is completed on time, on budget, and to the highest standard, helping you present every property at its best."
+        },
+        {
+          "company": "Plonsky Construction",
+          "contact": "Ryan Plonsky",
+          "phone": "651-894-3674",
+          "email": "ryanplonsky@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "All Around",
+          "contact": "Charles Thayer & Nick Zeman",
+          "phone": "763-447-3944",
+          "email": "Info@AllAround.com",
+          "website": "http://www.AllAround.com",
+          "notes": ""
+        },
+        {
+          "company": "Double T Construction",
+          "contact": "Tommy Thompson",
+          "phone": "612-867-3797",
+          "email": "",
+          "website": "https://www.facebook.com/DoubleT/about",
+          "notes": "Referral from Andy McNair"
+        },
+        {
+          "company": "Mint Roofing",
+          "contact": "Kevin Krolczyk",
+          "phone": "612-369-2516",
+          "email": "Kevin@mintroofing.com",
+          "website": "",
+          "notes": "Commercial flat roof"
+        },
+        {
+          "company": "Englund Roofing",
+          "contact": "Jimmy and Bobby Englund",
+          "phone": "Bobby - 763-607-5511/Jimmy - 612-263-5023",
+          "email": "Englundroofingandsheetmetal@gmail.com",
+          "website": "",
+          "notes": "Residential"
+        },
+        {
+          "company": "Corbin Exteriors",
+          "contact": "Brad Lein",
+          "phone": "651-269-3100",
+          "email": "brad@corbinexteriors.com",
+          "website": "http://www.corbinexteriors.com",
+          "notes": "1115 Southview Blvd\nSouth St Paul, MN 55075\nReferral from Laura Marquart"
+        },
+        {
+          "company": "Northlight Builders",
+          "contact": "Caleb Morgan",
+          "phone": "651-260-7589",
+          "email": "caleb@northlightbuilder.com",
+          "website": "http://northlightbuilder.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Sauna/Sauna Repair",
+      "vendors": [
+        {
+          "company": "Hot Spring",
+          "contact": "",
+          "phone": "(763) 450-5310",
+          "email": "",
+          "website": "https://hotspringgreen.com/saunas/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Septic Companies",
+      "vendors": [
+        {
+          "company": "Septic Companies by County",
+          "contact": "",
+          "phone": "",
+          "email": "",
+          "website": "https://webapp.pca.state.mn.us/ssts/business-search",
+          "notes": "This website allows you to look by county to see who can inspect, etc."
+        }
+      ]
+    },
+    {
+      "category": "Septic Testing",
+      "vendors": [
+        {
+          "company": "Bohn Well Drilling",
+          "contact": "Bohn Well Drilling",
+          "phone": "952-445-4809",
+          "email": "",
+          "website": "http://www.bohnwell.com",
+          "notes": ""
+        },
+        {
+          "company": "MJL Contracting Inc",
+          "contact": "Mike Lang",
+          "phone": "763-244-9070",
+          "email": "mjlcontract@gmail.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Sewer and Drain Cleaning",
+      "vendors": [
+        {
+          "company": "Jetter Clean Advanced Drain Cleaning",
+          "contact": "Andy",
+          "phone": "952-469-5533",
+          "email": "",
+          "website": "https://jettercleanlakeville.com/",
+          "notes": "They service the entire Metro."
+        },
+        {
+          "company": "Ouverson Sewer & Water",
+          "contact": "Kelli",
+          "phone": "612-751-6888",
+          "email": "office@linemysewer.com",
+          "website": "https://www.linemysewer.com/",
+          "notes": "Sewer line repair"
+        },
+        {
+          "company": "Voda Sewer and Drain",
+          "contact": "David Biljan and Blake Mendez",
+          "phone": "(763) 200-1110",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "DC Annis",
+          "contact": "DC Annis",
+          "phone": "612-861-6425, 952-746-4706",
+          "email": "office@cloggedplumbing.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Northland Lining",
+          "contact": "Don Thronson",
+          "phone": "218-966-1905",
+          "email": "",
+          "website": "https://northlandlining.com/",
+          "notes": "Referral from Kevin Curtis- Great to work with and say they can do a liner for a sewer regardless of condition. They were the best and most affordable bid out of several we received."
+        }
+      ]
+    },
+    {
+      "category": "Short Sale Attorney",
+      "vendors": [
+        {
+          "company": "Markve & Zweifel PLLC",
+          "contact": "Markve & Zweifel",
+          "phone": "763.450.1639",
+          "email": "info@mzlaw.us",
+          "website": "https://mzlaw.us/short-sale/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Short Term Lease Options",
+      "vendors": [
+        {
+          "company": "Airbnb",
+          "contact": "Airbnb",
+          "phone": "",
+          "email": "",
+          "website": "https://www.airbnb.com/",
+          "notes": ""
+        },
+        {
+          "company": "Christy Living",
+          "contact": "Christy Living",
+          "phone": "",
+          "email": "info@christyliving.com",
+          "website": "http://www.christyliving.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Siding",
+      "vendors": [
+        {
+          "company": "CZR Exteriors dba CZR Construction",
+          "contact": "Andrew Zimmerman",
+          "phone": "425-530-6985",
+          "email": "office@czrexteriors.com",
+          "website": "https://czrexteriors.com/",
+          "notes": "At CZR exteriors our mission is to deliver create relationships with our customers so they trust us to do dependable, high-quality roofing, siding, and window solutions that enhance their property value and curb appeal. With a focus on integrity, efficiency, and craftsmanship, we ensure every project is completed on time, on budget, and to the highest standard, helping you present every property at its best."
+        },
+        {
+          "company": "Plonsky Construction",
+          "contact": "Ryan Plonsky",
+          "phone": "651-894-3674",
+          "email": "ryanplonsky@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "All Around",
+          "contact": "Charles Thayer- owner",
+          "phone": "763-447-3944",
+          "email": "Info@AllAround.com",
+          "website": "http://www.AllAround.com",
+          "notes": ""
+        },
+        {
+          "company": "Armor Construction, Inc",
+          "contact": "David Luna",
+          "phone": "612-300-2285",
+          "email": "davidl@armorconstructionpro.com",
+          "website": "http://www.armorconstructionpro.com",
+          "notes": ""
+        },
+        {
+          "company": "Corbin Exteriors",
+          "contact": "Brad Lein",
+          "phone": "651-269-3100",
+          "email": "brad@corbinexteriors.com",
+          "website": "https://www.corbinexteriors.com/",
+          "notes": "1115 Southview Blvd\nSouth St Paul, MN 55075\nReferral from Laura Marquart"
+        },
+        {
+          "company": "Double T Construction",
+          "contact": "Tommy Thompson",
+          "phone": "612-867-3797",
+          "email": "",
+          "website": "https://www.facebook.com/DoubleT/about",
+          "notes": "Referral from Andy McNair"
+        }
+      ]
+    },
+    {
+      "category": "Snow Plowing",
+      "vendors": [
+        {
+          "company": "Sunrise Services",
+          "contact": "Dean Mitchell",
+          "phone": "651-983-2329",
+          "email": "info@sunriseservicesmnwi.com",
+          "website": "https://www.facebook.com/SunriseServicesIncMNWI/",
+          "notes": "We offer a full service cleaning and decluttering of your property. Whether it is a one time or year round contract. We provide quality equipment, contractors, and service with you and your investment in mind. Also offered is our snow and land services if needed too!"
+        },
+        {
+          "company": "Plowz & Mowz",
+          "contact": "Plowz & Mowz",
+          "phone": "",
+          "email": "",
+          "website": "https://www.plowzandmowz.com/reviews/",
+          "notes": "This is an app that you can download thru the app store or google play, and find someone anytime to help, or when you're in a pinch!"
+        },
+        {
+          "company": "Precision Outdoor MN",
+          "contact": "Tyler Thayer",
+          "phone": "612-710-6998",
+          "email": "tyler@precisionoutdoormn.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "North Metro Outdoor Services",
+          "contact": "Bryson Swenson",
+          "phone": "763-498-1090",
+          "email": "Bryson.Swenson@NorthMetroOutdoorServices.com",
+          "website": "http://northmetrooutdoorservices.com/",
+          "notes": "Services Andover, coon rapids, anoka, Champlin, ham lake, oak grove, Ramsey, Blaine and surrounding areas."
+        }
+      ]
+    },
+    {
+      "category": "Soil Testing",
+      "vendors": [
+        {
+          "company": "Haugo Geotechnical Services",
+          "contact": "Paul Haugo",
+          "phone": "612-554-4829",
+          "email": "",
+          "website": "http://www.haugogts.com/",
+          "notes": "13570 Grove Dr #278, Maple Grove, MN 55311"
+        }
+      ]
+    },
+    {
+      "category": "Solar Panels",
+      "vendors": [
+        {
+          "company": "All Energy Solar",
+          "contact": "",
+          "phone": "1-800-620-3370",
+          "email": "",
+          "website": "https://www.allenergysolar.com/where-we-are/minnesota/",
+          "notes": "All Energy Solar is a trusted leader in the solar energy industry. We provide clean, green, solar energy solutions for residential, commercial, agricultural, and government clients."
+        },
+        {
+          "company": "Wolf River Electric",
+          "contact": "Tony Loew",
+          "phone": "612-310-1801",
+          "email": "tloew.wre@gmail.com",
+          "website": "https://wolfriverelectric.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Stamped Concrete Patio",
+      "vendors": [
+        {
+          "company": "Nelson Landscaping",
+          "contact": "Andrew Higgins",
+          "phone": "612-270-5651",
+          "email": "nelsonlawnandlandscape@gmail.com",
+          "website": "http://www.NelsonLawnAndLandscapeMN.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Stone Mason",
+      "vendors": [
+        {
+          "company": "Everlast Masonry",
+          "contact": "Pat Holappa",
+          "phone": "612-598-0524",
+          "email": "pat@everlastmasonary.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Structural Engineer",
+      "vendors": [
+        {
+          "company": "Braun Intertec",
+          "contact": "Geoffrey Gonzalez",
+          "phone": "850-556-2015",
+          "email": "ggonzalez@braunintertec.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Oswell Engineering",
+          "contact": "Craig Oswell",
+          "phone": "612-720-4639",
+          "email": "",
+          "website": "",
+          "notes": "referral from Al Maas"
+        }
+      ]
+    },
+    {
+      "category": "Stucco Inspections/Repair",
+      "vendors": [
+        {
+          "company": "Donnelly Stucco",
+          "contact": "Donnelly Stucco",
+          "phone": "612-722-4200",
+          "email": "info@donnelly.mn",
+          "website": "https://www.donnellystucco.com/",
+          "notes": "2832 Mounds View Blvd, Mounds View, MN 55112"
+        },
+        {
+          "company": "Certified Moisture Testing",
+          "contact": "Alan Powell",
+          "phone": "651-272-5552",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Petersen Parenteau Stucco & Remodeling, Inc.",
+          "contact": "Scott G. Parenteau",
+          "phone": "651 338 2208",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Sump Pump Repair",
+      "vendors": [
+        {
+          "company": "Innovative Basement Authority",
+          "contact": "Innovative Basement Authority",
+          "phone": "320-208-9362",
+          "email": "",
+          "website": "https://innovativebasementauthority.com/",
+          "notes": "Rush City Office: 320-523-0001\nKasota Office: 320-591-3111"
+        }
+      ]
+    },
+    {
+      "category": "Surveyor",
+      "vendors": [
+        {
+          "company": "Kurth Surveying for Residential",
+          "contact": "",
+          "phone": "‪763-788-9769",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Sunde Land Surveying",
+          "contact": "Lenny Carlson",
+          "phone": "952-881-2455",
+          "email": "",
+          "website": "",
+          "notes": "Located in Bloomington. For Commercial Property only."
+        }
+      ]
+    },
+    {
+      "category": "Swimming Pool Inspections",
+      "vendors": [
+        {
+          "company": "Performance Pool and Spa",
+          "contact": "",
+          "phone": "763-270-1180",
+          "email": "SALES@PERFORMANCEPOOLS.COM",
+          "website": "http://www.performancepools.com",
+          "notes": ""
+        },
+        {
+          "company": "Dolphin Pool and Spa",
+          "contact": "",
+          "phone": "763-542-9000",
+          "email": "",
+          "website": "http://www.dolphinpool-spa.com",
+          "notes": ""
+        },
+        {
+          "company": "Poolside",
+          "contact": "Poolside",
+          "phone": "651.483.6600 or 651.994.4999",
+          "email": "info@poolside.biz",
+          "website": "https://allpoolside.com/",
+          "notes": "Locations in Little Canada and Eagan"
+        },
+        {
+          "company": "Pool Inspector",
+          "contact": "Bob",
+          "phone": "(612) 387-3079",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Tear Down",
+      "vendors": [
+        {
+          "company": "Kamish Excavating Inc.",
+          "contact": "Brad?",
+          "phone": "651-457-3600",
+          "email": "info@kamishexcavating.com",
+          "website": "http://www.kamishexcavating.com/",
+          "notes": "1301 Concord Street South\nSouth Saint Paul, MN 55075"
+        }
+      ]
+    },
+    {
+      "category": "Tile Contractor",
+      "vendors": [
+        {
+          "company": "AtoZ Construction",
+          "contact": "Tanya Lopachuk",
+          "phone": "763-424-1884 (Office) 763-742-3002 (Cell)",
+          "email": "tanya.atozcontract@gmail.com",
+          "website": "https://www.atoz-construction.com",
+          "notes": ""
+        },
+        {
+          "company": "Tile Expert Solutions",
+          "contact": "",
+          "phone": "612-213-6989",
+          "email": "tileexpertsolutions@gmail.com",
+          "website": "https://tileexpertsolutions.com",
+          "notes": ""
+        },
+        {
+          "company": "River City Tile",
+          "contact": "Jarod",
+          "phone": "612-290-4101",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "TCR Construction",
+          "contact": "Ted Reimer",
+          "phone": "612-501-1284",
+          "email": "Remerted@yahoo.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Tree Removal",
+      "vendors": [
+        {
+          "company": "Lawrence Tree and Stumps Services",
+          "contact": "Mike Lawrence",
+          "phone": "612-961-2069",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "North Star Tree",
+          "contact": "John Boeder",
+          "phone": "612-419-7446",
+          "email": "info@northstartreecare.com",
+          "website": "https://www.northstartreecare.com/",
+          "notes": ""
+        },
+        {
+          "company": "Tree Trimming",
+          "contact": "Sebastian",
+          "phone": "612-990-5806",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "West Metro Stump Grinding",
+          "contact": "Barry Brown, Owner",
+          "phone": "612-787-7810",
+          "email": "",
+          "website": "http://www.stumpgrinding-mn.com/",
+          "notes": "6050 Burlwood Ct, Shorewood"
+        },
+        {
+          "company": "Twin G Tree Service",
+          "contact": "Darwin",
+          "phone": "651-500-7758",
+          "email": "twinsgtreeservice@gmail.com",
+          "website": "",
+          "notes": "Recommendation from Rental Management Guys. Located in East Bethel, but willing to travel."
+        }
+      ]
+    },
+    {
+      "category": "Tuck Pointer",
+      "vendors": [
+        {
+          "company": "JLM Concrete and Masonry",
+          "contact": "Jeff",
+          "phone": "612-210-1082",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Wallpaper Removal",
+      "vendors": [
+        {
+          "company": "Daly Paint",
+          "contact": "Jason Daly",
+          "phone": "612-388-4549",
+          "email": "dalypaint@yahoo.com",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Water Heater",
+      "vendors": [
+        {
+          "company": "Richfield Plumbing Co",
+          "contact": "Richfield Plumbing Co",
+          "phone": "952-881-3355",
+          "email": "service@richfieldplumbing.com",
+          "website": "http://www.richfieldplumbing.com/",
+          "notes": "8640 Harriet Avenue S #100, Bloomington, MN 55420"
+        },
+        {
+          "company": "Riverside Plumbing",
+          "contact": "Fred Neisen",
+          "phone": "612-749-6701",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Water Testing",
+      "vendors": [
+        {
+          "company": "Instrumental Research, INC.",
+          "contact": "",
+          "phone": "763-571-3698",
+          "email": "admin@irilabs.com",
+          "website": "https://irilabs.net/",
+          "notes": "Located in Fridley"
+        },
+        {
+          "company": "Instrumental Research, Inc.",
+          "contact": "Instrumental Research, Inc.",
+          "phone": "763-571-3698",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Mann's Water Treatment",
+          "contact": "",
+          "phone": "651-437-4178",
+          "email": "",
+          "website": "",
+          "notes": "Hastings, MN"
+        },
+        {
+          "company": "Water Testing",
+          "contact": "",
+          "phone": "",
+          "email": "",
+          "website": "https://www.health.state.mn.us/communities/environment/water/wells/brochures.html",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Waterproofing Contractor",
+      "vendors": [
+        {
+          "company": "Blue Frog",
+          "contact": "Ben Hanf",
+          "phone": "651-214-7772",
+          "email": "benhanf@gmail.com",
+          "website": "https://bluefrogpond.com/",
+          "notes": ""
+        },
+        {
+          "company": "Standard Water Control",
+          "contact": "Steve Grohn, Owner",
+          "phone": "763-537-4849",
+          "email": "service@standardwater.com",
+          "website": "https://standardwater.com/",
+          "notes": "Standard Water has installed thousands of Waterproofing Solutions to solve Water Problems all across Minnesota and Wisconsin since 1977! FREE estimates and IMMEDIATE installations available! Call or email us now for your FREE Consultation with one of our Project Managers!"
+        }
+      ]
+    },
+    {
+      "category": "Well Contractor",
+      "vendors": [
+        {
+          "company": "Tim Butterfield Well Drilling",
+          "contact": "Tim Butterfield",
+          "phone": "715-247-4873",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Don Stodola Well Drilling",
+          "contact": "Don Stodola",
+          "phone": "952-446-9355",
+          "email": "",
+          "website": "https://www.donstodolawell.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Well Inspections",
+      "vendors": [
+        {
+          "company": "Find a Well Inspector Near Me",
+          "contact": "Find a Well Inspector Near Me",
+          "phone": "",
+          "email": "",
+          "website": "https://wellowner.org/find-a-contractor/well-service-near-me/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Wet Basement Contractor",
+      "vendors": [
+        {
+          "company": "American Waterworks",
+          "contact": "American Waterworks",
+          "phone": "800-795-1204",
+          "email": "",
+          "website": "http://www.american-waterworks.com",
+          "notes": ""
+        },
+        {
+          "company": "Installed Building Solutions",
+          "contact": "",
+          "phone": "651-968-1173",
+          "email": "",
+          "website": "https://www.installbuild.com/",
+          "notes": "21025 Edmonton Avenue Farmington, MN 55024- insulation, water proofing, drain tile."
+        }
+      ]
+    },
+    {
+      "category": "Window Repair",
+      "vendors": [
+        {
+          "company": "J & A Glass, Inc.",
+          "contact": "J & A Glass, Inc.",
+          "phone": "763-633-9694",
+          "email": "",
+          "website": "http://www.jaglassinc.com/",
+          "notes": "555 Railroad Dr #104\nElk River, MN 55330"
+        },
+        {
+          "company": "Nick's Window & Door Repair",
+          "contact": "Nick",
+          "phone": "612-598-8667",
+          "email": "nicwel@comcast.net",
+          "website": "https://mnwindowrepair.com/",
+          "notes": "3834 218th Ave NW, Oak Grove, MN 55303"
+        },
+        {
+          "company": "Premier Glass LLC",
+          "contact": "Mark Ebert",
+          "phone": "763-205-6848",
+          "email": "mebert@premierglassmn.com",
+          "website": "https://premierglassmn.com",
+          "notes": ""
+        },
+        {
+          "company": "Valley View Glass",
+          "contact": "Valley View Glass",
+          "phone": "612-747-8425",
+          "email": "",
+          "website": "https://valleyviewglassmn.com/",
+          "notes": "28650 Foliage Ave, Northfield, MN 55057"
+        }
+      ]
+    },
+    {
+      "category": "Window Treatments",
+      "vendors": [
+        {
+          "company": "Budget Blinds of Burnsville",
+          "contact": "Tom or Julie",
+          "phone": "952-898-5558",
+          "email": "",
+          "website": "https://budgetblinds.com/",
+          "notes": "Burget Blinds has several other locations in the metro area."
+        },
+        {
+          "company": "Custom Drapery",
+          "contact": "Fran Jones, Design Consultant",
+          "phone": "763-551-0384",
+          "email": "Fran.Jones@cdabbyme.com",
+          "website": "https://www.cdabbyme.com/",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Window Washing",
+      "vendors": [
+        {
+          "company": "Brightside Window Cleaning",
+          "contact": "Dave Clifford",
+          "phone": "(612)223-2020",
+          "email": "david@brightsidewindowcleaning.net",
+          "website": "https://brightsidewindowcleaning.net/",
+          "notes": "Our service offers competitive prices in the Minneapolis and St. Paul Metro area for window cleaning and window washing services and pressure washing. Call David today at (612)223-2020. My goal is to earn your trust and be your reliable window cleaning and washing resource into the future."
+        },
+        {
+          "company": "Shine Window Cleaning",
+          "contact": "Nolan Rinta",
+          "phone": "651-323-0946",
+          "email": "",
+          "website": "",
+          "notes": "They do power washing of all sorts, not just windows. Kyle Hansen referral."
+        },
+        {
+          "company": "Details Home Services",
+          "contact": "Details Home Services",
+          "phone": "612-216-1751",
+          "email": "info@detailsservices.com",
+          "website": "http://www.detailsservices.com",
+          "notes": ""
+        },
+        {
+          "company": "Divine Shine LLC",
+          "contact": "Josh",
+          "phone": "763-703-0489",
+          "email": "",
+          "website": "https://divineshinellc.com/",
+          "notes": ""
+        },
+        {
+          "company": "No Streaking Professional Window Washing",
+          "contact": "Chuck Werner",
+          "phone": "651-785-7866",
+          "email": "chuck@nostreakingwindowwashing.com",
+          "website": "https://minneapoliswindowwashing.weebly.com/",
+          "notes": "Residential and Commercial, also screen repair."
+        },
+        {
+          "company": "HOMEstretch Home Services",
+          "contact": "Tom DiDonato",
+          "phone": "612-260-9787",
+          "email": "tom.didonato@home-stretch.com",
+          "website": "http://www.home-stretch.com",
+          "notes": ""
+        },
+        {
+          "company": "Twindows",
+          "contact": "Justus Spengler",
+          "phone": "320-216-5791",
+          "email": "",
+          "website": "",
+          "notes": "Reached out to us thru Google looking for more business. Originally based in Mille Lacs but also work the Twin Cities."
+        },
+        {
+          "company": "Northern Window Cleaning LLC",
+          "contact": "Isaac Cantor",
+          "phone": "612-760-1125",
+          "email": "isaaccantor004@gmail.com",
+          "website": "https://northernwindowcleaningllc.godaddysites.com",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "category": "Windows",
+      "vendors": [
+        {
+          "company": "Armor Construction, Inc",
+          "contact": "",
+          "phone": "763.234.9494",
+          "email": "jasonp@armorconstructionpro.com",
+          "website": "http://www.armorconstructionpro.com",
+          "notes": ""
+        },
+        {
+          "company": "Plonsky Construction",
+          "contact": "Ryan Plonsky",
+          "phone": "651-894-3674",
+          "email": "ryanplonsky@gmail.com",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "All Around",
+          "contact": "Charles Thayer & Nick Zeman",
+          "phone": "763-447-3944",
+          "email": "Info@AllAround.com",
+          "website": "http://www.AllAround.com",
+          "notes": ""
+        },
+        {
+          "company": "Corbin Exteriors",
+          "contact": "Brad Lein",
+          "phone": "651-269-3100",
+          "email": "brad@corbinexteriors.com",
+          "website": "https://www.corbinexteriors.com/",
+          "notes": "1115 Southview Blvd\nSouth St Paul, MN 55075\nReferral from Laura Marquart"
+        }
+      ]
+    },
+    {
+      "category": "Winterize",
+      "vendors": [
+        {
+          "company": "Riverside Plumbing",
+          "contact": "Fred Nissen",
+          "phone": "612-749-6701",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    }
+  ]
+}

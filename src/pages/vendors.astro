@@ -1,0 +1,801 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../data/vendors.json';
+import grouping from '../data/vendor-groups.json';
+
+const title = "Service Providers | Mark Gores";
+const description = "The vendor list Mark Gores sends his clients to: plumbers, painters, inspectors, movers, and more. Sourced from the Minnesota Real Estate Team's vendor list and refreshed monthly.";
+
+/*
+ * Vendor data is scraped from mnrealestateteamvendors.com by
+ * scripts/scrape_vendors.py (monthly GitHub Action); don't hand-edit
+ * src/data/vendors.json. Situation groups, display merges, and search
+ * keywords live in src/data/vendor-groups.json. A new MNRET category not
+ * yet mapped there lands in the trailing "More" group automatically.
+ */
+
+const refreshed = new Date(data.scrapedOn + "T12:00:00").toLocaleDateString("en-US", {
+  month: "long", day: "numeric", year: "numeric",
+});
+
+const slugify = (s: string) =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+const byCategory = new Map(data.categories.map((c) => [c.category, c.vendors]));
+
+const mapped = new Set(
+  grouping.groups.flatMap((g) => g.sections.flatMap((s) => s.sources))
+);
+const leftovers = data.categories
+  .filter((c) => !mapped.has(c.category))
+  .map((c) => ({ title: c.category, sources: [c.category], keywords: [] }));
+
+const groups = [
+  ...grouping.groups,
+  ...(leftovers.length
+    ? [{ name: "More", description: "Newer categories on the team list.", sections: leftovers }]
+    : []),
+]
+  .map((g) => ({
+    name: g.name,
+    description: g.description,
+    slug: slugify(g.name),
+    sections: g.sections
+      .map((s) => ({
+        title: s.title,
+        slug: slugify(s.title),
+        keywords: (s.keywords || []).join(" "),
+        vendors: s.sources.flatMap((src) => byCategory.get(src) || []),
+      }))
+      .filter((s) => s.vendors.length > 0),
+  }))
+  .filter((g) => g.sections.length > 0);
+
+const vendorTotal = groups.reduce(
+  (n, g) => n + g.sections.reduce((m, s) => m + s.vendors.length, 0),
+  0
+);
+
+const displayUrl = (url: string) =>
+  url.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
+---
+
+<BaseLayout title={title} description={description}>
+
+<nav class="doc-nav">
+  <a href="/" class="name">Mark Gores</a>
+  <div class="nav-meta">Service Providers · Refreshed {refreshed}</div>
+</nav>
+
+<main class="vendors">
+
+  <section class="v-hero">
+    <div class="section-label">Service Providers</div>
+    <h1>Who to call.</h1>
+    <p class="v-intro">
+      When clients ask me for a plumber, a painter, or someone to haul a couch away,
+      this is where I send them. It's the vendor list my team, the Minnesota Real Estate
+      Team, has built over years of referrals. I've organized it around what's actually
+      going on at your house, and I keep it synced with the master list, so the contact
+      info stays current.
+    </p>
+    <p class="v-source">
+      Source: <a href="https://www.mnrealestateteamvendors.com/" target="_blank" rel="noopener">The Minnesota Real Estate Team's List of Vendors</a>,
+      the #1 selling RE/MAX team in Minnesota. Last refreshed {refreshed}.
+      {vendorTotal} providers.
+    </p>
+  </section>
+
+  <section class="v-tools">
+    <label class="v-search-label" for="v-search">
+      <span>Search</span>
+    </label>
+    <div class="v-search-row">
+      <input
+        type="search"
+        id="v-search"
+        placeholder="Try furnace, leak, movers, radon, fence..."
+        autocomplete="off"
+      />
+      <button type="button" id="v-ask" title="Describe what's going on and get pointed at the right category">
+        Not sure? Ask
+      </button>
+    </div>
+    <p class="v-count" id="v-count" aria-live="polite"></p>
+  </section>
+
+  <div class="v-answer" id="v-answer" hidden>
+    <p class="v-answer-reason" id="v-answer-reason"></p>
+    <div class="v-answer-chips" id="v-answer-chips"></div>
+    <button type="button" class="v-answer-reset" id="v-answer-reset">Show the full list</button>
+  </div>
+  <p class="v-sr-only" id="v-sr-status" aria-live="polite"></p>
+
+  <div class="v-jump" role="navigation" aria-label="Groups">
+    {groups.map((g) => (
+      <a href={`#${g.slug}`}>{g.name}</a>
+    ))}
+  </div>
+
+  <section class="v-list">
+    {groups.map((g) => (
+      <div class="v-group" id={g.slug} data-group>
+        <h2 class="v-group-name">{g.name}</h2>
+        <p class="v-group-desc">{g.description}</p>
+        {g.sections.map((s) => (
+          <details class="v-cat" id={s.slug} data-section>
+            <summary>
+              <span class="v-cat-title">{s.title}</span>
+              <span class="v-cat-count">{s.vendors.length}</span>
+            </summary>
+            <div class="v-cat-body">
+              {s.vendors.map((v) => (
+                <div
+                  class="v-row"
+                  data-vendor
+                  data-search={`${g.name} ${s.title} ${s.keywords} ${v.company} ${v.contact} ${v.notes}`.toLowerCase()}
+                >
+                  <div class="v-main">
+                    <div class="v-company">{v.company}</div>
+                    {v.contact && v.contact !== v.company && (
+                      <div class="v-contact">{v.contact}</div>
+                    )}
+                    {v.notes && <div class="v-notes">{v.notes}</div>}
+                  </div>
+                  <div class="v-reach">
+                    {v.phone && <a href={`tel:${v.phone.replace(/[^0-9+]/g, "")}`}>{v.phone}</a>}
+                    {v.email && <a href={`mailto:${v.email}`}>{v.email}</a>}
+                    {v.website && (
+                      <a href={v.website} target="_blank" rel="noopener">{displayUrl(v.website)}</a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
+    ))}
+    <p class="v-empty" id="v-empty" hidden>
+      Nothing on the list matches that. Call or text me at
+      <a href="tel:6122015447">612-201-5447</a> and I'll find you someone.
+    </p>
+  </section>
+
+  <footer class="v-footer">
+    <p>
+      These are independent businesses, not my employees or partners. The list is
+      maintained by the Minnesota Real Estate Team and mirrored here monthly. I get
+      nothing for the referral. Get your own quotes and check licensing where it applies.
+    </p>
+    <p class="v-footer-meta">
+      Mark Gores · RE/MAX Advantage Plus · <a href="tel:6122015447">612-201-5447</a> ·
+      <a href="mailto:mark@markgores.com">mark@markgores.com</a>
+    </p>
+  </footer>
+
+</main>
+
+<script>
+  const input = document.getElementById("v-search") as HTMLInputElement;
+  const count = document.getElementById("v-count")!;
+  const empty = document.getElementById("v-empty")!;
+  const jump = document.querySelector<HTMLElement>(".v-jump")!;
+  const rows = Array.from(document.querySelectorAll<HTMLElement>("[data-vendor]"));
+  const sections = Array.from(document.querySelectorAll<HTMLDetailsElement>("[data-section]"));
+  const groups = Array.from(document.querySelectorAll<HTMLElement>("[data-group]"));
+  const askBtn = document.getElementById("v-ask") as HTMLButtonElement;
+  const answer = document.getElementById("v-answer")!;
+  const answerReason = document.getElementById("v-answer-reason")!;
+  const answerChips = document.getElementById("v-answer-chips")!;
+  const answerReset = document.getElementById("v-answer-reset")!;
+
+  function clearAnswer() {
+    answer.hidden = true;
+    answerReason.textContent = "";
+    answerChips.textContent = "";
+  }
+
+  function showOnly(slugs: string[]) {
+    const keep = new Set(slugs);
+    jump.hidden = true;
+    rows.forEach((r) => (r.hidden = false));
+    let visible = 0;
+    sections.forEach((s) => {
+      const hit = keep.has(s.id);
+      s.hidden = !hit;
+      if (hit) {
+        visible++;
+        s.open = true;
+        s.dataset.autoOpened = "1";
+      }
+    });
+    groups.forEach((g) => {
+      g.hidden = !g.querySelector("[data-section]:not([hidden])");
+    });
+    empty.hidden = visible > 0;
+  }
+
+  function announce(text: string) {
+    const sr = document.getElementById("v-sr-status");
+    if (sr) sr.textContent = text;
+  }
+
+  function showAnswer(text: string) {
+    answerReason.textContent = text;
+    answer.hidden = false;
+    announce(text);
+  }
+
+  // Guard against overlapping asks (double Enter) and stale responses
+  // landing after the user has moved on to typing something else.
+  let askSeq = 0;
+  let askBusy = false;
+
+  async function ask() {
+    if (askBusy) return;
+    const q = input.value.trim();
+    if (q.length < 3) {
+      input.focus();
+      return;
+    }
+    askBusy = true;
+    const seq = ++askSeq;
+    askBtn.disabled = true;
+    askBtn.textContent = "Thinking...";
+    clearAnswer();
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 30_000);
+      const res = await fetch("/api/vendor-route", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ q }),
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      if (seq !== askSeq) return;
+      if (!res.ok) throw new Error(String(res.status));
+      const data = await res.json();
+      const found = (Array.isArray(data.sections) ? data.sections : []).filter(
+        (s: { slug: string }) => document.getElementById(s.slug)
+      );
+      if (found.length === 0) {
+        showAnswer(
+          "That one didn't match a category. Try different words, or call or text me at 612-201-5447 and I'll point you the right way."
+        );
+        return;
+      }
+      showAnswer(data.reason || "Here's where I'd start.");
+      for (const s of found) {
+        const chip = document.createElement("a");
+        chip.href = `#${s.slug}`;
+        chip.textContent = s.title;
+        answerChips.appendChild(chip);
+      }
+      showOnly(found.map((s: { slug: string }) => s.slug));
+      count.textContent = "";
+      answer.scrollIntoView({ block: "center" });
+    } catch {
+      if (seq !== askSeq) return;
+      showAnswer(
+        "Couldn't reach the helper just now. These matches come from a plain keyword search instead."
+      );
+      apply();
+    } finally {
+      askBusy = false;
+      askBtn.disabled = false;
+      askBtn.textContent = "Not sure? Ask";
+    }
+  }
+
+  askBtn.addEventListener("click", ask);
+  answerReset.addEventListener("click", () => {
+    clearAnswer();
+    input.value = "";
+    apply();
+  });
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      ask();
+    }
+  });
+
+  const STOP = new Set(["the","a","an","in","on","at","my","our","is","it","its","of","to","and","or","for","with","after","before","when","there","theres","i","we","he","she","they","have","has","had","was","were","be","been","do","does","get","got","need","help","from","under","over","some","that","this","just","really"]);
+
+  function apply() {
+    const q = input.value.trim().toLowerCase();
+    const words = q.split(/\s+/).filter((w) => w.length > 1 && !STOP.has(w));
+    if (!q || (q.length < 2 && words.length === 0)) {
+      rows.forEach((r) => (r.hidden = false));
+      sections.forEach((s) => {
+        s.hidden = false;
+        if (s.dataset.autoOpened) {
+          s.open = false;
+          delete s.dataset.autoOpened;
+        }
+      });
+      groups.forEach((g) => (g.hidden = false));
+      count.textContent = "";
+      empty.hidden = true;
+      jump.hidden = false;
+      return;
+    }
+    jump.hidden = true;
+    // Precise pass first (whole phrase, or every meaningful word); if that
+    // finds nothing, loosen to any-word so fuzzy sentences still land somewhere.
+    const matchers = [
+      (hay: string) => hay.includes(q) || (words.length > 0 && words.every((w) => hay.includes(w))),
+      (hay: string) => words.some((w) => hay.includes(w)),
+    ];
+    let shown = 0;
+    for (const match of matchers) {
+      shown = 0;
+      rows.forEach((r) => {
+        const hit = match(r.dataset.search || "");
+        r.hidden = !hit;
+        if (hit) shown++;
+      });
+      if (shown > 0) break;
+    }
+    sections.forEach((s) => {
+      const any = !!s.querySelector("[data-vendor]:not([hidden])");
+      s.hidden = !any;
+      if (any && !s.open) {
+        s.open = true;
+        s.dataset.autoOpened = "1";
+      }
+    });
+    groups.forEach((g) => {
+      g.hidden = !g.querySelector("[data-section]:not([hidden])");
+    });
+    count.textContent = `${shown} provider${shown === 1 ? "" : "s"}`;
+    empty.hidden = shown > 0;
+  }
+
+  input.addEventListener("input", () => {
+    askSeq++; // typing invalidates any in-flight ask
+    clearAnswer();
+    apply();
+  });
+
+  // Deep links: opening /vendors#plumbing expands that category.
+  function openFromHash() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (el instanceof HTMLDetailsElement) el.open = true;
+  }
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
+</script>
+
+<style>
+  .doc-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.25rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(245, 240, 232, 0.85);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid rgba(139, 115, 85, 0.14);
+  }
+
+  .doc-nav .name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--dark);
+    text-decoration: none;
+  }
+
+  .nav-meta {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm);
+  }
+
+  .vendors {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .v-hero {
+    padding: 9rem 0 2rem;
+    max-width: none;
+  }
+
+  .v-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    color: var(--dark);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .v-intro {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-light);
+    max-width: 640px;
+    margin-bottom: 1.5rem;
+  }
+
+  .v-source {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    color: var(--warm);
+    max-width: 640px;
+    line-height: 1.9;
+  }
+
+  .v-source a { color: var(--accent); text-decoration: none; }
+  .v-source a:hover { text-decoration: underline; }
+
+  .v-tools {
+    padding: 1rem 0 0;
+    max-width: none;
+    position: sticky;
+    top: 3.6rem;
+    z-index: 50;
+    background: var(--cream);
+    box-shadow: 0 10px 14px -14px rgba(26, 26, 24, 0.25);
+  }
+
+  .v-search-label span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm);
+    margin-bottom: 0.5rem;
+  }
+
+  .v-search-row {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 640px;
+    align-items: stretch;
+  }
+
+  #v-ask {
+    flex-shrink: 0;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cream);
+    background: var(--dark);
+    border: 0;
+    border-radius: 2px;
+    padding: 0 1.2rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+
+  #v-ask:hover { opacity: 0.85; }
+  #v-ask:disabled { opacity: 0.5; cursor: wait; }
+
+  .v-answer {
+    margin: 1.25rem 0 0;
+    padding: 1.5rem 1.75rem;
+    max-width: 640px;
+    background: white;
+    border-left: 2px solid var(--accent);
+    box-shadow: 0 1px 2px rgba(26, 26, 24, 0.04), 0 6px 24px -16px rgba(26, 26, 24, 0.12);
+  }
+
+  .v-answer-reason {
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .v-answer-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .v-answer-chips a {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid rgba(74, 123, 200, 0.4);
+    border-radius: 2px;
+    padding: 0.4rem 0.75rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .v-answer-chips a:hover {
+    color: var(--dark);
+    border-color: var(--accent);
+  }
+
+  .v-answer-chips:empty { display: none; }
+
+  .v-answer-reset {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+    background: none;
+    border: 0;
+    border-bottom: 1px solid rgba(139, 115, 85, 0.25);
+    padding: 0 0 1px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .v-answer-reset:hover { color: var(--accent); border-color: var(--accent); }
+
+  .v-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  #v-search {
+    width: 100%;
+    min-width: 0;
+    max-width: 640px;
+    font-family: var(--body);
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--dark);
+    background: white;
+    border: 1px solid var(--light-warm);
+    border-radius: 2px;
+    padding: 0.8rem 1.1rem;
+    transition: border-color 0.2s;
+  }
+
+  #v-search:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .v-count {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    padding: 0.6rem 0;
+    min-height: 2rem;
+  }
+
+  .v-jump[hidden] { display: none; }
+
+  .v-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem 0 1rem;
+  }
+
+  .v-jump a {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--warm);
+    text-decoration: none;
+    border: 1px solid var(--light-warm);
+    border-radius: 2px;
+    padding: 0.45rem 0.8rem;
+    background: rgba(255, 255, 255, 0.5);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .v-jump a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .v-list {
+    padding: 0 0 4rem;
+    max-width: none;
+  }
+
+  .v-group {
+    padding-top: 3.5rem;
+    scroll-margin-top: 9rem;
+  }
+
+  .v-group-name {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .v-group-desc {
+    font-weight: 300;
+    color: var(--text-light);
+    max-width: 560px;
+    margin-bottom: 1.5rem;
+  }
+
+  .v-cat {
+    border-bottom: 1px solid var(--light-warm);
+    scroll-margin-top: 9rem;
+  }
+
+  .v-cat:first-of-type {
+    border-top: 1px solid var(--light-warm);
+  }
+
+  .v-cat summary {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.85rem 0.25rem;
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.2s;
+  }
+
+  .v-cat summary::-webkit-details-marker { display: none; }
+
+  .v-cat summary::before {
+    content: '+';
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--warm);
+    width: 1rem;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .v-cat[open] summary::before { content: '\2212'; color: var(--accent); }
+
+  .v-cat summary:hover .v-cat-title { color: var(--accent); }
+
+  .v-cat-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--dark);
+  }
+
+  .v-cat-count {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--warm);
+    margin-left: auto;
+  }
+
+  .v-cat-body {
+    padding: 0 0 1rem 1.25rem;
+  }
+
+  .v-row[hidden] { display: none; }
+
+  .v-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 0.5rem 2rem;
+    padding: 1rem 0;
+    border-top: 1px dashed rgba(139, 115, 85, 0.25);
+  }
+
+  .v-row:first-child { border-top: none; }
+
+  .v-company {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--dark);
+  }
+
+  .v-contact {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-light);
+  }
+
+  .v-notes {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--text-light);
+    margin-top: 0.35rem;
+    max-width: 48ch;
+    white-space: pre-line;
+  }
+
+  .v-reach {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    padding-top: 0.25rem;
+  }
+
+  .v-reach a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 115, 85, 0.25);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+    overflow-wrap: anywhere;
+  }
+
+  .v-reach a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .v-empty {
+    padding: 3rem 0;
+    font-weight: 300;
+    color: var(--text-light);
+  }
+
+  .v-empty a { color: var(--accent); text-decoration: none; }
+
+  .v-footer {
+    display: block;
+    margin: 0;
+    border-top: 1px solid var(--light-warm);
+    padding: 3rem 0 4rem;
+    max-width: 640px;
+  }
+
+  .v-footer p {
+    font-family: var(--body);
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .v-footer p.v-footer-meta {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .v-footer-meta a { color: var(--warm); text-decoration: none; }
+  .v-footer-meta a:hover { color: var(--accent); }
+
+  @media (max-width: 768px) {
+    .doc-nav { padding: 1rem 1.5rem; }
+    .nav-meta { display: none; }
+    .vendors { padding: 0 1.5rem; }
+    .v-hero { padding-top: 7rem; }
+    .v-tools { top: 3.2rem; }
+    .v-group { scroll-margin-top: 8rem; }
+    .v-cat { scroll-margin-top: 8rem; }
+    .v-cat-body { padding-left: 0.5rem; }
+    .v-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+</BaseLayout>
