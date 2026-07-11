@@ -1,12 +1,14 @@
 import type { APIRoute } from 'astro';
 import Anthropic from '@anthropic-ai/sdk';
-import grouping from '../../data/vendor-groups.json';
-import vendors from '../../data/vendors.json';
+import grouping from '../data/vendor-groups.json';
+import vendors from '../data/vendors.json';
 
 export const prerender = false;
 
 /*
- * One-shot router for the /vendors page: a client describes what's going on
+ * One-shot router for the /vendors page (served at /vendor-route; the root
+ * api/ directory is reserved by Vercel for the legacy contact function and
+ * 404s everything else under /api): a client describes what's going on
  * at their house, Claude picks 1-3 categories from the fixed catalog. The
  * output schema constrains section slugs to an enum of the catalog, and the
  * server validates against the same allowlist, so the model cannot steer a
