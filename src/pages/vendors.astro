@@ -77,7 +77,8 @@ const displayUrl = (url: string) =>
       this is where I send them. It's the vendor list my team, the Minnesota Real Estate
       Team, has built over years of referrals. I've organized it around what's actually
       going on at your house, and I keep it synced with the master list, so the contact
-      info stays current.
+      info stays current. If you'd rather not guess at categories, describe the problem
+      and hit Ask.
     </p>
     <p class="v-source">
       Source: <a href="https://www.mnrealestateteamvendors.com/" target="_blank" rel="noopener">The Minnesota Real Estate Team's List of Vendors</a>,
@@ -94,13 +95,18 @@ const displayUrl = (url: string) =>
       <input
         type="search"
         id="v-search"
-        placeholder="Try furnace, leak, movers, radon, fence..."
+        placeholder="Search, or describe the problem..."
         autocomplete="off"
       />
       <button type="button" id="v-ask" title="Describe what's going on and get pointed at the right category">
         Not sure? Ask
       </button>
     </div>
+    <p class="v-hint">
+      Plain English works. Try
+      <button type="button" class="v-example">musty smell in the basement</button> or
+      <button type="button" class="v-example">getting mom's house ready to sell</button>
+    </p>
     <p class="v-count" id="v-count" aria-live="polite"></p>
   </section>
 
@@ -290,6 +296,13 @@ const displayUrl = (url: string) =>
   }
 
   askBtn.addEventListener("click", ask);
+  document.querySelectorAll<HTMLButtonElement>(".v-example").forEach((ex) => {
+    ex.addEventListener("click", () => {
+      input.value = ex.textContent || "";
+      clearAnswer();
+      ask();
+    });
+  });
   answerReset.addEventListener("click", () => {
     clearAnswer();
     input.value = "";
@@ -575,14 +588,43 @@ const displayUrl = (url: string) =>
     border-color: var(--accent);
   }
 
+  .v-hint {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--text-light);
+    padding-top: 0.6rem;
+  }
+
+  .v-example {
+    font-family: var(--body);
+    font-size: 0.88rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--accent);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(74, 123, 200, 0.35);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .v-example::before { content: '\201C'; }
+  .v-example::after { content: '\201D'; }
+
+  .v-example:hover {
+    color: var(--dark);
+    border-color: var(--accent);
+  }
+
   .v-count {
     font-family: var(--mono);
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-light);
-    padding: 0.6rem 0;
-    min-height: 2rem;
+    padding: 0.3rem 0;
+    min-height: 1.6rem;
   }
 
   .v-jump[hidden] { display: none; }
