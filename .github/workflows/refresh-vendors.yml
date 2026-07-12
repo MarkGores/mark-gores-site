@@ -1,0 +1,31 @@
+name: Refresh vendor list
+
+on:
+  schedule:
+    # 09:14 UTC on the 1st of each month (early morning US Central).
+    - cron: '14 9 1 * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scrape MNRET vendor list
+        run: python3 scripts/scrape_vendors.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- src/data/vendors.json; then
+            echo "No vendor changes this month."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/vendors.json
+          git commit -m "Refresh vendor list from MNRET"
+          git push
