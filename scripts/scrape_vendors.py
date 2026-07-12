@@ -166,6 +166,25 @@ def main():
         "vendorCount": sum(len(c["vendors"]) for c in categories),
         "categories": categories,
     }
+
+    # Skip the write when only the timestamps would change, so the monthly
+    # action commits (and redeploys) only on a real vendor change instead of
+    # every run. "scrapedAt"/"scrapedOn" are excluded from the comparison.
+    def content(doc):
+        return {k: v for k, v in doc.items() if k not in ("scrapedAt", "scrapedOn")}
+
+    if OUT_PATH.exists():
+        try:
+            existing = json.loads(OUT_PATH.read_text())
+        except (json.JSONDecodeError, OSError):
+            existing = None
+        if existing is not None and content(existing) == content(out):
+            print(
+                f"OK: no change ({out['categoryCount']} categories, "
+                f"{out['vendorCount']} vendors); leaving {OUT_PATH} untouched."
+            )
+            return
+
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
     print(
