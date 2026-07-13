@@ -22,7 +22,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <div class="hero">
   <div class="hero-content">
     <div class="hero-label">Prior Lake, Minnesota · Since 2004</div>
-    <h1>I'm a realtor who will talk you <em>out of</em> a bad deal.</h1>
+    <h1>Some houses I'll tell you <em>not</em> to buy.</h1>
     <p class="hero-text">
       That house with the "great bones" that needs $80k in work? I'll tell you. The neighborhood that floods every spring? I'll mention it. The seller testing the market at 15% over comps? I'll save you the trouble.
     </p>
@@ -126,54 +126,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <div class="divider"><hr></div>
 
-<!-- Community -->
-<section class="community" id="community">
-  <div class="section-label">Beyond Real Estate</div>
-  <div class="community-content">
-    <div>
-      <h2>Three things I built for the neighbors.</h2>
-      <p>
-        Prior Lake didn't have a public events calendar. It didn't have a decent place to look at MLS numbers either. And the vendor list realtors pass around wasn't anywhere a homeowner could use it. I wanted all three to exist, so I made them.
-      </p>
-      <p>
-        All free. Use them or don't.
-      </p>
-    </div>
-    <div class="ple-stack">
-      <div class="ple-card">
-        <h3>Prior Lake Events</h3>
-        <p>A community calendar and weekly newsletter for Prior Lake. Fish fries, live music, farmers markets, kids events. If it's happening here, it's on PLE.</p>
-        <a href="https://priorlakeevents.com" class="ple-link" target="_blank" rel="noopener">Visit PriorLakeEvents.com →</a>
-      </div>
-      <div class="ple-card">
-        <h3>Prior Lake Market Data</h3>
-        <p>Real MLS data for Prior Lake, updated daily. What's selling, what's sitting, neighborhood breakdowns, waterfront premiums. A way to look at the market without being sold anything.</p>
-        <a href="https://priorlake.realestate" class="ple-link" target="_blank" rel="noopener">Visit PriorLake.RealEstate →</a>
-      </div>
-      <div class="ple-card">
-        <h3>Who to Call</h3>
-        <p>The vendor list I send my clients to. Plumbers, roofers, movers, inspectors, 479 providers my team has built up over years of referrals. Describe the problem in plain English and it points you at the right people.</p>
-        <a href="/vendors" class="ple-link">See who to call →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Personal -->
-<section class="personal">
+<!-- The Person (merged with the built-for-the-neighbors cards) -->
+<section class="personal" id="community">
   <div class="personal-inner">
     <div>
       <div class="section-label">The Person</div>
-      <h2>Not a headshot with crossed arms in front of a house.</h2>
+      <h2>Prior Lake since 1986.</h2>
       <p>
-        I've lived in Prior Lake since 1986. University of Iowa for college, then right back. My kids went to Jeffers Pond. I can tell you which parks have the best sledding hills and which steakhouse is actually worth it.
+        University of Iowa for college, then right back. My kids are coming up through the Prior Lake schools. I can tell you which parks have the best sledding hills and which places do a steak right.
       </p>
       <p>
-        When I'm not doing real estate, I'm probably playing pickleball, fixing something in a pinball machine, cooking something ambitious, or out on the boat. I also build websites for fun, which is why this one doesn't look like every other realtor's site.
+        When I'm not doing real estate, it's some mix of pickleball, pinball, cooking, and the boat.
+      </p>
+      <p>
+        And I build websites for fun. This one's mine. These three are for the neighbors. All free. Use them or don't.
       </p>
     </div>
     <div class="photo-main">
       <img src="/images/family.jpg" alt="Mark Gores with his family at home in Prior Lake">
+    </div>
+  </div>
+  <div class="built-grid">
+    <div class="ple-card">
+      <h3>Prior Lake Events</h3>
+      <p>A community calendar and weekly newsletter for Prior Lake. Fish fries, live music, farmers markets, kids events. If it's happening here, it's on PLE.</p>
+      <a href="https://priorlakeevents.com" class="ple-link" target="_blank" rel="noopener">Visit PriorLakeEvents.com →</a>
+    </div>
+    <div class="ple-card">
+      <h3>Prior Lake Market Data</h3>
+      <p>Real MLS data for Prior Lake, updated daily. What's selling, what's sitting, neighborhood breakdowns, waterfront premiums. A way to look at the market without being sold anything.</p>
+      <a href="https://priorlake.realestate" class="ple-link" target="_blank" rel="noopener">Visit PriorLake.RealEstate →</a>
+    </div>
+    <div class="ple-card">
+      <h3>Who to Call</h3>
+      <p>The vendor list I send my clients to. Plumbers, roofers, movers, inspectors, 479 providers my team has built up over years of referrals. Describe the problem in plain English and it points you at the right people.</p>
+      <a href="/vendors" class="ple-link">See who to call →</a>
     </div>
   </div>
 </section>

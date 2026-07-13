@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title = "Mark Gores | Realtor in Prior Lake, Minnesota",
-  description = "Mark Gores, Prior Lake realtor with 22 years of experience and a 5.0 Zillow rating. Honest real estate advice in Prior Lake, Savage, Shakopee, and the south metro. No pitch, no pressure.",
+  description = "Mark Gores, Prior Lake realtor with 22 years of experience and a 5.0 Zillow rating. Honest real estate advice in Prior Lake, Savage, Shakopee, and the south metro.",
   noindex = false,
   ogImagePath = "/og-image.jpg"
 } = Astro.props;
@@ -39,6 +39,7 @@ const canonical = new URL(Astro.url.pathname, siteUrl).href;
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

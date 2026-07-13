@@ -568,6 +568,28 @@ section {
   margin-bottom: 1.2rem;
 }
 
+.built-grid {
+  max-width: 1200px;
+  margin: 4rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+  .built-grid { grid-template-columns: 1fr; }
+}
+
+.built-grid .ple-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.built-grid .ple-link {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
 .photo-main {
   width: 100%;
   aspect-ratio: 4/3;
@@ -910,6 +932,7 @@ footer .tagline {
   .personal { padding: 4rem 1.5rem; }
   .personal-inner { grid-template-columns: 1fr; gap: 2rem; }
   .photo-main { max-height: 300px; aspect-ratio: auto; }
+  .built-grid { grid-template-columns: 1fr; margin-top: 2.5rem; }
 
   .contact { padding: 4rem 1.5rem; }
   .contact-methods { flex-direction: column; gap: 2rem; }
