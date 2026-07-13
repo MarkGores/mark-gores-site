@@ -35,6 +35,11 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/how-i-sell/",
+      "destination": "/",
+      "permanent": false
     }
   ]
 }
