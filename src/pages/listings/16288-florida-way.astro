@@ -1,0 +1,924 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "16288 Florida Way, Rosemount | $399,000 | Mark Gores, RE/MAX Advantage Plus";
+const description = "Updated 4 bedroom, 2 bath rambler on a third-acre cul-de-sac lot in Rosemount. Hardwood floors, granite kitchen, finished lower level, deck and fire pit out back. Listed by Mark Gores, RE/MAX Advantage Plus.";
+
+const IMG = '/images/listings/16288';
+const pad = (n: number) => String(n).padStart(2, '0');
+
+// Photo captions, written for the MLS. Order matches the MLS photo order.
+const captions: string[] = [
+  "Updated 4-bedroom, 2-bath rambler on a 1/3-acre cul-de-sac lot",
+  "Charming curb appeal with rock-lined garden beds & classic lamp post",
+  "Welcoming foyer with character wood front door, coat closet & hardwood floors",
+  "Bright living room with gleaming hardwood floors & recessed lighting",
+  "Electric fireplace with stacked-stone surround adds year-round ambiance",
+  "Living room flows to the kitchen & dining area for easy entertaining",
+  "Kitchen dining area with pantry cabinet & slider to the backyard deck",
+  "Updated kitchen with granite countertops, white shaker cabinets & gas range",
+  "Granite counters wrap the kitchen, plus a sunny window over the double sink",
+  "Stainless steel gas range, microwave & French-door refrigerator",
+  "First of three main-level bedrooms with hardwood floors & windows on two walls",
+  "Second main-level bedroom, currently used as a home office",
+  "Third main-level bedroom with hardwood floors & leafy views",
+  "Refreshed main-floor full bath with tub/shower & updated fixtures",
+  "Finished lower level with a cozy family room at the base of the stairs",
+  "Lower-level family room with space for movie & game nights",
+  "Lower-level game nook with vintage brick accent & warm wood paneling",
+  "Spacious 4th bedroom in the lower level with egress window",
+  "Lower-level full bath with subway-tiled tub surround & updated vanity lighting",
+  "Lower-level laundry & utility room with GE washer & dryer included",
+  "Deck off the dining room overlooks the huge, tree-lined backyard",
+  "Room to grill, dine & garden on the spacious backyard deck",
+  "Pea-gravel fire pit patio just steps from the deck",
+  "Gather around the backyard fire pit on cool Minnesota evenings",
+  "Back of the home with deck, mature shrubs & perennial beds",
+  "Huge, flat backyard with raised garden beds & room to roam",
+  "Expansive, tree-lined backyard with endless room for play, pets & gardens",
+];
+
+const photos = captions.map((caption, i) => ({
+  n: i + 1,
+  caption,
+  thumb: `${IMG}/thumb/${pad(i + 1)}.jpg`,
+  full: `${IMG}/full/${pad(i + 1)}.jpg`,
+}));
+
+// Curated highlight wall (photo numbers), ordered to tell the story.
+const highlightNums = [1, 4, 8, 5, 7, 11, 14, 21, 16, 18, 23, 27];
+const highlights = highlightNums.map((n) => photos[n - 1]);
+
+const galleryJson = JSON.stringify(photos.map((p) => ({ full: p.full, caption: p.caption })));
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SingleFamilyResidence",
+  "name": "16288 Florida Way, Rosemount, MN 55068",
+  "url": "https://markgores.com/listings/16288-florida-way/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "16288 Florida Way W",
+    "addressLocality": "Rosemount",
+    "addressRegion": "MN",
+    "postalCode": "55068",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 44.713861, "longitude": -93.198999 },
+  "numberOfBedrooms": 4,
+  "numberOfBathroomsTotal": 2,
+  "floorSize": { "@type": "QuantitativeValue", "value": 1900, "unitCode": "FTK" },
+  "yearBuilt": 1970,
+  "image": [
+    "https://markgores.com/images/listings/16288/full/01.jpg",
+    "https://markgores.com/images/listings/16288/full/08.jpg",
+    "https://markgores.com/images/listings/16288/full/21.jpg"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": 399000,
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "offeredBy": {
+      "@type": "RealEstateAgent",
+      "name": "Mark Gores",
+      "telephone": "+1-612-201-5447",
+      "worksFor": { "@type": "RealEstateAgent", "name": "RE/MAX Advantage Plus" }
+    }
+  }
+});
+---
+
+<BaseLayout title={title} description={description} ogImagePath="/images/listings/16288/og.jpg">
+
+<script type="application/ld+json" set:html={schema} />
+
+<nav aria-label="Primary" class="listing-nav">
+  <a href="/" class="name">Mark Gores</a>
+  <div class="nav-right">
+    <span class="nav-brokerage">RE/MAX Advantage Plus</span>
+    <a class="nav-phone" href="tel:+16122015447">612-201-5447</a>
+  </div>
+</nav>
+
+<main class="listing">
+
+  <!-- HERO -->
+  <header class="l-hero">
+    <div class="l-hero-content">
+      <div class="hero-label">For Sale &middot; Rosemount, Minnesota</div>
+      <h1>16288 Florida Way</h1>
+      <div class="l-price">$399,000</div>
+      <p class="l-hero-sub">
+        An updated 4 bedroom rambler on a third-acre cul-de-sac lot in Donnay's Valley Park. Hardwood floors and granite up, a finished family room down, and a big, tree-lined backyard with a deck and fire pit.
+      </p>
+      <div class="l-hero-stats">
+        <div class="stat"><span class="stat-number">4</span><span class="stat-label">Bedrooms</span></div>
+        <div class="stat"><span class="stat-number">2</span><span class="stat-label">Bathrooms</span></div>
+        <div class="stat"><span class="stat-number">1,900</span><span class="stat-label">Finished Sq Ft</span></div>
+        <div class="stat"><span class="stat-number">0.33</span><span class="stat-label">Acres</span></div>
+      </div>
+      <div class="l-hero-ctas">
+        <a href="#contact" class="cta-primary">Schedule a showing</a>
+        <a href="#photos" class="cta-secondary">See all 27 photos &rarr;</a>
+      </div>
+    </div>
+    <div class="l-hero-image">
+      <img
+        src={`${IMG}/hero.jpg`}
+        srcset={`${IMG}/thumb/01.jpg 800w, ${IMG}/full/01.jpg 1600w, ${IMG}/hero.jpg 1920w`}
+        sizes="(max-width: 768px) 100vw, 540px"
+        alt="16288 Florida Way, updated rambler with rock-lined garden beds and a classic lamp post"
+        fetchpriority="high"
+      />
+      <div class="photo-caption">Donnay's Valley Park &middot; MLS #7107733</div>
+    </div>
+  </header>
+
+  <!-- STORY -->
+  <section class="l-story">
+    <div class="section-label">The Home</div>
+    <h2>Move-in ready on a cul-de-sac in Donnay's Valley Park.</h2>
+    <div class="l-story-cols">
+      <p>
+        This one's been updated where it counts. The main level has gleaming hardwood floors, a bright living room with recessed lighting, and an electric fireplace with a stacked-stone surround. The living room flows straight into the kitchen and dining area, so the whole level lives bigger than the square footage suggests.
+      </p>
+      <p>
+        The kitchen carries granite countertops, white shaker cabinets, stainless steel appliances, and a gas range, with a sunny window over the double sink. The dining area adds a pantry cabinet and a slider to the backyard deck. Three of the four bedrooms are on this level, all with hardwood floors, and the main-floor full bath has been refreshed with updated fixtures.
+      </p>
+      <p>
+        Downstairs, the finished lower level holds a cozy family room, a game nook with a vintage brick accent and warm wood paneling, and a spacious fourth bedroom with an egress window. A second full bath with a subway-tiled tub surround and a laundry room with the GE washer and dryer included round out the level.
+      </p>
+      <p>
+        Out back is the part you'll use all summer: a deck off the dining room, a pea-gravel fire pit patio just steps away, and a huge, flat, tree-lined backyard with raised garden beds and room to roam. The electrical panel has been replaced, so the practical side is handled too. All of it on a quiet cul-de-sac in Donnay's Valley Park.
+      </p>
+    </div>
+  </section>
+
+  <!-- STANDOUTS -->
+  <section class="l-standouts">
+    <div class="section-label">What Stands Out</div>
+    <div class="standout-grid">
+      <div class="standout">
+        <h3>The kitchen</h3>
+        <p>Granite countertops, white shaker cabinets, stainless appliances, and a gas range. A sunny window over the double sink.</p>
+      </div>
+      <div class="standout">
+        <h3>Hardwood floors</h3>
+        <p>Gleaming hardwood through the living room and all three main-level bedrooms. No carpet to fight upstairs.</p>
+      </div>
+      <div class="standout">
+        <h3>The backyard</h3>
+        <p>A third of an acre, flat and tree-lined, with raised garden beds. The kind of yard that's getting hard to find at this price.</p>
+      </div>
+      <div class="standout">
+        <h3>Deck and fire pit</h3>
+        <p>A deck off the dining room for grilling and dinner outside, and a pea-gravel fire pit patio a few steps beyond it.</p>
+      </div>
+      <div class="standout">
+        <h3>The finished lower level</h3>
+        <p>Family room, game nook with a vintage brick accent, a fourth bedroom with egress, and a second full bath.</p>
+      </div>
+      <div class="standout">
+        <h3>The practical updates</h3>
+        <p>Updated kitchen and baths, a new electrical panel, and the big diseased trees already removed. Move-in ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS -->
+  <section class="l-specs">
+    <div class="section-label">The Details</div>
+    <div class="specs-grid">
+      <div class="spec"><div class="spec-v">$399,000</div><div class="spec-l">List Price</div></div>
+      <div class="spec"><div class="spec-v">4 / 2</div><div class="spec-l">Bed / Bath</div></div>
+      <div class="spec"><div class="spec-v">1,900</div><div class="spec-l">Finished Sq Ft</div></div>
+      <div class="spec"><div class="spec-v">950 / 950</div><div class="spec-l">Above / Below Grade</div></div>
+      <div class="spec"><div class="spec-v">0.33 ac</div><div class="spec-l">Lot Size</div></div>
+      <div class="spec"><div class="spec-v">2-car</div><div class="spec-l">Attached Garage</div></div>
+      <div class="spec"><div class="spec-v">1970</div><div class="spec-l">Built, Updated Since</div></div>
+      <div class="spec"><div class="spec-v">Rosemount</div><div class="spec-l">School District</div></div>
+    </div>
+    <p class="specs-fine">
+      MLS #7107733 &middot; Donnay's Valley Park &middot; Taxes $3,324 (2026) &middot; Rosemount 55068 &middot; City water &middot;
+      <a href="https://maps.google.com/?q=16288+Florida+Way+W+Rosemount+MN+55068" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
+    </p>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="l-gallery" id="photos">
+    <div class="section-label">The Photos</div>
+    <h2>Have a look around.</h2>
+    <div class="gallery-grid">
+      {highlights.map((p, i) => (
+        <button class="g-item" data-idx={p.n - 1} aria-label={`Open photo ${p.n}: ${p.caption}`}>
+          <img src={p.thumb} alt={p.caption} loading={i < 2 ? 'eager' : 'lazy'} width="800" height="600" />
+          <span class="g-cap">{p.caption}</span>
+        </button>
+      ))}
+    </div>
+    <div class="gallery-all">
+      <button class="cta-primary" id="open-gallery">View all 27 photos</button>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="l-contact" id="contact">
+    <div class="section-label" style="justify-content: center;">See It In Person</div>
+    <h2>Want a look at this one?</h2>
+    <p class="l-contact-sub">
+      Call or text me at <a href="tel:+16122015447">612-201-5447</a> and we'll set up a time.
+      Or send a note here and I'll get back to you within a day.
+    </p>
+
+    <form class="contact-form" id="contact-form" method="post">
+      <div class="form-row">
+        <label class="form-field">
+          <span>Your name <span class="required">*</span></span>
+          <input name="name" type="text" required autocomplete="name" />
+        </label>
+        <label class="form-field">
+          <span>Email <span class="required">*</span></span>
+          <input name="email" type="email" required autocomplete="email" />
+        </label>
+      </div>
+      <label class="form-field">
+        <span>Phone (optional)</span>
+        <input name="phone" type="tel" autocomplete="tel" />
+      </label>
+      <label class="form-field">
+        <span>Message <span class="required">*</span></span>
+        <textarea name="message" required rows="4">I'd like to set up a showing of 16288 Florida Way.</textarea>
+      </label>
+
+      <div class="honeypot" aria-hidden="true">
+        <label>
+          Company
+          <input name="company" type="text" tabindex="-1" autocomplete="off" />
+        </label>
+      </div>
+
+      <div class="form-error" id="contact-error" hidden></div>
+
+      <button type="submit" class="form-submit" id="contact-submit">
+        <span class="submit-label">Send</span>
+        <span class="submit-loading" hidden>Sending&hellip;</span>
+      </button>
+    </form>
+
+    <div class="contact-success" id="contact-success" hidden>
+      <div class="section-label">Got it</div>
+      <h3>Thanks. I'll be in touch within a day.</h3>
+      <p>If it's urgent, call or text me at <a href="tel:+16122015447">612-201-5447</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <button class="lb-close" id="lb-close" aria-label="Close photo viewer">&times;</button>
+  <button class="lb-prev" id="lb-prev" aria-label="Previous photo">&larr;</button>
+  <figure class="lb-figure">
+    <img id="lb-img" src="" alt="" />
+    <figcaption>
+      <span class="lb-count" id="lb-count"></span>
+      <span class="lb-caption" id="lb-caption"></span>
+    </figcaption>
+  </figure>
+  <button class="lb-next" id="lb-next" aria-label="Next photo">&rarr;</button>
+</div>
+
+<!-- Mobile sticky CTA -->
+<div class="sticky-cta" aria-hidden="false">
+  <a href="tel:+16122015447" class="sticky-call">Call or Text Mark</a>
+  <a href="#contact" class="sticky-tour">Schedule a Showing</a>
+</div>
+
+<footer class="listing-footer">
+  <p>Listed by Mark Gores &middot; RE/MAX Advantage Plus &middot; <a href="tel:+16122015447">612-201-5447</a> &middot; <a href="mailto:mark@markgores.com">mark@markgores.com</a></p>
+  <p class="fine">Information deemed reliable but not guaranteed. Buyer to verify all measurements and details.</p>
+  <p>&copy; 2026 Mark Gores &middot; RE/MAX Advantage Plus</p>
+</footer>
+
+<script type="application/json" id="gallery-data" set:html={galleryJson} />
+
+<script>
+  /* ---------- Lightbox ---------- */
+  const data = JSON.parse(document.getElementById('gallery-data')!.textContent!) as { full: string; caption: string }[];
+  const lb = document.getElementById('lightbox') as HTMLDivElement;
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+  const lbCaption = document.getElementById('lb-caption') as HTMLSpanElement;
+  const lbCount = document.getElementById('lb-count') as HTMLSpanElement;
+  const closeBtn = document.getElementById('lb-close') as HTMLButtonElement;
+  const prevBtn = document.getElementById('lb-prev') as HTMLButtonElement;
+  const nextBtn = document.getElementById('lb-next') as HTMLButtonElement;
+
+  let idx = 0;
+  let lastFocus: HTMLElement | null = null;
+
+  function preload(i: number) {
+    const n = ((i % data.length) + data.length) % data.length;
+    const img = new Image();
+    img.src = data[n].full;
+  }
+
+  function show(i: number) {
+    idx = ((i % data.length) + data.length) % data.length;
+    lbImg.src = data[idx].full;
+    lbImg.alt = data[idx].caption;
+    lbCaption.textContent = data[idx].caption;
+    lbCount.textContent = (idx + 1) + ' / ' + data.length;
+    preload(idx + 1);
+    preload(idx - 1);
+  }
+
+  function openLb(i: number) {
+    lastFocus = document.activeElement as HTMLElement;
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    show(i);
+    closeBtn.focus();
+  }
+
+  function closeLb() {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.g-item').forEach((el) => {
+    el.addEventListener('click', () => openLb(Number(el.dataset.idx ?? 0)));
+  });
+  document.getElementById('open-gallery')?.addEventListener('click', () => openLb(0));
+  closeBtn.addEventListener('click', closeLb);
+  prevBtn.addEventListener('click', () => show(idx - 1));
+  nextBtn.addEventListener('click', () => show(idx + 1));
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb) closeLb();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+    if (e.key === 'Tab') {
+      // Keep keyboard focus inside the dialog (close -> prev -> next -> close).
+      const order = [closeBtn, prevBtn, nextBtn];
+      const at = order.indexOf(document.activeElement as HTMLButtonElement);
+      e.preventDefault();
+      const next = e.shiftKey
+        ? (at <= 0 ? order.length - 1 : at - 1)
+        : (at === -1 || at === order.length - 1 ? 0 : at + 1);
+      order[next].focus();
+    }
+  });
+
+  // Basic swipe
+  let touchX = 0;
+  lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) show(dx > 0 ? idx - 1 : idx + 1);
+  }, { passive: true });
+
+  /* ---------- Contact form ---------- */
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const errorEl = document.getElementById('contact-error') as HTMLDivElement | null;
+  const successEl = document.getElementById('contact-success') as HTMLDivElement | null;
+  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+
+  if (form && errorEl && successEl && submitBtn) {
+    const submitLabel = submitBtn.querySelector('.submit-label') as HTMLElement;
+    const submitLoading = submitBtn.querySelector('.submit-loading') as HTMLElement;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (submitBtn.disabled) return;
+
+      submitBtn.disabled = true;
+      submitLabel.hidden = true;
+      submitLoading.hidden = false;
+      errorEl.hidden = true;
+      errorEl.textContent = '';
+
+      const data = new FormData(form);
+      const rawMessage = String(data.get('message') ?? '').trim();
+      const payload = {
+        name: String(data.get('name') ?? '').trim(),
+        email: String(data.get('email') ?? '').trim(),
+        phone: String(data.get('phone') ?? '').trim(),
+        message: rawMessage.includes('16288 Florida') ? rawMessage : '[16288 Florida Way] ' + rawMessage,
+        company: String(data.get('company') ?? ''),
+      };
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.error || 'Something went wrong.');
+        }
+        form.hidden = true;
+        successEl.hidden = false;
+        form.reset();
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        errorEl.textContent = err instanceof Error ? err.message : 'Something went wrong.';
+        errorEl.hidden = false;
+      } finally {
+        submitBtn.disabled = false;
+        submitLabel.hidden = false;
+        submitLoading.hidden = true;
+      }
+    });
+  }
+</script>
+
+<style>
+  /* ---------- Nav ---------- */
+  .listing-nav .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .nav-brokerage {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm);
+  }
+  .nav-phone {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .nav-phone:hover { color: var(--dark); }
+
+  /* ---------- Hero ---------- */
+  .l-hero {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 9rem 3rem 5rem;
+  }
+  .l-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: var(--dark);
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+  .l-price {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .l-hero-sub {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-light);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .l-hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--light-warm);
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .l-hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .cta-primary {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    background: var(--dark);
+    color: var(--cream);
+    text-decoration: none;
+    border: 0;
+    padding: 0.95rem 2rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .cta-primary:hover { opacity: 0.85; }
+  .cta-secondary {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(74, 123, 200, 0.35);
+    padding-bottom: 3px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .cta-secondary:hover { border-color: var(--accent); color: var(--dark); }
+
+  .l-hero-image {
+    min-width: 0;
+  }
+  .l-hero-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3.4;
+    object-fit: cover;
+    border-radius: 200px 200px 0 0;
+  }
+  .photo-caption {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm);
+    text-align: center;
+    margin-top: 0.9rem;
+  }
+
+  /* ---------- Story ---------- */
+  .l-story {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+  }
+  .l-story h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+    color: var(--dark);
+    font-weight: 400;
+    line-height: 1.25;
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+  }
+  .l-story-cols {
+    columns: 2;
+    column-gap: 3.5rem;
+    max-width: 1000px;
+  }
+  .l-story-cols p {
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    break-inside: avoid;
+  }
+
+  /* ---------- Standouts ---------- */
+  .l-standouts {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 3rem 4rem;
+  }
+  .standout-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .standout {
+    background: white;
+    padding: 2rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--sage);
+    box-shadow: 0 1px 2px rgba(26, 26, 24, 0.04), 0 6px 24px -16px rgba(26, 26, 24, 0.12);
+  }
+  .standout h3 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+  .standout p {
+    font-size: 0.93rem;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* ---------- Specs ---------- */
+  .l-specs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 3rem 4rem;
+  }
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--light-warm);
+    border: 1px solid var(--light-warm);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+  }
+  .spec {
+    background: var(--cream);
+    padding: 1.75rem 1.5rem;
+  }
+  .spec-v {
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    color: var(--dark);
+    line-height: 1.15;
+  }
+  .spec-l {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+    margin-top: 0.5rem;
+  }
+  .specs-fine {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--text-light);
+    margin-top: 1.25rem;
+    line-height: 2;
+  }
+  .specs-fine a { color: var(--accent); text-decoration: none; }
+  .specs-fine a:hover { color: var(--dark); }
+
+  /* ---------- Gallery ---------- */
+  .l-gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 3rem 5rem;
+  }
+  .l-gallery h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    color: var(--dark);
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 190px;
+    gap: 0.75rem;
+  }
+  .g-item {
+    position: relative;
+    border: 0;
+    padding: 0;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--light-warm);
+  }
+  .g-item:nth-child(1),
+  .g-item:nth-child(8) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .g-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 300ms ease;
+  }
+  .g-item:hover img { transform: scale(1.03); }
+  .g-cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 1.5rem 0.9rem 0.7rem;
+    background: linear-gradient(transparent, rgba(26, 26, 24, 0.72));
+    color: var(--cream);
+    font-family: var(--body);
+    font-size: 0.78rem;
+    font-weight: 300;
+    text-align: left;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 250ms ease;
+  }
+  .g-item:hover .g-cap,
+  .g-item:focus-visible .g-cap { opacity: 1; }
+  .gallery-all {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  /* ---------- Contact ---------- */
+  .l-contact {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 3rem 6rem;
+    text-align: center;
+  }
+  .l-contact h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+    color: var(--dark);
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .l-contact-sub {
+    color: var(--text-light);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+  .l-contact-sub a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(74, 123, 200, 0.4);
+  }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    background: rgba(26, 26, 24, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox[hidden] { display: none; }
+  .lb-figure {
+    max-width: min(1200px, 88vw);
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    margin: 0;
+  }
+  .lb-figure img {
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 2px;
+  }
+  .lb-figure figcaption {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    max-width: 720px;
+    padding: 0 1rem;
+  }
+  .lb-count {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+    white-space: nowrap;
+  }
+  .lb-caption {
+    font-family: var(--body);
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+  .lb-close, .lb-prev, .lb-next {
+    position: fixed;
+    background: none;
+    border: 1px solid rgba(245, 240, 232, 0.25);
+    color: var(--cream);
+    font-size: 1.3rem;
+    line-height: 1;
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, background-color 0.2s;
+    z-index: 1210;
+  }
+  .lb-close:hover, .lb-prev:hover, .lb-next:hover {
+    border-color: var(--cream);
+    background: rgba(245, 240, 232, 0.08);
+  }
+  .lb-close { top: 1.25rem; right: 1.25rem; }
+  .lb-prev { left: 1.25rem; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 1.25rem; top: 50%; transform: translateY(-50%); }
+
+  /* ---------- Sticky mobile CTA ---------- */
+  .sticky-cta { display: none; }
+
+  /* ---------- Footer ---------- */
+  .listing-footer {
+    padding: 3rem;
+    border-top: 1px solid var(--light-warm);
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .listing-footer p {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    margin-bottom: 0.6rem;
+  }
+  .listing-footer .fine {
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+  .listing-footer a { color: var(--warm); text-decoration: none; }
+  .listing-footer a:hover { color: var(--accent); }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 900px) {
+    .standout-grid { grid-template-columns: 1fr 1fr; }
+    .specs-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    .g-item:nth-child(1), .g-item:nth-child(8) { grid-column: span 2; grid-row: span 2; }
+  }
+
+  @media (max-width: 768px) {
+    .l-hero {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 6.5rem 1.5rem 3.5rem;
+    }
+    .l-hero-image { order: -1; }
+    .l-hero-image img { border-radius: 140px 140px 0 0; aspect-ratio: 4 / 3; }
+    .l-hero-stats { gap: 1.75rem; }
+    .l-story, .l-standouts, .l-specs, .l-gallery { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .l-story { padding-top: 3rem; }
+    .l-story-cols { columns: 1; }
+    .l-contact { padding: 3rem 1.5rem 8rem; }
+    .g-cap { opacity: 1; padding: 1.1rem 0.7rem 0.5rem; font-size: 0.7rem; }
+    .lb-prev, .lb-next { top: auto; bottom: 1.25rem; transform: none; }
+    .lb-figure img { max-height: 66vh; }
+
+    .sticky-cta {
+      display: flex;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 1100;
+      background: rgba(245, 240, 232, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid var(--light-warm);
+      padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom));
+      gap: 0.75rem;
+    }
+    .sticky-cta a {
+      flex: 1;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      padding: 0.85rem 0.5rem;
+      border-radius: 2px;
+    }
+    .sticky-call {
+      color: var(--dark);
+      border: 1px solid var(--dark);
+    }
+    .sticky-tour {
+      background: var(--dark);
+      color: var(--cream);
+    }
+    .listing-footer { padding: 2rem 1.5rem 3rem; }
+  }
+
+  @media (max-width: 520px) {
+    .standout-grid { grid-template-columns: 1fr; }
+    /* Phone lives in the sticky bar down here; keep the brokerage visible. */
+    .nav-phone { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .g-item img, .g-item:hover img { transition: none; transform: none; }
+  }
+</style>
+
+</BaseLayout>

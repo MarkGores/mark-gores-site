@@ -21,7 +21,8 @@ export default defineConfig({
       filter: (page) =>
         page === 'https://markgores.com/' ||
         page === 'https://markgores.com/vendors/' ||
-        page === 'https://markgores.com/listings/8204-horizon-drive/'
+        page === 'https://markgores.com/listings/8204-horizon-drive/' ||
+        page === 'https://markgores.com/listings/16288-florida-way/'
     })
   ],
   build: {
