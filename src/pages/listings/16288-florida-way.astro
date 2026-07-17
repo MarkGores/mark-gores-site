@@ -199,8 +199,37 @@ const schema = JSON.stringify({
       <div class="spec"><div class="spec-v">1970</div><div class="spec-l">Built, Updated Since</div></div>
       <div class="spec"><div class="spec-v">196</div><div class="spec-l">Rosemount / Apple Valley / Eagan Schools</div></div>
     </div>
+    <div class="rooms-grid">
+      <div class="rooms-col">
+        <div class="rooms-col-label">Main Level</div>
+        <table class="rooms-table">
+          <tbody>
+            <tr><td>Living room</td><td class="r">19 x 12</td></tr>
+            <tr><td>Kitchen</td><td class="r">8 x 8</td></tr>
+            <tr><td>Dining area</td><td class="r">10 x 8</td></tr>
+            <tr><td>Bedroom 1</td><td class="r">13 x 10</td></tr>
+            <tr><td>Bedroom 2</td><td class="r">12 x 10</td></tr>
+            <tr><td>Bedroom 3</td><td class="r">11 x 10</td></tr>
+            <tr><td>Full bath</td><td class="r">8 x 5</td></tr>
+            <tr><td>Deck</td><td class="r">16 x 10</td></tr>
+            <tr><td>Garage (attached)</td><td class="r">22 x 20</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rooms-col">
+        <div class="rooms-col-label">Lower Level</div>
+        <table class="rooms-table">
+          <tbody>
+            <tr><td>Family room</td><td class="r">20 x 11</td></tr>
+            <tr><td>Bedroom 4</td><td class="r">19 x 11</td></tr>
+            <tr><td>Full bath</td><td class="r">11 x 6</td></tr>
+            <tr><td>Laundry &amp; utility</td><td class="r">13 x 9</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <p class="specs-fine">
-      MLS #7107733 &middot; Donnay's Valley Park &middot; Taxes $3,324 (2026) &middot; Rosemount 55068 &middot; City water &middot;
+      MLS #7107733 &middot; Donnay's Valley Park &middot; Rosemount 55068 &middot; Taxes $3,324 (2026) &middot; Forced air heat with central air &middot; City water and sewer &middot; Appliances and owned water softener included &middot;
       <a href="https://maps.google.com/?q=16288+Florida+Way+W+Rosemount+MN+55068" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
     </p>
   </section>
@@ -219,6 +248,25 @@ const schema = JSON.stringify({
     </div>
     <div class="gallery-all">
       <button class="cta-primary" id="open-gallery">View all 27 photos</button>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="l-map" id="map">
+    <div class="section-label">The Location</div>
+    <h2>Where it sits.</h2>
+    <p class="map-sub">
+      16288 Florida Way W, Rosemount, MN 55068 &middot;
+      <a href="https://maps.google.com/?q=16288+Florida+Way+W+Rosemount+MN+55068" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
+    </p>
+    <div class="map-frame">
+      <iframe
+        src="https://maps.google.com/maps?q=16288+Florida+Way+W,+Rosemount,+MN+55068&z=15&output=embed"
+        title="Map of 16288 Florida Way W, Rosemount, Minnesota"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
     </div>
   </section>
 
@@ -661,6 +709,45 @@ const schema = JSON.stringify({
   .specs-fine a { color: var(--accent); text-decoration: none; }
   .specs-fine a:hover { color: var(--dark); }
 
+  /* ---------- Rooms ---------- */
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    align-items: start;
+  }
+  .rooms-col {
+    background: white;
+    padding: 1.75rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(26, 26, 24, 0.04), 0 6px 24px -16px rgba(26, 26, 24, 0.12);
+  }
+  .rooms-col-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+    margin-bottom: 0.75rem;
+  }
+  .rooms-table { width: 100%; border-collapse: collapse; }
+  .rooms-table td {
+    padding: 0.55rem 0;
+    border-top: 1px solid var(--light-warm);
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+  .rooms-table tr:first-child td { border-top: 0; }
+  .rooms-table td.r {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-light);
+    white-space: nowrap;
+  }
+
   /* ---------- Gallery ---------- */
   .l-gallery {
     max-width: 1200px;
@@ -725,6 +812,45 @@ const schema = JSON.stringify({
   .gallery-all {
     text-align: center;
     margin-top: 2rem;
+  }
+
+  /* ---------- Map ---------- */
+  .l-map {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 3rem 5rem;
+  }
+  .l-map h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    color: var(--dark);
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+  .map-sub {
+    font-weight: 300;
+    color: var(--text-light);
+    margin-bottom: 1.75rem;
+  }
+  .map-sub a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(74, 123, 200, 0.35);
+    padding-bottom: 2px;
+  }
+  .map-sub a:hover { color: var(--dark); border-color: var(--dark); }
+  .map-frame {
+    border: 1px solid var(--light-warm);
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 16 / 7;
+    background: var(--light-warm);
+  }
+  .map-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
 
   /* ---------- Contact ---------- */
@@ -868,9 +994,10 @@ const schema = JSON.stringify({
     .l-hero-image { order: -1; }
     .l-hero-image img { border-radius: 140px 140px 0 0; aspect-ratio: 4 / 3; }
     .l-hero-stats { gap: 1.75rem; }
-    .l-story, .l-standouts, .l-specs, .l-gallery { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .l-story, .l-standouts, .l-specs, .l-gallery, .l-map { padding-left: 1.5rem; padding-right: 1.5rem; }
     .l-story { padding-top: 3rem; }
     .l-story-cols { columns: 1; }
+    .map-frame { aspect-ratio: 4 / 3; }
     .l-contact { padding: 3rem 1.5rem 8rem; }
     .g-cap { opacity: 1; padding: 1.1rem 0.7rem 0.5rem; font-size: 0.7rem; }
     .lb-prev, .lb-next { top: auto; bottom: 1.25rem; transform: none; }
@@ -912,6 +1039,7 @@ const schema = JSON.stringify({
 
   @media (max-width: 520px) {
     .standout-grid { grid-template-columns: 1fr; }
+    .rooms-grid { grid-template-columns: 1fr; }
     /* Phone lives in the sticky bar down here; keep the brokerage visible. */
     .nav-phone { display: none; }
   }
