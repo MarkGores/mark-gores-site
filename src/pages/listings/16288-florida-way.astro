@@ -259,15 +259,22 @@ const schema = JSON.stringify({
       16288 Florida Way W, Rosemount, MN 55068 &middot;
       <a href="https://maps.google.com/?q=16288+Florida+Way+W+Rosemount+MN+55068" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
     </p>
-    <div class="map-frame">
-      <iframe
-        src="https://maps.google.com/maps?q=16288+Florida+Way+W,+Rosemount,+MN+55068&z=15&output=embed"
-        title="Map of 16288 Florida Way W, Rosemount, Minnesota"
+    <a
+      class="map-frame"
+      href="https://maps.google.com/?q=16288+Florida+Way+W+Rosemount+MN+55068"
+      target="_blank"
+      rel="noopener"
+      aria-label="Open 16288 Florida Way W in Google Maps"
+    >
+      <img
+        src={`${IMG}/map.jpg`}
+        alt="Neighborhood map with 16288 Florida Way W marked, just south of 160th Street West near Parkview Elementary"
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen
-      ></iframe>
-    </div>
+        width="2400"
+        height="1050"
+      />
+      <span class="map-chip">Open in Google Maps &rarr;</span>
+    </a>
   </section>
 
   <!-- CONTACT -->
@@ -840,17 +847,38 @@ const schema = JSON.stringify({
   }
   .map-sub a:hover { color: var(--dark); border-color: var(--dark); }
   .map-frame {
+    position: relative;
+    display: block;
     border: 1px solid var(--light-warm);
     border-radius: 4px;
     overflow: hidden;
     aspect-ratio: 16 / 7;
     background: var(--light-warm);
   }
-  .map-frame iframe {
+  .map-frame img {
     display: block;
     width: 100%;
     height: 100%;
-    border: 0;
+    object-fit: cover;
+  }
+  .map-chip {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--dark);
+    background: rgba(245, 240, 232, 0.94);
+    border: 1px solid var(--light-warm);
+    border-radius: 2px;
+    padding: 0.55rem 0.9rem;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .map-frame:hover .map-chip {
+    background: var(--dark);
+    color: var(--cream);
   }
 
   /* ---------- Contact ---------- */
