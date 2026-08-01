@@ -1,9 +1,9 @@
 {
   "source": "https://www.mnrealestateteamvendors.com/",
-  "scrapedAt": "2026-07-12T18:45:01+00:00",
-  "scrapedOn": "2026-07-12",
+  "scrapedAt": "2026-08-01T10:47:19+00:00",
+  "scrapedOn": "2026-08-01",
   "categoryCount": 135,
-  "vendorCount": 479,
+  "vendorCount": 486,
   "categories": [
     {
       "category": "1031 Exchange",
@@ -1869,6 +1869,14 @@
           "email": "tom.didonato@home-stretch.com",
           "website": "http://www.home-stretch.com",
           "notes": ""
+        },
+        {
+          "company": "The Grace Standard LLC",
+          "contact": "Allison",
+          "phone": "612-991-9870",
+          "email": "allison@thegracestandardhome.com",
+          "website": "",
+          "notes": "Located in Otsego"
         }
       ]
     },
@@ -1882,6 +1890,14 @@
           "email": "charles@homeinsightinspect.com",
           "website": "http://www.homeinsightinspect.com",
           "notes": ""
+        },
+        {
+          "company": "Pilar to Post Home Inspections",
+          "contact": "Andrew McMahan",
+          "phone": "612-816-4220",
+          "email": "Abe.McMahan@pillartopost.com",
+          "website": "https://cornerstoneteam.pillartopost.com/",
+          "notes": "✔️ Radon Testing\n✔️ Mold Testing\n✔️ Sewer Scoping\n✔️ Water Quality Testing\n✔️ Air Quality Testing\n✔️ Chimney Inspections"
         },
         {
           "company": "Structure Tech",
@@ -1927,6 +1943,22 @@
           "email": "tom.didonato@home-stretch.com",
           "website": "http://www.home-stretch.com/minneapolis",
           "notes": "Stop juggling multiple vendors, painters, flooring installers, cleaners, and handymen. HOMEstretch coordinates it all so you can focus on selling while we elevate the home’s condition to help it sell faster for maximum dollars.\nHOMEstretch specializes in cosmetic upgrades to get homes ready in times of transition. If you're looking to be market-ready for sale or move-in ready after buying, we can do it all. We focus on:\nHome Clear Outs (Removal of unwanted items from the home)\nPainting (Interior/exterior)\nCarpet & Flooring (Removal/install of LVT, LVP & carpet)\nHome Cleaning (Pre-listing deep cleans)\nLandscape Cleanup (Mulching, trimming, pressure washing)\nHandyman Services (Doorknobs, baseboards, etc.)\nWe answer the phone, provide a free consultation within 24 hours of contact, and deliver quotes within 24 hours after that consultation. With multiple crews available, we can typically start work within 3-5 days. We also offer two forms of financing to help meet your clients’ needs."
+        },
+        {
+          "company": "Renew & Restore Co",
+          "contact": "Katelyn & Matthew Mastenbrook",
+          "phone": "952-467-8697",
+          "email": "Home@renewrestoreco.com",
+          "website": "https://renewrestoreco.com/",
+          "notes": "Cleaning/Decluttering, Painting and Staining, repairs and renovations."
+        },
+        {
+          "company": "The Grace Standard LLC",
+          "contact": "Allison",
+          "phone": "612-991-9870",
+          "email": "allison@thegracestandardhome.com",
+          "website": "",
+          "notes": "Located in Otsego"
         }
       ]
     },
@@ -2966,6 +2998,14 @@
       "category": "Moving Help/Organization",
       "vendors": [
         {
+          "company": "Blue Dolly Moving and Storage",
+          "contact": "Alec Witte",
+          "phone": "(218) 721-7798",
+          "email": "alec@bluedollymoving.com",
+          "website": "https://www.bluedollymoving.com/",
+          "notes": ""
+        },
+        {
           "company": "Sparrow Movers",
           "contact": "Mark and Matt",
           "phone": "(612)444-1284",
@@ -3772,6 +3812,14 @@
           "email": "",
           "website": "https://northlandlining.com/",
           "notes": "Referral from Kevin Curtis- Great to work with and say they can do a liner for a sewer regardless of condition. They were the best and most affordable bid out of several we received."
+        },
+        {
+          "company": "Stronghold Pipe Repair",
+          "contact": "Caleb Fouss",
+          "phone": "952-900-4600",
+          "email": "caleb@strongholdpipe.com",
+          "website": "https://strongholdpipe.com",
+          "notes": ""
         }
       ]
     },
@@ -4026,11 +4074,11 @@
       "category": "Surveyor",
       "vendors": [
         {
-          "company": "Kurth Surveying for Residential",
+          "company": "SkySurv",
           "contact": "",
-          "phone": "‪763-788-9769",
-          "email": "",
-          "website": "",
+          "phone": "(612) 419-9583",
+          "email": "info@skysurv.us",
+          "website": "https://www.skysurv.us/",
           "notes": ""
         },
         {
@@ -4040,6 +4088,14 @@
           "email": "",
           "website": "",
           "notes": "Located in Bloomington. For Commercial Property only."
+        },
+        {
+          "company": "W. BROWN LAND SURVEYING, INC",
+          "contact": "",
+          "phone": "952-854-4055",
+          "email": "info@wbrownlandsurveying.com",
+          "website": "https://www.wbrownlandsurveying.com/",
+          "notes": ""
         }
       ]
     },
@@ -4448,8 +4504,8 @@
           "company": "Twindows",
           "contact": "Justus Spengler",
           "phone": "320-216-5791",
-          "email": "",
-          "website": "",
+          "email": "reachtwindows@gmail.com",
+          "website": "http://Twindows.info",
           "notes": "Reached out to us thru Google looking for more business. Originally based in Mille Lacs but also work the Twin Cities."
         },
         {
