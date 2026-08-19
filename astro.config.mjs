@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  site: 'https://markgores.com',
+  site: 'https://www.markgores.com',
   // Pages stay prerendered (static); the adapter exists only so
   // src/pages/api/* endpoints with prerender=false run as functions.
   adapter: vercel(),
@@ -19,10 +19,10 @@ export default defineConfig({
       // Allowlist: private client proposal pages must never appear in the
       // public sitemap. Add new PUBLIC pages here explicitly.
       filter: (page) =>
-        page === 'https://markgores.com/' ||
-        page === 'https://markgores.com/vendors/' ||
-        page === 'https://markgores.com/listings/8204-horizon-drive/' ||
-        page === 'https://markgores.com/listings/16288-florida-way/'
+        page === 'https://www.markgores.com/' ||
+        page === 'https://www.markgores.com/vendors/' ||
+        page === 'https://www.markgores.com/listings/8204-horizon-drive/' ||
+        page === 'https://www.markgores.com/listings/16288-florida-way/'
     })
   ],
   build: {
