@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Savage, MN Real Estate | Mark Gores, RE/MAX Advantage Plus";
+const description = "Buying or selling in Savage, Minnesota: the market in numbers, what the housing stock looks like, the RE/MAX Advantage Plus office on Highway 13, and how to reach Mark Gores directly.";
+
+// Snapshot from the NorthstarMLS replica, residential closed sales, trailing 12 months.
+// Refresh by hand when you touch this page; the live numbers are on priorlake.realestate.
+const asOf = "August 2026";
+const savage = { closed12: 376, median: 420000, dom: 21, active: 148 };
+const priorLake = { closed12: 480, median: 520000 };
+const usd = (n: number) => "$" + n.toLocaleString("en-US");
+---
+
+<BaseLayout title={title} description={description}>
+
+<nav class="doc-nav">
+  <a href="/" class="name">Mark Gores</a>
+  <div class="nav-meta">Savage, Minnesota</div>
+</nav>
+
+<main class="doc">
+
+  <section class="d-hero">
+    <div class="section-label">Savage</div>
+    <h1>Savage, next door.</h1>
+    <p class="d-intro">
+      I live and work in Prior Lake, but my brokerage office is in Savage, on Highway 13, and a good share of the homes I sell are on that side of the line. The two towns share a school district for most of their area, a commute, and a lot of the same buyers. If you're shopping one, you're usually shopping both.
+    </p>
+  </section>
+
+  <section class="d-block">
+    <div class="section-label">The Market</div>
+    <h2>Savage by the numbers.</h2>
+    <div class="d-stats">
+      <div class="stat"><span class="stat-number">{usd(savage.median)}</span><span class="stat-label">Median sale price, last 12 months</span></div>
+      <div class="stat"><span class="stat-number">{savage.closed12}</span><span class="stat-label">Homes sold, last 12 months</span></div>
+      <div class="stat"><span class="stat-number">{savage.dom}</span><span class="stat-label">Median days on market</span></div>
+      <div class="stat"><span class="stat-number">{savage.active}</span><span class="stat-label">On the market right now</span></div>
+    </div>
+    <p class="d-note">
+      Residential closed sales from the NorthstarMLS feed, as of {asOf}. For comparison, Prior Lake sold {priorLake.closed12} homes at a {usd(priorLake.median)} median over the same stretch, so Savage runs about {Math.round((1 - savage.median / priorLake.median) * 100)}% below its neighbor on price, mostly because it has less lakeshore and more 1990s and 2000s subdivision stock. The live version of these numbers, updated twice a day, is on
+      <a href="https://www.priorlake.realestate/cities/savage" target="_blank" rel="noopener">priorlake.realestate</a>.
+    </p>
+  </section>
+
+  <section class="d-block">
+    <div class="section-label">What You Are Buying</div>
+    <h2>The housing stock, briefly.</h2>
+    <p>
+      Savage grew fast from the late 1980s on, so most of the city is single-family subdivisions from that era west of Highway 13, with newer townhome and twin-home pockets near County Road 42 and along 13. The older blocks sit around downtown Savage and the river bluff, where lots are bigger and houses are more varied. There's very little lakeshore, which is the main reason the price gap to Prior Lake exists.
+    </p>
+    <p>
+      Schools are the detail people miss: most of Savage is in Prior Lake-Savage Area Schools (District 719), but the east side is Burnsville-Eagan-Savage (District 191). Same city, different district, and it shows up in buyer demand street by street. I check the boundary on every Savage listing before I talk numbers.
+    </p>
+  </section>
+
+  <section class="d-block">
+    <div class="section-label">The Office</div>
+    <h2>RE/MAX Advantage Plus, Savage.</h2>
+    <p>
+      If you were searching for the RE/MAX office in Savage, this is it: <strong>RE/MAX Advantage Plus, 13875 Highway 13 South, Savage, MN 55378</strong>, office line (952) 226-7700. It's home to the Minnesota Real Estate Team, the RE/MAX team I work with. If you were looking for me specifically, skip the switchboard: 612-201-5447 rings my phone.
+    </p>
+  </section>
+
+  <section class="d-block d-cta">
+    <div class="section-label">Next Step</div>
+    <h2>Ask me anything about Savage.</h2>
+    <p>
+      Thinking about a specific neighborhood, or wondering what your house there would bring? Send the address or the question. I'll answer it straight, and I'll tell you if the honest answer is to wait.
+    </p>
+    <div class="d-contact">
+      <a href="tel:+16122015447">612-201-5447</a>
+      <a href="mailto:mark@markgores.com">mark@markgores.com</a>
+      <a href="/#contact">Contact form &rarr;</a>
+    </div>
+  </section>
+
+  <footer class="d-footer">
+    <p>&copy; 2026 Mark Gores &middot; RE/MAX Advantage Plus &middot; <a href="/">markgores.com</a></p>
+  </footer>
+
+</main>
+
+</BaseLayout>
+
+<style>
+  .doc-nav {
+    position: fixed; top: 0; width: 100%; padding: 1.25rem 3rem;
+    display: flex; justify-content: space-between; align-items: center; z-index: 100;
+    background: rgba(245, 240, 232, 0.85);
+    backdrop-filter: saturate(140%) blur(14px); -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid rgba(139, 115, 85, 0.14);
+  }
+  .doc-nav .name { font-family: var(--serif); font-size: 1.1rem; color: var(--dark); text-decoration: none; }
+  .nav-meta { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--warm); }
+  .doc { max-width: 880px; margin: 0 auto; padding: 0 3rem 2rem; }
+  .d-hero { padding: 9rem 0 1rem; max-width: none; margin: 0; }
+  .d-hero h1, .d-block h2 { font-family: var(--serif); color: var(--dark); font-weight: 400; line-height: 1.15; }
+  .d-hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 1.5rem; }
+  .d-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1.25rem; }
+  .d-intro { font-size: 1.15rem; font-weight: 300; color: var(--text-light); max-width: 640px; line-height: 1.65; }
+  .d-block { padding: 2.5rem 0; border-top: 1px solid var(--light-warm); max-width: 720px; margin: 0; }
+  .d-block p { font-size: 1.05rem; font-weight: 300; color: var(--text-light); line-height: 1.7; margin-bottom: 1.1rem; }
+  .d-block p strong { color: var(--dark); font-weight: 500; }
+  .d-block a { color: var(--accent); text-decoration: none; }
+  .d-block a:hover { text-decoration: underline; }
+  .d-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 1.5rem 0; }
+  .d-stats .stat { display: flex; flex-direction: column; gap: 0.35rem; }
+  .d-stats .stat-number { font-family: var(--serif); font-size: 2rem; color: var(--dark); line-height: 1; }
+  .d-stats .stat-label { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--warm); line-height: 1.5; }
+  .d-note { font-size: 0.95rem !important; }
+  .d-contact { display: flex; flex-wrap: wrap; gap: 1.5rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.03em; }
+  .d-footer { border-top: 1px solid var(--light-warm); padding: 3rem 0 4rem; font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); }
+  .d-footer a { color: var(--warm); text-decoration: none; }
+  @media (max-width: 768px) {
+    .doc-nav { padding: 1rem 1.5rem; }
+    .nav-meta { display: none; }
+    .doc { padding: 0 1.5rem 2rem; }
+    .d-hero { padding-top: 7rem; }
+    .d-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

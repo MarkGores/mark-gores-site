@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Picking a Realtor in Prior Lake, MN | Mark Gores";
+const description = "How to choose a real estate agent in Prior Lake, Minnesota: what a local specialist should know about the lake, HOAs, school boundaries and neighborhood pricing, the questions worth asking any agent, and the facts about Mark Gores, RE/MAX Advantage Plus.";
+---
+
+<BaseLayout title={title} description={description}>
+
+<nav class="doc-nav">
+  <a href="/" class="name">Mark Gores</a>
+  <div class="nav-meta">Prior Lake, Minnesota</div>
+</nav>
+
+<main class="doc">
+
+  <section class="d-hero">
+    <div class="section-label">Choosing an Agent</div>
+    <h1>Picking a Prior Lake realtor.</h1>
+    <p class="d-intro">
+      There are a lot of licensed agents who will happily sell a house in Prior Lake. A smaller number know the town well enough to keep you out of trouble. Here's what that knowledge looks like in practice, the questions I'd ask any agent, including me, and the plain facts about how I work.
+    </p>
+  </section>
+
+  <section class="d-block">
+    <div class="section-label">Local Knowledge</div>
+    <h2>What a Prior Lake specialist should be able to tell you.</h2>
+    <ul class="d-list">
+      <li><strong>Which lake, and which part of it.</strong> Upper and Lower Prior Lake price differently, a bay is not open water, and "lake access" can mean a deeded dock, an association slip you wait years for, or a path to the shore. The difference is six figures.</li>
+      <li><strong>The HOA spread.</strong> Prior Lake association fees run from under $20 a month in some single-family subdivisions to $600 and up in condos and high-end townhomes, and what they cover varies just as much. Your agent should know the number for the neighborhood before you write the offer, not after.</li>
+      <li><strong>The school line.</strong> Most of the area is Prior Lake-Savage (District 719), but addresses on the Savage side can fall in Burnsville-Eagan-Savage (District 191), and parts of the Shakopee and Lakeville lines matter too. Buyers ask; the answer should be ready.</li>
+      <li><strong>Pricing by neighborhood, not by zip code.</strong> The Wilds, Deerfield, Jeffers Pond, the lakeshore streets and the older blocks near downtown behave like different markets. A comp from the wrong one is how houses get overpriced or given away.</li>
+      <li><strong>The data, shown to you.</strong> Not a feeling about the market. The actual closed sales, days on market and sale-to-list ratios for your street. I publish mine at <a href="https://www.priorlake.realestate" target="_blank" rel="noopener">priorlake.realestate</a> so you can check my work.</li>
+    </ul>
+  </section>
+
+  <section class="d-block">
+    <div class="section-label">Questions Worth Asking</div>
+    <h2>Ask any agent these. Ask me too.</h2>
+    <ul class="d-list">
+      <li>How many Prior Lake transactions have you closed in the last three years, and can I see the list?</li>
+      <li>On your last five listings, what was the list price, the sale price and the days on market?</li>
+      <li>Who actually handles my file day to day: you, an assistant, or a team member I haven't met?</li>
+      <li>What's something you'd tell me not to do?</li>
+      <li>If my house doesn't sell in 30 days, what changes?</li>
+    </ul>
+    <p>
+      Any good agent can answer all five without flinching. The last two tell you the most.
+    </p>
+  </section>
+
+  <section class="d-block">
+    <div class="section-label">About Me</div>
+    <h2>The facts, so you can compare.</h2>
+    <ul class="d-list">
+      <li>Licensed since 2004, 22 years. RE/MAX Advantage Plus, part of the Minnesota Real Estate Team, with the office at 13875 Highway 13 in Savage.</li>
+      <li>Prior Lake resident since 1986. My kids are in the Prior Lake schools.</li>
+      <li>5.0 rating on Zillow. The reviews are there to read.</li>
+      <li>I work Prior Lake first, then Savage, Shakopee and the rest of the south metro.</li>
+      <li>I build the local tools myself and give them away: <a href="https://priorlakeevents.com" target="_blank" rel="noopener">Prior Lake Events</a>, <a href="https://www.priorlake.realestate" target="_blank" rel="noopener">the market data site</a>, and <a href="/vendors">the vendor list</a>.</li>
+    </ul>
+    <p>
+      What you won't get from me is a pitch. I tell people not to buy houses fairly often. Read <a href="/#approach">how I work</a> if you want the longer version.
+    </p>
+  </section>
+
+  <section class="d-block d-cta">
+    <div class="section-label">Next Step</div>
+    <h2>Start with a question.</h2>
+    <p>
+      Send an address, a neighborhood, or a situation. You'll get a straight answer and no follow-up campaign.
+    </p>
+    <div class="d-contact">
+      <a href="tel:+16122015447">612-201-5447</a>
+      <a href="mailto:mark@markgores.com">mark@markgores.com</a>
+      <a href="/#contact">Contact form &rarr;</a>
+    </div>
+  </section>
+
+  <footer class="d-footer">
+    <p>&copy; 2026 Mark Gores &middot; RE/MAX Advantage Plus &middot; <a href="/">markgores.com</a></p>
+  </footer>
+
+</main>
+
+</BaseLayout>
+
+<style>
+  .doc-nav {
+    position: fixed; top: 0; width: 100%; padding: 1.25rem 3rem;
+    display: flex; justify-content: space-between; align-items: center; z-index: 100;
+    background: rgba(245, 240, 232, 0.85);
+    backdrop-filter: saturate(140%) blur(14px); -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid rgba(139, 115, 85, 0.14);
+  }
+  .doc-nav .name { font-family: var(--serif); font-size: 1.1rem; color: var(--dark); text-decoration: none; }
+  .nav-meta { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--warm); }
+  .doc { max-width: 880px; margin: 0 auto; padding: 0 3rem 2rem; }
+  .d-hero { padding: 9rem 0 1rem; max-width: none; margin: 0; }
+  .d-hero h1, .d-block h2 { font-family: var(--serif); color: var(--dark); font-weight: 400; line-height: 1.15; }
+  .d-hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 1.5rem; }
+  .d-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1.25rem; }
+  .d-intro { font-size: 1.15rem; font-weight: 300; color: var(--text-light); max-width: 640px; line-height: 1.65; }
+  .d-block { padding: 2.5rem 0; border-top: 1px solid var(--light-warm); max-width: 720px; margin: 0; }
+  .d-block p, .d-list li { font-size: 1.05rem; font-weight: 300; color: var(--text-light); line-height: 1.7; }
+  .d-block p { margin-bottom: 1.1rem; }
+  .d-list { list-style: none; padding: 0; margin: 0 0 1.25rem; }
+  .d-list li { padding: 0.75rem 0 0.75rem 1.4rem; position: relative; border-bottom: 1px solid rgba(139, 115, 85, 0.14); }
+  .d-list li::before { content: ""; position: absolute; left: 0; top: 1.45rem; width: 0.6rem; height: 1px; background: var(--warm); }
+  .d-list li strong { color: var(--dark); font-weight: 500; }
+  .d-block a { color: var(--accent); text-decoration: none; }
+  .d-block a:hover { text-decoration: underline; }
+  .d-contact { display: flex; flex-wrap: wrap; gap: 1.5rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.03em; }
+  .d-footer { border-top: 1px solid var(--light-warm); padding: 3rem 0 4rem; font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); }
+  .d-footer a { color: var(--warm); text-decoration: none; }
+  @media (max-width: 768px) {
+    .doc-nav { padding: 1rem 1.5rem; }
+    .nav-meta { display: none; }
+    .doc { padding: 0 1.5rem 2rem; }
+    .d-hero { padding-top: 7rem; }
+  }
+</style>

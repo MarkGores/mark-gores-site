@@ -22,7 +22,9 @@ export default defineConfig({
         page === 'https://www.markgores.com/' ||
         page === 'https://www.markgores.com/vendors/' ||
         page === 'https://www.markgores.com/listings/8204-horizon-drive/' ||
-        page === 'https://www.markgores.com/listings/16288-florida-way/'
+        page === 'https://www.markgores.com/listings/16288-florida-way/' ||
+        page === 'https://www.markgores.com/savage/' ||
+        page === 'https://www.markgores.com/prior-lake-realtor/'
     })
   ],
   build: {
