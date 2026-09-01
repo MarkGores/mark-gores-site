@@ -1,9 +1,9 @@
 {
   "source": "https://www.mnrealestateteamvendors.com/",
-  "scrapedAt": "2026-08-01T10:47:19+00:00",
-  "scrapedOn": "2026-08-01",
-  "categoryCount": 135,
-  "vendorCount": 486,
+  "scrapedAt": "2026-09-01T14:07:37+00:00",
+  "scrapedOn": "2026-09-01",
+  "categoryCount": 137,
+  "vendorCount": 492,
   "categories": [
     {
       "category": "1031 Exchange",
@@ -495,6 +495,14 @@
           "notes": "Level II Chimney Inspector/Repair"
         },
         {
+          "company": "SafeHome Chimneys",
+          "contact": "Zach and Annalee Ellman",
+          "phone": "952-295-3205",
+          "email": "office.safehome@gmail.com",
+          "website": "https://www.safehomechimneys.com/",
+          "notes": "They specialize in sweeps, inspections, and repairs. Service area is with an hour of Apple Valley."
+        },
+        {
           "company": "Blue Sky Chimney",
           "contact": "Blue Sky Chimney",
           "phone": "952-944-1744",
@@ -522,6 +530,27 @@
           "email": "",
           "website": "",
           "notes": ""
+        },
+        {
+          "company": "SafeHome Chimneys",
+          "contact": "Zach and Annalee Ellman",
+          "phone": "952-295-3205",
+          "email": "office.safehome@gmail.com",
+          "website": "https://www.safehomechimneys.com/",
+          "notes": "They specialize in sweeps, inspections, and repairs. Service area is with an hour of Apple Valley."
+        }
+      ]
+    },
+    {
+      "category": "Chimney-Repair",
+      "vendors": [
+        {
+          "company": "SafeHome Chimneys",
+          "contact": "Zach and Annalee Ellman",
+          "phone": "952-295-3205",
+          "email": "office.safehome@gmail.com",
+          "website": "https://www.safehomechimneys.com/",
+          "notes": "They specialize in sweeps, inspections, and repairs. Service area is with an hour of Apple Valley."
         }
       ]
     },
@@ -675,6 +704,19 @@
           "email": "rocksolidtopsmn@gmail.com",
           "website": "https://rocksolidtops.com/",
           "notes": "We're a custom fabricator/installer of countertops. Solid surface, granite, quartz, quartzite and other types of stone.\nWe will joyfully give ANY of your customers and your team a 5% discount on any countertop job!"
+        }
+      ]
+    },
+    {
+      "category": "Courier-Transportation",
+      "vendors": [
+        {
+          "company": "Granite City Transport",
+          "contact": "Nathan Hofius",
+          "phone": "320-221-6445",
+          "email": "granitecitytransportation@gmail.com",
+          "website": "https://granitecitytransportation.com/",
+          "notes": ""
         }
       ]
     },
@@ -976,6 +1018,14 @@
     {
       "category": "Electrical",
       "vendors": [
+        {
+          "company": "DoubleCheck Electric",
+          "contact": "Lance Moe",
+          "phone": "651-260-1004",
+          "email": "DCE004475@gmail.com",
+          "website": "",
+          "notes": "Referral from Jason Stockwell."
+        },
         {
           "company": "Nicks Electric",
           "contact": "Nicks Electric",
@@ -3187,6 +3237,14 @@
           "email": "mike.sandness@wow1day.com / hans.hoeg@wow1day.com",
           "website": "https://www.wow1day.com",
           "notes": ""
+        },
+        {
+          "company": "Cedar Tone Properties & Painting",
+          "contact": "Aaron Raisanen",
+          "phone": "763-318-6193",
+          "email": "CedarToneProperties@Gmail.com",
+          "website": "https://www.cedartoneproperties.com/",
+          "notes": "Painting\nStaining\nEnamel\nTrim Repair\nSiding\nFinish\nCarpentry\nRoofing\nFascia\nSoffit\nDeck Boards\nRailings\nRot Repair\nEtc."
         },
         {
           "company": "Certa Pro painters",
