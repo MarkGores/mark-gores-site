@@ -267,6 +267,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           const body = await res.json().catch(() => ({}));
           throw new Error(body.error || 'Something went wrong.');
         }
+        const gtag = Reflect.get(window, 'gtag');
+        if (typeof gtag === 'function') gtag('event', 'lead_capture', { topic: 'contact', page_path: location.pathname });
         form.hidden = true;
         successEl.hidden = false;
         form.reset();

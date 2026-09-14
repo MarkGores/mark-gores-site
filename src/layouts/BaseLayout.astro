@@ -122,11 +122,23 @@ const canonical = new URL(Astro.url.pathname, siteUrl).href;
 
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7S3PH1TDW4"></script>
-    <script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
       gtag('js', new Date());
-      gtag('config', 'G-7S3PH1TDW4');
+      // Production hosts only, so localhost and Vercel preview visits stay out of GA4.
+      if (location.hostname === 'www.markgores.com' || location.hostname === 'markgores.com') {
+        gtag('config', 'G-7S3PH1TDW4');
+      }
+      // Call, text, and email taps anywhere on the site. Forms send lead_capture themselves.
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        var method = href.indexOf('tel:') === 0 ? 'call' : href.indexOf('sms:') === 0 ? 'text' : href.indexOf('mailto:') === 0 ? 'email' : null;
+        if (method) gtag('event', 'contact_tap', { method: method, page_path: location.pathname });
+      }, true);
     </script>
   </head>
   <body>
