@@ -1,18 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 const title = "Picking a Realtor in Prior Lake, MN | Mark Gores";
 const description = "How to choose a real estate agent in Prior Lake, Minnesota: what a local specialist should know about the lake, HOAs, school boundaries and neighborhood pricing, the questions worth asking any agent, and the facts about Mark Gores, RE/MAX Advantage Plus.";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} bodyClass="site" ogImagePath="/images/og-home.jpg">
 
-<nav class="doc-nav">
-  <a href="/" class="name">Mark Gores</a>
-  <div class="nav-meta">Prior Lake, Minnesota</div>
-</nav>
+<SiteHeader />
 
-<main class="doc">
+<main class="doc" id="main">
 
   <section class="d-hero">
     <div class="section-label">Choosing an Agent</div>
@@ -60,7 +59,7 @@ const description = "How to choose a real estate agent in Prior Lake, Minnesota:
       <li>I build the local tools myself and give them away: <a href="https://priorlakeevents.com" target="_blank" rel="noopener">Prior Lake Events</a>, <a href="https://www.priorlake.realestate" target="_blank" rel="noopener">the market data site</a>, and <a href="/vendors">the vendor list</a>.</li>
     </ul>
     <p>
-      What you won't get from me is a pitch. I tell people not to buy houses fairly often. Read <a href="/#approach">how I work</a> if you want the longer version.
+      What you won't get from me is a pitch. I tell people not to buy houses fairly often. Read <a href="/#buying">how I work with buyers</a> if you want the longer version.
     </p>
   </section>
 
@@ -77,46 +76,31 @@ const description = "How to choose a real estate agent in Prior Lake, Minnesota:
     </div>
   </section>
 
-  <footer class="d-footer">
-    <p>&copy; 2026 Mark Gores &middot; RE/MAX Advantage Plus &middot; <a href="/">markgores.com</a></p>
-  </footer>
-
 </main>
+
+<SiteFooter />
 
 </BaseLayout>
 
 <style>
-  .doc-nav {
-    position: fixed; top: 0; width: 100%; padding: 1.25rem 3rem;
-    display: flex; justify-content: space-between; align-items: center; z-index: 100;
-    background: rgba(245, 240, 232, 0.85);
-    backdrop-filter: saturate(140%) blur(14px); -webkit-backdrop-filter: saturate(140%) blur(14px);
-    border-bottom: 1px solid rgba(139, 115, 85, 0.14);
-  }
-  .doc-nav .name { font-family: var(--serif); font-size: 1.1rem; color: var(--dark); text-decoration: none; }
-  .nav-meta { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--warm); }
   .doc { max-width: 880px; margin: 0 auto; padding: 0 3rem 2rem; }
-  .d-hero { padding: 9rem 0 1rem; max-width: none; margin: 0; }
+  .d-hero { padding: 4.5rem 0 1rem; max-width: none; margin: 0; }
   .d-hero h1, .d-block h2 { font-family: var(--serif); color: var(--dark); font-weight: 400; line-height: 1.15; }
   .d-hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 1.5rem; }
   .d-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1.25rem; }
-  .d-intro { font-size: 1.15rem; font-weight: 300; color: var(--text-light); max-width: 640px; line-height: 1.65; }
-  .d-block { padding: 2.5rem 0; border-top: 1px solid var(--light-warm); max-width: 720px; margin: 0; }
-  .d-block p, .d-list li { font-size: 1.05rem; font-weight: 300; color: var(--text-light); line-height: 1.7; }
+  .d-intro { font-size: 1.15rem; font-weight: 400; color: var(--ink-2); max-width: 640px; line-height: 1.65; }
+  .d-block { padding: 2.5rem 0; border-top: 1px solid var(--rule); max-width: 720px; margin: 0; }
+  .d-block p, .d-list li { font-size: 1.05rem; font-weight: 400; color: var(--ink-2); line-height: 1.7; }
   .d-block p { margin-bottom: 1.1rem; }
   .d-list { list-style: none; padding: 0; margin: 0 0 1.25rem; }
-  .d-list li { padding: 0.75rem 0 0.75rem 1.4rem; position: relative; border-bottom: 1px solid rgba(139, 115, 85, 0.14); }
-  .d-list li::before { content: ""; position: absolute; left: 0; top: 1.45rem; width: 0.6rem; height: 1px; background: var(--warm); }
-  .d-list li strong { color: var(--dark); font-weight: 500; }
-  .d-block a { color: var(--accent); text-decoration: none; }
+  .d-list li { padding: 0.75rem 0 0.75rem 1.4rem; position: relative; border-bottom: 1px solid var(--rule); }
+  .d-list li::before { content: ""; position: absolute; left: 0; top: 1.45rem; width: 0.6rem; height: 1px; background: var(--label); }
+  .d-list li strong { color: var(--ink); font-weight: 400; }
+  .d-block a { color: var(--link); text-decoration: none; }
   .d-block a:hover { text-decoration: underline; }
   .d-contact { display: flex; flex-wrap: wrap; gap: 1.5rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.03em; }
-  .d-footer { border-top: 1px solid var(--light-warm); padding: 3rem 0 4rem; font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); }
-  .d-footer a { color: var(--warm); text-decoration: none; }
   @media (max-width: 768px) {
-    .doc-nav { padding: 1rem 1.5rem; }
-    .nav-meta { display: none; }
     .doc { padding: 0 1.5rem 2rem; }
-    .d-hero { padding-top: 7rem; }
+    .d-hero { padding-top: 3rem; }
   }
 </style>

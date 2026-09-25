@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 const title = "Savage, MN Real Estate | Mark Gores, RE/MAX Advantage Plus";
 const description = "Buying or selling in Savage, Minnesota: the market in numbers, what the housing stock looks like, the RE/MAX Advantage Plus office on Highway 13, and how to reach Mark Gores directly.";
@@ -12,14 +14,11 @@ const priorLake = { closed12: 480, median: 520000 };
 const usd = (n: number) => "$" + n.toLocaleString("en-US");
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} bodyClass="site" ogImagePath="/images/og-home.jpg">
 
-<nav class="doc-nav">
-  <a href="/" class="name">Mark Gores</a>
-  <div class="nav-meta">Savage, Minnesota</div>
-</nav>
+<SiteHeader />
 
-<main class="doc">
+<main class="doc" id="main">
 
   <section class="d-hero">
     <div class="section-label">Savage</div>
@@ -76,48 +75,33 @@ const usd = (n: number) => "$" + n.toLocaleString("en-US");
     </div>
   </section>
 
-  <footer class="d-footer">
-    <p>&copy; 2026 Mark Gores &middot; RE/MAX Advantage Plus &middot; <a href="/">markgores.com</a></p>
-  </footer>
-
 </main>
+
+<SiteFooter />
 
 </BaseLayout>
 
 <style>
-  .doc-nav {
-    position: fixed; top: 0; width: 100%; padding: 1.25rem 3rem;
-    display: flex; justify-content: space-between; align-items: center; z-index: 100;
-    background: rgba(245, 240, 232, 0.85);
-    backdrop-filter: saturate(140%) blur(14px); -webkit-backdrop-filter: saturate(140%) blur(14px);
-    border-bottom: 1px solid rgba(139, 115, 85, 0.14);
-  }
-  .doc-nav .name { font-family: var(--serif); font-size: 1.1rem; color: var(--dark); text-decoration: none; }
-  .nav-meta { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--warm); }
   .doc { max-width: 880px; margin: 0 auto; padding: 0 3rem 2rem; }
-  .d-hero { padding: 9rem 0 1rem; max-width: none; margin: 0; }
+  .d-hero { padding: 4.5rem 0 1rem; max-width: none; margin: 0; }
   .d-hero h1, .d-block h2 { font-family: var(--serif); color: var(--dark); font-weight: 400; line-height: 1.15; }
   .d-hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 1.5rem; }
   .d-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1.25rem; }
-  .d-intro { font-size: 1.15rem; font-weight: 300; color: var(--text-light); max-width: 640px; line-height: 1.65; }
-  .d-block { padding: 2.5rem 0; border-top: 1px solid var(--light-warm); max-width: 720px; margin: 0; }
-  .d-block p { font-size: 1.05rem; font-weight: 300; color: var(--text-light); line-height: 1.7; margin-bottom: 1.1rem; }
-  .d-block p strong { color: var(--dark); font-weight: 500; }
-  .d-block a { color: var(--accent); text-decoration: none; }
+  .d-intro { font-size: 1.15rem; font-weight: 400; color: var(--ink-2); max-width: 640px; line-height: 1.65; }
+  .d-block { padding: 2.5rem 0; border-top: 1px solid var(--rule); max-width: 720px; margin: 0; }
+  .d-block p { font-size: 1.05rem; font-weight: 400; color: var(--ink-2); line-height: 1.7; margin-bottom: 1.1rem; }
+  .d-block p strong { color: var(--ink); font-weight: 400; }
+  .d-block a { color: var(--link); text-decoration: none; }
   .d-block a:hover { text-decoration: underline; }
   .d-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 1.5rem 0; }
   .d-stats .stat { display: flex; flex-direction: column; gap: 0.35rem; }
   .d-stats .stat-number { font-family: var(--serif); font-size: 2rem; color: var(--dark); line-height: 1; }
-  .d-stats .stat-label { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--warm); line-height: 1.5; }
+  .d-stats .stat-label { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--label); line-height: 1.5; }
   .d-note { font-size: 0.95rem !important; }
   .d-contact { display: flex; flex-wrap: wrap; gap: 1.5rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.03em; }
-  .d-footer { border-top: 1px solid var(--light-warm); padding: 3rem 0 4rem; font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); }
-  .d-footer a { color: var(--warm); text-decoration: none; }
   @media (max-width: 768px) {
-    .doc-nav { padding: 1rem 1.5rem; }
-    .nav-meta { display: none; }
     .doc { padding: 0 1.5rem 2rem; }
-    .d-hero { padding-top: 7rem; }
+    .d-hero { padding-top: 3rem; }
     .d-stats { grid-template-columns: repeat(2, 1fr); }
   }
 </style>

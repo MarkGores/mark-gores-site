@@ -27,6 +27,12 @@ Astro 5 site for Mark Gores, RE/MAX Advantage Plus realtor in Prior Lake, Minnes
 ### Aesthetic
 Editorial / magazine, deliberately not "generic realtor". Lots of whitespace. Section labels in mono uppercase with a leading dash. Dark sections sparingly for emphasis.
 
+### Two page families (Sept 2026 redesign)
+- **Public pages** (`/`, `/savage`, `/prior-lake-realtor`, `/vendors`) pass `bodyClass="site"` to BaseLayout and use `SiteHeader` / `SiteFooter` (`src/components/`). Shared tokens and base styles live in `src/styles/site.css`, all scoped under `body.site`: `--ink`, `--ink-2` (body copy), `--ink-3`, `--paper`, `--card`, `--rule`, `--label` (#6F5B40, the warm brown darkened to pass AA), `--link` (#2F5E9E, the blue darkened to pass AA). Body copy is Newsreader 400, never 300. No noise overlay, no arch images, no hover-lift cards.
+- **Proposal and listing pages** run on `global.css` alone and render exactly as before. Its element rules (nav, section, footer, the noise overlay) are wrapped in `:where(body:not(.site))` so they skip public pages without changing specificity. Never add `bodyClass="site"` to a proposal page.
+- **Homepage market card** reads `src/data/market.json`, a snapshot of priorlake.realestate's public `/api/metrics` (same numbers that site shows), refreshed Mondays by `.github/workflows/refresh-market.yml` running `scripts/refresh_market.py` (commits only on change). Don't use the API's `activeListings`: it counts withdrawn `MlgCanView=0` records, about double the real inventory.
+- **Link preview** for public pages is `public/images/og-home.jpg`; proposals keep the default `og-image.jpg`.
+
 ## Brand Voice
 
 Mark's voice is the most important thing on this site. Generic AI/marketing phrasing is immediately obvious to him.
@@ -121,6 +127,7 @@ Public page mirroring the Minnesota Real Estate Team's vendor list (MNRET approv
 Push to `main`. Vercel auto-builds in ~90s. Apex 307-redirects to `www.markgores.com`.
 
 ### Sitemap & indexing
+- **Search Console:** use the Domain property `sc-domain:markgores.com` (added Sept 25 2026, covers www and apex). It's verified by a Cloudflare DNS TXT record `google-site-verification=2bXONCSx...` (same token as the BaseLayout meta tag); never delete that record. The other `google-site-verification=KD3o...` TXT belongs to a different Google account (likely Workspace email). The old URL-prefix property `https://markgores.com/` only saw apex URLs and went blind after the www switch; keep it for history only. The read-only service account `ple-gsc-reader@prior-lake-events.iam.gserviceaccount.com` has Restricted access; pull data with the PLE repo's `scripts/gsc_pull.py --site sc-domain:markgores.com`.
 - **Canonical host is `https://www.markgores.com`** (since Aug 19 2026): `site` in astro.config, `siteUrl` in BaseLayout, robots.txt, JSON-LD and the sitemap allowlist all use www, matching Vercel's apex->www 307. Never reintroduce apex URLs.
 - The sitemap is an **allowlist** in `astro.config.mjs` (public pages: `/`, `/vendors/`, `/savage/`, `/prior-lake-realtor/`, plus the two public listing pages). Private proposal pages must never be added. When creating a new PUBLIC page, add its URL to the filter or it won't be in the sitemap.
 - **Public doc pages (Aug 2026):** `/savage` (office address 13875 Hwy 13 S, dated market snapshot from the MLS replica, 719/191 school split) and `/prior-lake-realtor` (how to pick an agent + the facts about Mark). Both drafted by Claude from verifiable facts only, following the voice rules, WITHOUT Mark's line-by-line review; he should read them. Snapshot numbers in savage.astro are hand-entered constants (refresh when touched).

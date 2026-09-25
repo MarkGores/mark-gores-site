@@ -1,0 +1,63 @@
+{
+  "source": "https://www.priorlake.realestate/api/metrics",
+  "asOf": "2026-09-25",
+  "medianSalePrice": {
+    "value": 535000,
+    "prior": 510000,
+    "delta": 4.9
+  },
+  "medianDOM": {
+    "value": 20,
+    "prior": 19
+  },
+  "monthly": [
+    {
+      "month": "2025-09",
+      "closed": 38
+    },
+    {
+      "month": "2025-10",
+      "closed": 49
+    },
+    {
+      "month": "2025-11",
+      "closed": 29
+    },
+    {
+      "month": "2025-12",
+      "closed": 35
+    },
+    {
+      "month": "2026-01",
+      "closed": 19
+    },
+    {
+      "month": "2026-02",
+      "closed": 19
+    },
+    {
+      "month": "2026-03",
+      "closed": 34
+    },
+    {
+      "month": "2026-04",
+      "closed": 48
+    },
+    {
+      "month": "2026-05",
+      "closed": 56
+    },
+    {
+      "month": "2026-06",
+      "closed": 43
+    },
+    {
+      "month": "2026-07",
+      "closed": 45
+    },
+    {
+      "month": "2026-08",
+      "closed": 49
+    }
+  ]
+}

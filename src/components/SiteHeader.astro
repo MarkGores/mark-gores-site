@@ -1,0 +1,116 @@
+---
+// Shared header for the public pages. Pages using it must pass
+// bodyClass="site" to BaseLayout (global.css skips its legacy nav/section/
+// footer rules for body.site, and site.css scopes everything under it).
+import '../styles/site.css';
+
+interface Props {
+  /** "home" keeps section links in-page; elsewhere they point back to the homepage. */
+  current?: 'home' | 'vendors' | 'other';
+}
+
+const { current = 'other' } = Astro.props;
+const base = current === 'home' ? '' : '/';
+const links = [
+  { href: `${base}#selling`, label: 'Selling' },
+  { href: `${base}#buying`, label: 'Buying' },
+  { href: `${base}#reviews`, label: 'Reviews' },
+  { href: `${base}#about`, label: 'About' },
+  { href: '/vendors', label: 'Who to call', here: current === 'vendors' },
+];
+---
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a href="/" class="brand">
+      <span class="brand-name">Mark Gores</span>
+      <span class="brand-sub">RE/MAX Advantage Plus</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        {links.map((l) => (
+          <li><a href={l.href} aria-current={l.here ? 'page' : undefined}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <a class="call" href="tel:+16122015447"><span class="call-label">Call or text </span>612-201-5447</a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245, 240, 232, 0.94);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+    min-height: 4.5rem;
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    line-height: 1.1;
+    text-decoration: none;
+  }
+  .brand-name {
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    color: var(--ink);
+  }
+  .brand-sub {
+    margin-top: 0.25rem;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--label);
+  }
+  ul {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+  }
+  nav a {
+    font-size: 1.02rem;
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  nav a:hover,
+  nav a[aria-current] {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.35em;
+  }
+  .call {
+    padding: 0.7rem 1.05rem;
+    border-radius: 3px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 0.84rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .call:hover { background: #34322c; }
+  .call-label { color: rgba(245, 240, 232, 0.72); }
+
+  @media (max-width: 1000px) {
+    nav { display: none; }
+  }
+  @media (max-width: 560px) {
+    .bar { min-height: 4rem; gap: 1rem; }
+    .brand-name { font-size: 1.25rem; }
+    .call-label { display: none; }
+  }
+</style>

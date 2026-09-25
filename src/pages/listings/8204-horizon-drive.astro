@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "8204 Horizon Drive, Shakopee | $649,900 | Mark Gores, RE/MAX Advantage Plus";
-const description = "Updated 4 bedroom home on 1.2 private acres in Shakopee. Heated in-ground pool, sunroom, walkout lower level with wet bar, and a 24 x 26 heated outbuilding. Listed by Mark Gores, RE/MAX Advantage Plus.";
+const title = "8204 Horizon Drive, Shakopee | Sold | Mark Gores, RE/MAX Advantage Plus";
+const description = "Updated 4 bedroom home on 1.2 private acres in Shakopee. Heated in-ground pool, sunroom, walkout lower level with wet bar, and a 24 x 26 heated outbuilding. Sold in August 2026. Listed by Mark Gores, RE/MAX Advantage Plus.";
 
 const IMG = '/images/listings/8204';
 const pad = (n: number) => String(n).padStart(2, '0');
@@ -125,7 +125,7 @@ const schema = JSON.stringify({
     "@type": "Offer",
     "price": 649900,
     "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
+    "availability": "https://schema.org/SoldOut",
     "offeredBy": {
       "@type": "RealEstateAgent",
       "name": "Mark Gores",
@@ -153,9 +153,9 @@ const schema = JSON.stringify({
   <!-- HERO -->
   <header class="l-hero">
     <div class="l-hero-content">
-      <div class="hero-label">For Sale &middot; Shakopee, Minnesota</div>
+      <div class="hero-label">Sold &middot; Shakopee, Minnesota</div>
       <h1>8204 Horizon Drive</h1>
-      <div class="l-price">$649,900</div>
+      <div class="l-price">Sold for $649,900</div>
       <p class="l-hero-sub">
         An updated 4 bedroom on 1.2 private, wooded acres, with a heated pool out back and a 24 x 26 heated shop beside it. Close to everything, and it doesn't feel like it.
       </p>
@@ -166,7 +166,7 @@ const schema = JSON.stringify({
         <div class="stat"><span class="stat-number">1.2</span><span class="stat-label">Acres</span></div>
       </div>
       <div class="l-hero-ctas">
-        <a href="#contact" class="cta-primary">Schedule a showing</a>
+        <a href="/#selling" class="cta-primary">Selling nearby?</a>
         <a href="#photos" class="cta-secondary">See all 74 photos &rarr;</a>
       </div>
     </div>
@@ -271,11 +271,11 @@ const schema = JSON.stringify({
 
   <!-- CONTACT -->
   <section class="l-contact" id="contact">
-    <div class="section-label" style="justify-content: center;">See It In Person</div>
-    <h2>Want a look at this one?</h2>
+    <div class="section-label" style="justify-content: center;">Get In Touch</div>
+    <h2>This one sold in August.</h2>
     <p class="l-contact-sub">
-      Call or text me at <a href="tel:+16122015447">612-201-5447</a> and we'll set up a time.
-      Or send a note here and I'll get back to you within a day.
+      Thinking about selling nearby? Call or text me at <a href="tel:+16122015447">612-201-5447</a>,
+      or send a note here and I'll get back to you within a day.
     </p>
 
     <form class="contact-form" id="contact-form" method="post">
@@ -295,7 +295,7 @@ const schema = JSON.stringify({
       </label>
       <label class="form-field">
         <span>Message <span class="required">*</span></span>
-        <textarea name="message" required rows="4">I'd like to set up a showing of 8204 Horizon Drive.</textarea>
+        <textarea name="message" required rows="4"></textarea>
       </label>
 
       <div class="honeypot" aria-hidden="true">
@@ -339,7 +339,7 @@ const schema = JSON.stringify({
 <!-- Mobile sticky CTA -->
 <div class="sticky-cta" aria-hidden="false">
   <a href="tel:+16122015447" class="sticky-call">Call or Text Mark</a>
-  <a href="#contact" class="sticky-tour">Schedule a Showing</a>
+  <a href="#contact" class="sticky-tour">Send a Note</a>
 </div>
 
 <footer class="listing-footer">

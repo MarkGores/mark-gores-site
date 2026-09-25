@@ -1,234 +1,384 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import market from '../data/market.json';
+import vendors from '../data/vendors.json';
+
+// Market card. market.json is a snapshot of priorlake.realestate's public
+// metrics (same numbers that site shows), refreshed weekly by
+// .github/workflows/refresh-market.yml via scripts/refresh_market.py.
+const usd = (n: number) => '$' + n.toLocaleString('en-US');
+const day = (iso: string) => new Date(`${iso}T12:00:00`);
+const asOf = day(market.asOf).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+const price = market.medianSalePrice;
+const priceChange =
+  price.delta > 0 ? `Up ${price.delta}% from the same six months last year`
+  : price.delta < 0 ? `Down ${Math.abs(price.delta)}% from the same six months last year`
+  : 'Even with the same six months last year';
+const dom = market.medianDOM;
+
+const peak = Math.max(...market.monthly.map((m) => m.closed));
+const bars = market.monthly.map((m, i) => {
+  const d = day(`${m.month}-15`);
+  const latest = i === market.monthly.length - 1;
+  return {
+    closed: m.closed,
+    initial: d.toLocaleDateString('en-US', { month: 'narrow' }),
+    long: d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+    // 80% max leaves headroom for the value label above the tallest bar.
+    height: Math.max(2, Math.round((m.closed / peak) * 80)),
+    latest,
+    // Label only the peak and the latest month; hover, focus and the
+    // screen-reader text carry the rest.
+    labeled: latest || m.closed === peak,
+  };
+});
+const chartRange = `${bars[0].long} to ${bars[bars.length - 1].long}`;
+
+// Update here when the Zillow count changes (BaseLayout's JSON-LD aggregateRating repeats it).
+const zillow = { rating: '5.0', reviews: 12, url: 'https://www.zillow.com/profile/MarkGoresREMAX' };
+
+const description =
+  `Mark Gores is a Prior Lake realtor with RE/MAX Advantage Plus. Licensed since 2004, in Prior Lake since 1986, ${zillow.rating} on Zillow. Call or text 612-201-5447.`;
 ---
 
-<BaseLayout>
+<BaseLayout description={description} bodyClass="site" ogImagePath="/images/og-home.jpg">
 
-<nav aria-label="Primary">
-  <a href="#" class="name">Mark Gores</a>
-  <ul class="links">
-    <li><a href="#selling">Selling</a></li>
-    <li><a href="/vendors">Who to Call</a></li>
-    <li><a href="#approach">How I Work</a></li>
-    <li><a href="#proof">Proof</a></li>
-    <li><a href="#community">Local</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<SiteHeader current="home" />
 
-<main>
+<main id="main">
 
-<!-- Hero -->
-<div class="hero">
-  <div class="hero-content">
-    <div class="hero-label">Prior Lake, Minnesota · Since 2004</div>
-    <h1>Some houses I'll tell you <em>not</em> to buy.</h1>
-    <p class="hero-text">
-      That house with the "great bones" that needs $80k in work? I'll tell you. The neighborhood that floods every spring? I'll mention it. The seller testing the market at 15% over comps? I'll save you the trouble.
+  <!-- Intro -->
+  <section class="intro">
+    <div class="wrap intro-grid">
+      <div class="intro-copy">
+        <p class="eyebrow">REALTOR&reg; &middot; Prior Lake, Minnesota</p>
+        <h1>Mark Gores</h1>
+        <p class="lede">
+          I help people buy and sell houses in Prior Lake, Savage and the rest of the south metro. If somebody gave you my name, thanks for looking me up.
+        </p>
+        <div class="actions">
+          <a class="btn" href="tel:+16122015447">Call or text 612-201-5447</a>
+          <a class="btn btn-line" href="mailto:mark@markgores.com">mark@markgores.com</a>
+        </div>
+        <dl class="facts">
+          <div><dt>Licensed</dt><dd>Since 2004</dd></div>
+          <div><dt>Prior Lake</dt><dd>Since 1986</dd></div>
+          <div><dt>Zillow</dt><dd><a href={zillow.url} rel="noopener">{zillow.rating}, {zillow.reviews} reviews</a></dd></div>
+          <div><dt>Office</dt><dd>Hwy 13, Savage</dd></div>
+        </dl>
+      </div>
+      <figure class="portrait">
+        <img src="/images/mark-gores.jpg" alt="Mark Gores" width="800" height="1000" fetchpriority="high" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Market -->
+  <section class="market" aria-labelledby="mkt-title">
+    <div class="wrap">
+      <div class="mkt">
+        <div class="mkt-head">
+          <h2 id="mkt-title" class="eyebrow">Prior Lake market</h2>
+          <span class="mkt-asof">As of {asOf}</span>
+        </div>
+        <div class="mkt-body">
+          <div class="mkt-stats">
+            <div>
+              <p class="mkt-value">{usd(price.value)}</p>
+              <p class="mkt-label">Median sale price, last six months</p>
+              <p class="mkt-note">{priceChange}</p>
+            </div>
+            <div>
+              <p class="mkt-value">{dom.value} days</p>
+              <p class="mkt-label">Median time on market, last six months</p>
+              <p class="mkt-note">{dom.prior} days in the same six months last year</p>
+            </div>
+          </div>
+          <figure class="mkt-chart">
+            <figcaption id="bars-title">Homes sold each month</figcaption>
+            <ol class="bars" aria-labelledby="bars-title" data-bars>
+              {bars.map((b, i) => (
+                <li
+                  class="b"
+                  style={`--h:${b.height}%`}
+                  data-latest={b.latest ? '' : undefined}
+                  tabindex={i === bars.length - 1 ? 0 : -1}
+                >
+                  <span class="sr-only">{b.long}: {b.closed} sold</span>
+                  <span class="b-plot" aria-hidden="true">
+                    {b.labeled && <span class="b-val">{b.closed}</span>}
+                    <span class="b-bar"></span>
+                  </span>
+                  <span class="b-mo" aria-hidden="true">{b.initial}</span>
+                  <span class="b-tip" aria-hidden="true"><strong>{b.closed} sold</strong> {b.long}</span>
+                </li>
+              ))}
+            </ol>
+            <p class="sr-only">{chartRange}.</p>
+          </figure>
+        </div>
+        <p class="mkt-foot">
+          Closed sales in Prior Lake from the NorthstarMLS feed.
+          <a href="https://www.priorlake.realestate" rel="noopener">More at priorlake.realestate&nbsp;&rarr;</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selling -->
+  <section class="block" id="selling">
+    <div class="wrap">
+      <div class="sell-grid">
+        <div>
+          <p class="eyebrow">Selling</p>
+          <h2>Send me your address. I'll run the numbers.</h2>
+          <div class="prose">
+            <p>
+              Before you decide anything, I'll build a private web page for your house. It shows the sales I'd compare it to, the price I'd list it at and why, how I'd market it, and a calculator for what you'd walk away with after costs.
+            </p>
+            <p>
+              Read it on your own time and share it with whoever's helping you decide. For a south metro house it usually takes me about a day, and it's free.
+            </p>
+          </div>
+          <a class="btn" href="#contact">Send me your address</a>
+        </div>
+        <figure class="listing">
+          <a href="/listings/8204-horizon-drive" tabindex="-1" aria-hidden="true">
+            <img src="/images/home-8204-horizon.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" />
+          </a>
+          <figcaption>
+            <a href="/listings/8204-horizon-drive">8204 Horizon Drive, Shakopee</a>
+            <span>One of mine. Listed at $649,900 in June, sold for $649,900 in August.</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <h3 class="included-title">What listing with me includes</h3>
+      <dl class="included">
+        <div>
+          <dt>Getting ready</dt>
+          <dd>A staging consult, then professional photos and aerials. Every photo in the MLS gets a written caption.</dd>
+        </div>
+        <div>
+          <dt>Getting it seen</dt>
+          <dd>A page for your house on this site, plus print, radio, online and social advertising.</dd>
+        </div>
+        <div>
+          <dt>While it's listed</dt>
+          <dd>A written update every week with your showings, online views and buyer feedback.</dd>
+        </div>
+        <div>
+          <dt>Offer to closing</dt>
+          <dd>We go through every offer together. I negotiate, and I keep the deadlines on track through closing.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Buying -->
+  <section class="block" id="buying">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Buying</p>
+        <h2>Some houses I'll tell you <em>not</em> to buy.</h2>
+      </div>
+      <div class="prose">
+        <p>
+          If the price is off, or something about a house worries me, I'll tell you before you write an offer. Sometimes that means we keep looking.
+        </p>
+        <p>
+          When it is the right house, I push on price. One from this year, a new build in Apple Valley that had been on the market for more than a year:
+        </p>
+        <table class="ledger">
+          <caption class="sr-only">A new build in Apple Valley: the builder's prices and what my buyers paid</caption>
+          <tbody>
+            <tr><th scope="row">Builder's original price</th><td>$467,990</td></tr>
+            <tr><th scope="row">Asking price when we made our offer</th><td>$439,990</td></tr>
+            <tr><th scope="row">What my buyers paid, June 2026</th><td>$425,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <p class="eyebrow">Reviews</p>
+      <h2>{zillow.rating} on Zillow, from {zillow.reviews} reviews.</h2>
+      <figure class="quote-lead">
+        <blockquote>
+          Moved to this community as total strangers. We asked locals who was the most knowledgeable, effective and trustworthy realtor. They said, "Oh, that would be Mark Gores." Since then Mark has handled 5 transactions for our family, ranging from $300K to $1MM.
+        </blockquote>
+        <figcaption>Bud, homebuyer</figcaption>
+      </figure>
+      <div class="quote-grid">
+        <figure>
+          <blockquote>Mark did a great job of communicating market conditions and helping us get the most value for our home. He was very responsive and helpful throughout the process.</blockquote>
+          <figcaption>Marcus, home seller</figcaption>
+        </figure>
+        <figure>
+          <blockquote>Fast response, did an excellent job advertising the home, had a showing and sold the property before ever getting a "for sale" sign out front. Everything went very smoothly. Mark answered all our questions quickly, provided sound advice on preparing to sell, and handled the entire process with professionalism.</blockquote>
+          <figcaption>Robert, home seller</figcaption>
+        </figure>
+        <figure>
+          <blockquote>We have owned 10 houses in our lifetimes and Mark provided the most professional and expert purchasing experience to date. He listened closely to our needs and delivered exactly what we were after in rapid fashion.</blockquote>
+          <figcaption>John, homebuyer</figcaption>
+        </figure>
+      </div>
+      <p class="reviews-more">
+        <a href={zillow.url} rel="noopener">Read them all on Zillow&nbsp;&rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="block" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <p class="eyebrow">About me</p>
+        <h2>Prior Lake since 1986.</h2>
+        <div class="prose">
+          <p>
+            University of Iowa for college, then right back. My kids are coming up through the Prior Lake schools. I can tell you which parks have the best sledding hills and which places do a steak right.
+          </p>
+          <p>
+            When I'm not doing real estate, it's some mix of pickleball, pinball, cooking, and the boat.
+          </p>
+          <p>
+            I work out of the RE/MAX Advantage Plus office on Highway 13 in Savage, with the Minnesota Real Estate Team. I also build websites for fun. This one's mine.
+          </p>
+        </div>
+      </div>
+      <figure class="family">
+        <img src="/images/home-family.jpg" alt="Mark Gores with his family at home in Prior Lake" width="1400" height="1050" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Built for the neighbors -->
+  <section class="block" id="built">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">For the neighbors</p>
+        <h2>Three things I built for Prior Lake. All free.</h2>
+      </div>
+      <ul class="made">
+        <li>
+          <a class="made-name" href="https://priorlakeevents.com" rel="noopener">Prior Lake Events</a>
+          <p>What's happening in town, on one calendar. Plus Around Town, short notes on what the local councils and school board decided, and a free email every Monday and Friday.</p>
+        </li>
+        <li>
+          <a class="made-name" href="https://www.priorlake.realestate" rel="noopener">priorlake.realestate</a>
+          <p>The Prior Lake housing market from the MLS feed, updated twice a day. Prices, neighborhoods, the lakes, HOA fees, open houses.</p>
+        </li>
+        <li>
+          <a class="made-name" href="/vendors">Who to call</a>
+          <p>The list I send clients to when they need a plumber, a roofer, a mover or an inspector: {vendors.vendorCount} providers from my team's referral list. Describe the problem and it points you to the right kind of pro.</p>
+        </li>
+      </ul>
+    </div>
+    <p class="wrap also">
+      Also on this site: <a href="/savage">Savage, next door</a> &middot; <a href="/prior-lake-realtor">How to pick a Prior Lake realtor</a>
     </p>
-    <a href="#selling" class="hero-sell">Selling? Get the numbers on your house first →</a>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-number">22</span>
-        <span class="stat-label">Years in Real Estate</span>
+  </section>
+
+  <!-- Contact -->
+  <section class="block" id="contact">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Start with a question.</h2>
+        <p class="contact-lede">
+          Send a question or an address. I'll get back to you within a day.
+        </p>
+        <dl class="reach">
+          <div><dt>Call or text</dt><dd><a href="tel:+16122015447">612-201-5447</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:mark@markgores.com">mark@markgores.com</a></dd></div>
+          <div><dt>Office</dt><dd>RE/MAX Advantage Plus<br />13875 Highway 13 South, Savage</dd></div>
+        </dl>
       </div>
-      <div class="stat">
-        <span class="stat-number">40</span>
-        <span class="stat-label">Years in Prior Lake</span>
+
+      <div>
+        <form class="cform" id="contact-form" novalidate>
+          <div class="crow">
+            <label class="cfield">
+              <span>Your name <span class="req" aria-hidden="true">*</span></span>
+              <input name="name" type="text" required autocomplete="name" />
+            </label>
+            <label class="cfield">
+              <span>Email <span class="req" aria-hidden="true">*</span></span>
+              <input name="email" type="email" required autocomplete="email" />
+            </label>
+          </div>
+          <label class="cfield">
+            <span>Phone (optional)</span>
+            <input name="phone" type="tel" autocomplete="tel" />
+          </label>
+          <label class="cfield">
+            <span>What's going on? <span class="req" aria-hidden="true">*</span></span>
+            <textarea name="message" required rows="5"></textarea>
+          </label>
+
+          <div class="hp" aria-hidden="true">
+            <label>
+              Company
+              <input name="company" type="text" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <div class="cerror" id="contact-error" role="alert" hidden></div>
+
+          <button type="submit" class="btn csubmit" id="contact-submit">
+            <span class="submit-label">Send</span>
+            <span class="submit-loading" hidden>Sending&hellip;</span>
+          </button>
+        </form>
+
+        <div class="csuccess" id="contact-success" tabindex="-1" hidden>
+          <p class="eyebrow">Got it</p>
+          <h3>Thanks. I'll be in touch within a day.</h3>
+          <p>If it's urgent, call or text me at <a href="tel:+16122015447">612-201-5447</a>.</p>
+        </div>
+
+        <p class="newsletter">
+          If you'd rather just keep up with what's going on in town, Prior Lake Events sends a free email every Monday and Friday.
+          <a href="https://priorlakeevents.com/newsletter" rel="noopener">Get the email&nbsp;&rarr;</a>
+        </p>
       </div>
-      <div class="stat">
-        <span class="stat-number">5.0</span>
-        <span class="stat-label">Stars on Zillow</span>
-      </div>
     </div>
-  </div>
-  <div class="hero-image">
-    <img src="/images/lake.jpg" alt="Aerial view of Prior Lake, Minnesota">
-  </div>
-</div>
+  </section>
 
-<!-- How I Work -->
-<section class="pitch" id="approach">
-  <div class="pitch-inner">
-    <div class="section-label">How I Work</div>
-    <h2>I've watched people buy at the top, panic at the bottom, and stretch into mortgages that kept them up at night.</h2>
-    <p>
-      Twenty-two years of that changes how you do this job. I'm not trying to close you. I'm trying to make sure you're still happy with this decision in five years.
-    </p>
-    <p>
-      I live here. My kids go to school here. I'll see you at Lakefront Park or the grocery store. I'd like that to be a good conversation.
-    </p>
+</main>
 
-    <div class="approach-grid">
-      <div class="approach-card">
-        <h3>I'll respond fast</h3>
-        <p>When people work with me, they feel like they're my only client. I pick up the phone. I answer the text. I don't let things sit.</p>
-      </div>
-      <div class="approach-card">
-        <h3>I won't hound you</h3>
-        <p>No drip campaigns. No "just checking in!" emails. When you're ready, I'm here. When you're not, I'll respect that.</p>
-      </div>
-      <div class="approach-card">
-        <h3>I know the deals</h3>
-        <p>Not the scripts. The deals. Inspections, negotiations, contingencies, title issues. The stuff that matters when money is on the line.</p>
-      </div>
-      <div class="approach-card">
-        <h3>I'll be honest</h3>
-        <p>Even when it costs me a commission. Especially then. You're making the biggest purchase of your life. You deserve someone in your corner, not on a sales floor.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- For Sellers -->
-<section class="sell" id="selling">
-  <div class="section-label">If You're Selling</div>
-  <div class="sell-content">
-    <div>
-      <h2>Send me your address. I'll run the numbers.</h2>
-      <p>
-        Comps from thousands of south metro sales, a recommended price range, and an estimated net for your house. In writing, before you've committed to anything.
-      </p>
-      <p>
-        If the numbers look right to you, we'll talk through the rest: pricing strategy, the marketing, fees, timing. If they don't, you've lost nothing but the read.
-      </p>
-    </div>
-    <a href="#contact" class="sell-card">
-      <span class="sell-card-title">Get your numbers</span>
-      <span class="sell-card-sub">Comps, a recommended range, an estimated net. Takes me about a day and costs you nothing.</span>
-      <span class="sell-card-cta">Send your address →</span>
-    </a>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section class="testimonials" id="proof">
-  <div class="section-label">What People Say</div>
-  <div class="testimonial-grid">
-    <div class="testimonial">
-      <blockquote>Moved to this community as total strangers. We asked locals who was the most knowledgeable, effective and trustworthy realtor. They said, "Oh, that would be Mark Gores." Since then Mark has handled 5 transactions for our family, ranging from $300K to $1MM.</blockquote>
-      <cite>Bud · homebuyer</cite>
-    </div>
-    <div class="testimonial">
-      <blockquote>Mark did a great job of communicating market conditions and helping us get the most value for our home. He was very responsive and helpful throughout the process.</blockquote>
-      <cite>Marcus · home seller</cite>
-    </div>
-    <div class="testimonial">
-      <blockquote>Fast response, did an excellent job advertising the home, had a showing and sold the property before ever getting a "for sale" sign out front. Everything went very smoothly. Mark answered all our questions quickly, provided sound advice on preparing to sell, and handled the entire process with professionalism.</blockquote>
-      <cite>Robert · home seller</cite>
-    </div>
-    <div class="testimonial">
-      <blockquote>We have owned 10 houses in our lifetimes and Mark provided the most professional and expert purchasing experience to date. He listened closely to our needs and delivered exactly what we were after in rapid fashion.</blockquote>
-      <cite>John · homebuyer</cite>
-    </div>
-  </div>
-</section>
-
-<div class="divider"><hr></div>
-
-<!-- The Person (merged with the built-for-the-neighbors cards) -->
-<section class="personal" id="community">
-  <div class="personal-inner">
-    <div>
-      <div class="section-label">The Person</div>
-      <h2>Prior Lake since 1986.</h2>
-      <p>
-        University of Iowa for college, then right back. My kids are coming up through the Prior Lake schools. I can tell you which parks have the best sledding hills and which places do a steak right.
-      </p>
-      <p>
-        When I'm not doing real estate, it's some mix of pickleball, pinball, cooking, and the boat.
-      </p>
-      <p>
-        And I build websites for fun. This one's mine. These three are for the neighbors. All free. Use them or don't.
-      </p>
-    </div>
-    <div class="photo-main">
-      <img src="/images/family.jpg" alt="Mark Gores with his family at home in Prior Lake">
-    </div>
-  </div>
-  <div class="built-grid">
-    <div class="ple-card">
-      <h3>Prior Lake Events</h3>
-      <p>A community calendar and weekly newsletter for Prior Lake. Fish fries, live music, farmers markets, kids events. If it's happening here, it's on PLE.</p>
-      <a href="https://priorlakeevents.com" class="ple-link" target="_blank" rel="noopener">Visit PriorLakeEvents.com →</a>
-    </div>
-    <div class="ple-card">
-      <h3>Prior Lake Market Data</h3>
-      <p>Real MLS data for Prior Lake, updated daily. What's selling, what's sitting, neighborhood breakdowns, waterfront premiums. A way to look at the market without being sold anything.</p>
-      <a href="https://priorlake.realestate" class="ple-link" target="_blank" rel="noopener">Visit PriorLake.RealEstate →</a>
-    </div>
-    <div class="ple-card">
-      <h3>Who to Call</h3>
-      <p>The vendor list I send my clients to. Plumbers, roofers, movers, inspectors, 479 providers my team has built up over years of referrals. Describe the problem in plain English and it points you at the right people.</p>
-      <a href="/vendors" class="ple-link">See who to call →</a>
-    </div>
-  </div>
-  <p class="more-local">Also on this site: <a href="/savage">Savage, next door</a> and <a href="/prior-lake-realtor">how to pick a Prior Lake realtor</a>.</p>
-</section>
-
-<!-- Contact -->
-<section class="contact" id="contact">
-  <div class="section-label" style="justify-content: center;">Get in Touch</div>
-  <h2>Start with a question.</h2>
-  <p>
-    If you're thinking about buying or selling in the Prior Lake area, reach out whenever you're ready. I don't do hard sells. I answer questions.
-  </p>
-
-  <form class="contact-form" id="contact-form" novalidate>
-    <div class="form-row">
-      <label class="form-field">
-        <span>Your name <span class="required">*</span></span>
-        <input name="name" type="text" required autocomplete="name" />
-      </label>
-      <label class="form-field">
-        <span>Email <span class="required">*</span></span>
-        <input name="email" type="email" required autocomplete="email" />
-      </label>
-    </div>
-    <label class="form-field">
-      <span>Phone (optional)</span>
-      <input name="phone" type="tel" autocomplete="tel" />
-    </label>
-    <label class="form-field">
-      <span>What's going on? <span class="required">*</span></span>
-      <textarea name="message" required rows="5"></textarea>
-    </label>
-
-    <div class="honeypot" aria-hidden="true">
-      <label>
-        Company
-        <input name="company" type="text" tabindex="-1" autocomplete="off" />
-      </label>
-    </div>
-
-    <div class="form-error" id="contact-error" hidden></div>
-
-    <button type="submit" class="form-submit" id="contact-submit">
-      <span class="submit-label">Send</span>
-      <span class="submit-loading" hidden>Sending…</span>
-    </button>
-  </form>
-
-  <div class="contact-success" id="contact-success" hidden>
-    <div class="section-label">Got it</div>
-    <h3>Thanks. I'll be in touch within a day.</h3>
-    <p>If it's urgent, call or text me at <a href="tel:+16122015447">612-201-5447</a>.</p>
-  </div>
-
-  <div class="contact-methods">
-    <div class="contact-method">
-      <span class="label">Call or Text</span>
-      <a href="tel:+16122015447">612-201-5447</a>
-    </div>
-    <div class="contact-method">
-      <span class="label">Email</span>
-      <a href="mailto:mark@markgores.com">mark@markgores.com</a>
-    </div>
-  </div>
-  <p class="contact-newsletter">Not ready to talk? I send a weekly email about what's happening in Prior Lake. Events, live music, community stuff. No real estate. <a href="https://priorlakeevents.com/newsletter" target="_blank" rel="noopener">Join 850+ subscribers →</a></p>
-</section>
+<SiteFooter />
 
 <script>
+  // Market chart: one tab stop, arrow keys move between months (roving tabindex).
+  const barList = document.querySelector<HTMLOListElement>('[data-bars]');
+  if (barList) {
+    const items = Array.from(barList.querySelectorAll<HTMLLIElement>('li'));
+    barList.addEventListener('keydown', (e) => {
+      const i = items.indexOf(document.activeElement as HTMLLIElement);
+      if (i < 0) return;
+      const next =
+        e.key === 'ArrowRight' ? Math.min(i + 1, items.length - 1)
+        : e.key === 'ArrowLeft' ? Math.max(i - 1, 0)
+        : e.key === 'Home' ? 0
+        : e.key === 'End' ? items.length - 1
+        : -1;
+      if (next < 0) return;
+      e.preventDefault();
+      items[i].tabIndex = -1;
+      items[next].tabIndex = 0;
+      items[next].focus();
+    });
+  }
+
+  // Contact form: posts to the Vercel function in /api/contact.
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const errorEl = document.getElementById('contact-error') as HTMLDivElement | null;
   const successEl = document.getElementById('contact-success') as HTMLDivElement | null;
@@ -265,16 +415,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         });
         if (!res.ok) {
           const body = await res.json().catch(() => ({}));
-          throw new Error(body.error || 'Something went wrong.');
+          throw new Error(body.error || "That didn't go through. Call or text me at 612-201-5447.");
         }
         const gtag = Reflect.get(window, 'gtag');
         if (typeof gtag === 'function') gtag('event', 'lead_capture', { topic: 'contact', page_path: location.pathname });
         form.hidden = true;
         successEl.hidden = false;
         form.reset();
+        successEl.focus({ preventScroll: true });
         successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } catch (err) {
-        errorEl.textContent = err instanceof Error ? err.message : 'Something went wrong.';
+        errorEl.textContent = err instanceof Error && err.message !== 'Failed to fetch' ? err.message : "That didn't go through. Call or text me at 612-201-5447.";
         errorEl.hidden = false;
       } finally {
         submitBtn.disabled = false;
@@ -285,12 +436,586 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 </script>
 
-</main>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2026 Mark Gores · RE/MAX Advantage Plus</p>
-  <p class="tagline">Real estate without the pitch.</p>
-</footer>
-
 </BaseLayout>
+
+<style>
+  /* ---------- shared pieces ---------- */
+  h2 {
+    margin-top: 0.9rem;
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4.2vw, 3.1rem);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  h2 em { font-style: italic; color: var(--link); }
+
+  .block {
+    padding: clamp(4rem, 8vw, 6.5rem) 0;
+    border-top: 1px solid var(--rule);
+  }
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 2rem 5rem;
+    align-items: start;
+  }
+
+  .prose { margin-top: 1.5rem; }
+  .split .prose { margin-top: 0; }
+  .prose p {
+    max-width: 36em;
+    font-size: 1.16rem;
+    line-height: 1.65;
+    color: var(--ink-2);
+  }
+  .prose p + p { margin-top: 1.1rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0 1.35rem;
+    border: 1px solid var(--ink);
+    border-radius: 3px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 0.84rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+  .btn:hover { background: #34322c; }
+  .btn-line { background: transparent; color: var(--ink); }
+  .btn-line:hover { background: var(--ink); color: var(--paper); }
+
+  /* ---------- intro ---------- */
+  .intro { padding: clamp(2.75rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 4.5rem); }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 3rem 4.5rem;
+    align-items: center;
+  }
+  h1 {
+    margin: 1rem 0 1.75rem;
+    font-family: var(--serif);
+    font-size: clamp(3.3rem, 8.4vw, 6.75rem);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+  }
+  .lede {
+    max-width: 29em;
+    font-size: clamp(1.22rem, 1.9vw, 1.42rem);
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: start;
+    gap: 1.25rem 2.75rem;
+    margin-top: 2.75rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+  }
+  .facts dt,
+  .reach dt,
+  .included dt {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--label);
+  }
+  .facts dd {
+    margin-top: 0.3rem;
+    font-size: 1.08rem;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .facts a,
+  .reach a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+  }
+  .facts a:hover,
+  .reach a:hover { text-decoration-color: var(--ink); }
+
+  /* ---------- market band ---------- */
+  .market { padding: 0 0 clamp(4rem, 8vw, 6rem); }
+  .mkt-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 1.5rem 4rem;
+    align-items: end;
+  }
+  .mkt-body .mkt-chart { margin-top: 1.25rem; }
+  .mkt {
+    padding: 1.6rem 1.7rem 1.4rem;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--card);
+  }
+  .mkt-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mkt-head h2 {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+  }
+  .mkt-asof {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-3);
+  }
+  .mkt-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+  }
+  .mkt-value {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.2vw, 2.5rem);
+    line-height: 1;
+    color: var(--ink);
+  }
+  .mkt-label {
+    margin-top: 0.5rem;
+    font-size: 0.98rem;
+    line-height: 1.35;
+    color: var(--ink-2);
+  }
+  .mkt-note {
+    margin-top: 0.35rem;
+    font-size: 0.86rem;
+    line-height: 1.35;
+    color: var(--ink-3);
+  }
+
+  .mkt-chart { margin-top: 1.6rem; }
+  .mkt-chart figcaption {
+    font-size: 0.95rem;
+    color: var(--ink-2);
+  }
+  .bars {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 2px;
+    margin-top: 0.4rem;
+    list-style: none;
+  }
+  .b {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+    outline-offset: 1px;
+  }
+  .b-plot {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 5.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .b-val {
+    margin-bottom: 0.2rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    line-height: 1;
+    color: var(--ink-2);
+  }
+  .b-bar {
+    flex-shrink: 0;
+    width: min(100%, 18px);
+    height: var(--h);
+    border-radius: 4px 4px 0 0;
+    background: #9A8B72;
+    transition: filter 120ms ease;
+  }
+  .b[data-latest] .b-bar { background: var(--link); }
+  .b:hover .b-bar,
+  .b:focus .b-bar { filter: brightness(1.18); }
+  .b-mo {
+    margin-top: 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    line-height: 1;
+    color: var(--ink-3);
+  }
+  .b-tip {
+    position: absolute;
+    bottom: calc(100% - 0.4rem);
+    left: 50%;
+    z-index: 2;
+    padding: 0.4rem 0.6rem;
+    border-radius: 3px;
+    background: var(--ink);
+    color: rgba(245, 240, 232, 0.8);
+    font-size: 0.8rem;
+    line-height: 1.3;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 120ms ease;
+  }
+  .b-tip strong { color: var(--paper); font-weight: 400; }
+  .b:nth-child(-n+2) .b-tip { left: 0; transform: none; }
+  .b:nth-last-child(-n+2) .b-tip { left: auto; right: 0; transform: none; }
+  .b:hover .b-tip,
+  .b:focus .b-tip { opacity: 1; }
+
+  .mkt-foot {
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--ink-3);
+  }
+  .mkt-foot a,
+  .reviews-more a,
+  .also a,
+  .newsletter a,
+  .csuccess a {
+    color: var(--link);
+    text-decoration: none;
+  }
+  .mkt-foot a:hover,
+  .also a:hover,
+  .newsletter a:hover,
+  .csuccess a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+  /* ---------- selling ---------- */
+  .sell-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 3rem 5rem;
+    align-items: center;
+  }
+  .sell-grid .btn { margin-top: 2rem; }
+  .listing img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+  }
+  .listing figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-top: 0.85rem;
+    font-size: 0.98rem;
+    color: var(--ink-3);
+  }
+  .listing figcaption a {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .listing figcaption a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+  .included-title {
+    margin-top: clamp(3.5rem, 6vw, 5rem);
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .included {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem 2.5rem;
+    margin-top: 1.5rem;
+  }
+  .included > div {
+    padding-top: 1rem;
+    border-top: 1px solid var(--ink);
+  }
+  .included dd {
+    margin-top: 0.6rem;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  /* ---------- buying ---------- */
+  .ledger {
+    width: 100%;
+    max-width: 34rem;
+    margin-top: 1.5rem;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 0.92rem;
+    color: var(--ink-2);
+  }
+  .ledger th,
+  .ledger td {
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--rule);
+    text-align: left;
+    font-weight: 400;
+  }
+  .ledger tr:last-child th,
+  .ledger tr:last-child td { border-bottom: 1px solid var(--rule); }
+  .ledger th { padding-right: 1rem; }
+  .ledger td { white-space: nowrap; }
+  .ledger td:last-child {
+    text-align: right;
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    color: var(--ink);
+  }
+  .ledger tr:last-child td:last-child { color: var(--link); }
+
+  /* ---------- reviews (the one dark band) ---------- */
+  .reviews {
+    padding: clamp(4rem, 8vw, 6.5rem) 0;
+    background: var(--ink);
+    color: rgba(245, 240, 232, 0.86);
+  }
+  .reviews .eyebrow { color: #CDB994; }
+  .reviews h2 { color: var(--paper); }
+  .quote-lead { margin-top: 2.5rem; }
+  .quote-lead blockquote {
+    max-width: 31em;
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 1.3;
+    color: var(--paper);
+  }
+  .reviews figcaption {
+    margin-top: 1rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #CDB994;
+  }
+  .quote-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(245, 240, 232, 0.18);
+  }
+  .quote-grid blockquote {
+    font-size: 1.06rem;
+    line-height: 1.6;
+    color: rgba(245, 240, 232, 0.86);
+  }
+  .reviews-more { margin-top: 3rem; }
+  .reviews .reviews-more a {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--paper);
+    text-decoration: underline;
+    text-decoration-color: rgba(245, 240, 232, 0.35);
+    text-underline-offset: 0.3em;
+  }
+  .reviews .reviews-more a:hover { text-decoration-color: var(--paper); }
+
+  /* ---------- about ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 3rem 5rem;
+    align-items: center;
+  }
+  .family img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+  }
+
+  /* ---------- built ---------- */
+  .made { list-style: none; }
+  .made li {
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .made li:last-child { border-bottom: 1px solid var(--rule); }
+  .made-name {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .made-name::after {
+    content: ' \2192';
+    font-family: var(--body);
+    font-size: 1.1rem;
+    color: var(--link);
+  }
+  .made-name:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  .made p {
+    max-width: 34em;
+    margin-top: 0.4rem;
+    font-size: 1.06rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .also {
+    margin-top: 2.5rem;
+    font-size: 1rem;
+    color: var(--ink-3);
+  }
+
+  /* ---------- contact ---------- */
+  .contact-lede {
+    max-width: 26em;
+    margin-top: 1.25rem;
+    font-size: 1.16rem;
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+  .reach { margin-top: 2rem; }
+  .reach > div + div { margin-top: 1.1rem; }
+  .reach dd {
+    margin-top: 0.25rem;
+    font-size: 1.1rem;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  .cform {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+  .crow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .cfield { display: block; }
+  .cfield > span {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.98rem;
+    color: var(--ink-2);
+  }
+  .req { color: var(--link); }
+  .cfield input,
+  .cfield textarea {
+    width: 100%;
+    padding: 0.8rem 0.95rem;
+    border: 1px solid #CBBFAB;
+    border-radius: 3px;
+    background: #fff;
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.06rem;
+    line-height: 1.45;
+  }
+  .cfield input:focus,
+  .cfield textarea:focus { border-color: var(--link); outline: 2px solid rgba(47, 94, 158, 0.18); outline-offset: 0; }
+  .cfield textarea { min-height: 8rem; resize: vertical; }
+  .hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .cerror {
+    padding: 0.75rem 1rem;
+    border-left: 2px solid #B3261E;
+    background: rgba(179, 38, 30, 0.06);
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .csubmit { align-self: flex-start; min-width: 8rem; }
+  .csubmit:disabled { opacity: 0.55; cursor: wait; }
+  .csuccess {
+    padding: 1.6rem 1.75rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--link);
+    background: var(--card);
+  }
+  .csuccess:focus { outline: none; }
+  .csuccess h3 {
+    margin: 0.5rem 0 0.4rem;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .csuccess p:last-child { color: var(--ink-2); }
+  .newsletter {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink-3);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1060px) {
+    .intro-grid { grid-template-columns: minmax(0, 1fr); align-items: start; }
+    .portrait { order: -1; max-width: 26rem; }
+    .portrait img { aspect-ratio: 5 / 4; object-fit: cover; object-position: 50% 18%; }
+    .mkt-body { grid-template-columns: minmax(0, 1fr); }
+    .included { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 900px) {
+    .split,
+    .sell-grid,
+    .about-grid { grid-template-columns: minmax(0, 1fr); }
+    .quote-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    .facts { grid-template-columns: repeat(2, auto); }
+  }
+  @media (max-width: 560px) {
+    .actions .btn { width: 100%; }
+    .included { grid-template-columns: minmax(0, 1fr); }
+    .crow { grid-template-columns: minmax(0, 1fr); }
+    .csubmit { align-self: stretch; }
+    .mkt { padding: 1.3rem 1.2rem 1.2rem; }
+    .mkt-stats { gap: 1rem; }
+    .ledger { font-size: 0.82rem; }
+    .ledger td:last-child { font-size: 1.15rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn, .b-bar, .b-tip { transition: none; }
+  }
+</style>

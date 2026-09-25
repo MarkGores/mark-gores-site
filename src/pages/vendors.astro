@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import data from '../data/vendors.json';
 import grouping from '../data/vendor-groups.json';
 
@@ -60,14 +62,11 @@ const displayUrl = (url: string) =>
   url.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} bodyClass="site" ogImagePath="/images/og-home.jpg">
 
-<nav class="doc-nav">
-  <a href="/" class="name">Mark Gores</a>
-  <div class="nav-meta">Service Providers · Refreshed {refreshed}</div>
-</nav>
+<SiteHeader current="vendors" />
 
-<main class="vendors">
+<main class="vendors" id="main">
 
   <section class="v-hero">
     <div class="section-label">Service Providers</div>
@@ -174,13 +173,11 @@ const displayUrl = (url: string) =>
       maintained by the Minnesota Real Estate Team and mirrored here monthly. I get
       nothing for the referral. Get your own quotes and check licensing where it applies.
     </p>
-    <p class="v-footer-meta">
-      Mark Gores · RE/MAX Advantage Plus · <a href="tel:6122015447">612-201-5447</a> ·
-      <a href="mailto:mark@markgores.com">mark@markgores.com</a>
-    </p>
   </footer>
 
 </main>
+
+<SiteFooter />
 
 <script>
   const input = document.getElementById("v-search") as HTMLInputElement;
@@ -385,36 +382,6 @@ const displayUrl = (url: string) =>
 </script>
 
 <style>
-  .doc-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 1.25rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    background: rgba(245, 240, 232, 0.85);
-    backdrop-filter: saturate(140%) blur(14px);
-    -webkit-backdrop-filter: saturate(140%) blur(14px);
-    border-bottom: 1px solid rgba(139, 115, 85, 0.14);
-  }
-
-  .doc-nav .name {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    color: var(--dark);
-    text-decoration: none;
-  }
-
-  .nav-meta {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--warm);
-  }
-
   .vendors {
     max-width: 1000px;
     margin: 0 auto;
@@ -422,7 +389,7 @@ const displayUrl = (url: string) =>
   }
 
   .v-hero {
-    padding: 9rem 0 2rem;
+    padding: 4.5rem 0 2rem;
     max-width: none;
   }
 
@@ -437,8 +404,8 @@ const displayUrl = (url: string) =>
 
   .v-intro {
     font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--text-light);
+    font-weight: 400;
+    color: var(--ink-3);
     max-width: 640px;
     margin-bottom: 1.5rem;
   }
@@ -447,19 +414,19 @@ const displayUrl = (url: string) =>
     font-family: var(--mono);
     font-size: 0.7rem;
     letter-spacing: 0.02em;
-    color: var(--warm);
+    color: var(--label);
     max-width: 640px;
     line-height: 1.9;
   }
 
-  .v-source a { color: var(--accent); text-decoration: none; }
+  .v-source a { color: var(--link); text-decoration: none; }
   .v-source a:hover { text-decoration: underline; }
 
   .v-tools {
     padding: 1rem 0 0;
     max-width: none;
     position: sticky;
-    top: 3.6rem;
+    top: 4.5rem;
     z-index: 50;
     background: var(--cream);
     box-shadow: 0 10px 14px -14px rgba(26, 26, 24, 0.25);
@@ -471,7 +438,7 @@ const displayUrl = (url: string) =>
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--warm);
+    color: var(--label);
     margin-bottom: 0.5rem;
   }
 
@@ -506,13 +473,13 @@ const displayUrl = (url: string) =>
     padding: 1.5rem 1.75rem;
     max-width: 640px;
     background: white;
-    border-left: 2px solid var(--accent);
+    border-left: 2px solid var(--link);
     box-shadow: 0 1px 2px rgba(26, 26, 24, 0.04), 0 6px 24px -16px rgba(26, 26, 24, 0.12);
   }
 
   .v-answer-reason {
-    font-weight: 300;
-    color: var(--text);
+    font-weight: 400;
+    color: var(--ink-2);
     margin-bottom: 0.75rem;
   }
 
@@ -528,9 +495,9 @@ const displayUrl = (url: string) =>
     font-size: 0.68rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--accent);
+    color: var(--link);
     text-decoration: none;
-    border: 1px solid rgba(74, 123, 200, 0.4);
+    border: 1px solid rgba(47, 94, 158, 0.4);
     border-radius: 2px;
     padding: 0.4rem 0.75rem;
     transition: color 0.2s, border-color 0.2s;
@@ -538,7 +505,7 @@ const displayUrl = (url: string) =>
 
   .v-answer-chips a:hover {
     color: var(--dark);
-    border-color: var(--accent);
+    border-color: var(--link);
   }
 
   .v-answer-chips:empty { display: none; }
@@ -548,7 +515,7 @@ const displayUrl = (url: string) =>
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--warm);
+    color: var(--label);
     background: none;
     border: 0;
     border-bottom: 1px solid rgba(139, 115, 85, 0.25);
@@ -557,7 +524,7 @@ const displayUrl = (url: string) =>
     transition: color 0.2s, border-color 0.2s;
   }
 
-  .v-answer-reset:hover { color: var(--accent); border-color: var(--accent); }
+  .v-answer-reset:hover { color: var(--link); border-color: var(--link); }
 
   .v-sr-only {
     position: absolute;
@@ -574,10 +541,10 @@ const displayUrl = (url: string) =>
     max-width: 640px;
     font-family: var(--body);
     font-size: 1.05rem;
-    font-weight: 300;
+    font-weight: 400;
     color: var(--dark);
     background: white;
-    border: 1px solid var(--light-warm);
+    border: 1px solid var(--rule);
     border-radius: 2px;
     padding: 0.8rem 1.1rem;
     transition: border-color 0.2s;
@@ -585,27 +552,27 @@ const displayUrl = (url: string) =>
 
   #v-search:focus {
     outline: none;
-    border-color: var(--accent);
+    border-color: var(--link);
   }
 
   .v-hint {
     font-size: 0.88rem;
-    font-weight: 300;
-    color: var(--text-light);
+    font-weight: 400;
+    color: var(--ink-3);
     padding-top: 0.6rem;
   }
 
   .v-example {
     font-family: var(--body);
     font-size: 0.88rem;
-    font-weight: 300;
+    font-weight: 400;
     font-style: italic;
-    color: var(--accent);
+    color: var(--link);
     background: none;
     border: 0;
     padding: 0;
     cursor: pointer;
-    border-bottom: 1px solid rgba(74, 123, 200, 0.35);
+    border-bottom: 1px solid rgba(47, 94, 158, 0.35);
     transition: color 0.2s, border-color 0.2s;
   }
 
@@ -614,7 +581,7 @@ const displayUrl = (url: string) =>
 
   .v-example:hover {
     color: var(--dark);
-    border-color: var(--accent);
+    border-color: var(--link);
   }
 
   .v-count {
@@ -622,7 +589,7 @@ const displayUrl = (url: string) =>
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--text-light);
+    color: var(--ink-3);
     padding: 0.3rem 0;
     min-height: 1.6rem;
   }
@@ -641,9 +608,9 @@ const displayUrl = (url: string) =>
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--warm);
+    color: var(--label);
     text-decoration: none;
-    border: 1px solid var(--light-warm);
+    border: 1px solid var(--rule);
     border-radius: 2px;
     padding: 0.45rem 0.8rem;
     background: rgba(255, 255, 255, 0.5);
@@ -651,8 +618,8 @@ const displayUrl = (url: string) =>
   }
 
   .v-jump a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
+    color: var(--link);
+    border-color: var(--link);
   }
 
   .v-list {
@@ -674,19 +641,19 @@ const displayUrl = (url: string) =>
   }
 
   .v-group-desc {
-    font-weight: 300;
-    color: var(--text-light);
+    font-weight: 400;
+    color: var(--ink-3);
     max-width: 560px;
     margin-bottom: 1.5rem;
   }
 
   .v-cat {
-    border-bottom: 1px solid var(--light-warm);
+    border-bottom: 1px solid var(--rule);
     scroll-margin-top: 9rem;
   }
 
   .v-cat:first-of-type {
-    border-top: 1px solid var(--light-warm);
+    border-top: 1px solid var(--rule);
   }
 
   .v-cat summary {
@@ -705,15 +672,15 @@ const displayUrl = (url: string) =>
     content: '+';
     font-family: var(--mono);
     font-size: 0.9rem;
-    color: var(--warm);
+    color: var(--label);
     width: 1rem;
     flex-shrink: 0;
     transition: transform 0.2s;
   }
 
-  .v-cat[open] summary::before { content: '\2212'; color: var(--accent); }
+  .v-cat[open] summary::before { content: '\2212'; color: var(--link); }
 
-  .v-cat summary:hover .v-cat-title { color: var(--accent); }
+  .v-cat summary:hover .v-cat-title { color: var(--link); }
 
   .v-cat-title {
     font-family: var(--serif);
@@ -724,7 +691,7 @@ const displayUrl = (url: string) =>
   .v-cat-count {
     font-family: var(--mono);
     font-size: 0.65rem;
-    color: var(--warm);
+    color: var(--label);
     margin-left: auto;
   }
 
@@ -752,14 +719,14 @@ const displayUrl = (url: string) =>
 
   .v-contact {
     font-size: 0.95rem;
-    font-weight: 300;
-    color: var(--text-light);
+    font-weight: 400;
+    color: var(--ink-3);
   }
 
   .v-notes {
     font-size: 0.88rem;
-    font-weight: 300;
-    color: var(--text-light);
+    font-weight: 400;
+    color: var(--ink-3);
     margin-top: 0.35rem;
     max-width: 48ch;
     white-space: pre-line;
@@ -778,7 +745,7 @@ const displayUrl = (url: string) =>
   }
 
   .v-reach a {
-    color: var(--text);
+    color: var(--ink-2);
     text-decoration: none;
     border-bottom: 1px solid rgba(139, 115, 85, 0.25);
     padding-bottom: 1px;
@@ -787,22 +754,22 @@ const displayUrl = (url: string) =>
   }
 
   .v-reach a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
+    color: var(--link);
+    border-color: var(--link);
   }
 
   .v-empty {
     padding: 3rem 0;
-    font-weight: 300;
-    color: var(--text-light);
+    font-weight: 400;
+    color: var(--ink-3);
   }
 
-  .v-empty a { color: var(--accent); text-decoration: none; }
+  .v-empty a { color: var(--link); text-decoration: none; }
 
   .v-footer {
     display: block;
     margin: 0;
-    border-top: 1px solid var(--light-warm);
+    border-top: 1px solid var(--rule);
     padding: 3rem 0 4rem;
     max-width: 640px;
   }
@@ -810,29 +777,18 @@ const displayUrl = (url: string) =>
   .v-footer p {
     font-family: var(--body);
     font-size: 0.9rem;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: none;
     letter-spacing: normal;
-    color: var(--text-light);
+    color: var(--ink-3);
     margin-bottom: 1.5rem;
   }
 
-  .v-footer p.v-footer-meta {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .v-footer-meta a { color: var(--warm); text-decoration: none; }
-  .v-footer-meta a:hover { color: var(--accent); }
 
   @media (max-width: 768px) {
-    .doc-nav { padding: 1rem 1.5rem; }
-    .nav-meta { display: none; }
     .vendors { padding: 0 1.5rem; }
-    .v-hero { padding-top: 7rem; }
-    .v-tools { top: 3.2rem; }
+    .v-hero { padding-top: 3rem; }
+    .v-tools { top: 4rem; }
     .v-group { scroll-margin-top: 8rem; }
     .v-cat { scroll-margin-top: 8rem; }
     .v-cat-body { padding-left: 0.5rem; }
