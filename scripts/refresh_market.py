@@ -10,8 +10,11 @@ Definitions come from PriorLake.RealEstate/scripts/compute-metrics.ts:
   medianSalePrice / medianDOM: closed sales in the last 6 months, compared
     with the same 6 months a year earlier.
   monthlyTrend[].closedCount: closed residential sales per calendar month.
-The API's activeListings is NOT used: it counts records the feed has
-withdrawn (MlgCanView=0), roughly double the real inventory (Sept 2026).
+  activeListings / pendingListings: residential listings for sale / under
+    contract that the feed still shows. Before the Sept 25 2026 fix these
+    also counted listings the feed had withdrawn, about double the real number.
+  absorptionRate.value: months of supply, activeListings over the monthly
+    pace of residential sales in the last 6 months.
 
 Stdlib only so the weekly GitHub Action needs no installs. Fails loudly
 (nonzero exit, no file written) if the response shape changes or the
@@ -49,6 +52,9 @@ def main() -> None:
             "asOf": updated,
             "medianSalePrice": {"value": int(price["value"]), "prior": int(price["prior"]), "delta": float(price["delta"])},
             "medianDOM": {"value": int(dom["value"]), "prior": int(dom["prior"])},
+            "forSale": int(data["activeListings"]),
+            "underContract": int(data["pendingListings"]),
+            "monthsOfSupply": float(data["absorptionRate"]["value"]),
             # Full months only: the current month is partial and would read as a drop.
             "monthly": [
                 {"month": m["month"], "closed": int(m["closedCount"])}
@@ -64,6 +70,10 @@ def main() -> None:
         fail(f"median sale price {p} out of range")
     if not 0 <= snapshot["medianDOM"]["value"] <= 365:
         fail(f"median days on market {snapshot['medianDOM']['value']} out of range")
+    if not 20 <= snapshot["forSale"] <= 600 or not 0 <= snapshot["underContract"] <= 300:
+        fail(f"inventory {snapshot['forSale']} for sale / {snapshot['underContract']} under contract out of range")
+    if not 0 < snapshot["monthsOfSupply"] <= 24:
+        fail(f"months of supply {snapshot['monthsOfSupply']} out of range")
     if len(snapshot["monthly"]) != 12 or sum(m["closed"] for m in snapshot["monthly"]) < 100:
         fail(f"monthly trend looks wrong: {snapshot['monthly']}")
 

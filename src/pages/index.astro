@@ -18,6 +18,7 @@ const priceChange =
   : price.delta < 0 ? `Down ${Math.abs(price.delta)}% from the same six months last year`
   : 'Even with the same six months last year';
 const dom = market.medianDOM;
+const supplyNote = `${market.monthsOfSupply} months of supply at the last six months' sales pace`;
 
 const peak = Math.max(...market.monthly.map((m) => m.closed));
 const bars = market.monthly.map((m, i) => {
@@ -96,6 +97,16 @@ const description =
               <p class="mkt-label">Median time on market, last six months</p>
               <p class="mkt-note">{dom.prior} days in the same six months last year</p>
             </div>
+            <div>
+              <p class="mkt-value">{market.forSale}</p>
+              <p class="mkt-label">Homes for sale</p>
+              <p class="mkt-note">{supplyNote}</p>
+            </div>
+            <div>
+              <p class="mkt-value">{market.underContract}</p>
+              <p class="mkt-label">Under contract</p>
+              <p class="mkt-note">Offers accepted, not closed yet</p>
+            </div>
           </div>
           <figure class="mkt-chart">
             <figcaption id="bars-title">Homes sold each month</figcaption>
@@ -121,7 +132,7 @@ const description =
           </figure>
         </div>
         <p class="mkt-foot">
-          Closed sales in Prior Lake from the NorthstarMLS feed.
+          Closed sales and current listings in Prior Lake from the NorthstarMLS feed.
           <a href="https://www.priorlake.realestate" rel="noopener">More at priorlake.realestate&nbsp;&rarr;</a>
         </p>
       </div>

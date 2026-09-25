@@ -10,6 +10,9 @@
     "value": 20,
     "prior": 19
   },
+  "forSale": 148,
+  "underContract": 42,
+  "monthsOfSupply": 3.2,
   "monthly": [
     {
       "month": "2025-09",
