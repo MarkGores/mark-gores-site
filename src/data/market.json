@@ -1,6 +1,6 @@
 {
   "source": "https://www.priorlake.realestate/api/metrics",
-  "asOf": "2026-09-25",
+  "asOf": "2026-09-28",
   "medianSalePrice": {
     "value": 535000,
     "prior": 510000,
@@ -10,8 +10,8 @@
     "value": 20,
     "prior": 19
   },
-  "forSale": 148,
-  "underContract": 42,
+  "forSale": 147,
+  "underContract": 41,
   "monthsOfSupply": 3.2,
   "monthly": [
     {
