@@ -1,9 +1,9 @@
 {
   "source": "https://www.mnrealestateteamvendors.com/",
-  "scrapedAt": "2026-09-01T14:07:37+00:00",
-  "scrapedOn": "2026-09-01",
-  "categoryCount": 137,
-  "vendorCount": 492,
+  "scrapedAt": "2026-10-01T16:24:46+00:00",
+  "scrapedOn": "2026-10-01",
+  "categoryCount": 138,
+  "vendorCount": 501,
   "categories": [
     {
       "category": "1031 Exchange",
@@ -484,6 +484,27 @@
       ]
     },
     {
+      "category": "Cash-buyers",
+      "vendors": [
+        {
+          "company": "Michael Cash Buyer",
+          "contact": "Michael",
+          "phone": "763-296-7522",
+          "email": "",
+          "website": "",
+          "notes": ""
+        },
+        {
+          "company": "Mike Fingerman and Max Lomas",
+          "contact": "Mike Fingerman and Max Lomas",
+          "phone": "612-260-4457",
+          "email": "",
+          "website": "",
+          "notes": ""
+        }
+      ]
+    },
+    {
       "category": "Chimney Inspector",
       "vendors": [
         {
@@ -930,6 +951,14 @@
           "email": "rwceilings@comcast.net",
           "website": "",
           "notes": ""
+        },
+        {
+          "company": "WallFix Pros",
+          "contact": "Roshaan Saeed",
+          "phone": "612-426-0849",
+          "email": "wallfixprosllc@gmail.com",
+          "website": "",
+          "notes": "Drywall repair\nCeiling repair\nPlaster repair\nTexture matching\nPopcorn ceiling removal\nCrack and nail pop repair\nWater-damaged drywall replacement after mitigation\nSmall drywall installations\nPaint touch-ups and interior painting\nApartment turnover and commercial maintenance repairs"
         },
         {
           "company": "Tom Policano",
@@ -1772,6 +1801,14 @@
           "notes": "Handyman Services, no job too small.\nBased in East Metro. Recommendation from David Meyer"
         },
         {
+          "company": "HandyMan Hero",
+          "contact": "Aaron Escobar",
+          "phone": "952-299-6700",
+          "email": "jeff@handyman-hero.com, hh.aaron182@gmail.com",
+          "website": "https://www.handyman-hero.com/",
+          "notes": "Maintenance & Repair Services. 436 2nd St, Excelsior. One stop shop for all repair needs."
+        },
+        {
           "company": "Highline Remodeling",
           "contact": "Zack Spetzman",
           "phone": "763-276-3929",
@@ -1786,6 +1823,14 @@
           "email": "",
           "website": "",
           "notes": "Recommendation from Rob Andert- he is also a general contractor."
+        },
+        {
+          "company": "Minnesota Construction Pros",
+          "contact": "Hunter Bowman",
+          "phone": "612-479-4531",
+          "email": "info@mntreepros.com",
+          "website": "https://mntreepros.com/",
+          "notes": "Tree removal/trimming, handyman repairs, contracting work (floors, paint, deck, porch, roof, siding, etc.), remodeling."
         },
         {
           "company": "Morf The Handyman",
@@ -1927,6 +1972,14 @@
           "email": "allison@thegracestandardhome.com",
           "website": "",
           "notes": "Located in Otsego"
+        },
+        {
+          "company": "Visioned Cleaning",
+          "contact": "Liban Ahmed",
+          "phone": "612-444-1579",
+          "email": "admin@visionedcleaning.com",
+          "website": "https://www.visionedcleaning.com/",
+          "notes": "Move in / move out / pre and post listing. Residential and commercial. Have short notice ability."
         }
       ]
     },
@@ -3006,6 +3059,14 @@
           "notes": "6325 Cambridge St,\nSt Louis Park, MN 55416\nRecommendation from Sue Marty"
         },
         {
+          "company": "Blue Dolly Moving & Storage Team",
+          "contact": "Alec Witte",
+          "phone": "(612) 268-5499",
+          "email": "hello@bluedollymoving.com",
+          "website": "http://bluedollymoving.com",
+          "notes": ""
+        },
+        {
           "company": "Best Life Relocation Services",
           "contact": "Thomas Scott",
           "phone": "612-200-3820",
@@ -3050,8 +3111,8 @@
         {
           "company": "Blue Dolly Moving and Storage",
           "contact": "Alec Witte",
-          "phone": "(218) 721-7798",
-          "email": "alec@bluedollymoving.com",
+          "phone": "(612) 268-5499",
+          "email": "hello@bluedollymoving.com",
           "website": "https://www.bluedollymoving.com/",
           "notes": ""
         },
@@ -3617,6 +3678,14 @@
     {
       "category": "Radon Testing - Mitigation",
       "vendors": [
+        {
+          "company": "Low-Radon.com",
+          "contact": "Steve Reichert",
+          "phone": "952-334-3116",
+          "email": "steve@low-radon.com",
+          "website": "https://low-radon.com/",
+          "notes": "Based in Prior Lake"
+        },
         {
           "company": "One Day Radon",
           "contact": "Clif Blaesar",
@@ -4278,6 +4347,14 @@
           "email": "",
           "website": "http://www.stumpgrinding-mn.com/",
           "notes": "6050 Burlwood Ct, Shorewood"
+        },
+        {
+          "company": "Minnesota Construction Pros",
+          "contact": "Hunter Bowman",
+          "phone": "612-479-4531",
+          "email": "info@mntreepros.com",
+          "website": "https://mntreepros.com/",
+          "notes": ""
         },
         {
           "company": "Twin G Tree Service",
